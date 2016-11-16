@@ -64,6 +64,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
+	
+	<link rel="stylesheet" href="<?php echo base_url("Bootstrap_SASS/css/bootstrap.css"); ?>" /> <!-- Bootstrap Related -->
 </head>
 <body>
 
@@ -85,5 +87,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 </div>
 
+	
+<script type="text/javascript" src="<?php echo base_url("Bootstrap_SASS/js/jQuery-1.10.2.js"); ?>"></script> <!-- Bootstrap Related -->
+<script type="text/javascript" src="<?php echo base_url("Bootstrap_SASS/js/bootstrap.js"); ?>"></script> <!-- Bootstrap Related -->
 </body>
 </html>
