@@ -16,9 +16,7 @@
 
 		<link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>" />
 	</head>
-	<body>
-		<?php include ('inc/navbar.php'); ?>
-	
+	<body>	
 		<h1>Hello World!</h1>
 
 		<!-- Simple grid example -->
@@ -87,6 +85,5 @@
 			</div>
 		</div>
 
-		<?php include ('inc/footer.php'); ?>
 	</body>
 </html>
