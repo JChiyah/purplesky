@@ -1,0 +1,40 @@
+@import "reset";
+
+$maxCol: 12;
+$gridMaxWidth: 65em;
+$breakpointSmall: "only screen and (min-width: 20em)";
+$breakpointMedium: "only screen and (min-width: 30em)";
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+}
+.container,
+.row {
+	@extend %clearfix;
+}
+.container:after,
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+[class*='col-'] {
+	float: left;
+	padding: 1em;
+	width: 100%;
+	min-height: 1px;
+}
+
+@media #{$breakpointMedium} {
+	.container {
+		width: 95%;
+		max-width: 65em;
+	}
+
+	@for $i from 1 through $maxCol {
+		.col-#{$i} {
+			width: 100% / $maxCol * $i;
+		}
+	}
+}
