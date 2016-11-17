@@ -21,6 +21,6 @@ class Main extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url_helper');
-		$this->load->view('test-view');
+		$this->load->view('home');
 	}
 }
