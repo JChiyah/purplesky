@@ -22,5 +22,9 @@ class Main extends CI_Controller {
 	{
 		$this->load->helper('url_helper');
 		$this->load->view('test-view');
+		//using the pdo config
+
+		$query = $this->db->query("SELECT * FROM account");
+		var_dump($query->result());
 	}
 }
