@@ -14,8 +14,8 @@
 	</tr>
 	<?php foreach ($users as $user):?>
 		<tr>
-            <td><?php echo htmlspecialchars($user->first_name,ENT_QUOTES,'UTF-8');?></td>
-            <td><?php echo htmlspecialchars($user->last_name,ENT_QUOTES,'UTF-8');?></td>
+            <td><?php echo htmlspecialchars($user->firstName,ENT_QUOTES,'UTF-8');?></td>
+            <td><?php echo htmlspecialchars($user->lastName,ENT_QUOTES,'UTF-8');?></td>
             <td><?php echo htmlspecialchars($user->email,ENT_QUOTES,'UTF-8');?></td>
 			<td>
 				<?php foreach ($user->groups as $group):?>
@@ -29,3 +29,7 @@
 </table>
 
 <p><?php echo anchor('auth/create_user', lang('index_create_user_link'))?> | <?php echo anchor('auth/create_group', lang('index_create_group_link'))?></p>
+
+<a href="<?=  base_url('auth/logout')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+
+<p><?php echo anchor('Auth/logout', 'Logout');?></p>

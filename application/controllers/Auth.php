@@ -22,27 +22,75 @@ class Auth extends CI_Controller {
 			// redirect them to the login page
 			redirect('auth/login', 'refresh');
 		}
-		elseif (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		/*elseif (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
 		{
 			// redirect them to the home page because they must be an administrator to view this
 			return show_error('You must be an administrator to view this page.');
-		}
+		}*/
 		else
 		{
 			// set the flash data error message if there is one
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+			//$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
 			//list the users
-			$this->data['users'] = $this->ion_auth->users()->result();
+			/*$this->data['users'] = $this->ion_auth->users()->result();
 			foreach ($this->data['users'] as $k => $user)
 			{
 				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 			}
 
-			$this->_render_page('auth/index', $this->data);
+			$this->_render_page('auth/index', $this->data);*/
+			$this->load->view('home');
 		}
 	}
 
+	public function login()
+	{
+		//validate form input
+		$this->form_validation->set_rules('identity', str_replace(':', '', $this->lang->line('login_identity_label')), 'required');
+		$this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required');
+
+		if ($this->form_validation->run() == true)
+		{
+			// check to see if the user is logging in
+			// check for "remember me"
+			$remember = (bool) false;
+
+			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
+			{
+				//if the login is successful
+				//redirect them back to the home page
+				$this->session->set_flashdata('message', $this->ion_auth->messages());
+				redirect('../application/controllers/main', 'refresh');
+			}
+			else
+			{
+				// if the login was un-successful
+				// redirect them back to the login page
+				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				redirect('auth/login', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
+			}
+		}
+		else
+		{
+			// the user is not logging in so display the login page
+			// set the flash data error message if there is one
+			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+
+			$this->data['identity'] = array('name' => 'identity',
+				'id'    => 'identity',
+				'type'  => 'text',
+				'value' => $this->form_validation->set_value('identity'),
+			);
+			$this->data['password'] = array('name' => 'password',
+				'id'   => 'password',
+				'type' => 'password',
+			);
+
+			$this->_render_page('auth/login', $this->data);
+		}
+	}
+	/*
 	// log the user in
 	public function login()
 	{
@@ -91,7 +139,7 @@ class Auth extends CI_Controller {
 
 			$this->_render_page('auth/login', $this->data);
 		}
-	}
+	}/**/
 
 	// log the user out
 	public function logout()
@@ -423,8 +471,8 @@ class Auth extends CI_Controller {
         $this->data['identity_column'] = $identity_column;
 
         // validate form input
-        $this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'required');
-        $this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'required');
+        $this->form_validation->set_rules('firstName', $this->lang->line('create_user_validation_fname_label'), 'required');
+        $this->form_validation->set_rules('lastName', $this->lang->line('create_user_validation_lname_label'), 'required');
         if($identity_column!=='email')
         {
             $this->form_validation->set_rules('identity',$this->lang->line('create_user_validation_identity_label'),'required|is_unique['.$tables['users'].'.'.$identity_column.']');
@@ -434,8 +482,6 @@ class Auth extends CI_Controller {
         {
             $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'required|valid_email|is_unique[' . $tables['users'] . '.email]');
         }
-        $this->form_validation->set_rules('phone', $this->lang->line('create_user_validation_phone_label'), 'trim');
-        $this->form_validation->set_rules('company', $this->lang->line('create_user_validation_company_label'), 'trim');
         $this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
         $this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
 
@@ -446,10 +492,8 @@ class Auth extends CI_Controller {
             $password = $this->input->post('password');
 
             $additional_data = array(
-                'first_name' => $this->input->post('first_name'),
-                'last_name'  => $this->input->post('last_name'),
-                'company'    => $this->input->post('company'),
-                'phone'      => $this->input->post('phone'),
+                'firstName' => $this->input->post('firstName'),
+                'lastName'  => $this->input->post('lastName'),
             );
         }
         if ($this->form_validation->run() == true && $this->ion_auth->register($identity, $password, $email, $additional_data))
@@ -465,17 +509,17 @@ class Auth extends CI_Controller {
             // set the flash data error message if there is one
             $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
-            $this->data['first_name'] = array(
-                'name'  => 'first_name',
-                'id'    => 'first_name',
+            $this->data['firstName'] = array(
+                'name'  => 'firstName',
+                'id'    => 'firstName',
                 'type'  => 'text',
-                'value' => $this->form_validation->set_value('first_name'),
+                'value' => $this->form_validation->set_value('firstName'),
             );
-            $this->data['last_name'] = array(
-                'name'  => 'last_name',
-                'id'    => 'last_name',
+            $this->data['lastName'] = array(
+                'name'  => 'lastName',
+                'id'    => 'lastName',
                 'type'  => 'text',
-                'value' => $this->form_validation->set_value('last_name'),
+                'value' => $this->form_validation->set_value('lastName'),
             );
             $this->data['identity'] = array(
                 'name'  => 'identity',
@@ -488,18 +532,6 @@ class Auth extends CI_Controller {
                 'id'    => 'email',
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('email'),
-            );
-            $this->data['company'] = array(
-                'name'  => 'company',
-                'id'    => 'company',
-                'type'  => 'text',
-                'value' => $this->form_validation->set_value('company'),
-            );
-            $this->data['phone'] = array(
-                'name'  => 'phone',
-                'id'    => 'phone',
-                'type'  => 'text',
-                'value' => $this->form_validation->set_value('phone'),
             );
             $this->data['password'] = array(
                 'name'  => 'password',
@@ -533,10 +565,8 @@ class Auth extends CI_Controller {
 		$currentGroups = $this->ion_auth->get_users_groups($id)->result();
 
 		// validate form input
-		$this->form_validation->set_rules('first_name', $this->lang->line('edit_user_validation_fname_label'), 'required');
-		$this->form_validation->set_rules('last_name', $this->lang->line('edit_user_validation_lname_label'), 'required');
-		$this->form_validation->set_rules('phone', $this->lang->line('edit_user_validation_phone_label'), 'required');
-		$this->form_validation->set_rules('company', $this->lang->line('edit_user_validation_company_label'), 'required');
+		$this->form_validation->set_rules('firstName', $this->lang->line('edit_user_validation_fname_label'), 'required');
+		$this->form_validation->set_rules('lastName', $this->lang->line('edit_user_validation_lname_label'), 'required');
 
 		if (isset($_POST) && !empty($_POST))
 		{
@@ -556,10 +586,8 @@ class Auth extends CI_Controller {
 			if ($this->form_validation->run() === TRUE)
 			{
 				$data = array(
-					'first_name' => $this->input->post('first_name'),
-					'last_name'  => $this->input->post('last_name'),
-					'company'    => $this->input->post('company'),
-					'phone'      => $this->input->post('phone'),
+					'firstName' => $this->input->post('firstName'),
+					'lastName'  => $this->input->post('lastName'),
 				);
 
 				// update the password if it was posted
@@ -631,29 +659,17 @@ class Auth extends CI_Controller {
 		$this->data['groups'] = $groups;
 		$this->data['currentGroups'] = $currentGroups;
 
-		$this->data['first_name'] = array(
-			'name'  => 'first_name',
-			'id'    => 'first_name',
+		$this->data['firstName'] = array(
+			'name'  => 'firstName',
+			'id'    => 'firstName',
 			'type'  => 'text',
-			'value' => $this->form_validation->set_value('first_name', $user->first_name),
+			'value' => $this->form_validation->set_value('firstName', $user->firstName),
 		);
-		$this->data['last_name'] = array(
-			'name'  => 'last_name',
-			'id'    => 'last_name',
+		$this->data['lastName'] = array(
+			'name'  => 'lastName',
+			'id'    => 'lastName',
 			'type'  => 'text',
-			'value' => $this->form_validation->set_value('last_name', $user->last_name),
-		);
-		$this->data['company'] = array(
-			'name'  => 'company',
-			'id'    => 'company',
-			'type'  => 'text',
-			'value' => $this->form_validation->set_value('company', $user->company),
-		);
-		$this->data['phone'] = array(
-			'name'  => 'phone',
-			'id'    => 'phone',
-			'type'  => 'text',
-			'value' => $this->form_validation->set_value('phone', $user->phone),
+			'value' => $this->form_validation->set_value('lastName', $user->lastName),
 		);
 		$this->data['password'] = array(
 			'name' => 'password',
