@@ -1,10 +1,84 @@
+# Delete database
+DROP DATABASE LeidosDB;
+
 # Create database called 'LeidosDB'
-#CREATE DATABASE LeidosDB;
+CREATE DATABASE LeidosDB;
 
 # Use the database LeidosDB
-#USE LeidosDB;
+USE LeidosDB;
 
 START TRANSACTION;
+
+# Create user_group table
+CREATE TABLE user_group (
+  groupID integer(3) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name varchar(20) NOT NULL,
+  description varchar(100) NOT NULL
+) ENGINE=InnoDB;
+
+#
+# Dumping data for table user_group
+#
+INSERT INTO user_group (`id`, `name`, `description`) VALUES
+     (1,'admin','HR Admin'),
+     (2,'manager','Project Manager'),
+     (3,'employee','Employee'),
+     (4,'contractor','Contractor');
+
+# Create account table
+CREATE TABLE account (
+  email varchar(100) NOT NULL PRIMARY KEY,
+  ipAddress varchar(45) NOT NULL,
+  password varchar(255) NOT NULL,
+  salt varchar(255) DEFAULT NULL,
+  forgotten_password_code varchar(40) DEFAULT NULL,
+  forgotten_password_time integer(11) unsigned DEFAULT NULL,
+  remember_code varchar(40) DEFAULT NULL,
+  createdAt integer(11) unsigned NOT NULL,
+  updatedAt datetime DEFAULT NULL,
+  last_login integer(11) unsigned DEFAULT NULL,
+  active tinyint(1) unsigned DEFAULT NULL,
+  group integer(3) NOT NULL,
+  firstName varchar(50) DEFAULT NULL,
+  lastName varchar(100) DEFAULT NULL,
+  FOREIGN KEY ('group') REFERENCES user_group('groupID') ON UPDATE NO ACTION
+) ENGINE=InnoDB;
+
+#
+# Dumping data for table 'account'
+#
+INSERT INTO account (`email`, `ipAddress`, `password`, `salt`, `forgotten_password_code`, `createdAt`, `last_login`, `active`, `group`, `firstName`, `lastName`) VALUES
+     ('admin@admin.com','127.0.0.1','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36','',NULL,'1268889823','1268889823','1', '1', 'Admin','istrator');
+
+
+# Create account_group table
+CREATE TABLE `account_group` (
+  accountEmail int(11) unsigned NOT NULL,
+  group integer(3) unsigned NOT NULL,
+  PRIMARY KEY (accountEmail, group),
+  CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB;
+
+INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
+     (1,1,1),
+     (2,1,2);
+
+
+DROP TABLE IF EXISTS `login_attempts`;
+
+#
+# Table structure for table 'login_attempts'
+#
+
+CREATE TABLE `login_attempts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(15) NOT NULL,
+  `login` varchar(100) NOT NULL,
+  `time` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
 
 # Create Skill table
 CREATE TABLE Skill (
