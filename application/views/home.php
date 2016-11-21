@@ -34,67 +34,37 @@
 		-->
 
 		<div class="container">
+			<br>
+			<!--Notification and date row-->
 			<div class="row">
-				<!-- A row with 2 columns -->
-				<h1>Employee</h1>
-				<div style="background: white" class="col-lg-6">
+				<div class="col-xs-12 col-md-6 col-lg-7">Notifications
 					<hr>
-					<!--double check should these be labels or text fields? or do they turn into text fields after edit-->
-					<p>Employee email</P>
-					<p>account role</p>
-					<p>Location</p>
-					<hr>
-					<br>
-					<from action="link_blank"><!--Maybe use a ref link to next page?-->
-						<input type="submit" value="ChangePassword" />
-					</from>
+					<!--How are going to implement the notification system? using a table?-->
 				</div>
-				<br>
-				<!--Skill section-->
-				<h1>Skils</h1>
-				<div style="background: white" class="col-lg-6">
-					<hr>
-					<div class="form-group">
-						<label for="Skill">Skill:</label>
-						<input type="text" class="form-control" id="Skill">
-					</div>
+				<div class="col-xs-12 col-md-6 col-lg-5">Date
 					<br>
-					<label for="skillArea">Skill Selection:</label><br>
-					<textarea class="form-control" rows="5" id="skillArea"></textarea>
+					<hr>
+					<!--Calander implementation-->
+				</div>
+			</div>
+			<br>
+			<!--Current projects and Recomended for you-->
+			<div class="row">
+				<div class="col-xs-12 col-md-6 col-lg-4">Current Projects
+					<hr>
+					<br>
+					<!--current project show as buttons/links?-->
+				</div>
+				<div class="col-xs-12 col-md-6 col-lg-8">Recomended for you
+					<hr>
+					<br>
+					<!--Create a new row here and divide the space evenly for each project section
+							3 cols each, leaves border space for arrows and styling-->
+					<!--info glyph icon needed-->
 				</div>
 			</div>
 
-			<!--Exp section-->
-			<h1>Experience</h1>
-			<hr>
-			<div class="row">
-				<div style="background: white" class="col-xs-12 col-md-8">Title:
-					<form>
-						<input type="text" name="Title" value="">
-					</form>
-				</div>
-				<div style="background: white" class="col-xs-12 col-md-4">From
-					<form>
-						<input type="text" name="From" value="DD/MM/YYYY">
-					</form>
-				</div>
-			</div>
-			<div class="row">
-				<div style="background: white" class="col-xs-12 col-md-8"></div>
-				<div style="background: white" class="col-xs-12 col-md-4">To:
-					<form>
-						<input type="text" name="From" value="DD/MM/YYYY">
-					</form>
-				</div>
-			</div>
-			<div class="row">
-				<div style="background: white" class="col-xs-12 col-md-12">Description:
-					<form>
-						<textarea name="Description" rows="5" cols="100"></textarea>
-					</form>
-				</div>
-			</div>
-		</div>
+		</div>	<!--Container end-->
 
 		<?php include ('inc/footer.php'); ?>
 	</body>
