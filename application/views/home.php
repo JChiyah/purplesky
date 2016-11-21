@@ -19,8 +19,6 @@
 	<body>
 		<?php include ('inc/navbar.php'); ?>
 
-		<h1>Nav bar placeholder</h1>
-
 		<!--TODO::Go over this with the team to decide what element every item needs to be because
 		some of the display functions requires access to the databse/user data and that can be displayed in
 		many ways using JS, HTML etc.-->
@@ -70,6 +68,7 @@
 					<!--info glyph icon needed-->
 					<div class="row">
 						<div class="col-xs-12 col-md-3 col-lg-4">
+							<!--Bootstrap will let you nest grids within themselfs, use that-->
 							<!--div class box containter needed-->
 							<h3>ProjectD</h3>
 							<p>Description</p>
