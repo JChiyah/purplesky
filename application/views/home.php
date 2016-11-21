@@ -21,17 +21,9 @@
 
 		<h1>Nav bar placeholder</h1>
 
-		<!-- Simple grid example
-		Check https://v4-alpha.getbootstrap.com/layout/grid/
-		for more information on the grid system and layout
-
-		Check http://getbootstrap.com/css/#responsive-utilities
-		for responsive tools and classes, such as .hidden-xs
-
-		SIZE CHART GUIDE
-		    md - medium   | some tablets and small desktops
-		    lg - large    | desktops
-		-->
+		<!--TODO::Go over this with the team to decide what element every item needs to be because
+		some of the display functions requires access to the databse/user data and that can be displayed in
+		many ways using JS, HTML etc.-->
 
 		<div class="container">
 			<br>
@@ -40,6 +32,18 @@
 				<div class="col-xs-12 col-md-6 col-lg-7">Notifications
 					<hr>
 					<!--How are going to implement the notification system? using a table?-->
+					<table>
+						<tr>
+							<th>
+								Date Time
+							</th>
+						</tr>
+						<tr>
+							<th>
+								Notification at "Project Link".
+							</th>
+						</tr>
+					</table>
 				</div>
 				<div class="col-xs-12 col-md-6 col-lg-5">Date
 					<br>
@@ -53,7 +57,10 @@
 				<div class="col-xs-12 col-md-6 col-lg-4">Current Projects
 					<hr>
 					<br>
-					<!--current project show as buttons/links?-->
+					<!--current project show as buttons/links? - replace link with var the comes from DB-->
+					<button type="button" name="Project" onclick="location.href='http://google.com'">Project A</button>
+					<button type="button" name="Project" onclick="location.href='http://google.com'">Project B</button>
+					<button type="button" name="Project" onclick="location.href='http://google.com'">Project C</button>
 				</div>
 				<div class="col-xs-12 col-md-6 col-lg-8">Recomended for you
 					<hr>
@@ -61,6 +68,24 @@
 					<!--Create a new row here and divide the space evenly for each project section
 							3 cols each, leaves border space for arrows and styling-->
 					<!--info glyph icon needed-->
+					<div class="row">
+						<div class="col-xs-12 col-md-3 col-lg-4">
+							<!--div class box containter needed-->
+							<h3>ProjectD</h3>
+							<p>Description</p>
+							<p>Location</p>
+							<p>Project Manager</p>
+							<p>From "StartDate" to "EndDate"</p>
+						</div>
+						<div class="col-xs-12 col-md-3 col-lg-4">
+							<!--div class box containter needed-->
+							<h3>ProjectE</h3>
+							<p>Description</p>
+							<p>Location</p>
+							<p>Project Manager</p>
+							<p>From "StartDate" to "EndDate"</p>
+						</div>
+					</div>
 				</div>
 			</div>
 
