@@ -1,67 +1,99 @@
 <h1>Hello World!</h1>
 
-<!-- Simple grid example -->
-<!-- 
 
-Check https://v4-alpha.getbootstrap.com/layout/grid/
-for more information on the grid system and layout
+		<title>Home</title>
 
-Check http://getbootstrap.com/css/#responsive-utilities
-for responsive tools and classes, such as .hidden-xs 
+		<script src="https://use.fontawesome.com/eedb59a6cd.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-SIZE CHART GUIDE
+		<link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>" />
+	</head>
+	<body>
+		<?php include ('inc/navbar.php'); ?>
 
- xs - extra small | mobile phones
-    sm - small    | some phones and tablets
-    md - medium   | some tablets and small desktops
-    lg - large    | desktops
- xl - extra large | large desktops (DON'T USE)
+		<!--TODO::Go over this with the team to decide what element every item needs to be because
+		some of the display functions requires access to the databse/user data and that can be displayed in
+		many ways using JS, HTML etc.-->
 
-The xl should not be used at any point (ask Javi why if you need more information).
-We assume the normal version of the web application will be used by desktops, thus large = lg 
-is the common measure. Code starting from there. This mean: make the desktop version with lg
-look nice, and then add other classes to make other versions look good. 
+		<div class="container">
+			<br>
+			<!--Notification and date row-->
+			<div class="row">
+				<div class="col-xs-12 col-md-6 col-lg-7">Notifications
+					<hr>
+					<!--How are going to implement the notification system? using a table?-->
+					<table>
+						<tr>
+							<th>
+								Date Time
+							</th>
+						</tr>
+						<tr>
+							<th>
+								Notification at "Project Link".
+							</th>
+						</tr>
+						<tr>
+							<th>
+								Date Time
+							</th>
+						</tr>
+						<tr>
+							<th>
+								Notification at "Project Link".
+							</th>
+						</tr>
+					</table>
+				</div>
+				<div class="col-xs-12 col-md-6 col-lg-5">Date
+					<br>
+					<hr>
+					<!--Calander implementation-->
+					<p>Calander placeHolder</p>
+				</div>
+			</div>
+			<br>
+			<!--Current projects and Recomended for you-->
+			<div class="row">
+				<div class="col-xs-12 col-md-6 col-lg-5">Current Projects
+					<hr>
+					<br>
+					<!--current project show as buttons/links? - replace link with var the comes from DB-->
+					<button type="button" name="Project" onclick="location.href='http://google.com'">Project A</button>
+					<button type="button" name="Project" onclick="location.href='http://google.com'">Project B</button>
+					<button type="button" name="Project" onclick="location.href='http://google.com'">Project C</button>
+				</div>
+				<!--Recomended Section -->
+					<div class="col-xs-12 col-md-6 col-lg-7">Recomended for you
+						<hr>
+						<br>
+						<!--Create a new row here and divide the space evenly for each project section
+								3 cols each, leaves border space for arrows and styling-->
+						<!--info glyph icon needed-->
+						<div class="row">
+							<div class="col-xs-12 col-md-3 col-lg-5">
+								<!--Bootstrap will let you nest grids within themselfs, use that-->
+								<!--div class box containter needed-->
+								<h3>ProjectD</h3>
+								<p>Description</p>
+								<p>Location</p>
+								<p>Project Manager</p>
+								<p>From "StartDate" to "EndDate"</p>
+							</div>
+							<div class="col-xs-12 col-md-3 col-lg-5">
+								<!--div class box containter needed-->
+								<h3>ProjectE</h3>
+								<p>Description</p>
+								<p>Location</p>
+								<p>Project Manager</p>
+								<p>From "StartDate" to "EndDate"</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
--->
+		</div>	<!--Container end-->
 
-<div class="container">
-  	<div class="row">
-		<!-- A row with 3 equally divided columns -->
-    	<div style="background: red" class="col-xs-12 col-md-4">
-      		One of three columns
-    	</div>
-	    <div style="background: blue" class="col-xs-12 col-md-4">
-	      	One of three columns
-	    </div>
-	    <div style="background: gray" class="col-xs-12 col-md-4">
-	      	One of three columns
-	    </div>
-  	</div>
-  	<div class="row">
-  		<!-- A row with 2 columns -->
-		<div style="background: brown" class="col-xs-12 col-md-8">col-md-8</div>
-		<div style="background: green" class="col-xs-12 col-md-4">col-md-4</div>
-	</div>
-	<div class="row">
-		<!-- A row with 2 columns -->
-		<div style="background: purple" class="col-xs-6">Always 50% width col-xs-6</div>
-		<div style="background: yellow" class="col-xs-6">Always 50% width col-xs-6</div>
-	</div>
-	<div class="row">
-		<!-- A row with 4 columns which converst to 2 rows with 2 columns in mobile -->
-		<div style="background: gray" class="col-xs-6 col-sm-3">Check on mobile! .col-xs-6 .col-sm-3</div>
-		<div style="background: red" class="col-xs-6 col-sm-3">Check on mobile! .col-xs-6 .col-sm-3</div>
-		<div style="background: blue" class="col-xs-6 col-sm-3">Check on mobile! .col-xs-6 .col-sm-3</div>
-		<div style="background: green" class="col-xs-6 col-sm-3">Check on mobile! .col-xs-6 .col-sm-3</div>
-	</div>
-	<div class="row hidden-xs"> <!-- Order of the classes is important. Keep the class with visibility at the end -->
-  		<!-- This row completely dissapears when using a mobile phone -->
-		<div style="background: yellow" class="col-xs-12 col-md-8">col-md-8</div>
-		<div style="background: gray" class="col-xs-12 col-md-4">col-md-4</div>
-	</div>
-	<div class="row visible-sm"> <!-- Order of the classes is important. Keep the class with visibility at the end -->
-  		<!-- This row only appears when using a tablet -->
-		<div style="background: purple" class="col-xs-12 col-md-8">col-md-8</div>
-		<div style="background: blue" class="col-xs-12 col-md-4">col-md-4</div>
-	</div>
-</div>
+		<?php include ('inc/footer.php'); ?>
+	</body>
+</html>

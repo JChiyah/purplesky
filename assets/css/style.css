@@ -1674,6 +1674,13 @@ body {
   font-family: 'Open Sans', sans-serif; }
 
 /* * * * General style section * * * */
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+  color: initial; }
+
 /* * * * Login style section * * * */
 /* * * * Home style section * * * */
 /* * * * Profile page style section * * * */

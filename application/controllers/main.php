@@ -21,7 +21,7 @@ class Main extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url_helper');
-
+    
 		$d['body'] = 'home';
 		$d['title'] = 'Home';
 		$d['des'] = 'Homepage with dashboard';
