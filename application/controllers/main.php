@@ -21,6 +21,14 @@ class Main extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url_helper');
-		$this->load->view('home');
+    
+		$d['body'] = 'home';
+		$d['title'] = 'Home';
+		$d['des'] = 'Homepage with dashboard';
+		$this->load->view('html', $d);
+		//using the pdo config
+
+		$query = $this->db->query("SELECT * FROM account");
+		//var_dump($query->result());
 	}
 }

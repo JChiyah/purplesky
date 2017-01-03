@@ -35,7 +35,7 @@ $config['base_url'] = 'http://localhost/purplesky/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -314,7 +314,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = '8KpeOvh6oKI7Dz75K705Aofq8gy7xVOw';
 
 /*
 |--------------------------------------------------------------------------

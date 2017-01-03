@@ -1,13 +1,5 @@
-<?php
-	defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<!DOCTYPE html>
-<html lang="en-GB">
-	<head>
-		<meta charset="utf-8">
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<meta name="viewport" content="initial-scale=1">
+<h1>Hello World!</h1>
+
 
 		<title>Home</title>
 
