@@ -28,7 +28,16 @@ class Main extends CI_Controller {
 		$this->load->view('html', $d);
 		//using the pdo config
 
-		$query = $this->db->query("SELECT * FROM account");
+		//$query = $this->db->query("SELECT * FROM account");
 		//var_dump($query->result());
+	}
+
+	public function profile_view()
+	{
+		$d['body'] = 'profile';
+		$d['title'] = 'Profile';
+		$d['des'] = 'User profile';
+		$this->load->view('html', $d);
+		
 	}
 }
