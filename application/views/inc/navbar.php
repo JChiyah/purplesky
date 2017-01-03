@@ -19,5 +19,5 @@
       </tr>
     </td>
   </table>
-  <p><?php echo anchor('Auth/logout', 'Logout');?></p>
+  <a href="<?=  base_url('auth/logout')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 </nav>

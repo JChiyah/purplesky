@@ -38,6 +38,6 @@ class Main extends CI_Controller {
 		$d['title'] = 'Profile';
 		$d['des'] = 'User profile';
 		$this->load->view('html', $d);
-		
+
 	}
 }

@@ -79,3 +79,4 @@ many ways using JS, HTML etc.-->
 		</div>
 	</div>
 </div>	<!--Container end-->
+<p><a href="auth/change_password">Change password</a></p>
