@@ -19,4 +19,5 @@
       </tr>
     </td>
   </table>
+  <p><?php echo anchor('Auth/logout', 'Logout');?></p>
 </nav>
