@@ -1,8 +1,16 @@
 @import "layout";
 
+/* Colours used */
+$purple: #993399;
+$blue: #1f1646;
+
+$nav-font-color: white;
+$nav-hover-color: #0389FF;
+
 html, body{
 	height: 100%;
 	width: 100%;
+	overflow-x:hidden;
 	margin: 0;
 	padding: 0;
 }
@@ -21,6 +29,83 @@ a.button {
     text-decoration: none;
     color: initial;
 }
+
+/* * * * Navigation bar style section * * * */
+nav {
+	font-family: "Microsoft JhengHei";
+
+	//background: rgba(153,51,153,0);
+	background: -moz-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
+	background: -webkit-gradient(left bottom, right top, color-stop(51%, rgba(153,51,153,0)), color-stop(52%, rgba(153,51,153,1)), color-stop(60%, rgba(153,51,153,1)), color-stop(94%, rgba(31,22,70,1)), color-stop(96%, rgba(31,22,70,1)));
+	background: -webkit-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
+	background: -o-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
+	background: -ms-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
+	background: linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#993399', endColorstr='#1f1646', GradientType=1 );
+
+	#logo {
+		height: 50px;
+		width: 200px;
+		margin: 15px 0 15px 10px;
+	}
+	
+	#gradient {
+		/* Not responsive */ 
+		display: inline;
+		position: absolute;
+		top: 0;
+		width: 0;
+		height: 0;
+		border-bottom: 80px solid white;
+		border-right: 500px solid transparent;
+		background: none;
+		margin-left: 425px;
+		vertical-align: top;
+	}
+
+	div {
+		background: #1F1646;
+		font-size: 1.4em;
+
+		ul {
+			list-style: none;
+			display: inline;
+			padding-left: 85px;
+
+			li {
+				display: inline-block;
+				line-height: 30px;
+
+				a {
+					text-decoration: none;
+					display: block;
+					color: $nav-font-color;
+					padding: 12px 16px 12px 16px;
+				}
+				a:hover {
+					text-decoration: none;
+					color: $nav-hover-color;
+				}
+			}
+		}
+
+		#logout {
+			display: inline-block;
+			padding: 12px;
+			color: $nav-font-color;
+			margin-right: 50px;
+			float: right;
+		}
+
+		#logout:hover {
+			text-decoration: none;
+			color: $nav-hover-color;
+		}
+	}
+}
+
+/* * * * Footer style section * * * */
+
 
 /* * * * Login style section * * * */
 

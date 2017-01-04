@@ -27,7 +27,7 @@
 <html lang="en-GB">
 	<head>
 		<meta charset="utf-8">
-		<meta name="description" content=" <?php echo $des ?? '' ?> ">
+		<meta name="description" content="<?php echo $des ?? '' ?>">
 		<meta name="keywords" content="">
 		<meta name="viewport" content="initial-scale=1">
 

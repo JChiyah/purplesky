@@ -1,23 +1,15 @@
-<nav>
+<nav class="nav">
   <a href="<?php echo site_url('index') ?>">
-    <img src="assets/img/leidos-logo.png" alt="Leidos logo" height="75" width = 225>
+    <img id="logo" src="assets/img/leidos-logo.png" alt="Leidos logo" height="75" width = 225>
   </a>
-
-  <table>
-    <td>
-      <tr>
-        <a href="<?php echo site_url('index') ?>">Home</a>
-      </tr>
-      <tr>
-        <a href="">My Projects</a>
-      </tr>
-      <tr>
-        <a href="<?php echo site_url('profile') ?>">Profile</a>
-      </tr>
-      <tr>
-        <a href="">Search</a>
-      </tr>
-    </td>
-  </table>
-  <a href="<?=  base_url('auth/logout')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+  <div id="gradient"></div>
+  <div class="row">
+    <ul>
+      <li><a href="<?php echo site_url('index') ?>">Home</a></li>
+      <li><a href="<?php echo site_url('index') ?>">My Projects</a></li>
+      <li><a href="<?php echo site_url('profile') ?>">Profile</a></li>
+      <li><a href="<?php echo site_url('index') ?>">Search</a></li>
+    </ul>
+    <a id="logout" href="<?=  base_url('auth/logout')?>"><i class="fa fa-power-off fa-fw"></i> Logout</a>
+  </div>
 </nav>
