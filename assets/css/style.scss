@@ -8,7 +8,6 @@ $nav-font-color: white;
 $nav-hover-color: #0389ff;
 
 html, body{
-	height: 100%;
 	width: 100%;
 	overflow-x:hidden;
 	margin: 0;
@@ -119,6 +118,7 @@ footer {
 		list-style: none;
 		display: inline;
 		text-align: center;
+		padding-left: 0;
 
 		li {
 			display: inline-block;
@@ -138,13 +138,25 @@ footer {
 	#footer-bottom { text-align: center; text-transform: uppercase; font-size: .8em; }
 
 	#footer-right {
-		height: 100%;
 		padding-top: 10px;
 		text-align: right;
 
 		p { color: $nav-font-color; margin-bottom: 0; font-size: .7em; }
 		img { height: 35px; width: 150px; }
 	}
+}
+
+@media (max-width: 767px) {
+  	footer {
+    	height: 260px;
+    	#footer-right { padding-top: 10px; text-align: center; }
+  	}
+}
+@media (min-width: 768px) and (max-width: 1135px) {
+  	footer {
+    	height: 200px;
+    	#footer-right { padding-top: 20px; text-align: center; }
+  	}
 }
 
 /* * * * Login style section * * * */

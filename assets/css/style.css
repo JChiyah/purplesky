@@ -1665,7 +1665,6 @@ hr {
     display: none !important; } }
 /* Colours used */
 html, body {
-  height: 100%;
   width: 100%;
   overflow-x: hidden;
   margin: 0;
@@ -1750,7 +1749,8 @@ footer {
   footer ul {
     list-style: none;
     display: inline;
-    text-align: center; }
+    text-align: center;
+    padding-left: 0; }
     footer ul li {
       display: inline-block;
       padding: 12px;
@@ -1767,7 +1767,6 @@ footer {
     text-transform: uppercase;
     font-size: .8em; }
   footer #footer-right {
-    height: 100%;
     padding-top: 10px;
     text-align: right; }
     footer #footer-right p {
@@ -1778,6 +1777,18 @@ footer {
       height: 35px;
       width: 150px; }
 
+@media (max-width: 767px) {
+  footer {
+    height: 260px; }
+    footer #footer-right {
+      padding-top: 10px;
+      text-align: center; } }
+@media (min-width: 768px) and (max-width: 1135px) {
+  footer {
+    height: 200px; }
+    footer #footer-right {
+      padding-top: 20px;
+      text-align: center; } }
 /* * * * Login style section * * * */
 /* * * * Home style section * * * */
 /* * * * Profile page style section * * * */
