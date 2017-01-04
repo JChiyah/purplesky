@@ -5,7 +5,7 @@ $purple: #993399;
 $blue: #1f1646;
 
 $nav-font-color: white;
-$nav-hover-color: #0389FF;
+$nav-hover-color: #0389ff;
 
 html, body{
 	height: 100%;
@@ -32,6 +32,7 @@ a.button {
 
 /* * * * Navigation bar style section * * * */
 nav {
+	position: relative;
 	font-family: "Microsoft JhengHei";
 
 	//background: rgba(153,51,153,0);
@@ -59,12 +60,12 @@ nav {
 		border-bottom: 80px solid white;
 		border-right: 500px solid transparent;
 		background: none;
-		margin-left: 425px;
+		margin-left: 415px;
 		vertical-align: top;
 	}
 
 	div {
-		background: #1F1646;
+		background: $blue;
 		font-size: 1.4em;
 
 		ul {
@@ -105,7 +106,45 @@ nav {
 }
 
 /* * * * Footer style section * * * */
+footer {
+	width: 100%;
+	height: 130px;
+	background: $blue;
+	color: $nav-font-color;
+	text-align: center;
+	padding: 20px;
 
+	ul {
+		list-style: none;
+		display: inline;
+		text-align: center;
+
+		li {
+			display: inline-block;
+			padding: 12px;
+			text-align: center;
+
+			a {
+				text-decoration: none;
+				padding: 0;
+				display: block;
+				color: $nav-font-color;
+			}
+			a:hover { color: $nav-font-color; }
+		}
+	}
+
+	#footer-bottom { text-align: center; text-transform: uppercase; font-size: .8em; }
+
+	#footer-right {
+		height: 100%;
+		text-align: right;
+		vertical-align: bottom;
+
+		p { color: $nav-font-color; margin-bottom: 0; }
+		img { height: 50px; width: 200px; }
+	}
+}
 
 /* * * * Login style section * * * */
 
