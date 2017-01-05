@@ -1,8 +1,13 @@
 @import "layout";
 
+/* Fonts */
+$microsoft-font: "Microsoft JhengHei";
+
 /* Colours used */
 $purple: #993399;
 $blue: #1f1646;
+$grey-background: #ECF0F1;
+$light-blue: #0389ff;
 
 $nav-font-color: white;
 $nav-hover-color: #0389ff;
@@ -32,7 +37,7 @@ a.button {
 /* * * * Navigation bar style section * * * */
 nav {
 	position: relative;
-	font-family: "Microsoft JhengHei";
+	font-family: $microsoft-font;
 
 	//background: rgba(153,51,153,0);
 	background: -moz-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
@@ -160,8 +165,121 @@ footer {
 }
 
 /* * * * Login style section * * * */
+#login-container {
+	width: 50%;
+	background: $grey-background;
+	color: $blue;
+	font-family: $microsoft-font;
+	margin: 100px auto;
+	padding-top: 20px;
+	border-radius: 4px;
+		
+	h1 {
+		padding-top: 20px;
+		margin-top: 0;
+		text-align: center;
+		font-size: 2.8em;
+		margin-bottom: 0;
+	}
 
+	form {
+		padding: 0 10px 20px 20px;
 
+		p { margin: 10px 70px 0 70px; }
+
+		label {
+			display: block;
+			font-size: 1.2em;
+			font-weight: 900;
+		}
+		
+		input[type=text], input[type=password] {
+			width: 100%;
+			margin-top: 8px;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+
+		input[type=text]:focus, input[type=password]:focus { border: 1px solid $light-blue; }
+
+		.row { 
+			margin-right: 70px;
+			margin-left: 70px;
+			p { padding: 0; margin-right: 0; margin-left: 0; }
+			label { display:inline; font-size: 1em; } 
+		}
+
+		input[type=checkbox] {
+			vertical-align: middle;
+			color: #ffffff;
+			height: 1.15em;
+			width: 1.15em;
+			margin-left: 7px;
+			cursor: pointer;
+		}
+
+		a {
+			text-decoration: underline;
+			margin-top: 6px;
+			padding-right: 0;
+			text-align: right;
+			color: $light-blue;
+		}
+		a:hover { color: $blue; }
+		
+		input[type=submit] {
+			background: $light-blue;
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 900;
+			padding: 10px 16px 10px 16px;
+			margin-top: 15px;
+			border: none;
+			border-radius: 6px;
+			box-shadow: none;
+		}
+		input[type=submit]:hover { background: $blue; }
+
+		#submit-row {
+			margin-right: 0;
+		}
+	}
+}
+
+#login-logo {
+	display: inline-block;
+	text-align: right;
+	margin-right: 20px;
+	margin-top: 20px;
+	float: right;
+
+	img { height: 35px; width: 135px; }
+	p { margin-right: 0; font-size: .8em; }
+}
+
+@media (max-width: 768px) {
+	body { background: $grey-background; }
+  	#login-container {
+  		width: 100%;
+  		margin-top: 0px;
+
+  		form {
+			padding: 0 10px 20px 20px;
+
+			p { margin: 10px 10px 0 10px; }
+
+			.row { margin-right: 10px; margin-left: 10px; }
+			
+			input[type=submit] {
+				padding: 12px 55px 12px 55px;
+				margin: 15px auto;
+				display: block;
+				text-align: center;
+			}
+		}
+  	}
+}
 
 /* * * * Home style section * * * */
 

@@ -1663,6 +1663,7 @@ hr {
 @media print {
   .hidden-print {
     display: none !important; } }
+/* Fonts */
 /* Colours used */
 html, body {
   width: 100%;
@@ -1790,6 +1791,108 @@ footer {
       padding-top: 20px;
       text-align: center; } }
 /* * * * Login style section * * * */
+#login-container {
+  width: 50%;
+  background: #ECF0F1;
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  margin: 100px auto;
+  padding-top: 20px;
+  border-radius: 4px; }
+  #login-container h1 {
+    padding-top: 20px;
+    margin-top: 0;
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 0; }
+  #login-container form {
+    padding: 0 10px 20px 20px; }
+    #login-container form p {
+      margin: 10px 70px 0 70px; }
+    #login-container form label {
+      display: block;
+      font-size: 1.2em;
+      font-weight: 900; }
+    #login-container form input[type=text], #login-container form input[type=password] {
+      width: 100%;
+      margin-top: 8px;
+      padding: 8px 12px 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px; }
+    #login-container form input[type=text]:focus, #login-container form input[type=password]:focus {
+      border: 1px solid #0389ff; }
+    #login-container form .row {
+      margin-right: 70px;
+      margin-left: 70px; }
+      #login-container form .row p {
+        padding: 0;
+        margin-right: 0;
+        margin-left: 0; }
+      #login-container form .row label {
+        display: inline;
+        font-size: 1em; }
+    #login-container form input[type=checkbox] {
+      vertical-align: middle;
+      color: #ffffff;
+      height: 1.15em;
+      width: 1.15em;
+      margin-left: 7px;
+      cursor: pointer; }
+    #login-container form a {
+      text-decoration: underline;
+      margin-top: 6px;
+      padding-right: 0;
+      text-align: right;
+      color: #0389ff; }
+    #login-container form a:hover {
+      color: #1f1646; }
+    #login-container form input[type=submit] {
+      background: #0389ff;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 900;
+      padding: 10px 16px 10px 16px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 6px;
+      box-shadow: none; }
+    #login-container form input[type=submit]:hover {
+      background: #1f1646; }
+    #login-container form #submit-row {
+      margin-right: 0; }
+
+#login-logo {
+  display: inline-block;
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 20px;
+  float: right; }
+  #login-logo img {
+    height: 35px;
+    width: 135px; }
+  #login-logo p {
+    margin-right: 0;
+    font-size: .8em; }
+
+@media (max-width: 768px) {
+  body {
+    background: #ECF0F1; }
+
+  #login-container {
+    width: 100%;
+    margin-top: 0px; }
+    #login-container form {
+      padding: 0 10px 20px 20px; }
+      #login-container form p {
+        margin: 10px 10px 0 10px; }
+      #login-container form .row {
+        margin-right: 10px;
+        margin-left: 10px; }
+      #login-container form input[type=submit] {
+        padding: 12px 55px 12px 55px;
+        margin: 15px auto;
+        display: block;
+        text-align: center; } }
 /* * * * Home style section * * * */
 /* * * * Profile page style section * * * */
 

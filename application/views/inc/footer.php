@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<div id="footer-right" class="col-sm-12 col-md-4">
-			<img id="footer-logo" src="assets/img/leidos-white.png" alt="Leidos logo">
+			<img src="assets/img/leidos-white.png" alt="Leidos logo">
 		    <p>Powered by Purple Sky &#169 2016</p>
 		</div>
 	</div>
