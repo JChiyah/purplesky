@@ -32,12 +32,12 @@
             
             <div id="infoMessage"><?php echo $message;?></div>
             <div class="row">
-               <p class="col-xs-6 col-sm-6 col-md-6">
+               <p class="col-xs-6">
                  <?php echo lang('login_remember_label', 'remember');?>
                  <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
                </p>
 
-               <a class="col-xs-6 col-sm-6 col-md-6" href="auth/forgot_password"><?php echo lang('login_forgot_password');?></a>
+               <a class="col-xs-6" href="auth/forgot_password"><?php echo lang('login_forgot_password');?></a>
             </div>
 
             <div class="row" id="submit-row">
