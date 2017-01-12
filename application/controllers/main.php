@@ -46,7 +46,9 @@ class Main extends CI_Controller {
 		$d['body'] = 'register';
 		$d['title'] = 'Registration';
 		$d['des'] = 'Register a new user';
-		$this->load->view('html', $d);
+		//$this->load->view('html', $d);
+
+		$this->load->view('register');
 
 	}
 }
