@@ -1,5 +1,3 @@
-<h1>Nav bar placeholder</h1>
-
 <!-- Simple grid example
 Check https://v4-alpha.getbootstrap.com/layout/grid/
 for more information on the grid system and layout

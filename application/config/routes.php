@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'auth/login';
 $route['index'] = 'main';
 $route['profile'] = 'Main/profile_view';
+$route['register'] = 'Main/register_view';

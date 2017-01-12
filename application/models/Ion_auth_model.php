@@ -863,18 +863,14 @@ class Ion_auth_model extends CI_Model
 	 * @return bool
 	 * @author Mathew
 	 **/
-	public function register($identity, $password, $email, $additional_data = array(), $groups = array())
+	public function register($password, $email, $additional_data = array(), $groups = array())
 	{
 		$this->trigger_events('pre_register');
 
+		$groups = array(1,2,3);
 		$manual_activation = $this->config->item('manual_activation', 'ion_auth');
 
-		if ($this->identity_check($identity))
-		{
-			$this->set_error('account_creation_duplicate_identity');
-			return FALSE;
-		}
-		elseif ( !$this->config->item('default_group', 'ion_auth') && empty($groups) )
+		if ( !$this->config->item('default_group', 'ion_auth') && empty($groups) )
 		{
 			$this->set_error('account_creation_missing_default_group');
 			return FALSE;
@@ -898,12 +894,9 @@ class Ion_auth_model extends CI_Model
 
 		// Users table.
 		$data = array(
-		    $this->identity_column   => $identity,
-		    'username'   => $identity,
 		    'password'   => $password,
 		    'email'      => $email,
 		    'ip_address' => $ip_address,
-		    'created_on' => time(),
 		    'active'     => ($manual_activation === false ? 1 : 0)
 		);
 
@@ -1415,6 +1408,8 @@ class Ion_auth_model extends CI_Model
 
 		// if no id was passed use the current users id
 		$user_id || $user_id = $this->session->userdata('user_id');
+
+		//$user_id = 4;
 
 		if(!is_array($group_ids))
 		{

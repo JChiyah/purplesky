@@ -80,3 +80,6 @@ many ways using JS, HTML etc.-->
 	</div>
 </div>	<!--Container end-->
 <p><a href="auth/change_password">Change password</a></p>
+<?php echo anchor('auth/create_user', lang('index_create_user_link'))?>
+<p><a href="<?php echo site_url('profile') ?>">Create profile</a></p>
+
