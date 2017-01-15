@@ -1673,7 +1673,7 @@ html, body {
 
 body {
   background-color: white;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: "Microsoft JhengHei", "Open Sans", sans-serif; }
 
 /* * * * General style section * * * */
 a.button {
@@ -1894,6 +1894,201 @@ footer {
         display: block;
         text-align: center; } }
 /* * * * Home style section * * * */
+#homePage {
+  background: #E1E5E6;
+  /*add fonts?
+  	#notification {
+  		font-family: "Calibri";
+  	}
+  	#timeStamp {
+  		font-family: Arial;
+  		font-style: bold;
+  	}*/ }
+  #homePage #HomeContainer {
+    background: white;
+    margin: 10px auto;
+    border: 1px solid;
+    padding: 5px, 5px, 5px, 5px; }
+  #homePage #shift-left {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 50%;
+    float: left;
+    margin: auto; }
+  #homePage #shift-right {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 50%;
+    float: right;
+    margin: auto; }
+  #homePage h2 {
+    padding-top: 5px;
+    margin-top: 0;
+    text-align: left;
+    font-size: 1.8em;
+    margin-bottom: 0;
+    color: #1f1646; }
+  #homePage hr {
+    border: none;
+    height: 2px;
+    background-color: #C0C0C0; }
+  #homePage p {
+    margin: 10px 70px 0 70px; }
+  #homePage label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 900; }
+  #homePage .row {
+    margin-right: 70px;
+    margin-left: 70px; }
+    #homePage .row p {
+      padding: 0;
+      margin-right: 0;
+      margin-left: 0; }
+    #homePage .row label {
+      display: inline;
+      font-size: 1em; }
+  #homePage button {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 16px 10px 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none;
+    width: 100%; }
+  #homePage button:hover {
+    background: #1f1646; }
+
 /* * * * Profile page style section * * * */
+/* * * * Create new project page style section * * * */
+#userProfile #UPContainer {
+  width: 100%;
+  background: #E1E5E6;
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  margin: 10px auto;
+  border-radius: 4px; }
+#userProfile h1 {
+  padding-top: 5px;
+  margin-top: 0;
+  text-align: left;
+  font-size: 1.8em;
+  margin-bottom: 0;
+  color: #1f1646; }
+#userProfile hr {
+  border: none;
+  height: 2px;
+  background-color: #C0C0C0; }
+#userProfile form {
+  padding: 0 10px 20px 20px; }
+  #userProfile form p {
+    margin: 10px 70px 0 70px; }
+  #userProfile form label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 900; }
+  #userProfile form input[type=text] {
+    width: 75%;
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #userProfile form textarea {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #userProfile form input[type=text]:focus {
+    border: 1px solid #0389ff; }
+  #userProfile form .row {
+    margin-right: 70px;
+    margin-left: 70px; }
+    #userProfile form .row p {
+      padding: 0;
+      margin-right: 0;
+      margin-left: 0; }
+    #userProfile form .row label {
+      display: inline;
+      font-size: 1em; }
+  #userProfile form input[type=submit] {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 16px 10px 16px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none; }
+  #userProfile form input[type=submit]:hover {
+    background: #1f1646; }
+
+/* * * * Create new project page and allocate resources style section * * * */
+#newProject #NPcontainer {
+  width: 100%;
+  background: #E1E5E6;
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  margin: 10px auto;
+  border-radius: 4px; }
+#newProject h1 {
+  padding-top: 20px;
+  margin-top: 0;
+  text-align: center;
+  font-size: 2.8em;
+  margin-bottom: 0; }
+#newProject h2 {
+  padding-top: 5px;
+  margin-top: 0;
+  text-align: left;
+  font-size: 1.8em;
+  margin-bottom: 0; }
+#newProject hr {
+  border: none;
+  height: 2px;
+  background-color: #C0C0C0; }
+#newProject form {
+  padding: 0 10px 20px 20px; }
+  #newProject form p {
+    margin: 10px 70px 0 70px; }
+  #newProject form label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 900; }
+  #newProject form input[type=text] {
+    width: 50%;
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #newProject form input[type=text]:focus {
+    border: 1px solid #0389ff; }
+  #newProject form .row {
+    margin-right: 70px;
+    margin-left: 70px; }
+    #newProject form .row p {
+      padding: 0;
+      margin-right: 0;
+      margin-left: 0; }
+    #newProject form .row label {
+      display: inline;
+      font-size: 1em; }
+  #newProject form input[type=submit] {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 16px 10px 16px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none; }
+  #newProject form input[type=submit]:hover {
+    background: #1f1646; }
 
 /*# sourceMappingURL=style.css.map */
