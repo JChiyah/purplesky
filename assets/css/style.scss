@@ -2,11 +2,13 @@
 
 /* Fonts */
 $microsoft-font: "Microsoft JhengHei";
+//$YuGothic-font: "Yu Gothic";
 
 /* Colours used */
 $purple: #993399;
 $blue: #1f1646;
 $grey-background: #ECF0F1;
+$grey-background2: #E1E5E6;
 $light-blue: #0389ff;
 
 $nav-font-color: white;
@@ -21,7 +23,7 @@ html, body{
 
 body {
 	background-color: white;
-	font-family: 'Open Sans', sans-serif; // Test files -- change values
+	font-family: $microsoft-font, 'Open Sans', sans-serif; // Test files -- change values
 }
 
 /* * * * General style section * * * */
@@ -53,9 +55,9 @@ nav {
 		width: 200px;
 		margin: 15px 0 15px 10px;
 	}
-	
+
 	#gradient {
-		/* Not responsive */ 
+		/* Not responsive */
 		display: inline;
 		position: absolute;
 		top: 0;
@@ -173,7 +175,7 @@ footer {
 	margin: 100px auto;
 	padding-top: 20px;
 	border-radius: 4px;
-		
+
 	h1 {
 		padding-top: 20px;
 		margin-top: 0;
@@ -192,7 +194,7 @@ footer {
 			font-size: 1.2em;
 			font-weight: 900;
 		}
-		
+
 		input[type=text], input[type=password] {
 			width: 100%;
 			margin-top: 8px;
@@ -203,11 +205,11 @@ footer {
 
 		input[type=text]:focus, input[type=password]:focus { border: 1px solid $light-blue; }
 
-		.row { 
+		.row {
 			margin-right: 70px;
 			margin-left: 70px;
 			p { padding: 0; margin-right: 0; margin-left: 0; }
-			label { display:inline; font-size: 1em; } 
+			label { display:inline; font-size: 1em; }
 		}
 
 		input[type=checkbox] {
@@ -227,7 +229,7 @@ footer {
 			color: $light-blue;
 		}
 		a:hover { color: $blue; }
-		
+
 		input[type=submit] {
 			background: $light-blue;
 			color: #fff;
@@ -270,7 +272,7 @@ footer {
 			p { margin: 10px 10px 0 10px; }
 
 			.row { margin-right: 10px; margin-left: 10px; }
-			
+
 			input[type=submit] {
 				padding: 12px 55px 12px 55px;
 				margin: 15px auto;
@@ -282,7 +284,240 @@ footer {
 }
 
 /* * * * Home style section * * * */
+#homePage {
+
+	background: $grey-background2;
+
+	#HomeContainer {
+		background: white;
+		margin: 10px auto;
+		border: 1px solid;
+		padding: 5px, 5px, 5px, 5px;
+	}
+#shift-left {
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 50%;
+	float: left;
+	margin: auto;
+}
+#shift-right {
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 50%;
+	float: right;
+	margin: auto;
+}
+/*add fonts?
+	#notification {
+		font-family: "Calibri";
+	}
+	#timeStamp {
+		font-family: Arial;
+		font-style: bold;
+	}*/
 
 
+	h2 {
+		padding-top: 5px;
+		margin-top: 0;
+		text-align: left;;
+		font-size: 1.8em;
+		margin-bottom: 0;
+		color: $blue;
+	}
+
+	hr {
+			border: none;
+			height: 2px;
+			background-color: #C0C0C0;
+	}
+
+	p { margin: 10px 70px 0 70px; }
+
+	label {
+		display: block;
+		font-size: 1.2em;
+		font-weight: 900;
+	}
+
+	.row {
+		margin-right: 70px;
+		margin-left: 70px;
+		p { padding: 0; margin-right: 0; margin-left: 0; }
+		label { display:inline; font-size: 1em; }
+	}
+
+	button {
+		background: $light-blue;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 900;
+		padding: 10px 16px 10px 16px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		border: none;
+		border-radius: 6px;
+		box-shadow: none;
+		width: 100%;
+	}
+	button:hover { background: $blue; }
+
+}
 
 /* * * * Profile page style section * * * */
+
+
+/* * * * Create new project page style section * * * */
+#userProfile {
+
+	#UPContainer {
+		width: 100%;
+		background: $grey-background2;
+		color: $blue;
+		font-family: $microsoft-font;
+		margin: 10px auto;
+		border-radius: 4px;
+	}
+
+	h1 {
+		padding-top: 5px;
+		margin-top: 0;
+		text-align: left;;
+		font-size: 1.8em;
+		margin-bottom: 0;
+		color: $blue;
+	}
+
+	hr {
+			border: none;
+			height: 2px;
+			background-color: #C0C0C0;
+	}
+
+	form {
+		padding: 0 10px 20px 20px;
+
+		p { margin: 10px 70px 0 70px; }
+
+		label {
+			display: block;
+			font-size: 1.2em;
+			font-weight: 900;
+		}
+
+		input[type=text] {
+			width: 75%;
+			margin-top: 8px;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+
+		 	textarea {
+			width: 100%;
+			margin-top: 8px;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+
+		input[type=text]:focus { border: 1px solid $light-blue; }
+
+		.row {
+			margin-right: 70px;
+			margin-left: 70px;
+			p { padding: 0; margin-right: 0; margin-left: 0; }
+			label { display:inline; font-size: 1em; }
+		}
+
+		input[type=submit] {
+			background: $light-blue;
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 900;
+			padding: 10px 16px 10px 16px;
+			margin-top: 15px;
+			border: none;
+			border-radius: 6px;
+			box-shadow: none;
+		}
+		input[type=submit]:hover { background: $blue; }
+	}
+}
+
+/* * * * Create new project page and allocate resources style section * * * */
+#newProject {
+
+	#NPcontainer {
+	width: 100%;
+	background: $grey-background2;
+	color: $blue;
+	font-family: $microsoft-font;
+	margin: 10px auto;
+	border-radius: 4px;
+	}
+
+	h1 {
+		padding-top: 20px;
+		margin-top: 0;
+		text-align: center;
+		font-size: 2.8em;
+		margin-bottom: 0;
+	}
+
+	h2 {
+		padding-top: 5px;
+		margin-top: 0;
+		text-align: left;;
+		font-size: 1.8em;
+		margin-bottom: 0;
+	}
+
+	hr {
+			border: none;
+			height: 2px;
+			background-color: #C0C0C0;
+	}
+	form {
+		padding: 0 10px 20px 20px;
+
+		p { margin: 10px 70px 0 70px; }
+
+		label {
+			display: block;
+			font-size: 1.2em;
+			font-weight: 900;
+		}
+
+		input[type=text] {
+			width: 50%;
+			margin-top: 8px;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+
+		input[type=text]:focus { border: 1px solid $light-blue; }
+
+		.row {
+			margin-right: 70px;
+			margin-left: 70px;
+			p { padding: 0; margin-right: 0; margin-left: 0; }
+			label { display:inline; font-size: 1em; }
+		}
+
+		input[type=submit] {
+			background: $light-blue;
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 900;
+			padding: 10px 16px 10px 16px;
+			margin-top: 15px;
+			border: none;
+			border-radius: 6px;
+			box-shadow: none;
+		}
+		input[type=submit]:hover { background: $blue; }
+	}
+}
