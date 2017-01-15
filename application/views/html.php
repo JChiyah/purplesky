@@ -21,7 +21,8 @@
 -->
 
 <?php
-	//defined('BASEPATH') OR exit('No direct script access allowed');
+	defined('BASEPATH') OR exit('No direct script access allowed');
+	global $user_group; $user_group = $this->ion_auth->get_users_groups()->row()->id;
 ?>
 <!DOCTYPE html>
 <html lang="en-GB">

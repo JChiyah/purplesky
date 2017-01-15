@@ -867,7 +867,6 @@ class Ion_auth_model extends CI_Model
 	{
 		$this->trigger_events('pre_register');
 
-		$groups = array(1,2,3);
 		$manual_activation = $this->config->item('manual_activation', 'ion_auth');
 
 		if ( !$this->config->item('default_group', 'ion_auth') && empty($groups) )

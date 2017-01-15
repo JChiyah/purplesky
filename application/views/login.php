@@ -51,5 +51,7 @@
          <?php echo form_close();?>
 
       </div>
+      
+      <p><a href="<?php echo site_url('register') ?>">Create profile</a></p>
    </body>
 </html>
