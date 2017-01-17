@@ -1971,7 +1971,7 @@ footer {
     margin-bottom: 0;
     margin-top: 0.67em;
     display: inline; }
-  #skills #skill-add {
+  #skills #skill-edit {
     padding: 5px;
     border: none;
     display: inline;
@@ -1980,7 +1980,7 @@ footer {
     color: #0389ff;
     background: none;
     vertical-align: text-bottom; }
-  #skills #skill-add:hover {
+  #skills #skill-edit:hover {
     text-decoration: underline; }
 
 .skill-span {
@@ -2123,132 +2123,6 @@ footer {
     border-radius: 6px;
     box-shadow: none; }
   #newProject form input[type=submit]:hover {
-    background: #1f1646; }
-
-/* * * * addSkills page style section * * * */
-#addSkill #ASContainer {
-  width: 50%;
-  background: #E1E5E6;
-  color: #1f1646;
-  font-family: "Microsoft JhengHei";
-  margin: 10px auto;
-  border-radius: 4px; }
-#addSkill h1 {
-  padding-top: 20px;
-  margin-top: 0;
-  text-align: center;
-  font-size: 2.8em;
-  margin-bottom: 0; }
-#addSkill p {
-  margin: 10px 70px 0 70px; }
-#addSkill form {
-  padding: 0 10px 20px 20px; }
-  #addSkill form p {
-    margin: 10px 70px 0 70px; }
-  #addSkill form label {
-    display: block;
-    font-size: 1.2em;
-    font-weight: 900; }
-  #addSkill form input[type=text] {
-    width: 100%;
-    margin-top: 8px;
-    padding: 8px 12px 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
-  #addSkill form input[type=text]:focus {
-    border: 1px solid #0389ff; }
-  #addSkill form .row {
-    margin-right: 70px;
-    margin-left: 70px; }
-    #addSkill form .row p {
-      padding: 0;
-      margin-right: 0;
-      margin-left: 0; }
-    #addSkill form .row label {
-      display: inline;
-      font-size: 1em; }
-  #addSkill form #submit-row {
-    margin-right: 0; }
-#addSkill input[type=submit] {
-  background: #0389ff;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 900;
-  padding: 10px 16px 10px 16px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 6px;
-  box-shadow: none; }
-#addSkill input[type=submit]:hover {
-  background: #1f1646; }
-#addSkill textarea {
-  width: 100%;
-  margin-top: 8px;
-  margin-left: 12px;
-  padding: 8px 12px 8px 12px;
-  border: 1px solid transparent;
-  border-radius: 4px; }
-
-/* * * * project summary page style section * * * */
-#projectSummary {
-  background: white;
-  margin: 10px auto;
-  padding: 10px, 10px, 10px, 10px;
-  font-family: "Microsoft JhengHei"; }
-  #projectSummary h1 {
-    padding-top: 20px;
-    margin-top: 0;
-    text-align: center;
-    font-size: 2.8em;
-    margin-bottom: 0; }
-  #projectSummary h2 {
-    padding-top: 5px;
-    margin-top: 0;
-    text-align: left;
-    font-size: 1.8em;
-    margin-bottom: 0;
-    color: #1f1646; }
-  #projectSummary h3 {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 0;
-    text-align: center;
-    font-size: 1.8em;
-    margin-bottom: 0;
-    color: #1f1646; }
-  #projectSummary hr {
-    border: none;
-    height: 2px;
-    background-color: #C0C0C0; }
-  #projectSummary p {
-    margin: 10px 70px 0 70px; }
-  #projectSummary label {
-    display: block;
-    font-size: 1.2em;
-    font-weight: 900; }
-  #projectSummary .row {
-    margin-right: 70px;
-    margin-left: 70px; }
-    #projectSummary .row p {
-      padding: 0;
-      margin-right: 0;
-      margin-left: 0; }
-    #projectSummary .row label {
-      display: inline;
-      font-size: 1em; }
-  #projectSummary button {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 900;
-    padding: 10px 16px 10px 16px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 6px;
-    box-shadow: none;
-    width: 100%; }
-  #projectSummary button:hover {
     background: #1f1646; }
 
 /*# sourceMappingURL=style.css.map */
