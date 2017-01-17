@@ -39,40 +39,33 @@ a.button {
 /* * * * Navigation bar style section * * * */
 nav {
 	position: relative;
+	overflow: hidden;
 	font-family: $microsoft-font;
-
-	//background: rgba(153,51,153,0);
-	background: -moz-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
-	background: -webkit-gradient(left bottom, right top, color-stop(51%, rgba(153,51,153,0)), color-stop(52%, rgba(153,51,153,1)), color-stop(60%, rgba(153,51,153,1)), color-stop(94%, rgba(31,22,70,1)), color-stop(96%, rgba(31,22,70,1)));
-	background: -webkit-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
-	background: -o-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
-	background: -ms-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
-	background: linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#993399', endColorstr='#1f1646', GradientType=1 );
+	background: white;
 
 	#logo {
-		height: 50px;
+		position: relative;
 		width: 200px;
+		height: auto;
 		margin: 15px 0 15px 10px;
+		z-index: 2;
 	}
+	
+	#bg {
+		width: 75%;
+		height: auto;
 
-	#gradient {
-		/* Not responsive */
-		display: inline;
 		position: absolute;
 		top: 0;
-		width: 0;
-		height: 0;
-		border-bottom: 80px solid white;
-		border-right: 500px solid transparent;
-		background: none;
-		margin-left: 415px;
-		vertical-align: top;
+		right: 0;
+		z-index: 0;
 	}
 
 	div {
 		background: $blue;
 		font-size: 1.4em;
+		position: relative;
+		z-index: 2;
 
 		ul {
 			list-style: none;
@@ -120,6 +113,8 @@ footer {
 	text-align: center;
 	padding: 15px;
 	font-family: "Microsoft JhengHei";
+	position: relative;
+	bottom: 0;
 
 	ul {
 		list-style: none;
@@ -148,8 +143,8 @@ footer {
 		padding-top: 10px;
 		text-align: right;
 
-		p { color: $nav-font-color; margin-bottom: 0; font-size: .7em; }
-		img { height: 35px; width: 150px; }
+		p { color: $nav-font-color; margin-top: 0; font-size: .7em; }
+		img { width: 150px; height: auto; }
 	}
 }
 
@@ -366,6 +361,49 @@ footer {
 }
 
 /* * * * Profile page style section * * * */
+.container-block {
+	background: $grey-background;
+	padding: 20px;
+}
+
+#skills {
+	color: $blue;
+	padding: 20px 30px 30px 30px;
+
+	h1 {
+		margin-bottom: 0;
+		margin-top: 0.67em;
+		display: inline;
+	}
+
+	#skill-set {
+
+	}
+
+	#skill-add {
+		padding: 5px;
+		border: none;
+		display: inline;
+		float: right;
+		margin-right: 15px;
+		color: $light-blue;
+		background: none;
+		vertical-align: text-bottom;
+	}
+	#skill-add:hover { text-decoration: underline; }
+}
+
+.skill-span {
+	color: $blue;
+	font-family: $microsoft-font;
+	padding: 5px 18px 5px 18px;
+	border: 2px solid $grey-background2;
+	border-radius: 8px;
+	font-weight: 900;
+}
+
+
+
 
 
 /* * * * Create new project page style section * * * */
@@ -380,9 +418,14 @@ footer {
 		border-radius: 4px;
 	}
 
-	h1 {
-		padding-top: 5px;
+	hr {
+		height: 2px;
+		background: $grey-background2;
 		margin-top: 0;
+	}
+
+	/*h1 {
+		padding-top: 5px;
 		text-align: left;;
 		font-size: 1.8em;
 		margin-bottom: 0;
@@ -391,9 +434,9 @@ footer {
 
 	hr {
 			border: none;
-			height: 2px;
+			height: 1px;
 			background-color: #C0C0C0;
-	}
+	}*/
 
 	form {
 		padding: 0 10px 20px 20px;

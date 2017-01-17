@@ -14,33 +14,23 @@
 				</form>
 			</div>
 			<!--Skill section-->
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
-				<h1>Skils</h1>
+			<section id="skills" class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
+				<h1>Skills</h1>
+				<button src="" id="skill-add"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
 				<hr>
-				<div id="UPContainer">
-					<form class="" action="index.html" method="post">
-						<div class="row">
-							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-								<input type="text" name="skills" value="Type Skills here">
-							</div>
-							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-								<a href="#">Add</a>
-							</div>
-						</div>
-						<!--div class="row">
-							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"-->
-							<label>Click on one or multiple skills to remove skills(s)</label>
-								<textarea name="skillArea" rows="8" cols="250"></textarea>
-							<!--/div>
-						</div-->
-							<div class="row">
-								<div class="col-md-2 offset-md-10">
-									<a href="#">Remove</a>
-								</div>
-							</div>
-					</form>
+				<div id="skill-set">
+					<span class="skill-span">CSS</span>
+					<span class="skill-span">HTML</span>
+					<span class="skill-span">Java</span>
+					<span class="skill-span">Microsoft</span>
+					<span class="skill-span">Python</span>
+					<span class="skill-span">SML</span>
 				</div>
-			</div>
+				<div id="skill-edit" class="container-block hidden">
+
+				</div>
+
+			</section>
 		</div>
 
 		<!--Exp section-->

@@ -22,7 +22,14 @@
 
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
-	global $user_group; $user_group = $this->ion_auth->get_users_groups()->row()->id;
+	$result = $this->ion_auth->get_users_groups()->row();
+	if ($result) {
+		global $user_group;
+		$user_group = $result->id;
+	} else {
+		//exit('You do not have permission to view this webpage');
+		redirect('login', 'refresh');
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en-GB">

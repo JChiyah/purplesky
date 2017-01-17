@@ -1,8 +1,8 @@
 <nav class="nav">
    <a href="<?php echo site_url('index') ?>">
-      <img id="logo" src="assets/img/leidos-logo.png" alt="Leidos logo" height="75" width = 225>
+      <img id="logo" src="assets/img/leidos-logo.png" alt="Leidos logo" />
    </a>
-   <div id="gradient"></div>
+   <img id="bg" src="assets/img/triangle.png" alt="" />
    <div class="row">
       <ul>
          <li><a href="<?php echo site_url('index') ?>">Home</a></li>

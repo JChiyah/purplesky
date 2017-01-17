@@ -1686,33 +1686,27 @@ a.button {
 /* * * * Navigation bar style section * * * */
 nav {
   position: relative;
+  overflow: hidden;
   font-family: "Microsoft JhengHei";
-  background: -moz-linear-gradient(45deg, rgba(153, 51, 153, 0) 51%, #993399 52%, #993399 60%, #1f1646 94%, #1f1646 96%);
-  background: -webkit-gradient(left bottom, right top, color-stop(51%, rgba(153, 51, 153, 0)), color-stop(52%, #993399), color-stop(60%, #993399), color-stop(94%, #1f1646), color-stop(96%, #1f1646));
-  background: -webkit-linear-gradient(45deg, rgba(153, 51, 153, 0) 51%, #993399 52%, #993399 60%, #1f1646 94%, #1f1646 96%);
-  background: -o-linear-gradient(45deg, rgba(153, 51, 153, 0) 51%, #993399 52%, #993399 60%, #1f1646 94%, #1f1646 96%);
-  background: -ms-linear-gradient(45deg, rgba(153, 51, 153, 0) 51%, #993399 52%, #993399 60%, #1f1646 94%, #1f1646 96%);
-  background: linear-gradient(45deg, rgba(153, 51, 153, 0) 51%, #993399 52%, #993399 60%, #1f1646 94%, #1f1646 96%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#993399', endColorstr='#1f1646', GradientType=1 ); }
+  background: white; }
   nav #logo {
-    height: 50px;
+    position: relative;
     width: 200px;
-    margin: 15px 0 15px 10px; }
-  nav #gradient {
-    /* Not responsive */
-    display: inline;
+    height: auto;
+    margin: 15px 0 15px 10px;
+    z-index: 2; }
+  nav #bg {
+    width: 75%;
+    height: auto;
     position: absolute;
     top: 0;
-    width: 0;
-    height: 0;
-    border-bottom: 80px solid white;
-    border-right: 500px solid transparent;
-    background: none;
-    margin-left: 415px;
-    vertical-align: top; }
+    right: 0;
+    z-index: 0; }
   nav div {
     background: #1f1646;
-    font-size: 1.4em; }
+    font-size: 1.4em;
+    position: relative;
+    z-index: 2; }
     nav div ul {
       list-style: none;
       display: inline;
@@ -1746,7 +1740,9 @@ footer {
   color: white;
   text-align: center;
   padding: 15px;
-  font-family: "Microsoft JhengHei"; }
+  font-family: "Microsoft JhengHei";
+  position: relative;
+  bottom: 0; }
   footer ul {
     list-style: none;
     display: inline;
@@ -1772,11 +1768,11 @@ footer {
     text-align: right; }
     footer #footer-right p {
       color: white;
-      margin-bottom: 0;
+      margin-top: 0;
       font-size: .7em; }
     footer #footer-right img {
-      height: 35px;
-      width: 150px; }
+      width: 150px;
+      height: auto; }
 
 @media (max-width: 767px) {
   footer {
@@ -1964,69 +1960,107 @@ footer {
     background: #1f1646; }
 
 /* * * * Profile page style section * * * */
-/* * * * Create new project page style section * * * */
-#userProfile #UPContainer {
-  width: 100%;
-  background: #E1E5E6;
+.container-block {
+  background: #ECF0F1;
+  padding: 20px; }
+
+#skills {
+  color: #1f1646;
+  padding: 20px 30px 30px 30px; }
+  #skills h1 {
+    margin-bottom: 0;
+    margin-top: 0.67em;
+    display: inline; }
+  #skills #skill-add {
+    padding: 5px;
+    border: none;
+    display: inline;
+    float: right;
+    margin-right: 15px;
+    color: #0389ff;
+    background: none;
+    vertical-align: text-bottom; }
+  #skills #skill-add:hover {
+    text-decoration: underline; }
+
+.skill-span {
   color: #1f1646;
   font-family: "Microsoft JhengHei";
-  margin: 10px auto;
-  border-radius: 4px; }
-#userProfile h1 {
-  padding-top: 5px;
-  margin-top: 0;
-  text-align: left;
-  font-size: 1.8em;
-  margin-bottom: 0;
-  color: #1f1646; }
-#userProfile hr {
-  border: none;
-  height: 2px;
-  background-color: #C0C0C0; }
-#userProfile form {
-  padding: 0 10px 20px 20px; }
-  #userProfile form p {
-    margin: 10px 70px 0 70px; }
-  #userProfile form label {
-    display: block;
-    font-size: 1.2em;
-    font-weight: 900; }
-  #userProfile form input[type=text] {
-    width: 75%;
-    margin-top: 8px;
-    padding: 8px 12px 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
-  #userProfile form textarea {
+  padding: 5px 18px 5px 18px;
+  border: 2px solid #E1E5E6;
+  border-radius: 8px;
+  font-weight: 900; }
+
+/* * * * Create new project page style section * * * */
+#userProfile {
+  	/*h1 {
+  		padding-top: 5px;
+  		text-align: left;;
+  		font-size: 1.8em;
+  		margin-bottom: 0;
+  		color: $blue;
+  	}
+  
+  	hr {
+  			border: none;
+  			height: 1px;
+  			background-color: #C0C0C0;
+  	}*/ }
+  #userProfile #UPContainer {
     width: 100%;
-    margin-top: 8px;
-    padding: 8px 12px 8px 12px;
-    border: 1px solid transparent;
+    background: #E1E5E6;
+    color: #1f1646;
+    font-family: "Microsoft JhengHei";
+    margin: 10px auto;
     border-radius: 4px; }
-  #userProfile form input[type=text]:focus {
-    border: 1px solid #0389ff; }
-  #userProfile form .row {
-    margin-right: 70px;
-    margin-left: 70px; }
-    #userProfile form .row p {
-      padding: 0;
-      margin-right: 0;
-      margin-left: 0; }
-    #userProfile form .row label {
-      display: inline;
-      font-size: 1em; }
-  #userProfile form input[type=submit] {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 900;
-    padding: 10px 16px 10px 16px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 6px;
-    box-shadow: none; }
-  #userProfile form input[type=submit]:hover {
-    background: #1f1646; }
+  #userProfile hr {
+    height: 2px;
+    background: #E1E5E6;
+    margin-top: 0; }
+  #userProfile form {
+    padding: 0 10px 20px 20px; }
+    #userProfile form p {
+      margin: 10px 70px 0 70px; }
+    #userProfile form label {
+      display: block;
+      font-size: 1.2em;
+      font-weight: 900; }
+    #userProfile form input[type=text] {
+      width: 75%;
+      margin-top: 8px;
+      padding: 8px 12px 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px; }
+    #userProfile form textarea {
+      width: 100%;
+      margin-top: 8px;
+      padding: 8px 12px 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px; }
+    #userProfile form input[type=text]:focus {
+      border: 1px solid #0389ff; }
+    #userProfile form .row {
+      margin-right: 70px;
+      margin-left: 70px; }
+      #userProfile form .row p {
+        padding: 0;
+        margin-right: 0;
+        margin-left: 0; }
+      #userProfile form .row label {
+        display: inline;
+        font-size: 1em; }
+    #userProfile form input[type=submit] {
+      background: #0389ff;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 900;
+      padding: 10px 16px 10px 16px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 6px;
+      box-shadow: none; }
+    #userProfile form input[type=submit]:hover {
+      background: #1f1646; }
 
 /* * * * Create new project page and allocate resources style section * * * */
 #newProject #NPcontainer {

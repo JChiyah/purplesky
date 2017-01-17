@@ -6,29 +6,7 @@
 			<div class="col-xs-12 col-md-6 col-lg-7" id="HomeContainer">
 				<h2>Notifications</h2>
 				<hr>
-				<!--How are going to implement the notification system? using a table?-->
-				<table>
-					<tr>
-						<th>
-							Date Time
-						</th>
-					</tr>
-					<tr>
-						<th>
-							Notification at "Project Link".
-						</th>
-					</tr>
-					<tr>
-						<th>
-							Date Time
-						</th>
-					</tr>
-					<tr>
-						<th>
-							Notification at "Project Link".
-						</th>
-					</tr>
-				</table>
+
 			</div>
 			<div class="col-xs-12 col-md-6 col-lg-5" id="HomeContainer">
 				<h2>Date</h2>
@@ -72,11 +50,9 @@
 							</div>
 						</div>
 					</div>
+				</div>
 			</div>
 		</div>
-
-	</div>	<!--Container end-->
-</div>
-<p><a href="auth/change_password">Change password</a></p>
-<?php echo anchor('auth/create_user', lang('index_create_user_link'))?>
-<p><a href="<?php echo site_url('register') ?>">Create profile</a></p>
+	</div>
+	<p><a href="auth/change_password">Change password</a></p>
+</div>	<!--Container end-->
