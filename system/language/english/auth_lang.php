@@ -147,5 +147,3 @@ $lang['reset_password_validation_new_password_confirm_label'] = 'Confirm New Pas
 // General
 $lang['continue_label']                           			  = 'Continue';
 $lang['back_label']                           				  = 'Back';
-$lang['add_label']                           				  = 'Add';
-$lang['skill_edit_label']                           		  = 'Select a skill to add or delete skills';

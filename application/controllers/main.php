@@ -49,13 +49,6 @@ class Main extends CI_Controller {
 		$d['body'] = 'profile';
 		$d['title'] = 'Profile';
 		$d['des'] = 'User profile';
-
-		$d['skill_select'] = array(
-         'name'  => 'skill_select',
-         'id'    => 'skill_select',
-         'value' => $this->form_validation->set_value('skill_select'),
-      );
-
 		$this->load->view('html', $d);
 	}
 
@@ -90,43 +83,43 @@ class Main extends CI_Controller {
         // set the flash data error message if there is one
 		$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
-         $this->data['first_name'] = array(
+        $this->data['first_name'] = array(
             'name'  => 'first_name',
             'id'    => 'first_name',
             'type'  => 'text',
             'value' => $this->form_validation->set_value('first_name'),
-         );
-         $this->data['last_name'] = array(
+        );
+        $this->data['last_name'] = array(
             'name'  => 'last_name',
             'id'    => 'last_name',
             'type'  => 'text',
             'value' => $this->form_validation->set_value('last_name'),
-         );
-         $this->data['email'] = array(
+        );
+        $this->data['email'] = array(
             'name'  => 'email',
             'id'    => 'email',
             'type'  => 'text',
             'value' => $this->form_validation->set_value('email'),
-         );
-         $this->data['password'] = array(
+        );
+        $this->data['password'] = array(
             'name'  => 'password',
             'id'    => 'password',
             'type'  => 'password',
             'value' => $this->form_validation->set_value('password'),
-         );
-         $this->data['password_confirm'] = array(
+        );
+        $this->data['password_confirm'] = array(
             'name'  => 'password_confirm',
             'id'    => 'password_confirm',
             'type'  => 'password',
             'value' => $this->form_validation->set_value('password_confirm'),
-         );
-         $this->data['groups'] = array(
+        );
+        $this->data['groups'] = array(
             'name'  => 'groups',
             'id'    => 'groups',
             'value' => $this->form_validation->set_value('groups'),
-         );
+        );
 
-         return $this->data;
+        return $this->data;
 	}
 
 	// Helper function to map user groups to their values
@@ -147,17 +140,6 @@ class Main extends CI_Controller {
 		}
 
 		return $group;
-	}
-
-	// This function call from AJAX
-	public function data_submit() {
-		$data = array(
-			'skill' 	=> $this->input->post('skill_select')
-		);
-
-		//Either you can print value or you can send value to database
-		echo $data;
-
 	}
 
 	// create a new user

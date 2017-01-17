@@ -50,7 +50,5 @@
 		<?php $this->load->view('inc/navbar'); ?>
 		<?php $this->load->view($body); ?>
 		<?php $this->load->view('inc/footer'); ?>
-		<script type="text/javascript" src="<?php echo base_url("assets/js/site.js"); ?>" ></script>
-		<script type="text/javascript" src="<?php echo base_url("assets/js/style.js"); ?>" ></script>
 	</body>
 </html>
