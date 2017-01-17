@@ -16,18 +16,24 @@
 			<!--Skill section-->
 			<section id="skills" class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
 				<h1>Skills</h1>
-				<button src="" id="skill-add"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
+				<button id="skill-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
 				<hr>
 				<div id="skill-set">
-					<span class="skill-span">CSS</span>
-					<span class="skill-span">HTML</span>
-					<span class="skill-span">Java</span>
-					<span class="skill-span">Microsoft</span>
-					<span class="skill-span">Python</span>
-					<span class="skill-span">SML</span>
-				</div>
-				<div id="skill-edit" class="container-block hidden">
+					<?php echo form_open('', array('id' => 'skill-add')); ?>
+						<?php echo lang('skill_edit_label', 'skills');?>
+						<p>
+	                  <?php echo form_dropdown($skill_select, array('CSS','Java','Python','HTML'), array(0));?>
+	                  <?php echo form_submit('submit', lang('add_label'), "class='submit'");?>
+						</p>
 
+               <?php echo form_close();?>
+
+					<span class="skill-span">CSS <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
+					<span class="skill-span">HTML <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
+					<span class="skill-span">Java <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
+					<span class="skill-span">Microsoft <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
+					<span class="skill-span">Python <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
+					<span class="skill-span">SML <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
 				</div>
 
 			</section>

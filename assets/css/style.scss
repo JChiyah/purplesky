@@ -377,10 +377,13 @@ footer {
 	}
 
 	#skill-set {
+		input[type=drowdown] {
+
+		}
 
 	}
 
-	#skill-add {
+	#skill-edit {
 		padding: 5px;
 		border: none;
 		display: inline;
@@ -390,7 +393,12 @@ footer {
 		background: none;
 		vertical-align: text-bottom;
 	}
-	#skill-add:hover { text-decoration: underline; }
+	#skill-edit:hover { text-decoration: underline; }
+
+	#skill-add {
+		//visibility: hidden;
+		//display: none;
+	}
 }
 
 .skill-span {

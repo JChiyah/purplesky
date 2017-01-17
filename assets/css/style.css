@@ -1971,7 +1971,7 @@ footer {
     margin-bottom: 0;
     margin-top: 0.67em;
     display: inline; }
-  #skills #skill-add {
+  #skills #skill-edit {
     padding: 5px;
     border: none;
     display: inline;
@@ -1980,7 +1980,7 @@ footer {
     color: #0389ff;
     background: none;
     vertical-align: text-bottom; }
-  #skills #skill-add:hover {
+  #skills #skill-edit:hover {
     text-decoration: underline; }
 
 .skill-span {
