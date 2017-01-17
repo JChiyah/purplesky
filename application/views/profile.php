@@ -28,12 +28,12 @@
 
                <?php echo form_close();?>
 
-					<span class="skill-span">CSS <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
-					<span class="skill-span">HTML <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
-					<span class="skill-span">Java <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
-					<span class="skill-span">Microsoft <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
-					<span class="skill-span">Python <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
-					<span class="skill-span">SML <i class="fa fa-times delete-tag" aria-hidden="true"></i></span>
+					<span class="skill-span">CSS<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
+					<span class="skill-span">HTML<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
+					<span class="skill-span">Java<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
+					<span class="skill-span">Microsoft<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
+					<span class="skill-span">Python<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
+					<span class="skill-span">SML<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
 				</div>
 
 			</section>

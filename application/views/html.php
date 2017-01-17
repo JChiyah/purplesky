@@ -50,6 +50,9 @@
 		<?php $this->load->view('inc/navbar'); ?>
 		<?php $this->load->view($body); ?>
 		<?php $this->load->view('inc/footer'); ?>
+		<!-- CodeIgniter does not recognise base_url() method from outside files (e.g. Javascript files)
+				thus I defined here a var with that value for later use in external files. -->
+		<script type="text/javascript">var baseurl = "<?php print base_url(); ?>";</script>
 		<script type="text/javascript" src="<?php echo base_url("assets/js/site.js"); ?>" ></script>
 		<script type="text/javascript" src="<?php echo base_url("assets/js/style.js"); ?>" ></script>
 	</body>

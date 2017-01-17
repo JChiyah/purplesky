@@ -2,25 +2,29 @@ $(function() {
 
 	$('#skill-edit').on('click', function() {
     	$('#skill-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
+    	$('.delete-tag').toggle();
+    });
+
+	$('body').on('click', '.delete-tag', function() {
+    	$(this).parent().remove();
     });
 
 	$(".submit").click(function(event) {
 		event.preventDefault();
-		var skill_selected = $("input#skill_select").val();
+		var e = document.getElementById("skill_select");
+		var skill = e.options[e.selectedIndex].text;
 		$.ajax({
 			type: "POST",
-			url: "<?php echo base_url(); ?>/Main/data_submit",
+			url: baseurl + "/Main/data_submit",
 			data: { 
-				skill: skill_selected,
-				'<?php echo $this->security->get_csrf_token_name(); ?>' : 
-                '<?php echo $this->security->get_csrf_hash(); ?>' },
+				'skill' : skill,
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
 			success: function(res) {
 				if (res) {
-					// Show Entered Value
-					/*jQuery("div#result").show();
-					jQuery("div#value").html(res.username);
-					jQuery("div#value_pwd").html(res.pwd);*/
-					alert("good");
+					$('.delete-tag').toggle();
+					jQuery("div#skill-set").append(res);
+					$('.delete-tag').toggle();
 				}
 			}
 		});
