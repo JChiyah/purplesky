@@ -289,20 +289,21 @@ footer {
 		border: 1px solid;
 		padding: 5px, 5px, 5px, 5px;
 	}
-#shift-left {
-	padding-left: 10px;
-	padding-right: 10px;
-	width: 50%;
-	float: left;
-	margin: auto;
-}
-#shift-right {
-	padding-left: 10px;
-	padding-right: 10px;
-	width: 50%;
-	float: right;
-	margin: auto;
-}
+	#shift-left {
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 50%;
+		float: left;
+		margin: auto;
+	}
+	#shift-right {
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 50%;
+		float: right;
+		margin: auto;
+	}
+
 /*add fonts?
 	#notification {
 		font-family: "Calibri";
@@ -570,5 +571,79 @@ footer {
 			box-shadow: none;
 		}
 		input[type=submit]:hover { background: $blue; }
+	}
+}
+
+/* * * * addSkills page style section * * * */
+#addSkill {
+	#ASContainer {
+	width: 50%;
+	background: $grey-background2;
+	color: $blue;
+	font-family: $microsoft-font;
+	margin: 10px auto;
+	border-radius: 4px;
+	}
+
+	h1 {
+		padding-top: 20px;
+		margin-top: 0;
+		text-align: center;
+		font-size: 2.8em;
+		margin-bottom: 0;
+	}
+	p { margin: 10px 70px 0 70px; }
+
+	form {
+		padding: 0 10px 20px 20px;
+
+		p { margin: 10px 70px 0 70px; }
+
+		label {
+			display: block;
+			font-size: 1.2em;
+			font-weight: 900;
+		}
+
+		input[type=text] {
+			width: 100%;
+			margin-top: 8px;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+
+		input[type=text]:focus { border: 1px solid $light-blue; }
+
+		.row {
+			margin-right: 70px;
+			margin-left: 70px;
+			p { padding: 0; margin-right: 0; margin-left: 0; }
+			label { display:inline; font-size: 1em; }
+		}
+		#submit-row {
+			margin-right: 0;
+		}
+	}
+	input[type=submit] {
+		background: $light-blue;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 900;
+		padding: 10px 16px 10px 16px;
+		margin-top: 15px;
+		border: none;
+		border-radius: 6px;
+		box-shadow: none;
+	}
+	input[type=submit]:hover { background: $blue; }
+
+	 	textarea {
+		width: 100%;
+		margin-top: 8px;
+		margin-left: 12px;
+		padding: 8px 12px 8px 12px;
+		border: 1px solid transparent;
+		border-radius: 4px;
 	}
 }
