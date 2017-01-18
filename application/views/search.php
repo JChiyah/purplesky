@@ -3,14 +3,16 @@
     <h1>Search and Apply</h1>
     <p></p>
     <div class="row" id="searchContainer">
-     <p>Search and apply for any current or future projects within the organisation</p>
-
-      <div class="col-xs-12 col-sm-8 col-md-4" id="quickSearchBox">
-        <form class="" action="index.html" method="post" >
-          <input type="text" name="quickSearch" value="" >
-           <input type="submit" name="quickSearchBTN" value="Quick Search" >
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <form class="" action="index.html" method="post">
+          <p>Search and apply for any current or future projects within the organisation</p>
+          <br>
+          <input type="text" name="quickSearch" value="">
         </form>
-       
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-4">
+        <p></p>
+        <input type="submit" name="quickSearchBTN" value="Quick Search">
       </div>
     </div>
     <p></p>
@@ -51,7 +53,7 @@
             <p></p>
           </div>
         </div> <!--dates and keywards begin-->
-        <input type="submit" name="advSearch" value="Search" id="AdvancedSearchButton">
+        <input type="submit" name="advSearch" value="Search">
       </form>
     </div>
     <p></p>
@@ -59,7 +61,7 @@
       <div class="col-xs-12 col-sm-8 col-md-6">
         <h2>Results:</h2>
       </div>
-      <div class="col-xs-12 col-sm-8 col-md-6" id="order" >
+      <div class="col-xs-12 col-sm-8 col-md-6">
         <label>Order by:</label>
         <select name="orderBy">
           <!--TODO:: find grouping selections-->
