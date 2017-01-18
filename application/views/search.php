@@ -1,66 +1,51 @@
 <div id="search">
-  <div class="container">
-    <h1>Search and Apply</h1>
-    <p></p>
-    <div class="row" id="searchContainer">
-      <div class="col-xs-12 col-sm-8 col-md-8">
-        <form class="" action="index.html" method="post">
-          <p>Search and apply for any current or future projects within the organisation</p>
-          <br>
-          <input type="text" name="quickSearch" value="">
-        </form>
-      </div>
-      <div class="col-xs-12 col-sm-8 col-md-4">
-        <p></p>
-        <input type="submit" name="quickSearchBTN" value="Quick Search">
-      </div>
-    </div>
-    <p></p>
-    <h2>Advanced search:</h2>
-    <hr>
-    <p></p>
-    <div id="searchContainer">
-      <form class="" action="index.html" method="post">
-        <div class="row"> <!--Project and location begin-->
-          <div class="col-xs-12 col-sm-8 col-md-6">
+   <h1>Search and Apply</h1>
+   <p>Search and apply for any current or future projects within the organisation</p>
+
+   <section id="quick-search">
+      <h2>Search</h2>
+      <form action="" method="post">
+         <input type="text" name="" value="">
+         <input type="submit" name="" value="Quick Search">
+      </form>
+   </section>
+   
+   <section id="advanced-search">
+      <h2>Advanced search:</h2>
+      <hr>
+      <form action="" method="post">
+         <p>
             <label>Project:</label> <br>
-            <input type="text" name="projectName" value="">
-            <p></p>
-          </div>
-          <div class="col-xs-12 col-sm-8 col-md-6">
+            <input type="text" name="" value="">
+         </p>
+         <p>
             <label>Location:</label> <br>
             <select name="location">
-              <!--TODO pull data from database for drop down selection - need to validate input(required)-->
-              <option value="select">Select</option>
-              <option value="test 1">Test 1</option>
-              <option value="test 2">Test 2</option>
+               <!--TODO pull data from database for drop down selection - need to validate input(required)-->
+               <option value="select">Select</option>
+               <option value="test 1">Test 1</option>
+               <option value="test 2">Test 2</option>
             </select>
-            <p></p>
-          </div>
-        </div><!--Project and location end-->
-        <div class="row"> <!--dates and keywards begin-->
-          <div class="col-xs-12 col-sm-8 col-md-6">
+         </p>
+         <p>
             <label>From:</label>
             <input type="date" name="fromDate" value="DD/MM/YYYY">
-            <p></p>
+         </p>
+         <p>
             <label>To:</label>
             <input type="date" name="toDate" value="DD/MM/YYYY">
-            <p></p>
-          </div>
-          <div class="col-xs-12 col-sm-8 col-md-6">
+         </p>
+         <p>
             <label>Keywords:</label> <br>
             <input type="text" name="keywards" value="">
-            <p></p>
-          </div>
-        </div> <!--dates and keywards begin-->
-        <input type="submit" name="advSearch" value="Search">
+         </p>
+         
+         <input type="submit" name="advSearch" value="Search">
       </form>
-    </div>
-    <p></p>
-    <div class="row">
-      <div class="col-xs-12 col-sm-8 col-md-6">
-        <h2>Results:</h2>
-      </div>
+   </section>
+
+   <section id="search-results">
+      <h2>Results:</h2>
       <div class="col-xs-12 col-sm-8 col-md-6">
         <label>Order by:</label>
         <select name="orderBy">
@@ -69,9 +54,7 @@
           <option value="location">Locations</option>
         </select>
       </div>
-    </div>
-    <hr>
-    <p></p>
-    <!--TODO:: how do we implement the results ?-->
-  </div><!--container end-->
+      <hr>
+   </section>
+
 </div>
