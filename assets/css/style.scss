@@ -678,15 +678,13 @@ footer {
 	border-radius: 4px;
 	}
 
-	#quicksearchbutton {
-		position:absolute;
-		top : 70%;
-		left: 80%;
-		transform: translate (-80%,-70%);
-
-	}
+		input[type=submit] {display: inline-block;}
+		input[type=text] { display: inline-block; }
+	
+	
 	#AdvancedSearchButton{
-		position:absolute;
+		position:relative;
+		top: 10%;
 		left:50%;
 	}
 	label{

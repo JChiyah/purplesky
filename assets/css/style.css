@@ -2225,13 +2225,13 @@ footer {
   font-family: "Microsoft JhengHei";
   margin: 10px auto;
   border-radius: 4px; }
-#search #quicksearchbutton {
-  position: absolute;
-  top: 70%;
-  left: 80%;
-  transform: translate -80%, -70%; }
+#search input[type=submit] {
+  display: inline-block; }
+#search input[type=text] {
+  display: inline-block; }
 #search #AdvancedSearchButton {
-  position: absolute;
+  position: relative;
+  top: 10%;
   left: 50%; }
 #search label {
   color: #1f1646; }
