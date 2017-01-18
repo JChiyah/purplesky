@@ -39,40 +39,33 @@ a.button {
 /* * * * Navigation bar style section * * * */
 nav {
 	position: relative;
+	overflow: hidden;
 	font-family: $microsoft-font;
-
-	//background: rgba(153,51,153,0);
-	background: -moz-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
-	background: -webkit-gradient(left bottom, right top, color-stop(51%, rgba(153,51,153,0)), color-stop(52%, rgba(153,51,153,1)), color-stop(60%, rgba(153,51,153,1)), color-stop(94%, rgba(31,22,70,1)), color-stop(96%, rgba(31,22,70,1)));
-	background: -webkit-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
-	background: -o-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
-	background: -ms-linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
-	background: linear-gradient(45deg, rgba(153,51,153,0) 51%, rgba(153,51,153,1) 52%, rgba(153,51,153,1) 60%, rgba(31,22,70,1) 94%, rgba(31,22,70,1) 96%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#993399', endColorstr='#1f1646', GradientType=1 );
+	background: white;
 
 	#logo {
-		height: 50px;
+		position: relative;
 		width: 200px;
+		height: auto;
 		margin: 15px 0 15px 10px;
+		z-index: 2;
 	}
+	
+	#bg {
+		width: 75%;
+		height: auto;
 
-	#gradient {
-		/* Not responsive */
-		display: inline;
 		position: absolute;
 		top: 0;
-		width: 0;
-		height: 0;
-		border-bottom: 80px solid white;
-		border-right: 500px solid transparent;
-		background: none;
-		margin-left: 415px;
-		vertical-align: top;
+		right: 0;
+		z-index: 0;
 	}
 
 	div {
 		background: $blue;
 		font-size: 1.4em;
+		position: relative;
+		z-index: 2;
 
 		ul {
 			list-style: none;
@@ -120,6 +113,8 @@ footer {
 	text-align: center;
 	padding: 15px;
 	font-family: "Microsoft JhengHei";
+	position: relative;
+	bottom: 0;
 
 	ul {
 		list-style: none;
@@ -148,8 +143,8 @@ footer {
 		padding-top: 10px;
 		text-align: right;
 
-		p { color: $nav-font-color; margin-bottom: 0; font-size: .7em; }
-		img { height: 35px; width: 150px; }
+		p { color: $nav-font-color; margin-top: 0; font-size: .7em; }
+		img { width: 150px; height: auto; }
 	}
 }
 
@@ -367,6 +362,68 @@ footer {
 }
 
 /* * * * Profile page style section * * * */
+.container-block {
+	background: $grey-background;
+	padding: 20px;
+}
+
+#skills {
+	color: $blue;
+	padding: 20px 30px 30px 30px;
+
+	h1 {
+		margin-bottom: 0;
+		margin-top: 0.67em;
+		display: inline;
+	}
+
+	#skill-set {
+		input[type=drowdown] {
+
+		}
+
+	}
+
+	#skill-edit {
+		padding: 5px;
+		border: none;
+		display: inline;
+		float: right;
+		margin-right: 15px;
+		color: $light-blue;
+		background: none;
+		vertical-align: text-bottom;
+	}
+	#skill-edit:hover { text-decoration: underline; }
+
+	#skill-add {
+		visibility: hidden;
+		display: none;
+	}
+}
+
+.skill-span {
+	display: inline-block;
+	position: relative;
+	color: $blue;
+	font-family: $microsoft-font;
+	padding: 5px 18px 5px 18px;
+	margin: 5px;
+	border: 2px solid $grey-background2;
+	border-radius: 8px;
+	font-weight: 900;
+
+	.delete-tag {
+		cursor: pointer;
+		padding: 3px;
+		position: relative;
+		right: -10px;
+		vertical-align: center;
+		display: none;
+	}
+
+}
+
 
 
 /* * * * Create new project page style section * * * */
@@ -381,9 +438,14 @@ footer {
 		border-radius: 4px;
 	}
 
-	h1 {
-		padding-top: 5px;
+	hr {
+		height: 2px;
+		background: $grey-background2;
 		margin-top: 0;
+	}
+
+	/*h1 {
+		padding-top: 5px;
 		text-align: left;;
 		font-size: 1.8em;
 		margin-bottom: 0;
@@ -392,9 +454,9 @@ footer {
 
 	hr {
 			border: none;
-			height: 2px;
+			height: 1px;
 			background-color: #C0C0C0;
-	}
+	}*/
 
 	form {
 		padding: 0 10px 20px 20px;
@@ -595,167 +657,4 @@ footer {
 		border: 1px solid transparent;
 		border-radius: 4px;
 	}
-}
-
-/* * * * project summary page style section * * * */
-#projectSummary {
-	background: white;
-	margin: 10px auto;
-	padding: 10px, 10px, 10px, 10px;
-	font-family: $microsoft-font;
-
-	h1 {
-		padding-top: 20px;
-		margin-top: 0;
-		text-align: center;
-		font-size: 2.8em;
-		margin-bottom: 0;
-	}
-
-	h2 {
-		padding-top: 5px;
-		margin-top: 0;
-		text-align: left;
-		font-size: 1.8em;
-		margin-bottom: 0;
-		color: $blue;
-	}
-	h3 {
-		padding-top: 5px;
-		padding-bottom: 5px;
-		margin-top: 0;
-		text-align: center;
-		font-size: 1.8em;
-		margin-bottom: 0;
-		color: $blue;
-	}
-
-	hr {
-			border: none;
-			height: 2px;
-			background-color: #C0C0C0;
-	}
-
-	p { margin: 10px 70px 0 70px; }
-
-	label {
-		display: block;
-		font-size: 1.2em;
-		font-weight: 900;
-	}
-
-	.row {
-		margin-right: 70px;
-		margin-left: 70px;
-		p { padding: 0; margin-right: 0; margin-left: 0; }
-		label { display:inline; font-size: 1em; }
-	}
-
-	button {
-		background: $light-blue;
-		color: #fff;
-		text-transform: uppercase;
-		font-weight: 900;
-		padding: 10px 16px 10px 16px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		border: none;
-		border-radius: 6px;
-		box-shadow: none;
-		width: 100%;
-	}
-	button:hover { background: $blue; }
-}
-
-/* * * * addSkills page style section * * * */
-#search {
-	#searchContainer {
-	width: 100%;
-	background: $grey-background2;
-	color: $blue;
-	font-family: $microsoft-font;
-	margin: 10px auto;
-	border-radius: 4px;
-	}
-
-	#quicksearchbutton {
-		position:absolute;
-		top : 70%;
-		left: 80%;
-		transform: translate (-80%,-70%);
-
-	}
-	#AdvancedSearchButton{
-		position:absolute;
-		left:50%;
-	}
-	label{
-		color:$blue;
-	}
-	h1 {
-		padding-top: 20px;
-		margin-top: 0;
-		text-align: center;
-		font-size: 2.8em;
-		margin-bottom: 0;
-		color: $blue;
-	}
-	h2 {
-		padding-top: 20px;
-		margin-top: 0;
-		text-align: left;
-		font-size: 2.0em;
-		margin-bottom: 0;
-		color: $blue;
-	}
-	p { margin: 10px 70px 0 70px; }
-
-	label {
-		display: block;
-		font-size: 1.2em;
-		font-weight: 900;
-		padding-top: 5px;
-	}
-	form {
-		padding: 0 10px 20px 20px;
-
-		p { margin: 10px 70px 0 70px; }
-
-		label {
-			display: block;
-			font-size: 1.2em;
-			font-weight: 900;
-		}
-
-		input[type=text] {
-			width: 100%;
-			margin-top: 8px;
-			padding: 8px 12px 8px 12px;
-			border: 1px solid transparent;
-			border-radius: 4px;
-		}
-
-		input[type=text]:focus { border: 1px solid $light-blue; }
-
-		.row {
-			margin-right: 70px;
-			margin-left: 70px;
-			p { padding: 0; margin-right: 0; margin-left: 0; }
-			label { display:inline; font-size: 1em; }
-		}
-
-	}
-	input[type=submit] {
-		background: $light-blue;
-		color: #fff;
-		text-transform: uppercase;
-		font-weight: 900;
-		padding: 10px 16px 10px 16px;
-		margin-top: 15px;
-		border: none;
-		border-radius: 6px;
-		box-shadow: none;
-
-	}
-	input[type=submit]:hover { background: $blue; }
 }
