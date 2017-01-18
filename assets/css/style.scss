@@ -658,3 +658,93 @@ footer {
 		border-radius: 4px;
 	}
 }
+/* * * * addSkills page style section * * * */
+#search {
+	#searchContainer {
+	width: 100%;
+	background: $grey-background2;
+	color: $blue;
+	font-family: $microsoft-font;
+	margin: 10px auto;
+	border-radius: 4px;
+	}
+
+		input[type=submit] {display: inline-block;}
+		input[type=text] { display: inline-block; }
+	
+	
+	#AdvancedSearchButton{
+		position:relative;
+		top: 10%;
+		left:50%;
+	}
+	label{
+		color:$blue;
+	}
+	h1 {
+		padding-top: 20px;
+		margin-top: 0;
+		text-align: center;
+		font-size: 2.8em;
+		margin-bottom: 0;
+		color: $blue;
+	}
+	h2 {
+		padding-top: 20px;
+		margin-top: 0;
+		text-align: left;
+		font-size: 2.0em;
+		margin-bottom: 0;
+		color: $blue;
+	}
+	p { margin: 10px 70px 0 70px; }
+
+	label {
+		display: block;
+		font-size: 1.2em;
+		font-weight: 900;
+		padding-top: 5px;
+	}
+	form {
+		padding: 0 10px 20px 20px;
+
+		p { margin: 10px 70px 0 70px; }
+
+		label {
+			display: block;
+			font-size: 1.2em;
+			font-weight: 900;
+		}
+
+		input[type=text] {
+			width: 100%;
+			margin-top: 8px;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+
+		input[type=text]:focus { border: 1px solid $light-blue; }
+
+		.row {
+			margin-right: 70px;
+			margin-left: 70px;
+			p { padding: 0; margin-right: 0; margin-left: 0; }
+			label { display:inline; font-size: 1em; }
+		}
+
+	}
+	input[type=submit] {
+		background: $light-blue;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 900;
+		padding: 10px 16px 10px 16px;
+		margin-top: 15px;
+		border: none;
+		border-radius: 6px;
+		box-shadow: none;
+
+	}
+	input[type=submit]:hover { background: $blue; }
+}
