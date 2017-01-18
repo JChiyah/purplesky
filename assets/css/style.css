@@ -1686,27 +1686,33 @@ a.button {
 /* * * * Navigation bar style section * * * */
 nav {
   position: relative;
-  overflow: hidden;
   font-family: "Microsoft JhengHei";
-  background: white; }
+  background: -moz-linear-gradient(45deg, rgba(153, 51, 153, 0) 51%, #993399 52%, #993399 60%, #1f1646 94%, #1f1646 96%);
+  background: -webkit-gradient(left bottom, right top, color-stop(51%, rgba(153, 51, 153, 0)), color-stop(52%, #993399), color-stop(60%, #993399), color-stop(94%, #1f1646), color-stop(96%, #1f1646));
+  background: -webkit-linear-gradient(45deg, rgba(153, 51, 153, 0) 51%, #993399 52%, #993399 60%, #1f1646 94%, #1f1646 96%);
+  background: -o-linear-gradient(45deg, rgba(153, 51, 153, 0) 51%, #993399 52%, #993399 60%, #1f1646 94%, #1f1646 96%);
+  background: -ms-linear-gradient(45deg, rgba(153, 51, 153, 0) 51%, #993399 52%, #993399 60%, #1f1646 94%, #1f1646 96%);
+  background: linear-gradient(45deg, rgba(153, 51, 153, 0) 51%, #993399 52%, #993399 60%, #1f1646 94%, #1f1646 96%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#993399', endColorstr='#1f1646', GradientType=1 ); }
   nav #logo {
-    position: relative;
+    height: 50px;
     width: 200px;
-    height: auto;
-    margin: 15px 0 15px 10px;
-    z-index: 2; }
-  nav #bg {
-    width: 75%;
-    height: auto;
+    margin: 15px 0 15px 10px; }
+  nav #gradient {
+    /* Not responsive */
+    display: inline;
     position: absolute;
     top: 0;
-    right: 0;
-    z-index: 0; }
+    width: 0;
+    height: 0;
+    border-bottom: 80px solid white;
+    border-right: 500px solid transparent;
+    background: none;
+    margin-left: 415px;
+    vertical-align: top; }
   nav div {
     background: #1f1646;
-    font-size: 1.4em;
-    position: relative;
-    z-index: 2; }
+    font-size: 1.4em; }
     nav div ul {
       list-style: none;
       display: inline;
@@ -1740,9 +1746,7 @@ footer {
   color: white;
   text-align: center;
   padding: 15px;
-  font-family: "Microsoft JhengHei";
-  position: relative;
-  bottom: 0; }
+  font-family: "Microsoft JhengHei"; }
   footer ul {
     list-style: none;
     display: inline;
@@ -1768,11 +1772,11 @@ footer {
     text-align: right; }
     footer #footer-right p {
       color: white;
-      margin-top: 0;
+      margin-bottom: 0;
       font-size: .7em; }
     footer #footer-right img {
-      width: 150px;
-      height: auto; }
+      height: 35px;
+      width: 150px; }
 
 @media (max-width: 767px) {
   footer {
@@ -1960,120 +1964,69 @@ footer {
     background: #1f1646; }
 
 /* * * * Profile page style section * * * */
-.container-block {
-  background: #ECF0F1;
-  padding: 20px; }
-
-#skills {
-  color: #1f1646;
-  padding: 20px 30px 30px 30px; }
-  #skills h1 {
-    margin-bottom: 0;
-    margin-top: 0.67em;
-    display: inline; }
-  #skills #skill-edit {
-    padding: 5px;
-    border: none;
-    display: inline;
-    float: right;
-    margin-right: 15px;
-    color: #0389ff;
-    background: none;
-    vertical-align: text-bottom; }
-  #skills #skill-edit:hover {
-    text-decoration: underline; }
-  #skills #skill-add {
-    visibility: hidden;
-    display: none; }
-
-.skill-span {
-  display: inline-block;
-  position: relative;
+/* * * * Create new project page style section * * * */
+#userProfile #UPContainer {
+  width: 100%;
+  background: #E1E5E6;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
-  padding: 5px 18px 5px 18px;
-  margin: 5px;
-  border: 2px solid #E1E5E6;
-  border-radius: 8px;
-  font-weight: 900; }
-  .skill-span .delete-tag {
-    cursor: pointer;
-    padding: 3px;
-    position: relative;
-    right: -10px;
-    vertical-align: center;
-    display: none; }
-
-/* * * * Create new project page style section * * * */
-#userProfile {
-  	/*h1 {
-  		padding-top: 5px;
-  		text-align: left;;
-  		font-size: 1.8em;
-  		margin-bottom: 0;
-  		color: $blue;
-  	}
-  
-  	hr {
-  			border: none;
-  			height: 1px;
-  			background-color: #C0C0C0;
-  	}*/ }
-  #userProfile #UPContainer {
-    width: 100%;
-    background: #E1E5E6;
-    color: #1f1646;
-    font-family: "Microsoft JhengHei";
-    margin: 10px auto;
+  margin: 10px auto;
+  border-radius: 4px; }
+#userProfile h1 {
+  padding-top: 5px;
+  margin-top: 0;
+  text-align: left;
+  font-size: 1.8em;
+  margin-bottom: 0;
+  color: #1f1646; }
+#userProfile hr {
+  border: none;
+  height: 2px;
+  background-color: #C0C0C0; }
+#userProfile form {
+  padding: 0 10px 20px 20px; }
+  #userProfile form p {
+    margin: 10px 70px 0 70px; }
+  #userProfile form label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 900; }
+  #userProfile form input[type=text] {
+    width: 75%;
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
     border-radius: 4px; }
-  #userProfile hr {
-    height: 2px;
-    background: #E1E5E6;
-    margin-top: 0; }
-  #userProfile form {
-    padding: 0 10px 20px 20px; }
-    #userProfile form p {
-      margin: 10px 70px 0 70px; }
-    #userProfile form label {
-      display: block;
-      font-size: 1.2em;
-      font-weight: 900; }
-    #userProfile form input[type=text] {
-      width: 75%;
-      margin-top: 8px;
-      padding: 8px 12px 8px 12px;
-      border: 1px solid transparent;
-      border-radius: 4px; }
-    #userProfile form textarea {
-      width: 100%;
-      margin-top: 8px;
-      padding: 8px 12px 8px 12px;
-      border: 1px solid transparent;
-      border-radius: 4px; }
-    #userProfile form input[type=text]:focus {
-      border: 1px solid #0389ff; }
-    #userProfile form .row {
-      margin-right: 70px;
-      margin-left: 70px; }
-      #userProfile form .row p {
-        padding: 0;
-        margin-right: 0;
-        margin-left: 0; }
-      #userProfile form .row label {
-        display: inline;
-        font-size: 1em; }
-    #userProfile form input[type=submit] {
-      background: #0389ff;
-      color: #fff;
-      text-transform: uppercase;
-      font-weight: 900;
-      padding: 10px 16px 10px 16px;
-      margin-top: 15px;
-      border: none;
-      border-radius: 6px;
-      box-shadow: none; }
-    #userProfile form input[type=submit]:hover {
-      background: #1f1646; }
+  #userProfile form textarea {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #userProfile form input[type=text]:focus {
+    border: 1px solid #0389ff; }
+  #userProfile form .row {
+    margin-right: 70px;
+    margin-left: 70px; }
+    #userProfile form .row p {
+      padding: 0;
+      margin-right: 0;
+      margin-left: 0; }
+    #userProfile form .row label {
+      display: inline;
+      font-size: 1em; }
+  #userProfile form input[type=submit] {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 16px 10px 16px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none; }
+  #userProfile form input[type=submit]:hover {
+    background: #1f1646; }
 
 /* * * * Create new project page and allocate resources style section * * * */
 #newProject #NPcontainer {
@@ -2201,5 +2154,145 @@ footer {
   padding: 8px 12px 8px 12px;
   border: 1px solid transparent;
   border-radius: 4px; }
+
+/* * * * project summary page style section * * * */
+#projectSummary {
+  background: white;
+  margin: 10px auto;
+  padding: 10px, 10px, 10px, 10px;
+  font-family: "Microsoft JhengHei"; }
+  #projectSummary h1 {
+    padding-top: 20px;
+    margin-top: 0;
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 0; }
+  #projectSummary h2 {
+    padding-top: 5px;
+    margin-top: 0;
+    text-align: left;
+    font-size: 1.8em;
+    margin-bottom: 0;
+    color: #1f1646; }
+  #projectSummary h3 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 0;
+    color: #1f1646; }
+  #projectSummary hr {
+    border: none;
+    height: 2px;
+    background-color: #C0C0C0; }
+  #projectSummary p {
+    margin: 10px 70px 0 70px; }
+  #projectSummary label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 900; }
+  #projectSummary .row {
+    margin-right: 70px;
+    margin-left: 70px; }
+    #projectSummary .row p {
+      padding: 0;
+      margin-right: 0;
+      margin-left: 0; }
+    #projectSummary .row label {
+      display: inline;
+      font-size: 1em; }
+  #projectSummary button {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 16px 10px 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none;
+    width: 100%; }
+  #projectSummary button:hover {
+    background: #1f1646; }
+
+/* * * * addSkills page style section * * * */
+#search #searchContainer {
+  width: 100%;
+  background: #E1E5E6;
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  margin: 10px auto;
+  border-radius: 4px; }
+#search #quicksearchbutton {
+  position: absolute;
+  top: 70%;
+  left: 80%;
+  transform: translate -80%, -70%; }
+#search #AdvancedSearchButton {
+  position: absolute;
+  left: 50%; }
+#search label {
+  color: #1f1646; }
+#search h1 {
+  padding-top: 20px;
+  margin-top: 0;
+  text-align: center;
+  font-size: 2.8em;
+  margin-bottom: 0;
+  color: #1f1646; }
+#search h2 {
+  padding-top: 20px;
+  margin-top: 0;
+  text-align: left;
+  font-size: 2.0em;
+  margin-bottom: 0;
+  color: #1f1646; }
+#search p {
+  margin: 10px 70px 0 70px; }
+#search label {
+  display: block;
+  font-size: 1.2em;
+  font-weight: 900;
+  padding-top: 5px; }
+#search form {
+  padding: 0 10px 20px 20px; }
+  #search form p {
+    margin: 10px 70px 0 70px; }
+  #search form label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 900; }
+  #search form input[type=text] {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #search form input[type=text]:focus {
+    border: 1px solid #0389ff; }
+  #search form .row {
+    margin-right: 70px;
+    margin-left: 70px; }
+    #search form .row p {
+      padding: 0;
+      margin-right: 0;
+      margin-left: 0; }
+    #search form .row label {
+      display: inline;
+      font-size: 1em; }
+#search input[type=submit] {
+  background: #0389ff;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 10px 16px 10px 16px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: none; }
+#search input[type=submit]:hover {
+  background: #1f1646; }
 
 /*# sourceMappingURL=style.css.map */
