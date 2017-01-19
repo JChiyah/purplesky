@@ -52,8 +52,24 @@ class Main extends CI_Controller {
          'id'    => 'skill_select',
          'value' => $this->form_validation->set_value('skill_select'),
       );
-
       $d['skills'] = $this->User_model->get_skills();
+
+      // User-related data
+      $user_id = $this->session->userdata('user_id');
+      $user = $this->ion_auth->user($user_id)->row();
+      $user_groups = $this->ion_auth->get_users_groups($user_id)->row();
+
+      if($user_groups->id == 1 || $user_groups->id == 2) {
+      	redirect('index');
+      }
+
+      $d['user'] = array(
+      	'name' 		=> $user->first_name . ' ' . $user->last_name,
+      	'email'		=> $user->email,
+      	'group'		=> $user_groups->description,
+      	'location' 	=> $this->User_model->get_user_location($user_id)->name,
+      	'skills' 	=> $this->User_model->get_user_skills($user_id)
+	   );
 
 		$this->load->view('html', $d);
 	}
@@ -128,26 +144,6 @@ class Main extends CI_Controller {
       return $this->data;
 	}
 
-	// Helper function to map user groups to their values
-	public function user_groups($group)
-	{
-		switch ($group) {
-		    case 1: 						// Admin
-		        $group = array(1, 2);
-		        break;
-		    case 2: 						// Project Manager
-		        $group = array(2);
-		        break;
-		    case 4: 						// Contractor
-		        $group = array(4);
-		        break;
-		    default:
-		        $group = array(3);
-		}
-
-		return $group;
-	}
-
 	// create a new user
 	public function create_user()
    {
@@ -193,15 +189,33 @@ class Main extends CI_Controller {
      	}
  	}
 
-	public function data_submit() {
+	public function add_user_skill() {
 		$skill = $this->input->post('skill');
 
+      // find the current users id
+      $id = $this->session->userdata('user_id');
+
 		// send value to database
-		if ($this->User_model->add_skill($skill)) {
+		if ($this->User_model->add_skill($skill, $id)) {
 			// Print value
 			echo '<span class="skill-span">' . $skill . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
+		} else {
+			// Failed to add -> Duplicated entry
+
+
 		}
 
+	}
+
+	public function delete_skill() {
+		$skill = $this->input->post('delete_skill');
+
+      // find the current users id
+      $id = $this->session->userdata('user_id');
+
+      if($this->User_model->delete_user_skill($skill, $id)) {
+      	echo 'success';
+      }
 	}
 
 }

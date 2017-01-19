@@ -1967,19 +1967,24 @@ footer {
 #skills {
   color: #1f1646;
   padding: 20px 30px 30px 30px; }
+  #skills .row {
+    margin: 0 20px 5px 20px;
+    position: relative; }
   #skills h1 {
-    margin-bottom: 0;
-    margin-top: 0.67em;
     display: inline; }
   #skills #skill-edit {
-    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 !important;
     border: none;
     display: inline;
     float: right;
-    margin-right: 15px;
     color: #0389ff;
-    background: none;
-    vertical-align: text-bottom; }
+    background: none !important;
+    outline: none;
+    outline-offset: 0;
+    outline-color: transparent; }
   #skills #skill-edit:hover {
     text-decoration: underline; }
   #skills #skill-add {

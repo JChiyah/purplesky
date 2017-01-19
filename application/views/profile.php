@@ -3,11 +3,10 @@
 		<div class="row">
 			<!-- A row with 2 columns -->
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-				<h1>Employee</h1>
-				<!--label ? double check should these be labels or text fields? or do they turn into text fields after edit-->
-				<p>Employee email</P>
-				<p>account role</p>
-				<p>Location</p>
+				<h1><?php echo $user['name']; ?></h1>
+				<p><?php echo $user['email']; ?></p>
+				<p><?php echo $user['group']; ?></p>
+				<p><?php echo $user['location']; ?></p>
 				<hr>
 				<form class="" action="index.html" method="post">
 					<input type="submit" name="changePassword" value="Change Password">
@@ -15,8 +14,10 @@
 			</div>
 			<!--Skill section-->
 			<section id="skills" class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
-				<h1>Skills</h1>
-				<button id="skill-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
+				<div class="row">
+					<h1>Skills</h1>
+					<button id="skill-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
+				</div>
 				<hr>
 				<div id="skill-set">
 					<?php echo form_open('', array('id' => 'skill-add')); ?>
@@ -28,12 +29,11 @@
 
                <?php echo form_close(); ?>
 
-					<span class="skill-span">CSS<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
-					<span class="skill-span">HTML<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
-					<span class="skill-span">Java<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
-					<span class="skill-span">Microsoft<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
-					<span class="skill-span">Python<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
-					<span class="skill-span">SML<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>
+               <?php 
+               	foreach ($user['skills'] as $skill) {
+               		echo '<span class="skill-span">' . $skill->name . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
+               	}
+               ?>
 				</div>
 
 			</section>

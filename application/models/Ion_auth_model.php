@@ -917,9 +917,9 @@ class Ion_auth_model extends CI_Model
 		// Add employee or contractor
 
 		$staff_data = array(
-			'staff_id'				=> $id,
+			'staff_id'			=> $id,
 			'current_location'	=> 1,
-			'pay_rate'				=> 10.5
+			'pay_rate'			=> 10.5
 		);
 
 		// add in groups array if it doesn't exists and stop adding into default group if default group ids are set

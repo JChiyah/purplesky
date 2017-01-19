@@ -24,48 +24,21 @@ class User_model extends CI_Model {
         return false;
     }
 
-    public function get_user_skills($id=FALSE) {
-
+    public function get_user_location($id=FALSE) {
         // if no id was passed use the current users id
         $id = isset($id) ? $id : $this->session->userdata('user_id');
 
-        $this->limit(1);
-        $this->order_by('skill.skill_id', 'desc');
-        $this->where('staff_skill.staff_id', $id);
+        $query = $this->db->select()
+                        ->where('staff_id', $id)
+                        ->join('location', 'location.location_id=staff.current_location')
+                        ->get('staff');
 
-        $this->users();
+        $result = $query->row();
 
-        return $this;
-    }
-
-    public function add_skill($skill_name, $id=FALSE) {
-        // if no id was passed use the current users id
-        $id = isset($id) ? $id : $this->session->userdata('user_id');
-
-        if(!isset($skill_name)) {
-            return FALSE;
+        if(isset($result) && !empty($result)) {
+            return $result;
         }
-
-        $query = $this->db->select('skill_id')
-                ->where('name', $skill_name)
-                ->get('skill');
-
-        $skill = $query->row();
-
-        if(!isset($skill)) {
-            return FALSE;
-        }
-
-        $data = array(
-            'staff_id'      => 2,
-            'skill_id'      => 2,
-            'skill_level'   => 0
-        );
-
-        /**** ERROR HERE ****/
-        return $this->db->insert('staff_skill', $data);
-
-        return TRUE;
+        return FALSE;
     }
 
     public function get_skills() {
@@ -81,5 +54,86 @@ class User_model extends CI_Model {
 
     }
 
+    public function add_skill($skill_name, $id=FALSE) {
+        // if no id was passed use the current users id
+        $id = isset($id) ? $id : $this->session->userdata('user_id');
+
+        if(!isset($skill_name)) {
+            return FALSE;
+        }
+
+        $skill_id = $this->get_skill_id($skill_name);
+
+        $query = $this->db->select()
+                        ->where('staff_id', $id)
+                        ->where('skill_id', $skill_id)
+                        ->get('staff_skill');
+
+        $result = $query->result();
+
+        if(isset($result) && !empty($result)) {
+            // Duplicated entry
+            return FALSE;
+        }
+
+        $data = array(
+            'staff_id'      => $id,
+            'skill_id'      => $skill_id,
+            'skill_level'   => 0
+        );
+
+        return $this->db->insert('staff_skill', $data);
+    }
+
+    public function get_user_skills($id=FALSE) {
+
+        // if no id was passed use the current users id
+        $id = isset($id) ? $id : $this->session->userdata('user_id');
+
+        $query = $this->db->select()
+                        ->where('staff_id', $id)
+                        ->join('skill', 'skill.skill_id=staff_skill.skill_id')
+                        ->get('staff_skill');
+
+        $result = $query->result();
+
+        if(isset($result) && !empty($result)) {
+            return $result;
+        }
+        return FALSE;
+    }
+
+    public function delete_user_skill($skill_name, $id=FALSE) {
+
+        // if no id was passed use the current users id
+        $id = isset($id) ? $id : $this->session->userdata('user_id');
+
+        $skill_id = $this->get_skill_id($skill_name);
+
+        $data = array(
+            'staff_id' => $id,
+            'skill_id' => $skill_id
+        );
+
+        return $this->db->delete('staff_skill', $data);
+    }
+
+    // Helper function that gets a skill id from the db
+    public function get_skill_id($skill) {
+        $skill = str_replace(' ', '', $skill);
+
+        $query = $this->db->select('skill_id')
+                        ->where('name', $skill)
+                        ->limit(1)
+                        ->get('skill');
+
+        $result = $query->row();
+
+        if(!isset($result)) {
+            return FALSE;
+        }
+
+        return $result->skill_id;
+    }
 
 }

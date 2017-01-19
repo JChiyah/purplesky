@@ -6,7 +6,23 @@ $(function() {
     });
 
 	$('body').on('click', '.delete-tag', function() {
-    	$(this).parent().remove();
+		var e = $(this).parent();
+		var skill = e.text();
+		$.ajax({
+			type: "POST",
+			url: baseurl + "/Main/delete_skill",
+			data: { 
+				'delete_skill' : skill,
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(res) {
+				if (res) {
+					e.remove();
+				}
+			}
+		});
+
+    	//
     });
 
 	$(".submit").click(function(event) {
@@ -15,7 +31,7 @@ $(function() {
 		var skill = e.options[e.selectedIndex].text;
 		$.ajax({
 			type: "POST",
-			url: baseurl + "/Main/data_submit",
+			url: baseurl + "/Main/add_user_skill",
 			data: { 
 				'skill' : skill,
 				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
