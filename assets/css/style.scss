@@ -660,26 +660,22 @@ footer {
 }
 /* * * * addSkills page style section * * * */
 #search {
-	#searchContainer {
+	vertical-align:center;
+	max-width:1000px;
+	left:50%;
 	width: 100%;
-	background: $grey-background2;
+	//background: $grey-background2;
 	color: $blue;
 	font-family: $microsoft-font;
 	margin: 10px auto;
 	border-radius: 4px;
-	}
-
-		input[type=submit] {display: inline-block;}
-		input[type=text] { display: inline-block; }
-	
-	
-	#AdvancedSearchButton{
-		position:relative;
-		top: 10%;
-		left:50%;
-	}
 	label{
 		color:$blue;
+	}
+	hr {
+			border: none;
+			height: 1px;
+			background-color: #C0C0C0;
 	}
 	h1 {
 		padding-top: 20px;
@@ -697,7 +693,9 @@ footer {
 		margin-bottom: 0;
 		color: $blue;
 	}
-	p { margin: 10px 70px 0 70px; }
+	p { margin: 10px 70px 0 70px;
+		color:$blue;
+	}
 
 	label {
 		display: block;
@@ -747,4 +745,65 @@ footer {
 
 	}
 	input[type=submit]:hover { background: $blue; }
+
+	#submitAdvancedSearch{
+		margin-left:auto;
+		display: block;
+	}
+	#quick-search-button{
+		margin:auto;
+	}
+	#quick-search{
+		margin-top: 20px;
+		background: $grey-background2;
+		clear:none;
+		input[type=text]{
+			margin-top: 15px;
+			margin-left: 0;
+			margin-right: auto;
+			width:80%;
+		}
+	}
+
+	#column1{
+		
+		float:left;
+		width: 50%;
+	}
+	#column2{
+		float:right;
+		width: 50%;
+
+	}
+
+	
+	#advanced-search{
+		background: $grey-background2;
+		input[type=text]{
+				width:50%;
+			}
+
+		#projectInput{
+			
+			margin-right:10px;
+
+		}
+
+	}
+	#resultsTitle{
+ 		float:left;
+		}
+	#resultsSorting{
+		float:right;
+		text-align: right;
+	}
+
+
+	#search-results{
+		width:100%;
+		display: inline-block;
+
+
+	}
+	
 }
