@@ -2,44 +2,48 @@
    <h1>Search and Apply</h1>
    <p>Search and apply for any current or future projects within the organisation</p>
 
+   <!--<h2>Search</h2> -->
    <section id="quick-search">
-      <h2>Search</h2>
       <form action="" method="post">
          <input type="text" name="" value="">
-         <input type="submit" name="" value="Quick Search">
+         <input type="submit" name="" value="Quick Search" id="quick-search-button">
       </form>
    </section>
    
+   <button id="hideAdvancedSearch">Open Advanced Search</button>
+
    <section id="advanced-search">
       <h2>Advanced search:</h2>
-      <hr>
       <form action="" method="post">
-         <p>
-            <label>Project:</label> <br>
-            <input type="text" name="" value="">
-         </p>
-         <p>
-            <label>Location:</label> <br>
+         <div id="column1">
+            <p>
+               <label id="projectInput">Project:</label> <br>
+               <input type="text" name="" value="">
+            </p>         
+            <p>
+               <label>From:</label>
+               <input type="date" name="fromDate" value="DD/MM/YYYY">
+            </p>
+            <p>
+               <label>To:</label>
+               <input type="date" name="toDate" value="DD/MM/YYYY">
+            </p>
+         </div>
+         <div id="column2">
+            <p>
+            <label id="locationInput">Location:</label> <br>
             <select name="location">
                <!--TODO pull data from database for drop down selection - need to validate input(required)-->
                <option value="select">Select</option>
                <option value="test 1">Test 1</option>
                <option value="test 2">Test 2</option>
             </select>
-         </p>
-         <p>
-            <label>From:</label>
-            <input type="date" name="fromDate" value="DD/MM/YYYY">
-         </p>
-         <p>
-            <label>To:</label>
-            <input type="date" name="toDate" value="DD/MM/YYYY">
-         </p>
-         <p>
-            <label>Keywords:</label> <br>
-            <input type="text" name="keywards" value="">
-         </p>
-         
+            </p>
+            <p>
+               <label>Keywords:</label> <br>
+               <input type="text" name="keywards" value="">
+            </p>
+         </div>
          <input type="submit" name="advSearch" value="Search">
       </form>
    </section>
