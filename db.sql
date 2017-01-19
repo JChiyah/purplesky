@@ -61,8 +61,8 @@ CREATE TABLE account_group (
 ) ENGINE=InnoDB;
 
 INSERT INTO account_group (`user_id`, `group_id`) VALUES
-     (1,1),
-     (1,2);
+    (1,1),
+    (1,2);
 
 
 # Create skill table
@@ -72,18 +72,29 @@ CREATE TABLE skill (
 	quantifiable tinyint(1) NOT NULL
 ) ENGINE=InnoDB;
 
+INSERT INTO skill (`name`, `quantifiable`) VALUES 
+	('CSS', 0),
+	('HTML', 0),
+	('Python', 0),
+	('Java', 0),
+	('C', 0);
+
 # Create location table
 CREATE TABLE location (
 	location_id integer(8) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	name varchar(255) NOT NULL
 ) ENGINE=InnoDB;
 
+INSERT INTO location (name) VALUES 
+	('Edinburgh'),
+	('Glasgow');
+
 # Create staff table
 CREATE TABLE staff (
-	user_id integer(11) NOT NULL PRIMARY KEY,
+	staff_id integer(11) NOT NULL PRIMARY KEY,
 	current_location integer(8) NOT NULL,
-	pay_rate decimal NOT NULL,
-	FOREIGN KEY (user_id) REFERENCES account(id) ON DELETE CASCADE,
+	pay_rate decimal(10,2) NOT NULL,
+	FOREIGN KEY (staff_id) REFERENCES account(id) ON DELETE CASCADE,
 	FOREIGN KEY (current_location) REFERENCES location(location_id) ON DELETE RESTRICT
 ) ENGINE=InnoDB;
 
@@ -91,7 +102,7 @@ CREATE TABLE staff (
 CREATE TABLE availability (
 	staff_id integer(11) NOT NULL,
 	day date NOT NULL,
-	type enum('hol_iday', 'work', 'training', 'sick', 'other') NOT NULL,
+	type enum('holiday', 'work', 'training', 'sick', 'other') NOT NULL,
 	PRIMARY KEY (staff_id, day),
 	FOREIGN KEY (staff_id) REFERENCES staff(staff_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;

@@ -24,6 +24,7 @@ class Main extends CI_Controller {
 		parent::__construct();
 		$this->load->library(array('form_validation'));
 		$this->load->helper(array('url','language'));
+		$this->load->model("User_model");
 
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -38,10 +39,6 @@ class Main extends CI_Controller {
 		$d['title'] = 'Home';
 		$d['des'] = 'Homepage with dashboard';
 		$this->load->view('html', $d);
-		//using the pdo config
-
-		//$query = $this->db->query("SELECT * FROM account");
-		//var_dump($query->result());
 	}
 
 	public function profile_view()
@@ -55,6 +52,8 @@ class Main extends CI_Controller {
          'id'    => 'skill_select',
          'value' => $this->form_validation->set_value('skill_select'),
       );
+
+      $d['skills'] = $this->User_model->get_skills();
 
 		$this->load->view('html', $d);
 	}
@@ -177,8 +176,6 @@ class Main extends CI_Controller {
             'last_name'  => $this->input->post('last_name'),
          );
 
-         //echo $this->input->post('groups')+1;
-
          $groups = array($this->input->post('groups')+1);
      	}
      	if ($this->form_validation->run() == true && $this->ion_auth->register($password, $email, $additional_data, $groups))
@@ -197,14 +194,14 @@ class Main extends CI_Controller {
  	}
 
 	public function data_submit() {
-		$data = array(
-			'skill' 	=> $this->input->post('skill')
-		);
+		$skill = $this->input->post('skill');
 
 		// send value to database
+		if ($this->User_model->add_skill($skill)) {
+			// Print value
+			echo '<span class="skill-span">' . $skill . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
+		}
 
-		// Print value
-		echo '<span class="skill-span">' . $data['skill'] . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
 	}
 
 }

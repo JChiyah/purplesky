@@ -914,6 +914,14 @@ class Ion_auth_model extends CI_Model
 
 		$id = $this->db->insert_id();
 
+		// Add employee or contractor
+
+		$staff_data = array(
+			'staff_id'				=> $id,
+			'current_location'	=> 1,
+			'pay_rate'				=> 10.5
+		);
+
 		// add in groups array if it doesn't exists and stop adding into default group if default group ids are set
 		if( isset($default_group->id) && empty($groups) )
 		{
@@ -925,6 +933,9 @@ class Ion_auth_model extends CI_Model
 			// add to groups
 			foreach ($groups as $group)
 			{
+				if($group > 2) {
+					$this->db->insert('staff', $staff_data);
+				}
 				$this->add_to_group($group, $id);
 			}
 		}

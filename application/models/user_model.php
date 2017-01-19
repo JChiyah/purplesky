@@ -24,4 +24,62 @@ class User_model extends CI_Model {
         return false;
     }
 
+    public function get_user_skills($id=FALSE) {
+
+        // if no id was passed use the current users id
+        $id = isset($id) ? $id : $this->session->userdata('user_id');
+
+        $this->limit(1);
+        $this->order_by('skill.skill_id', 'desc');
+        $this->where('staff_skill.staff_id', $id);
+
+        $this->users();
+
+        return $this;
+    }
+
+    public function add_skill($skill_name, $id=FALSE) {
+        // if no id was passed use the current users id
+        $id = isset($id) ? $id : $this->session->userdata('user_id');
+
+        if(!isset($skill_name)) {
+            return FALSE;
+        }
+
+        $query = $this->db->select('skill_id')
+                ->where('name', $skill_name)
+                ->get('skill');
+
+        $skill = $query->row();
+
+        if(!isset($skill)) {
+            return FALSE;
+        }
+
+        $data = array(
+            'staff_id'      => 2,
+            'skill_id'      => 2,
+            'skill_level'   => 0
+        );
+
+        /**** ERROR HERE ****/
+        return $this->db->insert('staff_skill', $data);
+
+        return TRUE;
+    }
+
+    public function get_skills() {
+
+        $query = $this->db->select('name')->order_by('skill_id', 'desc')->get('skill');
+
+        $array = array();
+        foreach ($query->result() as $row) {
+            $array[] = $row->name;
+        }
+
+        return array_reverse($array);
+
+    }
+
+
 }
