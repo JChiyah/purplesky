@@ -2208,81 +2208,114 @@ footer {
   border-radius: 4px; }
 
 /* * * * addSkills page style section * * * */
-#search #searchContainer {
+#search {
+  vertical-align: center;
+  max-width: 1000px;
+  left: 50%;
   width: 100%;
-  background: #E1E5E6;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
   margin: 10px auto;
   border-radius: 4px; }
-#search input[type=submit] {
-  display: inline-block; }
-#search input[type=text] {
-  display: inline-block; }
-#search #AdvancedSearchButton {
-  position: relative;
-  top: 10%;
-  left: 50%; }
-#search label {
-  color: #1f1646; }
-#search h1 {
-  padding-top: 20px;
-  margin-top: 0;
-  text-align: center;
-  font-size: 2.8em;
-  margin-bottom: 0;
-  color: #1f1646; }
-#search h2 {
-  padding-top: 20px;
-  margin-top: 0;
-  text-align: left;
-  font-size: 2.0em;
-  margin-bottom: 0;
-  color: #1f1646; }
-#search p {
-  margin: 10px 70px 0 70px; }
-#search label {
-  display: block;
-  font-size: 1.2em;
-  font-weight: 900;
-  padding-top: 5px; }
-#search form {
-  padding: 0 10px 20px 20px; }
-  #search form p {
-    margin: 10px 70px 0 70px; }
-  #search form label {
+  #search label {
+    color: #1f1646; }
+  #search hr {
+    border: none;
+    height: 1px;
+    background-color: #C0C0C0; }
+  #search h1 {
+    padding-top: 20px;
+    margin-top: 0;
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 0;
+    color: #1f1646; }
+  #search h2 {
+    padding-top: 20px;
+    margin-top: 0;
+    text-align: left;
+    font-size: 2.0em;
+    margin-bottom: 0;
+    color: #1f1646; }
+  #search p {
+    margin: 10px 70px 0 70px;
+    color: #1f1646; }
+  #search label {
     display: block;
     font-size: 1.2em;
-    font-weight: 900; }
-  #search form input[type=text] {
+    font-weight: 900;
+    padding-top: 5px; }
+  #search form {
+    padding: 0 10px 20px 20px; }
+    #search form p {
+      margin: 10px 70px 0 70px; }
+    #search form label {
+      display: block;
+      font-size: 1.2em;
+      font-weight: 900; }
+    #search form input[type=text] {
+      width: 100%;
+      margin-top: 8px;
+      padding: 8px 12px 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px; }
+    #search form input[type=text]:focus {
+      border: 1px solid #0389ff; }
+    #search form .row {
+      margin-right: 70px;
+      margin-left: 70px; }
+      #search form .row p {
+        padding: 0;
+        margin-right: 0;
+        margin-left: 0; }
+      #search form .row label {
+        display: inline;
+        font-size: 1em; }
+  #search input[type=submit] {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 16px 10px 16px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none; }
+  #search input[type=submit]:hover {
+    background: #1f1646; }
+  #search #submitAdvancedSearch {
+    margin-left: auto;
+    display: block; }
+  #search #quick-search-button {
+    margin: auto; }
+  #search #quick-search {
+    margin-top: 20px;
+    background: #E1E5E6;
+    clear: none; }
+    #search #quick-search input[type=text] {
+      margin-top: 15px;
+      margin-left: 0;
+      margin-right: auto;
+      width: 80%; }
+  #search #column1 {
+    float: left;
+    width: 50%; }
+  #search #column2 {
+    float: right;
+    width: 50%; }
+  #search #advanced-search {
+    background: #E1E5E6; }
+    #search #advanced-search input[type=text] {
+      width: 50%; }
+    #search #advanced-search #projectInput {
+      margin-right: 10px; }
+  #search #resultsTitle {
+    float: left; }
+  #search #resultsSorting {
+    float: right;
+    text-align: right; }
+  #search #search-results {
     width: 100%;
-    margin-top: 8px;
-    padding: 8px 12px 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
-  #search form input[type=text]:focus {
-    border: 1px solid #0389ff; }
-  #search form .row {
-    margin-right: 70px;
-    margin-left: 70px; }
-    #search form .row p {
-      padding: 0;
-      margin-right: 0;
-      margin-left: 0; }
-    #search form .row label {
-      display: inline;
-      font-size: 1em; }
-#search input[type=submit] {
-  background: #0389ff;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 900;
-  padding: 10px 16px 10px 16px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 6px;
-  box-shadow: none; }
-#search input[type=submit]:hover {
-  background: #1f1646; }
+    display: inline-block; }
 
 /*# sourceMappingURL=style.css.map */
