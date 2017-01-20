@@ -2212,90 +2212,108 @@ footer {
   width: 80%;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
-  margin: 10px auto; }
+  margin: 80px auto; }
   #search h1 {
     text-align: center;
     font-size: 2.8em; }
   #search h2 {
     font-size: 2.0em;
+    margin-top: 0.3em;
     margin-bottom: 0.3em; }
-  #search p:first-child {
-    text-align: left;
-    margin: 10px 70px 0 70px; }
-  #search .container {
+  #search button {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 0.9em;
+    padding: 8px 12px 8px 12px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none; }
+  #search button:hover {
+    background: #1f1646; }
+  #search button:focus {
+    background: #0389ff; }
+  #search .container-box {
     background: #E1E5E6;
     width: 95%;
     margin: 10px auto;
+    padding: 1em;
     text-align: center; }
   #search hr {
     border: none;
     height: 1px;
-    background-color: #C0C0C0;
-    margin-top: 0; }
-  #search form {
-    /*.row {
-    	margin-right: 70px;
-    	margin-left: 70px;
-    	p { padding: 0; margin-right: 0; margin-left: 0; }
-    	label { display:inline; font-size: 1em; }
-    }*/ }
-    #search form input[type=text] {
-      margin-top: 8px;
+    background-color: #C0C0C0; }
+  #search form input[type=text] {
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #search form input[type=text]:focus {
+    border: 1px solid #0389ff; }
+  #search form input[type=submit] {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 38px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none; }
+  #search form input[type=submit]:hover {
+    background: #1f1646; }
+  #search form input[type=checkbox] {
+    vertical-align: middle;
+    color: #ffffff;
+    height: 1.15em;
+    width: 1.15em;
+    margin-left: 7px;
+    cursor: pointer; }
+
+section#quick-search {
+  margin: 20px auto;
+  background: #E1E5E6; }
+  section#quick-search input[type=text] {
+    width: 60%; }
+
+#advanced-search {
+  width: 100%;
+  text-align: left;
+  padding: 0 1em 1em 1em;
+  display: none; }
+  #advanced-search .container-fluid {
+    margin: 0 auto;
+    text-align: center; }
+    #advanced-search .container-fluid div {
+      text-align: left; }
+    #advanced-search .container-fluid p {
+      width: 85%;
+      margin: 5px auto; }
+    #advanced-search .container-fluid label {
+      font-size: 1.2em;
+      font-weight: 900; }
+    #advanced-search .container-fluid input[type=text] {
+      width: 90%; }
+    #advanced-search .container-fluid input[type=date] {
+      text-align: left;
       padding: 8px 12px 8px 12px;
       border: 1px solid transparent;
       border-radius: 4px; }
-    #search form input[type=text]:focus {
-      border: 1px solid #0389ff; }
-    #search form input[type=submit] {
-      background: #0389ff;
-      color: #fff;
-      text-transform: uppercase;
-      font-weight: 900;
-      padding: 10px 16px 10px 16px;
-      margin-top: 15px;
-      border: none;
-      border-radius: 6px;
-      box-shadow: none; }
-    #search form input[type=submit]:hover {
-      background: #1f1646; }
-    #search form label {
-      display: block;
-      font-size: 1.2em;
+    #advanced-search .container-fluid select {
+      width: 60%;
+      margin-top: 8px;
+      padding: 8px 12px 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px;
       font-weight: 900; }
-  #search #resultsTitle {
-    float: left; }
-  #search #resultsSorting {
-    float: right;
-    text-align: right; }
-  #search #search-results {
-    width: 100%;
-    display: inline-block; }
-
-#quick-search {
-  margin: 20px auto;
-  background: #E1E5E6; }
-  #quick-search input[type=text] {
-    width: 60%; }
-
-button#show-search {
-  background: #0389ff;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 900;
-  font-size: 0.9em;
-  padding: 8px 12px 8px 12px;
-  border: none;
-  border-radius: 4px;
-  box-shadow: none; }
-
-button#show-search:hover {
-  background: #1f1646; }
-
-#advanced-search {
-  text-align: left; }
-  #advanced-search form {
-    margin: 0 auto; }
-  #advanced-search input[type=text] {
-    width: 50%; }
+    #advanced-search .container-fluid .date-row {
+      margin: 0.8em 1em;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center; }
+      #advanced-search .container-fluid .date-row label {
+        display: block;
+        text-align: right; }
 
 /*# sourceMappingURL=style.css.map */

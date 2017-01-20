@@ -3,7 +3,7 @@ $(function() {
 	$('#skill-edit').on('click', function() {
     	$('#skill-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
     	$('.delete-tag').toggle();
-    });
+   });
 
 	$('body').on('click', '.delete-tag', function() {
 		var e = $(this).parent();
@@ -21,9 +21,7 @@ $(function() {
 				}
 			}
 		});
-
-    	//
-    });
+   });
 
 	$(".submit").click(function(event) {
 		event.preventDefault();
@@ -45,5 +43,18 @@ $(function() {
 			}
 		});
 	});
+
+	$('#search-toggle').on('click', function() {
+		//$('#quick-search').slideToggle().css({'visibility': 'visible', 'display': 'block'});
+    	$('#advanced-search').slideToggle(500, function() {
+        if ($('#advanced-search').is(':visible')) {
+             $('#search-toggle').text('Close advanced search');                
+        } else {
+             $('#search-toggle').text('Open advanced search');                
+        }        
+    });
+    	//$('#search-toggle').html('Hi');
+    	//$('.search-toggle').toggle();
+   });
 
 });

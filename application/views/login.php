@@ -9,7 +9,7 @@
       <meta name="keywords" content="">
       <meta name="viewport" content="initial-scale=1">
 
-      <title>Leidos Sign In</title>
+      <title>Leidos Log In</title>
     
       <script src="https://use.fontawesome.com/eedb59a6cd.js"></script>
   
@@ -17,7 +17,7 @@
    </head>
    <body>
       <div id="login-container">
-         <h1>Sign In</h1>
+         <h1>Log In</h1>
          <?php echo form_open("login");?>
 
             <p>

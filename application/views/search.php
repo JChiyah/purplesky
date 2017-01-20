@@ -1,56 +1,59 @@
 <div id="search">
    <h1>Search and Apply</h1>
 
-   <div class="container">
-      <p>Search and apply for any current or future projects within the organisation</p>
+   <div class="container-box">
       <section id="quick-search">
+         <p>Search and apply for any current or future projects within the organisation</p>
          <form action="" method="post">
-            <input type="text" name="" value="">
-            <input type="submit" name="" value="Quick Search" id="">
-         </form>
-      </section>
-      
-      <button id="show-search">Open Advanced Search</button>
+            <input type="text" name="" value="" placeholder="Enter keyword, project title or manager name">
+            <input type="submit" name="" value="Search" id="">
 
-      <section id="advanced-search">
-         <h2>Advanced search</h2>
-         <hr>
-         <form action="" method="post">
-            <div id="col-sm-12 col-md-6">
-               <p>
-                  <label id="projectInput">Project:</label> <br>
-                  <input type="text" name="" value="">
-               </p>         
-               <p>
-                  <label>From:</label>
-                  <input type="date" name="" value="">
-               </p>
-               <p>
-                  <label>To:</label>
-                  <input type="date" name="" value="">
-               </p>
+            <div id="advanced-search">
+               <hr>
+               <p>You can fill in as many details as you want</p>
+               <div class="container-fluid">
+                  <div class="col-sm-12 col-md-6">
+                     <div class="row date-row">
+                        <div class="col-md-3">
+                           <label>From:</label>
+                        </div>
+                        <div class="col-md-9">
+                           <input type="date" name="" value="">
+                        </div>
+                     </div>
+                     <div class="row date-row">
+                        <div class="col-md-3">
+                           <label>To:</label>
+                        </div>
+                        <div class="col-md-9">
+                           <input type="date" name="" value="">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                     <p>
+                        <label>Location:</label> <br>
+                        <select name="location">
+                           <option value="select">Any</option>
+                           <option value="test 1">Test 1</option>
+                           <option value="test 2">Test 2</option>
+                        </select>
+                     </p>
+                     <p>
+                        <label>Onsite</label>
+                        <input type="checkbox" name="" value="onsite" checked>
+                     </p>
+                  </div>
+               </div>
             </div>
-            <div id="col-sm-12 col-md-6">
-               <p>
-                  <label id="locationInput">Location:</label> <br>
-                  <select name="location">
-                     <!--TODO pull data from database for drop down selection - need to validate input(required)-->
-                     <option value="select">Select</option>
-                     <option value="test 1">Test 1</option>
-                     <option value="test 2">Test 2</option>
-                  </select>
-               </p>
-               <p>
-                  <label>Keywords:</label> <br>
-                  <input type="text" name="keywards" value="">
-               </p>
-            </div>
-            <input type="submit" name="advSearch" value="Search">
+
          </form>
       </section>
+
+      <button id="search-toggle">Open Advanced Search</button>
    </div>
 
-   <section id="search-results">
+   <section class="hidden" id="search-results">
       <h2>Results:</h2>
       <div class="col-xs-12 col-sm-8 col-md-6">
         <label>Order by:</label>
