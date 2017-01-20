@@ -16,7 +16,7 @@
 			    <ul id="footer-bottom">
 			      <li><a href="<?php echo site_url('index') ?>">Privacy Policy</a></li>|
 			      <li><a href="<?php echo site_url('index') ?>">Terms of Use</a></li>|
-			      <li><a id="logout" href="<?=  base_url('auth/logout')?>">Logout</a></li>
+			      <li><a id="logout" href="<?=  base_url('auth/logout')?>">Sign out</a></li>
 			    </ul>
 			</div>
 		</div>
