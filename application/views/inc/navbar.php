@@ -13,6 +13,6 @@
             { echo "<li><a href=" . site_url('create-project') . ">New Project</a></li>"; } ?>
          <li><a href="<?php echo site_url('search') ?>">Search</a></li>
       </ul>
-      <a id="logout" href="<?=  base_url('auth/logout')?>"><i class="fa fa-sign-out fa-fw"></i> Sign out</a>
+      <a id="logout" href="<?=  base_url('auth/logout')?>"><i class="fa fa-sign-out fa-fw"></i>Sign out</a>
    </div>
 </nav>

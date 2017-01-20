@@ -1709,22 +1709,24 @@ nav {
     z-index: 2; }
     nav div ul {
       list-style: none;
-      display: inline;
-      padding-left: 85px; }
+      display: inline-block;
+      padding: 10px;
+      padding-left: 85px;
+      margin: 0; }
       nav div ul li {
         display: inline-block;
-        line-height: 30px; }
+        line-height: 20px; }
         nav div ul li a {
           text-decoration: none;
           display: block;
           color: white;
-          padding: 12px 16px 12px 16px; }
+          padding: 8px 24px; }
         nav div ul li a:hover {
           text-decoration: none;
           color: #0389ff; }
     nav div #logout {
       display: inline-block;
-      padding: 12px;
+      padding: 15px;
       color: white;
       margin-right: 50px;
       float: right; }
@@ -1750,8 +1752,8 @@ footer {
     padding-left: 0; }
     footer ul li {
       display: inline-block;
-      padding: 12px;
-      text-align: center; }
+      text-align: center;
+      margin: 12px; }
       footer ul li a {
         text-decoration: none;
         padding: 0;
