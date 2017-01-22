@@ -33,16 +33,16 @@
 				<!--TODO fix CSS here for displaying projects - requ gliphys-->
 				<div class="row" id="HomeContainer">
 					<div class="col-xs-12 col-md-6 col-lg-8">
-						<div class="row">
-							<div class="col-xs-12 col-ms-3 col-md-3 col-lg-4" id="shift-left">
-								<h2>ProjectD</h2>
+						<div class="row" id="left">
+							<div class="col-xs-12 col-ms-3 col-md-3 col-lg-4" >
+								<h3>ProjectD</h3>
 								<p>Description</p>
 								<p>Location</p>
 								<p>Project Manager</p>
 								<p>From "StartDate" to "EndDate"</p>
 							</div>
-							<div class="col-xs-12 col-ms-3 col-md-3 col-lg-4" id="shift-right">
-								<h2>ProjectE</h2>
+							<div class="col-xs-12 col-ms-3 col-md-3 col-md-offset-3 col-lg-4 col-lg-offset-4">
+								<h3>ProjectE</h3>
 								<p>Description</p>
 								<p>Location</p>
 								<p>Project Manager</p>

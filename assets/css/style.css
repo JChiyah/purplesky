@@ -1904,21 +1904,24 @@ footer {
   	}*/ }
   #homePage #HomeContainer {
     background: white;
-    margin: 10px auto;
-    border: 1px solid;
+    margin: 10 auto;
     padding: 5px, 5px, 5px, 5px; }
-  #homePage #shift-left {
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 50%;
-    float: left;
-    margin: auto; }
-  #homePage #shift-right {
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 50%;
-    float: right;
-    margin: auto; }
+  #homePage #left {
+    -webkit-column-count: 2;
+    /* Chrome, Safari, Opera */
+    -moz-column-count: 2;
+    /* Firefox */
+    column-count: 2;
+    -webkit-column-gap: 20px;
+    /* Chrome, Safari, Opera */
+    -moz-column-gap: 20px;
+    /* Firefox */
+    column-gap: 20px;
+    -webkit-column-rule-style: solid;
+    /* Chrome, Safari, Opera */
+    -moz-column-rule-style: solid;
+    /* Firefox */
+    column-rule-style: solid; }
   #homePage h2 {
     padding-top: 5px;
     margin-top: 0;
