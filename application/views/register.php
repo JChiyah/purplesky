@@ -10,17 +10,18 @@
       <meta name="viewport" content="initial-scale=1">
 
       <title>Register</title>
-      
+
       <script src="https://use.fontawesome.com/eedb59a6cd.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
       <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>" />
    </head>
    <body>
-      <div class="container">
+      <div class="container" id="login-container">
          <h1>Create Profile</h1>
          <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-12"><sub>Please fill out all fields</sub>
+            <div class="col-xs-12 col-sm-6 col-md-12">
+              <label>Please fill out all fields</label>
                <div id="infoMessage"><?php echo $message ?? '';?></div>
 
                <?php echo form_open("main/create_user");?>
