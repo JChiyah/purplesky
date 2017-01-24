@@ -1789,9 +1789,20 @@ footer {
       padding-top: 20px;
       text-align: center; } }
 /* * * * Login style section * * * */
+.g-button {
+  background: #0389ff;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 10px 16px 10px 16px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: none; }
+
 #login-container {
   width: 50%;
-  background: #ECF0F1;
+  background: #E1E5E6;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
   margin: 100px auto;
@@ -1874,7 +1885,7 @@ footer {
 
 @media (max-width: 768px) {
   body {
-    background: #ECF0F1; }
+    background: #E1E5E6; }
 
   #login-container {
     width: 100%;

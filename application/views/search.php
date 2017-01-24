@@ -1,9 +1,10 @@
 <div id="search">
-   <h1>Search and Apply</h1>
+   <h1>Search for Projects</h1>
 
    <div class="container-box">
       <section id="quick-search">
-         <p>Search and apply for any current or future projects within the organisation</p>
+         <?php global $user_group; if ($user_group != 1 && $user_group != 2) 
+            { echo '<p>Search for any current or future projects within the organisation</p>'; } else echo '<p>Search and apply for any current or future projects within the organisation</p>'; ?>
          <form action="" method="post">
             <input type="text" name="" value="" placeholder="Enter keyword, project title or manager name">
             <input type="submit" name="" value="Search" id="">

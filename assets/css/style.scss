@@ -165,9 +165,21 @@ footer {
 }
 
 /* * * * Login style section * * * */
+.g-button {
+	background: $light-blue;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 900;
+	padding: 10px 16px 10px 16px;
+	margin-top: 15px;
+	border: none;
+	border-radius: 6px;
+	box-shadow: none;
+}
+
 #login-container {
 	width: 50%;
-	background: $grey-background;
+	background: $grey-background2;
 	color: $blue;
 	font-family: $microsoft-font;
 	margin: 100px auto;
@@ -259,7 +271,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-	body { background: $grey-background; }
+	body { background: $grey-background2; }
   	#login-container {
   		width: 100%;
   		margin-top: 0px;

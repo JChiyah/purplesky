@@ -52,6 +52,6 @@
 
       </div>
       
-      <p><a href="<?php echo site_url('register') ?>">Create profile</a></p>
+      <a class="g-button" href="<?php echo site_url('register') ?>">Create profile</a>
    </body>
 </html>

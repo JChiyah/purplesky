@@ -72,22 +72,11 @@ CREATE TABLE skill (
 	quantifiable tinyint(1) NOT NULL
 ) ENGINE=InnoDB;
 
-INSERT INTO skill (`name`, `quantifiable`) VALUES 
-	('CSS', 0),
-	('HTML', 0),
-	('Python', 0),
-	('Java', 0),
-	('C', 0);
-
 # Create location table
 CREATE TABLE location (
 	location_id integer(8) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	name varchar(255) NOT NULL
 ) ENGINE=InnoDB;
-
-INSERT INTO location (name) VALUES 
-	('Edinburgh'),
-	('Glasgow');
 
 # Create staff table
 CREATE TABLE staff (
