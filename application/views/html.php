@@ -35,11 +35,11 @@
 <html lang="en-GB">
 	<head>
 		<meta charset="utf-8">
-		<meta name="description" content="<?php echo $des ?? '' ?>">
+		<meta name="description" content="<?php if(isset($des)) { echo $des; } else echo ''; ?>">
 		<meta name="keywords" content="">
 		<meta name="viewport" content="initial-scale=1">
 
-		<title><?php echo $title ?? '' ?></title>
+		<title><?php if(isset($title)) { echo $title; } else echo ''; ?></title>
 		
 		<script src="https://use.fontawesome.com/eedb59a6cd.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

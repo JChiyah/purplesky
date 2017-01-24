@@ -165,18 +165,6 @@ footer {
 }
 
 /* * * * Login style section * * * */
-.g-button {
-	background: $light-blue;
-	color: #fff;
-	text-transform: uppercase;
-	font-weight: 900;
-	padding: 10px 16px 10px 16px;
-	margin-top: 15px;
-	border: none;
-	border-radius: 6px;
-	box-shadow: none;
-}
-
 #login-container {
 	width: 50%;
 	background: $grey-background2;
@@ -292,29 +280,31 @@ footer {
 		}
   	}
 }
+.g-button {
+	background: $light-blue;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 900;
+	padding: 10px 16px 10px 16px;
+	margin-top: 15px;
+	border: none;
+	border-radius: 6px;
+	box-shadow: none;
+}
+.g-button:hover { background: $blue; color: #fff; }
 
 /* * * * Home style section * * * */
-#homePage {
-
+#home-page {
 	background: $grey-background2;
 
-	#HomeContainer {
-		background: white;
-		margin: 0.1em;
-	//border: 1px solid;
-		padding: 5px, 5px, 5px, 5px;
-
+	.container:first-child {
+		width: 80%;
 	}
+}
 
-/*add fonts?
-	#notification {
-		font-family: "Calibri";
-	}
-	#timeStamp {
-		font-family: Arial;
-		font-style: bold;
-	}*/
-
+.home-container {
+	background: #ffffff;
 
 	h2 {
 		padding-top: 5px;
@@ -324,43 +314,14 @@ footer {
 		margin-bottom: 0;
 		color: $blue;
 	}
-
 	hr {
-			border: none;
-			height: 2px;
-			background-color: #C0C0C0;
+		height: 2px;
+		background: $grey-background2;
+		margin-top: 0;
 	}
+	.content {
 
-	p { margin: 10px 70px 0 70px; }
-
-	label {
-		display: block;
-		font-size: 1.2em;
-		font-weight: 900;
 	}
-
-	.row {
-		margin-right: 70px;
-		margin-left: 70px;
-		p { padding: 0; margin-right: 0; margin-left: 0; }
-		label { display:inline; font-size: 1em; }
-	}
-
-	button {
-		background: $light-blue;
-		color: #fff;
-		text-transform: uppercase;
-		font-weight: 900;
-		padding: 10px 16px 10px 16px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		border: none;
-		border-radius: 6px;
-		box-shadow: none;
-		width: 100%;
-	}
-	button:hover { background: $blue; }
-
 }
 
 /* * * * Profile page style section * * * */
