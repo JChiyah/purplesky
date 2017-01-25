@@ -1,5 +1,9 @@
 $(function() {
 
+	$('#password-edit').on('click', function() {
+    	$('#password-form').slideToggle().css({'visibility': 'visible', 'display': 'block'});
+   });
+
 	$('#skill-edit').on('click', function() {
     	$('#skill-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
     	$('.delete-tag').toggle();
@@ -10,7 +14,7 @@ $(function() {
 		var skill = e.text();
 		$.ajax({
 			type: "POST",
-			url: baseurl + "/Main/delete_skill",
+			url: baseurl + "Main/delete_skill",
 			data: { 
 				'delete_skill' : skill,
 				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
@@ -29,7 +33,7 @@ $(function() {
 		var skill = e.options[e.selectedIndex].text;
 		$.ajax({
 			type: "POST",
-			url: baseurl + "/Main/add_user_skill",
+			url: baseurl + "Main/add_user_skill",
 			data: { 
 				'skill' : skill,
 				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'

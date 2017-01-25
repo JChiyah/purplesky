@@ -1,64 +1,59 @@
+<?php date_default_timezone_set('Europe/London'); ?>
 <div id="home-page">
 	<div class="container">
-		<div class="row">
-			<div class="home-container">
+		<div class="home-container col-md-8 col-sm-12">
+			<div class="content">
 				<h2>Notifications</h2>
 				<hr>
-				<div class="content">
-
-				</div>
-			</div>
-
-			<div class="home-container">
-				<h2>Date</h2>
-				<hr>
-				<div class="content">
-					<p><?php echo date('l jS, F Y', time()); ?></p>
-					<p><?php echo date('h:i a', time()); ?></p>
-				</div>
-			</div>
-			<div class="col-xs-12 col-md-6 col-lg-5">
-				
-			</div>
-		</div>
-	</div>
-		<br>
-		<!--Current projects and Recomended for you-->
-		<div class="row">
-			<div class="col-xs-12 col-md-6 col-lg-4" id="HomeContainer">
-				<h2>Current Projects</h2>
-				<hr>
-				<button>Project A</button>
-				<button>Project B</button>
-				<button>Project C</button>
-			</div>
-			<!--Recomended Section -->
-			<div class="col-xs-12 col-md-6 col-lg-8" id="HomeContainer">
-				<h2>Recomended for you</h2>
-				<hr>
-				<!--TODO fix CSS here for displaying projects - requ gliphys-->
-				<div class="row" id="HomeContainer">
-					<div class="col-xs-12 col-md-6 col-lg-8">
-						<div class="row" id="left">
-							<div class="col-xs-12 col-ms-3 col-md-3 col-lg-4" >
-								<h3>ProjectD</h3>
-								<p>Description</p>
-								<p>Location</p>
-								<p>Project Manager</p>
-								<p>From "StartDate" to "EndDate"</p>
-							</div>
-							<div class="col-xs-12 col-ms-3 col-md-3 col-md-offset-3 col-lg-4 col-lg-offset-4">
-								<h3>ProjectE</h3>
-								<p>Description</p>
-								<p>Location</p>
-								<p>Project Manager</p>
-								<p>From "StartDate" to "EndDate"</p>
-							</div>
-						</div>
+				<div id="notification-set">
+					<div class="notification">
+						<p>Report for <a href="#">Security Reinforcement</a> project is due soon</p>
+						<p class="not-date">An hour ago</p>
+					</div>
+					<hr>
+					<div class="notification">
+						<p>You were assigned to the project <a href="#">Analysis of Resources</a></p>
+						<p class="not-date">23 Jan 2017 at 11:29</p>
+					</div>
+					<hr>
+					<div class="notification">
+						<p>Address updated successfully</p>
+						<p class="not-date">18 Jan 2017 at 9:45</p>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<div class="home-container col-md-4 col-sm-12">
+			<div class="content">
+				<h2>Welcome</h2>
+				<div id="date">
+					<hr>
+					<span id="day"><?php echo date('l', time()); ?></span>
+					<span id="month"><?php echo date('M Y', time()); ?></span>
+					<span id="num-day"><?php echo date('jS', time()); ?></span>
+					<span id="time"><?php echo date('H:i', time()); ?></span>
+					<!--<p><?php echo date('l jS', time()); ?></p>
+					<p><?php echo date('F Y', time()); ?></p>
+					<p><?php echo date('h:i a', time()); ?></p>-->
+				</div>
+			</div>
+		</div>
+		<div class="home-container col-md-4 col-sm-12">
+			<div class="content">
+				<h2>Current Projects</h2>
+				<hr>
+				<a class="g-button" style="display: block;" href="#">Project A</a>
+				<a class="g-button" style="display: block;" href="#">Project B</a>
+				<a class="g-button" style="display: block;" href="#">Project C</a>
+			</div>
+		</div>
+		<div class="home-container col-md-8 col-sm-12">
+			<div class="content">
+				<h2>Recommended for you</h2>
+				<hr>
+				<p>Nothing new to show</p>
+			</div>
+		</div>
 	</div>
-	<p><a href="auth/change_password">Change password</a></p>
-</div>	<!--Container end-->
+</div>

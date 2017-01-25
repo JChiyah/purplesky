@@ -37,14 +37,14 @@
                  <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
                </p>
 
-               <a class="col-xs-6" href="auth/forgot_password"><?php echo lang('login_forgot_password');?></a>
+               <a class="col-xs-6" href="passforgot"><?php echo lang('login_forgot_password');?></a>
             </div>
 
             <div class="row" id="submit-row">
                <?php echo form_submit('submit', lang('login_submit_btn'));?>
                <div id="login-logo">
                   <img src="assets/img/leidos-logo.png" alt="Leidos logo">
-                  <p>Powered by Purple Sky &#169 2016</p>
+                  <p>Powered by Purple Sky &#169 2017</p>
                </div>
             </div>
 

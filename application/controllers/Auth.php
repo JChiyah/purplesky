@@ -153,8 +153,8 @@ class Auth extends CI_Controller {
 			if ($change)
 			{
 				//if the password was successfully changed
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				$this->logout();
+				/*$this->session->set_flashdata('message', $this->ion_auth->messages());
+				$this->logout();*/
 			}
 			else
 			{
@@ -225,7 +225,7 @@ class Auth extends CI_Controller {
 			{
 				// if there were no errors
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect("login", 'refresh'); //we should display a confirmation page here instead of the login page
+				//redirect("login", 'refresh'); //we should display a confirmation page here instead of the login page
 			}
 			else
 			{

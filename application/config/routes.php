@@ -58,3 +58,5 @@ $route['profile'] = 'Main/profile_view';
 $route['create-project'] = 'Main/create_project_view';
 $route['search'] = 'Main/search_view';
 $route['register'] = 'Main/register_view';
+$route['password'] = 'Main/change_password';
+$route['passforgot'] = 'Main/forgot_password';

@@ -1,7 +1,6 @@
 <div id="newProject">
    <div class="container">
       <h1>Create new Project</h1>
-      <!--TODO:: apply correct fonts with bold -->
       <div class="row">
          <h2>Step 1: Project Details</h2>
          <hr>

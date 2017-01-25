@@ -165,7 +165,7 @@ footer {
 }
 
 /* * * * Login style section * * * */
-#login-container {
+#login-container, #change-password, #reset-pass {
 	width: 50%;
 	background: $grey-background2;
 	color: $blue;
@@ -285,6 +285,7 @@ footer {
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
+	text-align: center;
 	font-weight: 900;
 	padding: 10px 16px 10px 16px;
 	margin-top: 15px;
@@ -292,19 +293,20 @@ footer {
 	border-radius: 6px;
 	box-shadow: none;
 }
-.g-button:hover { background: $blue; color: #fff; }
+.g-button:hover { background: $blue; color: #fff; text-decoration: none; }
 
 /* * * * Home style section * * * */
 #home-page {
 	background: $grey-background2;
 
 	.container:first-child {
-		width: 80%;
+		width: 90%;
 	}
 }
 
 .home-container {
-	background: #ffffff;
+	padding: 1em;
+	min-height: 16em;
 
 	h2 {
 		padding-top: 5px;
@@ -320,7 +322,53 @@ footer {
 		margin-top: 0;
 	}
 	.content {
+		background: #ffffff;
+		padding: 1.2em;
+		min-height: 14em;
 
+		#notification-set {
+			hr {
+				height: 0.5px;
+				width: 100%;
+				background: $grey-background;
+				margin: 0;
+			}
+		}
+	}
+}
+
+.notification {
+	p {
+		margin-top: 0.2em;
+		margin-bottom: 0.4em;
+		font-weight: 900;
+		display: inline-block;
+	}
+	.not-date {
+		color: $grey-background2;
+		font-weight: 600;
+		float: right;
+	}
+}
+
+#date {
+	text-align: center;
+	color: $blue;
+	hr { margin-bottom: 0; }
+	
+	#day {
+		font-size: 0.8em;
+	}
+	#month, #time {
+		display: block;
+		font-size: 1.2em;
+		margin: 0;
+	}
+	#num-day {
+		display: block;
+		font-size: 3.2em;
+		font-weight: 900;
+		margin: 0;
 	}
 }
 
@@ -345,14 +393,13 @@ footer {
 
 	#skill-set {
 		select {
-			width: 30%;
+			width: 40%;
 			margin-top: 8px;
 			padding: 8px 12px 8px 12px;
 			border: 1px solid $light-blue;
 			border-radius: 4px;
 			font-weight: 900;
 		}
-
 	}
 
 	#skill-edit {
@@ -374,6 +421,8 @@ footer {
 	#skill-add {
 		visibility: hidden;
 		display: none;
+		background: $grey-background2;
+		padding: 1em 2em;
 	}
 }
 
@@ -419,24 +468,7 @@ footer {
 		margin-top: 0;
 	}
 
-	/*h1 {
-		padding-top: 5px;
-		text-align: left;;
-		font-size: 1.8em;
-		margin-bottom: 0;
-		color: $blue;
-	}
-
-	hr {
-			border: none;
-			height: 1px;
-			background-color: #C0C0C0;
-	}*/
-
 	form {
-		padding: 0 10px 20px 20px;
-
-		p { margin: 10px 70px 0 70px; }
 
 		label {
 			display: block;

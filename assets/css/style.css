@@ -1789,7 +1789,7 @@ footer {
       padding-top: 20px;
       text-align: center; } }
 /* * * * Login style section * * * */
-#login-container {
+#login-container, #change-password, #reset-pass {
   width: 50%;
   background: #E1E5E6;
   color: #1f1646;
@@ -1797,54 +1797,54 @@ footer {
   margin: 100px auto;
   padding-top: 20px;
   border-radius: 4px; }
-  #login-container h1 {
+  #login-container h1, #change-password h1, #reset-pass h1 {
     padding-top: 20px;
     margin-top: 0;
     text-align: center;
     font-size: 2.8em;
     margin-bottom: 0; }
-  #login-container form {
+  #login-container form, #change-password form, #reset-pass form {
     padding: 0 10px 20px 20px; }
-    #login-container form p {
+    #login-container form p, #change-password form p, #reset-pass form p {
       margin: 10px 70px 0 70px; }
-    #login-container form label {
+    #login-container form label, #change-password form label, #reset-pass form label {
       display: block;
       font-size: 1.2em;
       font-weight: 900; }
-    #login-container form input[type=text], #login-container form input[type=password] {
+    #login-container form input[type=text], #login-container form input[type=password], #change-password form input[type=text], #change-password form input[type=password], #reset-pass form input[type=text], #reset-pass form input[type=password] {
       width: 100%;
       margin-top: 8px;
       padding: 8px 12px 8px 12px;
       border: 1px solid transparent;
       border-radius: 4px; }
-    #login-container form input[type=text]:focus, #login-container form input[type=password]:focus {
+    #login-container form input[type=text]:focus, #login-container form input[type=password]:focus, #change-password form input[type=text]:focus, #change-password form input[type=password]:focus, #reset-pass form input[type=text]:focus, #reset-pass form input[type=password]:focus {
       border: 1px solid #0389ff; }
-    #login-container form .row {
+    #login-container form .row, #change-password form .row, #reset-pass form .row {
       margin-right: 70px;
       margin-left: 70px; }
-      #login-container form .row p {
+      #login-container form .row p, #change-password form .row p, #reset-pass form .row p {
         padding: 0;
         margin-right: 0;
         margin-left: 0; }
-      #login-container form .row label {
+      #login-container form .row label, #change-password form .row label, #reset-pass form .row label {
         display: inline;
         font-size: 1em; }
-    #login-container form input[type=checkbox] {
+    #login-container form input[type=checkbox], #change-password form input[type=checkbox], #reset-pass form input[type=checkbox] {
       vertical-align: middle;
       color: #ffffff;
       height: 1.15em;
       width: 1.15em;
       margin-left: 7px;
       cursor: pointer; }
-    #login-container form a {
+    #login-container form a, #change-password form a, #reset-pass form a {
       text-decoration: underline;
       margin-top: 6px;
       padding-right: 0;
       text-align: right;
       color: #0389ff; }
-    #login-container form a:hover {
+    #login-container form a:hover, #change-password form a:hover, #reset-pass form a:hover {
       color: #1f1646; }
-    #login-container form input[type=submit] {
+    #login-container form input[type=submit], #change-password form input[type=submit], #reset-pass form input[type=submit] {
       background: #0389ff;
       color: #fff;
       text-transform: uppercase;
@@ -1854,9 +1854,9 @@ footer {
       border: none;
       border-radius: 6px;
       box-shadow: none; }
-    #login-container form input[type=submit]:hover {
+    #login-container form input[type=submit]:hover, #change-password form input[type=submit]:hover, #reset-pass form input[type=submit]:hover {
       background: #1f1646; }
-    #login-container form #submit-row {
+    #login-container form #submit-row, #change-password form #submit-row, #reset-pass form #submit-row {
       margin-right: 0; }
 
 #login-logo {
@@ -1896,6 +1896,7 @@ footer {
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
+  text-align: center;
   font-weight: 900;
   padding: 10px 16px 10px 16px;
   margin-top: 15px;
@@ -1905,16 +1906,18 @@ footer {
 
 .g-button:hover {
   background: #1f1646;
-  color: #fff; }
+  color: #fff;
+  text-decoration: none; }
 
 /* * * * Home style section * * * */
 #home-page {
   background: #E1E5E6; }
   #home-page .container:first-child {
-    width: 80%; }
+    width: 90%; }
 
 .home-container {
-  background: #ffffff; }
+  padding: 1em;
+  min-height: 16em; }
   .home-container h2 {
     padding-top: 5px;
     margin-top: 0;
@@ -1926,6 +1929,42 @@ footer {
     height: 2px;
     background: #E1E5E6;
     margin-top: 0; }
+  .home-container .content {
+    background: #ffffff;
+    padding: 1.2em;
+    min-height: 14em; }
+    .home-container .content #notification-set hr {
+      height: 0.5px;
+      width: 100%;
+      background: #ECF0F1;
+      margin: 0; }
+
+.notification p {
+  margin-top: 0.2em;
+  margin-bottom: 0.4em;
+  font-weight: 900;
+  display: inline-block; }
+.notification .not-date {
+  color: #E1E5E6;
+  font-weight: 600;
+  float: right; }
+
+#date {
+  text-align: center;
+  color: #1f1646; }
+  #date hr {
+    margin-bottom: 0; }
+  #date #day {
+    font-size: 0.8em; }
+  #date #month, #date #time {
+    display: block;
+    font-size: 1.2em;
+    margin: 0; }
+  #date #num-day {
+    display: block;
+    font-size: 3.2em;
+    font-weight: 900;
+    margin: 0; }
 
 /* * * * Profile page style section * * * */
 .container-block {
@@ -1941,7 +1980,7 @@ footer {
   #skills h1 {
     display: inline; }
   #skills #skill-set select {
-    width: 30%;
+    width: 40%;
     margin-top: 8px;
     padding: 8px 12px 8px 12px;
     border: 1px solid #0389ff;
@@ -1964,7 +2003,9 @@ footer {
     text-decoration: underline; }
   #skills #skill-add {
     visibility: hidden;
-    display: none; }
+    display: none;
+    background: #E1E5E6;
+    padding: 1em 2em; }
 
 .skill-span {
   display: inline-block;
@@ -1985,75 +2026,57 @@ footer {
     display: none; }
 
 /* * * * Create new project page style section * * * */
-#userProfile {
-  	/*h1 {
-  		padding-top: 5px;
-  		text-align: left;;
-  		font-size: 1.8em;
-  		margin-bottom: 0;
-  		color: $blue;
-  	}
-  
-  	hr {
-  			border: none;
-  			height: 1px;
-  			background-color: #C0C0C0;
-  	}*/ }
-  #userProfile #UPContainer {
-    width: 100%;
-    background: #E1E5E6;
-    color: #1f1646;
-    font-family: "Microsoft JhengHei";
-    margin: 10px auto;
-    border-radius: 4px; }
-  #userProfile hr {
-    height: 2px;
-    background: #E1E5E6;
-    margin-top: 0; }
-  #userProfile form {
-    padding: 0 10px 20px 20px; }
-    #userProfile form p {
-      margin: 10px 70px 0 70px; }
-    #userProfile form label {
-      display: block;
-      font-size: 1.2em;
-      font-weight: 900; }
-    #userProfile form input[type=text] {
-      width: 75%;
-      margin-top: 8px;
-      padding: 8px 12px 8px 12px;
-      border: 1px solid transparent;
-      border-radius: 4px; }
-    #userProfile form textarea {
-      width: 100%;
-      margin-top: 8px;
-      padding: 8px 12px 8px 12px;
-      border: 1px solid transparent;
-      border-radius: 4px; }
-    #userProfile form input[type=text]:focus {
-      border: 1px solid #0389ff; }
-    #userProfile form .row {
-      margin-right: 70px;
-      margin-left: 70px; }
-      #userProfile form .row p {
-        padding: 0;
-        margin-right: 0;
-        margin-left: 0; }
-      #userProfile form .row label {
-        display: inline;
-        font-size: 1em; }
-    #userProfile form input[type=submit] {
-      background: #0389ff;
-      color: #fff;
-      text-transform: uppercase;
-      font-weight: 900;
-      padding: 10px 16px 10px 16px;
-      margin-top: 15px;
-      border: none;
-      border-radius: 6px;
-      box-shadow: none; }
-    #userProfile form input[type=submit]:hover {
-      background: #1f1646; }
+#userProfile #UPContainer {
+  width: 100%;
+  background: #E1E5E6;
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  margin: 10px auto;
+  border-radius: 4px; }
+#userProfile hr {
+  height: 2px;
+  background: #E1E5E6;
+  margin-top: 0; }
+#userProfile form label {
+  display: block;
+  font-size: 1.2em;
+  font-weight: 900; }
+#userProfile form input[type=text] {
+  width: 75%;
+  margin-top: 8px;
+  padding: 8px 12px 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+#userProfile form textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 12px 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+#userProfile form input[type=text]:focus {
+  border: 1px solid #0389ff; }
+#userProfile form .row {
+  margin-right: 70px;
+  margin-left: 70px; }
+  #userProfile form .row p {
+    padding: 0;
+    margin-right: 0;
+    margin-left: 0; }
+  #userProfile form .row label {
+    display: inline;
+    font-size: 1em; }
+#userProfile form input[type=submit] {
+  background: #0389ff;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 10px 16px 10px 16px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: none; }
+#userProfile form input[type=submit]:hover {
+  background: #1f1646; }
 
 /* * * * Create new project page and allocate resources style section * * * */
 #newProject #NPcontainer {

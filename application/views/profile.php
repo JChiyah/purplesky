@@ -8,9 +8,7 @@
 				<p><?php echo $user['group']; ?></p>
 				<p><?php echo $user['location']; ?></p>
 				<hr>
-				<form class="" action="index.html" method="post">
-					<input type="submit" name="changePassword" value="Change Password">
-				</form>
+				<a class="g-button" style="width: 50%;" href="password">Change password</a>
 			</div>
 			<!--Skill section-->
 			<section id="skills" class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
@@ -22,17 +20,16 @@
 				<div id="skill-set">
 					<?php echo form_open('', array('id' => 'skill-add')); ?>
 						<?php echo lang('skill_edit_label', 'skills');?>
-						<p>
-	                  <?php echo form_dropdown($skill_select, $skills);?>
-	                  <?php echo form_submit('submit', lang('add_label'), "class='submit'");?>
-						</p>
-
-               <?php echo form_close(); ?>
+	                  	<?php echo form_dropdown($skill_select, $skills);?>
+	                  	<?php echo form_submit('submit', lang('add_label'), "class='submit'");?>
+               		<?php echo form_close(); ?>
 
                <?php 
-               	foreach ($user['skills'] as $skill) {
-               		echo '<span class="skill-span">' . $skill->name . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
-               	}
+               	if(isset($user['skills']) && $user['skills']) {
+	               	foreach ($user['skills'] as $skill) {
+	               		echo '<span class="skill-span">' . $skill->name . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
+	               	}
+	            }
                ?>
 				</div>
 
@@ -43,6 +40,7 @@
 		<!--TODO: come back later and nest the To and FROM date in a single nested row under title to clean up-->
 		<h1>Experience</h1>
 		<hr>
+		<!--
 		<div id="UPContainer">
 			<form class="" action="index.html" method="post">
 				<div class="row">
@@ -82,13 +80,14 @@
 					</div>
 				</div>
 			</form>
-		</div>
+		</div>-->
 		<!--TODO:: ask to find out how to implement this exact section, below is just a placeholder
 		add a div class to display top and bottom block lines, dont use hr-->
-		<hr>
-		<h1>Title of Experience</h1>
-		<label>Description...</label>
-		<label>Skills developed</label>
-		<hr>
+		<p>No previous experiences to show here</p>
 	</div>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
 </div>
