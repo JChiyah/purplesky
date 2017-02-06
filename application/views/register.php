@@ -22,7 +22,7 @@
          <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-12">
               <label>Please fill out all fields</label>
-               <div id="infoMessage"><?php echo $message ?? '';?></div>
+               <div id="infoMessage"><?php if(isset($message)) { echo $message; } else echo ''; ?></div>
 
                <?php echo form_open("main/create_user");?>
 
