@@ -28,12 +28,12 @@ body {
 
 /* * * * General style section * * * */
 a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
+	 -webkit-appearance: button;
+	 -moz-appearance: button;
+	 appearance: button;
 
-    text-decoration: none;
-    color: initial;
+	 text-decoration: none;
+	 color: initial;
 }
 
 /* * * * Navigation bar style section * * * */
@@ -152,16 +152,16 @@ footer {
 }
 
 @media (max-width: 767px) {
-  	footer {
-    	height: 260px;
-    	#footer-right { padding-top: 10px; text-align: center; }
-  	}
+	footer {
+		height: 260px;
+		#footer-right { padding-top: 10px; text-align: center; }
+	}
 }
 @media (min-width: 768px) and (max-width: 1135px) {
-  	footer {
-    	height: 200px;
-    	#footer-right { padding-top: 20px; text-align: center; }
-  	}
+	footer {
+		height: 200px;
+		#footer-right { padding-top: 20px; text-align: center; }
+	}
 }
 
 /* * * * Login style section * * * */
@@ -260,11 +260,11 @@ footer {
 
 @media (max-width: 768px) {
 	body { background: $grey-background2; }
-  	#login-container {
-  		width: 100%;
-  		margin-top: 0px;
+	#login-container {
+		width: 100%;
+		margin-top: 0px;
 
-  		form {
+		form {
 			padding: 0 10px 20px 20px;
 
 			p { margin: 10px 10px 0 10px; }
@@ -278,7 +278,7 @@ footer {
 				text-align: center;
 			}
 		}
-  	}
+	}
 }
 .g-button {
 	background: $light-blue;
@@ -404,8 +404,8 @@ footer {
 
 	#skill-edit {
 		position: absolute;
-    	bottom: 0;
-    	right: 0;
+		bottom: 0;
+		right: 0;
 		padding: 0!important;
 		border: none;
 		display: inline;
@@ -484,7 +484,7 @@ footer {
 			border-radius: 4px;
 		}
 
-		 	textarea {
+			textarea {
 			width: 100%;
 			margin-top: 8px;
 			padding: 8px 12px 8px 12px;
@@ -656,7 +656,7 @@ footer {
 	}
 	input[type=submit]:hover { background: $blue; }
 
-	 	textarea {
+		textarea {
 		width: 100%;
 		margin-top: 8px;
 		margin-left: 12px;

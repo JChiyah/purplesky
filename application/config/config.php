@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/purplesky/';
+//$config['base_url'] = 'http://www2.macs.hw.ac.uk/~fjc3/';
 
 /*
 |--------------------------------------------------------------------------
