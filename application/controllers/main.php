@@ -96,12 +96,27 @@ class Main extends CI_Controller {
 		$this->load->view('html', $d);
 	}
 
+	public function projects_view()
+	{
+		$d['body'] = 'projects';
+		$d['title'] = 'My projects';
+		$d['des'] = 'List of your current projects';
+		$this->load->view('html', $d);
+	}
+
+	public function project_dashboard_view()
+	{
+		$d['body'] = 'project-dashboard';
+		$d['title'] = 'Project dashboard';
+		$d['des'] = 'Dashboard for the project containing relevant details';
+		$this->load->view('html', $d);
+	}
+
 	public function register_view()
 	{
 		$data = $this->create_user_form();
 
 		$this->load->view('register', $this->data);
-
 	}
 
   // change password
