@@ -14,7 +14,7 @@ $(function() {
 		var skill = e.text();
 		$.ajax({
 			type: "POST",
-			url: baseurl + "Main/delete_skill",
+			url: baseurl + "Main/delete_user_skill",
 			data: { 
 				'delete_skill' : skill,
 				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
