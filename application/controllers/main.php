@@ -26,6 +26,7 @@ class Main extends CI_Controller {
 		$this->load->helper(array('url','language'));
 		$this->load->model("System_model");
 		$this->load->model("User_model");
+		$this->load->model("Project_model");
 
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -57,31 +58,21 @@ class Main extends CI_Controller {
 
 		// User-related data
 		$user_id = $this->session->userdata('user_id');
-		$user = $this->ion_auth->user($user_id)->row();
-		$user_groups = $this->ion_auth->get_users_groups($user_id)->row();
 
-		if($user_groups->id == 1 || $user_groups->id == 2) {
-			redirect('index');
-		}
-
-		$d['user'] = array(
-			'name' 		=> $user->first_name . ' ' . $user->last_name,
-			'email'		=> $user->email,
-			'group'		=> $user_groups->description,
-			'location' 	=> $this->User_model->get_user_location($user_id),
-			'skills' 	=> $this->User_model->get_user_skills($user_id)
-		);
+		$d['user'] = $this->User_model->get_user_by_id($user_id);
+		$d['user_skills'] = $this->User_model->get_user_skills($user_id);
+		$d['user_experiences'] = $this->User_model->get_user_experiences($user_id);
 
 		$this->load->view('html', $d);
 	}
 
 	public function create_project_view()
 	{
-	 $user_groups = $this->ion_auth->get_users_groups($this->session->userdata('user_id'))->row();
-
-	 if($user_groups->id != 1 && $user_groups->id != 2) {
-		redirect('index');
-	 }
+		// Check if user has privileges to access this page
+		$user_groups = $this->ion_auth->get_users_groups($this->session->userdata('user_id'))->row();
+		if($user_groups->id != 1 && $user_groups->id != 2) {
+			redirect('index');
+		}
 
 		$d['body'] = 'create-project';
 		$d['title'] = 'Create project';
@@ -94,6 +85,9 @@ class Main extends CI_Controller {
 		$d['body'] = 'search';
 		$d['title'] = 'Search projects';
 		$d['des'] = 'Search projects';
+
+		//var_dump($this->Project_model->search_projects('','Edinburgh'));
+
 		$this->load->view('html', $d);
 	}
 

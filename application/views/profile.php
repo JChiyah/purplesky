@@ -3,10 +3,10 @@
 		<div class="row">
 			<!-- A row with 2 columns -->
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-				<h1><?php echo $user['name']; ?></h1>
-				<p><?php echo $user['email']; ?></p>
-				<p><?php echo $user['group']; ?></p>
-				<p><?php echo $user['location']; ?></p>
+				<h1><?php echo $user->name; ?></h1>
+				<p><?php echo $user->email; ?></p>
+				<p><?php echo ucfirst( $user->group ); ?></p>
+				<?php if(isset($user->location) && $user->location) { echo '<p>' . $user->location . '</p>'; } ?>
 				<hr>
 				<a class="g-button" style="width: 50%;" href="password">Change password</a>
 			</div>
@@ -24,15 +24,14 @@
 	                  	<?php echo form_submit('submit', lang('add_label'), "class='submit'");?>
                		<?php echo form_close(); ?>
 
-               <?php 
-               	if(isset($user['skills']) && $user['skills']) {
-	               	foreach ($user['skills'] as $skill) {
-	               		echo '<span class="skill-span">' . $skill->name . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
-	               	}
-	            }
-               ?>
+	                <?php 
+		               	if(isset($user_skills) && $user_skills) {
+			               	foreach ($user_skills as $skill) {
+			               		echo '<span class="skill-span">' . $skill->name . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
+			               	}
+			            }
+	                ?>
 				</div>
-
 			</section>
 		</div>
 
@@ -40,7 +39,6 @@
 		<!--TODO: come back later and nest the To and FROM date in a single nested row under title to clean up-->
 		<h1>Experience</h1>
 		<hr>
-		<!--
 		<div id="UPContainer">
 			<form class="" action="index.html" method="post">
 				<div class="row">
@@ -80,7 +78,7 @@
 					</div>
 				</div>
 			</form>
-		</div>-->
+		</div>
 		<!--TODO:: ask to find out how to implement this exact section, below is just a placeholder
 		add a div class to display top and bottom block lines, dont use hr-->
 		<p>No previous experiences to show here</p>
