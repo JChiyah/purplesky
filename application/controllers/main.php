@@ -86,7 +86,7 @@ class Main extends CI_Controller {
 		$data['title'] = 'Search projects';
 		$data['des'] = 'Search projects';
 
-		var_dump($this->Project_model->search_projects('aaaaa aaaaa', 'Glasgow'));
+		var_dump($this->User_model->get_user_by_id());
 
 		$this->load->view('html', $data);
 	}
@@ -342,22 +342,5 @@ class Main extends CI_Controller {
 		}
 	}
 
-	/**
-	 * Deletes a user' skill
-	 * Call from a form post using AJAX
-	 *
-	 * @param post('delete_skill')
-	 * @author JChiyah
-	 */
-	public function delete_user_skill() {
-		$skill = $this->input->post('delete_skill');
-
-		// find the current users id
-		$id = $this->session->userdata('user_id');
-
-		if($this->User_model->delete_user_skill($skill, $id)) {
-			echo 'success';
-		}
-	}
 
 }
