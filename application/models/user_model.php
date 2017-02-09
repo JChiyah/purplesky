@@ -5,7 +5,7 @@ class User_model extends CI_Model {
 	/**
 	 * Returns the user id by name
 	 *
-	 * @param $user_id
+	 * @param $name = first_name last_name
 	 * @return mixed boolean / string
 	 * @author JChiyah
 	 */
@@ -13,7 +13,10 @@ class User_model extends CI_Model {
 		
 		$name = trim($name);
 		$name = explode(' ', $name);
-
+		if(sizeof($name) != 2) {
+			// Bad formed name
+			return FALSE;
+		}
 		$query = $this->db->select('id')
 						->where('first_name', $name[0])
 						->where('last_name', $name[1])
@@ -53,7 +56,7 @@ class User_model extends CI_Model {
 		if(isset($result) && $result) {
 			return $result;
 		} else {
-			// User is not staff, thus it is an administrator or other admin group
+			// User is not staff, thus it is an admin group -> return some account info 
 			$query = $this->db->select('email, CONCAT(first_name, " ", last_name) AS name, user_group.name AS group')
 							->where('account.id', $id)
 							->limit(1)
@@ -94,7 +97,7 @@ class User_model extends CI_Model {
 			return $result->name;
 		}
 		// Dummy value in case it fails (Fix later)
-		return 'Madrid';
+		return FALSE;
 	}
 
 	/**
@@ -236,16 +239,18 @@ class User_model extends CI_Model {
 	 *
 	 * @param $user_id
 	 * @param $limit - amount of projects to return
-	 * @return mixed boolean / array of db project object(manager_id, title, description, priority, location, start_date, end_date)
+	 * @return mixed boolean / array of db project object(manager, title, description, priority, location, start_date, end_date)
 	 * @author JChiyah
 	 */
 	public function get_user_projects($id = FALSE, $limit = FALSE) {
 		// if no id was passed use the current users id
 		$id = isset($id) ? $id : $this->session->userdata('user_id');
 
-		$query = $this->db->select('manager_id, title, description, priority, location, start_date, end_date')
+		$query = $this->db->select('CONCAT(first_name, " ", last_name) AS manager, title, description, priority, location.name AS location, start_date, end_date')
 						->where('project_staff.staff_id', $id)
 						->join('project_staff', 'project_staff.project_id=project.project_id')
+						->join('account', 'account.id=project.manager_id')
+						->join('location', 'location.location_id=project.location')
 						->limit($limit)
 						->get('project');
 

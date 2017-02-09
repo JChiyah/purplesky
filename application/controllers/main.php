@@ -37,33 +37,33 @@ class Main extends CI_Controller {
 	{
 		$this->load->helper('url_helper');
 	 
-		$d['body'] = 'home';
-		$d['title'] = 'Home';
-		$d['des'] = 'Homepage with dashboard';
-		$this->load->view('html', $d);
+		$data['body'] = 'home';
+		$data['title'] = 'Home';
+		$data['des'] = 'Homepage with dashboard';
+		$this->load->view('html', $data);
 	}
 
 	public function profile_view()
 	{
-		$d['body'] = 'profile';
-		$d['title'] = 'Profile';
-		$d['des'] = 'User profile';
+		$data['body'] = 'profile';
+		$data['title'] = 'Profile';
+		$data['des'] = 'User profile';
 
-		$d['skill_select'] = array(
+		$data['skill_select'] = array(
 			'name'  => 'skill_select',
 			'id'    => 'skill_select',
 			'value' => $this->form_validation->set_value('skill_select'),
 		);
-		$d['skills'] = $this->System_model->get_skills();
+		$data['skills'] = $this->System_model->get_skills();
 
 		// User-related data
 		$user_id = $this->session->userdata('user_id');
 
-		$d['user'] = $this->User_model->get_user_by_id($user_id);
-		$d['user_skills'] = $this->User_model->get_user_skills($user_id);
-		$d['user_experiences'] = $this->User_model->get_user_experiences($user_id);
+		$data['user'] = $this->User_model->get_user_by_id($user_id);
+		$data['user_skills'] = $this->User_model->get_user_skills($user_id);
+		$data['user_experiences'] = $this->User_model->get_user_experiences($user_id);
 
-		$this->load->view('html', $d);
+		$this->load->view('html', $data);
 	}
 
 	public function create_project_view()
@@ -74,42 +74,44 @@ class Main extends CI_Controller {
 			redirect('index');
 		}
 
-		$d['body'] = 'create-project';
-		$d['title'] = 'Create project';
-		$d['des'] = 'Enter new project details';
-		$this->load->view('html', $d);
+		$data['body'] = 'create-project';
+		$data['title'] = 'Create project';
+		$data['des'] = 'Enter new project details';
+		$this->load->view('html', $data);
 	}
 
 	public function search_view()
 	{
-		$d['body'] = 'search';
-		$d['title'] = 'Search projects';
-		$d['des'] = 'Search projects';
+		$data['body'] = 'search';
+		$data['title'] = 'Search projects';
+		$data['des'] = 'Search projects';
 
-		//var_dump($this->Project_model->search_projects('','Edinburgh'));
+		var_dump($this->Project_model->search_projects('aaaaa aaaaa', 'Glasgow'));
 
-		$this->load->view('html', $d);
+		$this->load->view('html', $data);
 	}
 
 	public function projects_view()
 	{
-		$d['body'] = 'projects';
-		$d['title'] = 'My projects';
-		$d['des'] = 'List of your current projects';
-		$this->load->view('html', $d);
+		$data['body'] = 'projects';
+		$data['title'] = 'My projects';
+		$data['des'] = 'List of your current projects';
+		$data['projects'] = $this->User_model->get_user_projects($this->session->userdata('user_id'));
+		$this->load->view('html', $data);
 	}
 
 	public function project_dashboard_view()
 	{
-		$d['body'] = 'project-dashboard';
-		$d['title'] = 'Project dashboard';
-		$d['des'] = 'Dashboard for the project containing relevant details';
-		$this->load->view('html', $d);
+		$data['body'] = 'project-dashboard';
+		$data['title'] = 'Project dashboard';
+		$data['des'] = 'Dashboard for the project containing relevant details';
+		// get_project_dashboard()
+		$this->load->view('html', $data);
 	}
 
 	public function register_view()
 	{
-		$data = $this->create_user_form();
+		$dataata = $this->create_user_form();
 
 		$this->load->view('register', $this->data);
 	}
@@ -336,38 +338,13 @@ class Main extends CI_Controller {
 		{
 			$data = $this->create_user_form();
 
-			$this->load->view('register', $this->data);
+			$this->load->view('register', $data);
 		}
-	}
-
-	/**
-	 * Adds a user' skill
-	 *	Call from a form post using AJAX
-	 *
-	 * @param post('skill')
-	 * @author JChiyah
-	 */
-	public function add_user_skill() {
-		$skill = $this->input->post('skill');
-
-		// find the current users id
-		$id = $this->session->userdata('user_id');
-
-		// send value to database
-		if ($this->User_model->add_user_skill($skill, $id)) {
-			// Print value
-			echo '<span class="skill-span">' . $skill . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
-		} else {
-			// Failed to add -> Duplicated entry
-
-
-		}
-
 	}
 
 	/**
 	 * Deletes a user' skill
-	 *	Call from a form post using AJAX
+	 * Call from a form post using AJAX
 	 *
 	 * @param post('delete_skill')
 	 * @author JChiyah
