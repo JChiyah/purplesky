@@ -48,9 +48,10 @@
 
 						<div class="row">
 							<div class="col-sm-12 col-md-6">
-								<label>Project Title:</label>
+								<label>Project Title:</label><br>
 								<input type="text" name="" value="" placeholder="Project Title">
 								</div>
+								
 								<div class="row">
 									<div class="col-sm-12 col-md-6">
 										<div class="row date-row">
