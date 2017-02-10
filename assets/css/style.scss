@@ -523,13 +523,33 @@ footer {
 /* * * * Create new project page and allocate resources style section * * * */
 #newProject {
 
+	padding: 20px 30px 30px 30px;
+
 	#NPcontainer {
 	width: 100%;
 	background: $grey-background2;
 	color: $blue;
 	font-family: $microsoft-font;
-	margin: 10px auto;
+	margin: 80px auto;
 	border-radius: 4px;
+	text-align: left;
+	padding: 1em;
+
+	}
+
+	label, p {
+	display: block;
+	font-size: 1.2em;
+	font-weight: 900;
+	}
+
+	.container-box {
+		background: $grey-background2;
+		width: 95%;
+		margin: 10px auto;
+		padding: 1em;
+		text-align: left;
+		border-radius: 4px;
 	}
 
 	h1 {
@@ -553,46 +573,96 @@ footer {
 			height: 2px;
 			background-color: #C0C0C0;
 	}
+
+	.date-row {
+		margin: 0.8em 1em;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	button {
+		background: $light-blue;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 900;
+		font-size: 0.9em;
+		padding: 8px 12px 8px 12px;
+		border: none;
+		border-radius: 4px;
+		box-shadow: none;
+	}
+	button:hover { background: $blue; }
+	button:focus { background: $light-blue; }
+
+	hr {
+			border: none;
+			height: 1px;
+			background-color: #C0C0C0;
+	}
+
 	form {
-		padding: 0 10px 20px 20px;
-
-		p { margin: 10px 70px 0 70px; }
-
-		label {
-			display: block;
-			font-size: 1.2em;
-			font-weight: 900;
-		}
+		padding: 10px 10px 20px 20px;
 
 		input[type=text] {
-			width: 50%;
+			width: 80%;
 			margin-top: 8px;
 			padding: 8px 12px 8px 12px;
 			border: 1px solid transparent;
 			border-radius: 4px;
 		}
-
 		input[type=text]:focus { border: 1px solid $light-blue; }
-
-		.row {
-			margin-right: 70px;
-			margin-left: 70px;
-			p { padding: 0; margin-right: 0; margin-left: 0; }
-			label { display:inline; font-size: 1em; }
-		}
 
 		input[type=submit] {
 			background: $light-blue;
 			color: #fff;
 			text-transform: uppercase;
 			font-weight: 900;
-			padding: 10px 16px 10px 16px;
-			margin-top: 15px;
+			padding: 10px 38px;
+			margin-top: 30px;
 			border: none;
 			border-radius: 6px;
 			box-shadow: none;
 		}
+
+		input[type=date] {
+			width: 70%;
+			text-align: left;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+
 		input[type=submit]:hover { background: $blue; }
+
+		textarea {
+		width: 90%;
+		margin-top: 8px;
+		padding: 8px 12px 8px 12px;
+		border: 1px solid transparent;
+		border-radius: 4px;
+		}
+
+		.row {
+			margin-right: 1.5em;
+			margin-left: 1.5em;
+		}
+
+		label {
+			display: block;
+			font-size: 1.2em;
+			font-weight: 900;
+			margin-top: 8px;
+		}
+
+		select {
+		width: 40%;
+		margin-top: 8px;
+		padding: 8px 12px 8px 12px;
+		border: 1px solid $light-blue;
+		border-radius: 4px;
+		font-weight: 900;
+		}
 	}
 }
 
@@ -872,7 +942,7 @@ section#quick-search{
 			text-transform: uppercase;
 			font-weight: 900;
 			padding: 10px 38px;
-			margin-top: 15px;
+			margin-top: 28px;
 			border: none;
 			border-radius: 6px;
 			box-shadow: none;
@@ -893,6 +963,17 @@ section#quick-search{
 		padding: 8px 12px 8px 12px;
 		border: 1px solid transparent;
 		border-radius: 4px;
+		}
+
+		.row {
+		margin-right: 1.2em;
+		margin-left: 1.2em;
+		}
+		label {
+			display: block;
+			font-size: 1.2em;
+			font-weight: 900;
+			margin-top: 8px;
 		}
 	}
 }

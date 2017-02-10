@@ -46,37 +46,42 @@
 				<form class="" method="post">
 					<div class="container-fluid">
 
+						<div class="row">
 							<div class="col-sm-12 col-md-6">
 								<label>Project Title:</label>
 								<input type="text" name="" value="" placeholder="Project Title">
-							</div>
-							<div class="col-sm-12 col-md-6">
-							 	<div class="row date-row">
-									<div class="col-md-3">
-										<label>From:</label>
-									</div>
-									<div class="col-md-9">
-										<input type="date" name="" value="">
-									</div>
-							 </div>
-							<div class="row date-row">
-								<div class="col-md-3">
-									<label>To:</label>
 								</div>
-								<div class="col-md-9">
-									<input type="date" name="" value="">
+								<div class="row">
+									<div class="col-sm-12 col-md-6">
+										<div class="row date-row">
+											<div class="col-md-3">
+												<label>From:</label>
+											</div>
+										<div class="col-md-9">
+											<input type="date" name="" value="">
+										</div>
+									 </div>
+									 <div class="row date-row">
+										 <div class="col-md-3">
+												<label>To:</label>
+											</div>
+											<div class="col-md-9">
+												<input type="date" name="" value="">
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
 
-						<!--div class="row"-->
-							<div class="col-xs-12 col-md-12">
-								<label>Description:</label>
-								<textarea name="Description" rows="5" cols="100"></textarea>
-							</div>
-						<!--/div-->
 
-						<!--div class="row"-->
+						<div class="row">
+	            <div class="col-sm-12 col-md-8">
+	              <label>Description:</label><br>
+	              <textarea rows="5" cols="10" name="" value="" required></textarea>
+	            </div>
+	          </div>
+
+						<div class="row">
 							<div class="col-xs-12 col-md-6">
 								<label>Skills Developed:</label>
 								<input type="text" name="skillsDeveloped" value="Type skill here...">
@@ -85,7 +90,7 @@
 							<div class="col-xs-12 col-md-6">
 								<input type="submit" name="addExp" value="Add Experience">
 							</div>
-						<!--/div-->
+						</div>
 
 					</div>
 				</form>

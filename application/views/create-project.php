@@ -1,52 +1,74 @@
 <div id="newProject">
    <div class="container">
+     <!--TODO:: responsive issues with mobile and requires rescaling in css-->
       <h1>Create new Project</h1>
-      <div class="row">
-         <h2>Step 1: Project Details</h2>
-         <hr>
-         <div class="col-xs-12 col-sm-6 col-md-12" id="NPcontainer">
-            <p>Please fill out all fields.</p>
-            <form class="" action="index.html" method="post">
-               <p>
-                  <label>Title:</label> <br>
-                  <input type="text" name="title" value="" required>
-               </p>
-               <p>
-                  <label>Description:</label><br>
-                  <textarea rows="5" cols="50" name="" value="" required></textarea>
-               </p>
-               <p>
+      <h2>Step 1: Project Details</h2> <hr>
+
+      <div class="container-box container-fluid">
+        <form class="" action="index.html" method="post">
+          <p>Please fill out all fields.</p>
+
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <label>Title:</label>
+              <input type="text" name="title" value="" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 col-md-8">
+              <label>Description:</label>
+              <textarea rows="5" cols="10" name="" value="" required></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="row date-row">
+                <div class="col-md-3">
                   <label>From:</label>
-                  <input type="date" name="fromDate" value="DD/MM/YYYY">
-               </p>
-               <p>
+                </div>
+              <div class="col-md-9">
+                <input type="date" name="" value="">
+              </div>
+             </div>
+             <div class="row date-row">
+               <div class="col-md-3">
                   <label>To:</label>
-                  <input type="date" name="toDate" value="DD/MM/YYYY">
-               </p>
-               <p>
-                  <label>Location:</label><br>
-                  <select name="location">
-                  <!--TODO pull data from database for drop down selection - need to validate input(required)-->
-                    <option value="select">Select</option>
-                    <option value="test 1">Test 1</option>
-                    <option value="test 2">Test 2</option>
-                  </select>
-               </p>
-               <!--TODO::fix css misplacment error-->
-               <!--div class="row">
-                 <div class="col-xs-12 col-sm-6 col-md-5"-->
-               <p>
-                  <label>Priority:</label> <br>
-                  <select name="priority">
-                     <option value="normal">Normal</option>
-                     <option value="high">High</option>
-                  </select>
-               </p>
+                </div>
+                <div class="col-md-9">
+                  <input type="date" name="" value="">
+                </div>
+              </div>
+            </div>
+          </div>
 
-               <input type="submit" name="submit" value="continue">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <label>Location:</label>
+              <select name="location">
+                <option value="select">Select</option>
+                <option value="test 1">Test 1</option>
+                <option value="test 2">Test 2</option>
+              </select>
+          </div>
+        </div>
 
-            </form>
-         </div>
-      </div>
-   </div>
-</div>
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <label>Priority:</label>
+            <select name="priority">
+               <option value="normal">Normal</option>
+               <option value="high">High</option>
+            </select>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <input type="submit" name="submit" value="continue">
+          </div>
+        </div>
+
+      </form>
+
+      </div><!--container-box-->
+   </div><!--container-->
+</div><!--npend-->
