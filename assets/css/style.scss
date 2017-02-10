@@ -355,7 +355,7 @@ footer {
 	text-align: center;
 	color: $blue;
 	hr { margin-bottom: 0; }
-	
+
 	#day {
 		font-size: 0.8em;
 	}
@@ -452,6 +452,10 @@ footer {
 
 /* * * * Create new project page style section * * * */
 #userProfile {
+
+	#verticalLine {
+  	border-right: solid #C0C0C0;
+}
 
 	#UPContainer {
 		width: 100%;
@@ -807,6 +811,92 @@ section#quick-search{
 	}
 }
 
+#Experience{
+	width: 100%;
+	color: $blue;
+	font-family: $microsoft-font;
+	margin: 80px auto;
+
+	.date-row {
+		margin: 0.8em 1em;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	h1 {
+		text-align: left;
+		font-size: 1.8em;
+	}
+
+	button {
+		background: $light-blue;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 900;
+		font-size: 0.9em;
+		padding: 8px 12px 8px 12px;
+		border: none;
+		border-radius: 4px;
+		box-shadow: none;
+	}
+	button:hover { background: $blue; }
+	button:focus { background: $light-blue; }
+
+	.container-box {
+		background: $grey-background2;
+		width: 95%;
+		margin: 10px auto;
+		padding: 1em;
+		text-align: left;
+	}
+
+	hr {
+			border: none;
+			height: 1px;
+			background-color: #C0C0C0;
+	}
+
+	form {
+		input[type=text] {
+			margin-top: 8px;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+		input[type=text]:focus { border: 1px solid $light-blue; }
+
+		input[type=submit] {
+			background: $light-blue;
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 900;
+			padding: 10px 38px;
+			margin-top: 15px;
+			border: none;
+			border-radius: 6px;
+			box-shadow: none;
+		}
+
+		input[type=date] {
+			text-align: left;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+
+		input[type=submit]:hover { background: $blue; }
+
+		textarea {
+		width: 80%;
+		margin-top: 8px;
+		padding: 8px 12px 8px 12px;
+		border: 1px solid transparent;
+		border-radius: 4px;
+		}
+	}
+}
+
 /**** My projects section - Aisha code here ****/
 #current-projects {
 
@@ -814,5 +904,5 @@ section#quick-search{
 
 /**** Project Dashboard section - Daniel code here ****/
 #project-dashboard {
-	
+
 }

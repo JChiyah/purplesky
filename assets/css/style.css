@@ -2026,6 +2026,8 @@ footer {
     display: none; }
 
 /* * * * Create new project page style section * * * */
+#userProfile #verticalLine {
+  border-right: solid #C0C0C0; }
 #userProfile #UPContainer {
   width: 100%;
   background: #E1E5E6;
@@ -2313,6 +2315,74 @@ section#quick-search {
       #advanced-search .container-fluid .date-row label {
         display: block;
         text-align: right; }
+
+#Experience {
+  width: 100%;
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  margin: 80px auto; }
+  #Experience .date-row {
+    margin: 0.8em 1em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+  #Experience h1 {
+    text-align: left;
+    font-size: 1.8em; }
+  #Experience button {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 0.9em;
+    padding: 8px 12px 8px 12px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none; }
+  #Experience button:hover {
+    background: #1f1646; }
+  #Experience button:focus {
+    background: #0389ff; }
+  #Experience .container-box {
+    background: #E1E5E6;
+    width: 95%;
+    margin: 10px auto;
+    padding: 1em;
+    text-align: left; }
+  #Experience hr {
+    border: none;
+    height: 1px;
+    background-color: #C0C0C0; }
+  #Experience form input[type=text] {
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #Experience form input[type=text]:focus {
+    border: 1px solid #0389ff; }
+  #Experience form input[type=submit] {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 38px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none; }
+  #Experience form input[type=date] {
+    text-align: left;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #Experience form input[type=submit]:hover {
+    background: #1f1646; }
+  #Experience form textarea {
+    width: 80%;
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
 
 /**** My projects section - Aisha code here ****/
 /**** Project Dashboard section - Daniel code here ****/
