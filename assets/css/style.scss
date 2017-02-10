@@ -818,6 +818,42 @@ section#quick-search{
 	color: $blue;
 	font-family: $microsoft-font;
 	margin: 80px auto;
+	font-size: 1.2em;
+		h1{
+			text-align: center;
+			font-size: 2em;
 
-	
+		}
+		h2{
+			text-align: center;
+			font-size: 1.6em;
+		}
+		th{
+			font-size: 1.6em;
+			text-align: left;
+			width:25%;
+		}
+		input[type=submit] {
+			background: $light-blue;
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 900;
+			padding: 10px 38px;
+			margin-top: 15px;
+			border: none;
+			border-radius: 6px;
+			box-shadow: none;
+		}
+	#bottomtotal{
+		text-align: right;
+		font-size: 1.6em;
+	}
+	#toptableleft{
+		width: 50%;
+		text-align: left;
+	}
+	#toptableright{
+		width: 50%;
+		text-align: right;
+	}
 }
