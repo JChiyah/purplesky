@@ -100,19 +100,19 @@ class Main extends CI_Controller {
 		$data['page_description'] = 'List of your current projects';
 		$data['projects'] = $this->User_model->get_user_projects($this->session->userdata('user_id'));
 
-		$this->load->model("Ion_auth_model");
-		var_dump($this->Ion_auth_model->update_last_login($this->session->userdata('user_id')));
-		var_dump(time());
-
 		$this->load->view('html', $data);
 	}
 
-	public function project_dashboard_view()
+	public function project_dashboard_view($project_id)
 	{
 		$data['page_body'] = 'project-dashboard';
 		$data['page_title'] = 'Project dashboard';
 		$data['page_description'] = 'Dashboard for the project containing relevant details';
-		// get_project_dashboard()
+
+		$data['project'] = $this->Project_model->get_project_by_id($project_id);
+		$data['staff'] = $this->Project_model->get_project_staff($project_id);
+		$dta['dashboard'] = $this->Project_model->get_project_dashboard($project_id);
+
 		$this->load->view('html', $data);
 	}
 

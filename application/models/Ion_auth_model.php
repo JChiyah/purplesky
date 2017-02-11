@@ -241,6 +241,9 @@ class Ion_auth_model extends CI_Model
 		}
 
 		$this->trigger_events('model_constructor');
+
+		// Important to avoid unwanted values, JChiyah
+		date_default_timezone_set('Europe/London');
 	}
 
 	/**
@@ -1679,8 +1682,7 @@ class Ion_auth_model extends CI_Model
 
 		$this->trigger_events('extra_where');
 
-		/******* FIX TIME BUG HERE *******/
-		$this->db->update($this->tables['users'], array('last_login' => '2017-02-09 22:12:31'), array('id' => $id));
+		$this->db->update($this->tables['users'], array('last_login' => date("Y-m-d H:i:s")), array('id' => $id));
 
 		return $this->db->affected_rows() == 1;
 	}
