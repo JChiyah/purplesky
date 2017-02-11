@@ -35,11 +35,11 @@
 <html lang="en-GB">
 	<head>
 		<meta charset="utf-8">
-		<meta name="description" content="<?php if(isset($des)) { echo $des; } else echo ''; ?>">
+		<meta name="description" content="<?php echo isset($page_description) ? $page_description : ''; ?>">
 		<meta name="keywords" content="">
 		<meta name="viewport" content="initial-scale=1">
 
-		<title><?php if(isset($title)) { echo $title; } else echo ''; ?></title>
+		<title><?php echo isset($page_title) ? $page_title : ''; ?></title>
 		
 		<script src="https://use.fontawesome.com/eedb59a6cd.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -48,7 +48,7 @@
 	</head>
 	<body>
 		<?php $this->load->view('inc/navbar'); ?>
-		<?php $this->load->view($body); ?>
+		<?php $this->load->view($page_body); ?>
 		<?php $this->load->view('inc/footer'); ?>
 		<!-- CodeIgniter does not recognise base_url() method from outside files (e.g. Javascript files)
 				thus I defined here a var with that value for later use in external files. -->

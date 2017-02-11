@@ -123,7 +123,7 @@ CREATE TABLE project (
 	description varchar(255) NOT NULL,
 	priority enum('normal', 'high') NOT NULL,
 	location integer NOT NULL,
-	budget decimal NOT NULL,
+	budget decimal(10,2) NOT NULL,
 	start_date date NOT NULL,
 	end_date date NOT NULL,
 	FOREIGN KEY (manager_id) REFERENCES staff(staff_id) ON DELETE CASCADE,
@@ -177,7 +177,9 @@ CREATE TABLE project_staff (
 	staff_id integer NOT NULL,
 	role varchar(50) NOT NULL,
 	assigned_at datetime NOT NULL,
-	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE
+	PRIMARY KEY (project_id, staff_id),
+	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE,
+	FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 ) ENGINE=InnoDB;
 
 # Create project_staff_skills table
@@ -186,7 +188,9 @@ CREATE TABLE project_staff_skills (
 	staff_id integer NOT NULL,
 	skill_id integer NOT NULL,
 	PRIMARY KEY (project_id, staff_id, skill_id),
-	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE
+	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE,
+	FOREIGN KEY (staff_id) REFERENCES staff(staff_id),
+	FOREIGN KEY (skill_id) REFERENCES skill(skill_id)
 ) ENGINE=InnoDB;
 
 # Create past_staff table

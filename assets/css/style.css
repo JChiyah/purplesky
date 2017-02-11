@@ -2025,7 +2025,8 @@ footer {
     vertical-align: center;
     display: none; }
 
-/* * * * Create new project page style section * * * */
+#userProfile #verticalLine {
+  border-right: solid #C0C0C0; }
 #userProfile #UPContainer {
   width: 100%;
   background: #E1E5E6;
@@ -2078,68 +2079,122 @@ footer {
 #userProfile form input[type=submit]:hover {
   background: #1f1646; }
 
+#experience-add {
+  visibility: hidden;
+  display: none; }
+
+/* * * * Create new project page style section * * * */
 /* * * * Create new project page and allocate resources style section * * * */
-#newProject #NPcontainer {
-  width: 100%;
-  background: #E1E5E6;
-  color: #1f1646;
-  font-family: "Microsoft JhengHei";
-  margin: 10px auto;
-  border-radius: 4px; }
-#newProject h1 {
-  padding-top: 20px;
-  margin-top: 0;
-  text-align: center;
-  font-size: 2.8em;
-  margin-bottom: 0; }
-#newProject h2 {
-  padding-top: 5px;
-  margin-top: 0;
-  text-align: left;
-  font-size: 1.8em;
-  margin-bottom: 0; }
-#newProject hr {
-  border: none;
-  height: 2px;
-  background-color: #C0C0C0; }
-#newProject form {
-  padding: 0 10px 20px 20px; }
-  #newProject form p {
-    margin: 10px 70px 0 70px; }
-  #newProject form label {
+#newProject {
+  padding: 20px 30px 30px 30px; }
+  #newProject #NPcontainer {
+    width: 100%;
+    background: #E1E5E6;
+    color: #1f1646;
+    font-family: "Microsoft JhengHei";
+    margin: 80px auto;
+    border-radius: 4px;
+    text-align: left;
+    padding: 1em; }
+  #newProject label, #newProject p {
     display: block;
     font-size: 1.2em;
     font-weight: 900; }
-  #newProject form input[type=text] {
-    width: 50%;
-    margin-top: 8px;
-    padding: 8px 12px 8px 12px;
-    border: 1px solid transparent;
+  #newProject .container-box {
+    background: #E1E5E6;
+    width: 95%;
+    margin: 10px auto;
+    padding: 1em;
+    text-align: left;
     border-radius: 4px; }
-  #newProject form input[type=text]:focus {
-    border: 1px solid #0389ff; }
-  #newProject form .row {
-    margin-right: 70px;
-    margin-left: 70px; }
-    #newProject form .row p {
-      padding: 0;
-      margin-right: 0;
-      margin-left: 0; }
-    #newProject form .row label {
-      display: inline;
-      font-size: 1em; }
-  #newProject form input[type=submit] {
+  #newProject h1 {
+    padding-top: 20px;
+    margin-top: 0;
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 0; }
+  #newProject h2 {
+    padding-top: 5px;
+    margin-top: 0;
+    text-align: left;
+    font-size: 1.8em;
+    margin-bottom: 0; }
+  #newProject hr {
+    border: none;
+    height: 2px;
+    background-color: #C0C0C0; }
+  #newProject .date-row {
+    margin: 0.8em 1em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+  #newProject button {
     background: #0389ff;
     color: #fff;
     text-transform: uppercase;
     font-weight: 900;
-    padding: 10px 16px 10px 16px;
-    margin-top: 15px;
+    font-size: 0.9em;
+    padding: 8px 12px 8px 12px;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     box-shadow: none; }
-  #newProject form input[type=submit]:hover {
+  #newProject button:hover {
     background: #1f1646; }
+  #newProject button:focus {
+    background: #0389ff; }
+  #newProject hr {
+    border: none;
+    height: 1px;
+    background-color: #C0C0C0; }
+  #newProject form {
+    padding: 10px 10px 20px 20px; }
+    #newProject form input[type=text] {
+      width: 80%;
+      margin-top: 8px;
+      padding: 8px 12px 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px; }
+    #newProject form input[type=text]:focus {
+      border: 1px solid #0389ff; }
+    #newProject form input[type=submit] {
+      background: #0389ff;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 900;
+      padding: 10px 38px;
+      margin-top: 30px;
+      border: none;
+      border-radius: 6px;
+      box-shadow: none; }
+    #newProject form input[type=date] {
+      width: 70%;
+      text-align: left;
+      padding: 8px 12px 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px; }
+    #newProject form input[type=submit]:hover {
+      background: #1f1646; }
+    #newProject form textarea {
+      width: 90%;
+      margin-top: 8px;
+      padding: 8px 12px 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px; }
+    #newProject form .row {
+      margin-right: 1.5em;
+      margin-left: 1.5em; }
+    #newProject form label {
+      display: block;
+      font-size: 1.2em;
+      font-weight: 900;
+      margin-top: 8px; }
+    #newProject form select {
+      width: 40%;
+      margin-top: 8px;
+      padding: 8px 12px 8px 12px;
+      border: 1px solid #0389ff;
+      border-radius: 4px;
+      font-weight: 900; }
 
 /* * * * addSkills page style section * * * */
 #addSkill #ASContainer {
@@ -2313,6 +2368,82 @@ section#quick-search {
       #advanced-search .container-fluid .date-row label {
         display: block;
         text-align: right; }
+
+#Experience {
+  width: 100%;
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  margin: 80px auto; }
+  #Experience .date-row {
+    margin: 0.8em 1em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+  #Experience h1 {
+    text-align: left;
+    font-size: 1.8em; }
+  #Experience button {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 0.9em;
+    padding: 8px 12px 8px 12px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none; }
+  #Experience button:hover {
+    background: #1f1646; }
+  #Experience button:focus {
+    background: #0389ff; }
+  #Experience .container-box {
+    background: #E1E5E6;
+    width: 95%;
+    margin: 10px auto;
+    padding: 1em;
+    text-align: left; }
+  #Experience hr {
+    border: none;
+    height: 1px;
+    background-color: #C0C0C0; }
+  #Experience form input[type=text] {
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #Experience form input[type=text]:focus {
+    border: 1px solid #0389ff; }
+  #Experience form input[type=submit] {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 38px;
+    margin-top: 28px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none; }
+  #Experience form input[type=date] {
+    text-align: left;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #Experience form input[type=submit]:hover {
+    background: #1f1646; }
+  #Experience form textarea {
+    width: 80%;
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #Experience form .row {
+    margin-right: 1.2em;
+    margin-left: 1.2em; }
+  #Experience form label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 900;
+    margin-top: 8px; }
 
 /**** My projects section - Aisha code here ****/
 /**** Project Dashboard section - Daniel code here ****/

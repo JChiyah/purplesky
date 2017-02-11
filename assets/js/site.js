@@ -1,20 +1,11 @@
 $(function() {
 
-	$('#password-edit').on('click', function() {
-    	$('#password-form').slideToggle().css({'visibility': 'visible', 'display': 'block'});
-   });
-
-	$('#skill-edit').on('click', function() {
-    	$('#skill-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
-    	$('.delete-tag').toggle();
-   });
-
 	$('body').on('click', '.delete-tag', function() {
 		var e = $(this).parent();
 		var skill = e.text();
 		$.ajax({
 			type: "POST",
-			url: baseurl + "Main/delete_user_skill",
+			url: baseurl + "User/delete_user_skill",
 			data: { 
 				'delete_skill' : skill,
 				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
@@ -25,15 +16,15 @@ $(function() {
 				}
 			}
 		});
-   });
+	});
 
-	$(".submit").click(function(event) {
+	$("#skill-submit").click(function(event) {
 		event.preventDefault();
 		var e = document.getElementById("skill_select");
 		var skill = e.options[e.selectedIndex].text;
 		$.ajax({
 			type: "POST",
-			url: baseurl + "Main/add_user_skill",
+			url: baseurl + "User/add_user_skill",
 			data: { 
 				'skill' : skill,
 				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
@@ -48,17 +39,38 @@ $(function() {
 		});
 	});
 
-	$('#search-toggle').on('click', function() {
-		//$('#quick-search').slideToggle().css({'visibility': 'visible', 'display': 'block'});
-    	$('#advanced-search').slideToggle(500, function() {
-        if ($('#advanced-search').is(':visible')) {
-             $('#search-toggle').text('Close advanced search');                
-        } else {
-             $('#search-toggle').text('Open advanced search');                
-        }        
-    });
-    	//$('#search-toggle').html('Hi');
-    	//$('.search-toggle').toggle();
-   });
+	$("#experience-submit").click(function(event) {
+		event.preventDefault();
+		// form validation
+		var start_date = $('#start_date').value;
+		var end_date = $('#end_date').value;
+		var title = $('#title').value;
+		var description = $('#description').value;
+		var role = $('#role').value;
+
+		if(start_date && end_date && title && description && role) {
+			$.ajax({
+				type: "POST",
+				url: baseurl + "User/add_user_experience",
+				data: { 
+					'start_date' : start_date,
+					'end_date' : end_date,
+					'title' : title,
+					'description' : description,
+					'role' : role,
+					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+				},
+				success: function(res) {
+					if (res) {
+						alert(res);
+					} else {
+						alert(res);
+					}
+				}
+			});
+		} else {
+			$('#experience-msg').text('Please fill out all fields');
+		}
+	});
 
 });

@@ -33,9 +33,6 @@
 					<span id="month"><?php echo date('M Y', time()); ?></span>
 					<span id="num-day"><?php echo date('jS', time()); ?></span>
 					<span id="time"><?php echo date('H:i', time()); ?></span>
-					<!--<p><?php echo date('l jS', time()); ?></p>
-					<p><?php echo date('F Y', time()); ?></p>
-					<p><?php echo date('h:i a', time()); ?></p>-->
 				</div>
 			</div>
 		</div>
