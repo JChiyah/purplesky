@@ -62,7 +62,7 @@ class Project_model extends CI_Model {
 						->join('account', 'account.id=staff.staff_id')
 						->get('project_staff');
 
-		$result = $query->row();
+		$result = $query->result();
 
 		if(isset($result) && !empty($result)) {
 			return $result;

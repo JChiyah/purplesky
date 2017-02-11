@@ -111,7 +111,7 @@ class Main extends CI_Controller {
 
 		$data['project'] = $this->Project_model->get_project_by_id($project_id);
 		$data['staff'] = $this->Project_model->get_project_staff($project_id);
-		$dta['dashboard'] = $this->Project_model->get_project_dashboard($project_id);
+		$data['dashboard'] = $this->Project_model->get_project_dashboard($project_id);
 
 		$this->load->view('html', $data);
 	}
