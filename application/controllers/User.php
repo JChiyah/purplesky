@@ -37,7 +37,6 @@ class User extends CI_Controller {
 		} else {
 			// Failed to add -> Duplicated entry
 
-
 		}
 	}
 
@@ -59,5 +58,48 @@ class User extends CI_Controller {
 		}
 	}
 
+	/**
+	 * Adds a user' experience
+	 * Call from a form post using AJAX
+	 *
+	 * @param experience form
+	 * @author JChiyah
+	 */
+	public function add_user_experience() {
+
+		// get and format input
+		$id = $this->session->userdata('user_id');
+		
+		// TO-DO - protect from injection
+		$additional_data = array(
+			'start_date' => $this->input->post('start_date'),
+			'end_date'	=> $this->input->post('end_date'),
+			'title'		=> $this->parse_input($this->input->post('title')),
+			'description' => $this->parse_input($this->input->post('description')),
+			'role'		=> $this->parse_input($this->input->post('role'))
+		);
+
+		/*** HERE ***/
+
+		if($this->User_model->add_user_experiences($id, $additional_data)) {
+			echo 'okay';
+		} else {
+			echo 'nope';
+		}
+		
+	}
+
+	/**
+	 * Helper function to parse any simple text input
+	 *
+	 * @param $input
+	 * @author JChiyah
+	 */
+	protected function parse_input($input) {
+		$input = trim($input);
+		$input = stripslashes($input);
+		$input = htmlspecialchars($input);
+		return $input;
+	}
 
 }

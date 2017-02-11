@@ -211,6 +211,25 @@ class User_model extends CI_Model {
 	}
 
 	/**
+	 * Add a new user's experience
+	 *
+	 * @param $user_id
+	 * @return mixed boolean / object(start_date, end_date, project_id, title, description, role)
+	 * @author JChiyah
+	 */
+	public function add_user_experiences($id, $additional_data) {
+
+		if(isset($additional_data['project_id']) && $additional_data['project_id']) {
+
+		} else {
+
+			$data = array_merge(array('staff_id' => $id), $additional_data);
+
+			return $this->db->insert('experience', $data);
+		}
+	}
+
+	/**
 	 * Returns the user's latest 10 notifications
 	 *
 	 * @param $user_id

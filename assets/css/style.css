@@ -2025,7 +2025,6 @@ footer {
     vertical-align: center;
     display: none; }
 
-/* * * * Create new project page style section * * * */
 #userProfile #UPContainer {
   width: 100%;
   background: #E1E5E6;
@@ -2078,6 +2077,11 @@ footer {
 #userProfile form input[type=submit]:hover {
   background: #1f1646; }
 
+#experience-add {
+  visibility: hidden;
+  display: none; }
+
+/* * * * Create new project page style section * * * */
 /* * * * Create new project page and allocate resources style section * * * */
 #newProject #NPcontainer {
   width: 100%;

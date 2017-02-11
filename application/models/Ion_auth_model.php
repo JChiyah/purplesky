@@ -1669,6 +1669,7 @@ class Ion_auth_model extends CI_Model
 	 *
 	 * @return bool
 	 * @author Ben Edmunds
+	 * @modified JChiyah
 	 **/
 	public function update_last_login($id)
 	{
@@ -1678,7 +1679,8 @@ class Ion_auth_model extends CI_Model
 
 		$this->trigger_events('extra_where');
 
-		$this->db->update($this->tables['users'], array('last_login' => time()), array('id' => $id));
+		/******* FIX TIME BUG HERE *******/
+		$this->db->update($this->tables['users'], array('last_login' => '2017-02-09 22:12:31'), array('id' => $id));
 
 		return $this->db->affected_rows() == 1;
 	}

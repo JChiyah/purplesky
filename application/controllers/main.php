@@ -37,17 +37,18 @@ class Main extends CI_Controller {
 	{
 		$this->load->helper('url_helper');
 	 
-		$data['body'] = 'home';
-		$data['title'] = 'Home';
-		$data['des'] = 'Homepage with dashboard';
+		$data['page_body'] = 'home';
+		$data['page_title'] = 'Home';
+		$data['page_description'] = 'Homepage with dashboard';
 		$this->load->view('html', $data);
 	}
 
 	public function profile_view()
 	{
-		$data['body'] = 'profile';
-		$data['title'] = 'Profile';
-		$data['des'] = 'User profile';
+		$data = $this->experience_form();
+		$data['page_body'] = 'profile';
+		$data['page_title'] = 'Profile';
+		$data['page_description'] = 'User profile';
 
 		$data['skill_select'] = array(
 			'name'  => 'skill_select',
@@ -63,6 +64,7 @@ class Main extends CI_Controller {
 		$data['user_skills'] = $this->User_model->get_user_skills($user_id);
 		$data['user_experiences'] = $this->User_model->get_user_experiences($user_id);
 
+		//var_dump($this->User_model->add_user_experiences($user_id, array('start_date' => '2017-02-02')));
 		$this->load->view('html', $data);
 	}
 
@@ -74,17 +76,17 @@ class Main extends CI_Controller {
 			redirect('index');
 		}
 
-		$data['body'] = 'create-project';
-		$data['title'] = 'Create project';
-		$data['des'] = 'Enter new project details';
+		$data['page_body'] = 'create-project';
+		$data['page_title'] = 'Create project';
+		$data['page_description'] = 'Enter new project details';
 		$this->load->view('html', $data);
 	}
 
 	public function search_view()
 	{
-		$data['body'] = 'search';
-		$data['title'] = 'Search projects';
-		$data['des'] = 'Search projects';
+		$data['page_body'] = 'search';
+		$data['page_title'] = 'Search projects';
+		$data['page_description'] = 'Search projects';
 
 		var_dump($this->User_model->get_user_by_id());
 
@@ -93,98 +95,26 @@ class Main extends CI_Controller {
 
 	public function projects_view()
 	{
-		$data['body'] = 'projects';
-		$data['title'] = 'My projects';
-		$data['des'] = 'List of your current projects';
+		$data['page_body'] = 'projects';
+		$data['page_title'] = 'My projects';
+		$data['page_description'] = 'List of your current projects';
 		$data['projects'] = $this->User_model->get_user_projects($this->session->userdata('user_id'));
+
+		$this->load->model("Ion_auth_model");
+		var_dump($this->Ion_auth_model->update_last_login($this->session->userdata('user_id')));
+		var_dump(time());
+
 		$this->load->view('html', $data);
 	}
 
 	public function project_dashboard_view()
 	{
-		$data['body'] = 'project-dashboard';
-		$data['title'] = 'Project dashboard';
-		$data['des'] = 'Dashboard for the project containing relevant details';
+		$data['page_body'] = 'project-dashboard';
+		$data['page_title'] = 'Project dashboard';
+		$data['page_description'] = 'Dashboard for the project containing relevant details';
 		// get_project_dashboard()
 		$this->load->view('html', $data);
 	}
-
-	public function register_view()
-	{
-		$dataata = $this->create_user_form();
-
-		$this->load->view('register', $this->data);
-	}
-
-   /**
-	 * Change user's password 
-	 *
-	 * @author JChiyah
-	 */
-  	public function change_password() {
-		$this->form_validation->set_rules('old', $this->lang->line('change_password_validation_old_password_label'), 'required');
-		$this->form_validation->set_rules('new', $this->lang->line('change_password_validation_new_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[new_confirm]');
-		$this->form_validation->set_rules('new_confirm', $this->lang->line('change_password_validation_new_password_confirm_label'), 'required');
-
-		if (!$this->ion_auth->logged_in())
-		{
-			redirect('login', 'refresh');
-		}
-
-	 	$user = $this->ion_auth->user()->row();
-
-	 	if ($this->form_validation->run() == false) {
-			// display the form
-			// set the flash data error message if there is one
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
-			$this->data['min_password_length'] = $this->config->item('min_password_length', 'ion_auth');
-			$this->data['old_password'] = array(
-			  'name' => 'old',
-			  'id'   => 'old',
-			  'type' => 'password',
-			);
-			$this->data['new_password'] = array(
-			  'name'    => 'new',
-			  'id'      => 'new',
-			  'type'    => 'password',
-			  'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
-			);
-			$this->data['new_password_confirm'] = array(
-			  'name'    => 'new_confirm',
-			  'id'      => 'new_confirm',
-			  'type'    => 'password',
-			  'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
-			);
-			$this->data['user_id'] = array(
-			  'name'  => 'user_id',
-			  'id'    => 'user_id',
-			  'type'  => 'hidden',
-			  'value' => $user->id,
-			);
-
-			// render
-			$this->data['body'] = 'auth/change_password';
-			$this->load->view('html', $this->data);
-	 	}
-		else {
-			$identity = $this->session->userdata('identity');
-
-			$change = $this->ion_auth->change_password($identity, $this->input->post('old'), $this->input->post('new'));
-
-			if ($change) {
-			  	// the password was successfully changed
-			  	/*
-			  	$this->session->set_flashdata('message', $this->ion_auth->messages());
-			  	$this->logout();*/
-			  	redirect('profile', 'refresh');
-			} else {
-			  	$this->session->set_flashdata('message', $this->ion_auth->errors());
-			  	// render
-			   redirect('password', 'refresh');
-			}
-	 	}
-  	}
 
   	// forgot password
   	public function forgot_password()
@@ -210,7 +140,7 @@ class Main extends CI_Controller {
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 			
 			// render
-			$this->data['body'] = 'auth/forgot_password';
+			$this->data['page_body'] = 'auth/forgot_password';
 			$this->load->view('html', $this->data);
 	 	}
 	 	else {
@@ -239,108 +169,44 @@ class Main extends CI_Controller {
 			  redirect("passforgot", 'refresh');
 			}
 		}
-   }
+	}
 
-	/**
-	 * Helper function to create a registration form
-	 *
-	 * @return array
-	 * @author JChiyah
-	 */
-	public function create_user_form()
-	{
-		// display the create user form
+	public function experience_form() {
+		// display the new experience form
 		  // set the flash data error message if there is one
 		$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
-		$this->data['first_name'] = array(
-			'name'  => 'first_name',
-			'id'    => 'first_name',
+		$this->data['start_date'] = array(
+			'name'  => 'start_date',
+			'id'    => 'start_date',
+			'type'  => 'date',
+			'value' => $this->form_validation->set_value('start_date'),
+		);
+		$this->data['end_date'] = array(
+			'name'  => 'end_date',
+			'id'    => 'end_date',
+			'type'  => 'date',
+			'value' => $this->form_validation->set_value('end_date'),
+		);
+		$this->data['title'] = array(
+			'name'  => 'title',
+			'id'    => 'title',
 			'type'  => 'text',
-			'value' => $this->form_validation->set_value('first_name'),
+			'value' => $this->form_validation->set_value('page_title'),
 		);
-		$this->data['last_name'] = array(
-			'name'  => 'last_name',
-			'id'    => 'last_name',
+		$this->data['description'] = array(
+			'name'  => 'description',
+			'id'    => 'description',
+			'type'  => 'textarea',
+			'value' => $this->form_validation->set_value('description'),
+		);
+		$this->data['role'] = array(
+			'name'  => 'role',
+			'id'    => 'role',
 			'type'  => 'text',
-			'value' => $this->form_validation->set_value('last_name'),
-		);
-		$this->data['email'] = array(
-			'name'  => 'email',
-			'id'    => 'email',
-			'type'  => 'text',
-			'value' => $this->form_validation->set_value('email'),
-		);
-		$this->data['password'] = array(
-			'name'  => 'password',
-			'id'    => 'password',
-			'type'  => 'password',
-			'value' => $this->form_validation->set_value('password'),
-		);
-		$this->data['password_confirm'] = array(
-			'name'  => 'password_confirm',
-			'id'    => 'password_confirm',
-			'type'  => 'password',
-			'value' => $this->form_validation->set_value('password_confirm'),
-		);
-		$this->data['groups'] = array(
-			'name'  => 'groups',
-			'id'    => 'groups',
-			'value' => $this->form_validation->set_value('groups'),
+			'value' => $this->form_validation->set_value('role'),
 		);
 
 		return $this->data;
 	}
-
-	/**
-	 * Creates a new user from a registration form
-	 *
-	 * @param registration form
-	 * @author JChiyah
-	 */
-	public function create_user()
-	{
-		$this->data['title'] = $this->lang->line('create_user_heading');
-
-		$tables = $this->config->item('tables','ion_auth');
-		$identity_column = $this->config->item('identity','ion_auth');
-		$this->data['identity_column'] = $identity_column;
-
-		// validate form input
-		$this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'required');
-		$this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'required');
-	  
-		$this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'required|valid_email|is_unique[' . $tables['users'] . '.email]');
-	  
-		$this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
-		$this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
-
-		if ($this->form_validation->run() == true)
-		{
-			$email    = strtolower($this->input->post('email'));
-			$password = $this->input->post('password');
-
-			$additional_data = array(
-				'first_name' => $this->input->post('first_name'),
-				'last_name'  => $this->input->post('last_name'),
-			);
-
-			$groups = array($this->input->post('groups')+1);
-		}
-		if ($this->form_validation->run() == true && $this->ion_auth->register($password, $email, $additional_data, $groups))
-		{
-			// check to see if we are creating the user
-			// redirect them back to the admin page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("login", 'refresh');
-		}
-		else
-		{
-			$data = $this->create_user_form();
-
-			$this->load->view('register', $data);
-		}
-	}
-
-
 }

@@ -8,7 +8,7 @@
 				<p><?php echo ucfirst( $user->group ); ?></p>
 				<?php if(isset($user->location) && $user->location) { echo '<p>' . $user->location . '</p>'; } ?>
 				<hr>
-				<a class="g-button" style="width: 50%;" href="password">Change password</a>
+				<a class="g-button" style="width: 50%;" href="change-password">Change password</a>
 			</div>
 			<!--Skill section-->
 			<section id="skills" class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
@@ -20,72 +20,79 @@
 				<div id="skill-set">
 					<?php echo form_open('', array('id' => 'skill-add')); ?>
 						<?php echo lang('skill_edit_label', 'skills');?>
-	                  	<?php echo form_dropdown($skill_select, $skills);?>
-	                  	<?php echo form_submit('submit', lang('add_label'), "class='submit'");?>
-               		<?php echo form_close(); ?>
+						<?php echo form_dropdown($skill_select, $skills);?>
+						<?php echo form_submit('submit', lang('add_label'), "id='skill-submit'");?>
+					<?php echo form_close(); ?>
 
-	                <?php 
-		               	if(isset($user_skills) && $user_skills) {
-			               	foreach ($user_skills as $skill) {
-			               		echo '<span class="skill-span">' . $skill->name . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
-			               	}
-			            }
-	                ?>
+					<?php 
+						if(isset($user_skills) && $user_skills) {
+							foreach ($user_skills as $skill) {
+								echo '<span class="skill-span">' . $skill->name . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
+							}
+						} else {
+							echo '<p>No skills to show here</p>';
+						}
+					?>
 				</div>
 			</section>
 		</div>
-
-		<!--Exp section-->
-		<!--TODO: come back later and nest the To and FROM date in a single nested row under title to clean up-->
-		<h1>Experience</h1>
-		<hr>
-		<div id="UPContainer">
-			<form class="" action="index.html" method="post">
-				<div class="row">
-					<div class="col-xs-12 col-md-8">
-						<label>Title:</label><br>
-						<input type="text" name="Title" value="">
-					</div>
-					<div class="col-xs-12 col-md-4">
-						<label>From:</label>
-						<input type="text" name="From" value="DD/MM/YYYY">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 col-md-8">
-					</div>
-					<div class="col-xs-12 col-md-4">
-						<label>To: </label>
-							<input type="text" name="From" value="DD/MM/YYYY">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 col-md-12">
-						<label>Description:</label><br>
-						<textarea name="Description" rows="5" cols="100"></textarea>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 col-md-6">
-						<label>Skills Developed:</label><br>
-						<input type="text" name="skillsDeveloped" value="Type skill here...">
-					</div>
-					<div class="col-xs-12 col-md-2">
-						<a href="#">Add</a>
-					</div>
-					<div class="col-xs-12 col-md-4">
-						<input type="submit" name="addExp" value="Add Experience">
-					</div>
-				</div>
-			</form>
-		</div>
-		<!--TODO:: ask to find out how to implement this exact section, below is just a placeholder
-		add a div class to display top and bottom block lines, dont use hr-->
-		<p>No previous experiences to show here</p>
+		
+		<section id="experience">
+			<div class="row">
+				<h1>Experiences</h1>
+				<button id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
+			</div>
+			<hr>
+			<div id="experience-set">
+				<?php echo form_open('User/experience_form', array('id' => 'experience-add')); ?>
+					<div id="experience-msg"><?php echo $message;?></div>
+					<p>
+						<label>Start date:</label>
+						<?php echo form_input($start_date,'',"required");?>
+					</p>
+					<p>
+						<label>End date:</label>
+						<?php echo form_input($end_date,'',"required");?>
+					</p>
+					<p>
+						<label>Title:</label>
+						<?php echo form_input($title,'',"required");?>
+					</p>
+					<p>
+						<label>Description:</label>
+						<?php echo form_textarea($description,'',"required");?>
+					</p>
+					<p>
+						<label>Role:</label>
+						<?php echo form_input($role,'',"required");?>
+					</p>
+					<?php echo form_submit('submit', "Add experience","id='experience-submit'");?>
+				<?php echo form_close(); ?>
+				<?php 
+					if(isset($user_experiences) && $user_experiences) {
+						foreach ($user_experiences as $experience) {
+							echo '<div class="experience-box">
+									<h2>' . $experience->role . '</h2>
+									<p><strong>' 
+										. date_format(date_create($experience->start_date), 'j M Y') . '</strong> until <strong>' 
+										. date_format(date_create($experience->end_date), 'j M Y') . '</strong> at ';
+									if($experience->project_id) {
+										echo '<a href="#">' . $experience->title . '</a>';
+									} else {
+										echo $experience->title;
+									}
+									echo 
+									'</p>
+									<p>'
+										. $experience->description .
+									'</p>
+								</div>';
+						}
+					} else {
+						echo '<p>No previous experiences to show here</p>';
+					}
+				?>
+			</div>
+		</section>
 	</div>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
 </div>

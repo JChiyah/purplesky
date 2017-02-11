@@ -18,7 +18,7 @@ $(function() {
 		});
 	});
 
-	$(".submit").click(function(event) {
+	$("#skill-submit").click(function(event) {
 		event.preventDefault();
 		var e = document.getElementById("skill_select");
 		var skill = e.options[e.selectedIndex].text;
@@ -37,6 +37,40 @@ $(function() {
 				}
 			}
 		});
+	});
+
+	$("#experience-submit").click(function(event) {
+		event.preventDefault();
+		// form validation
+		var start_date = $('#start_date').value;
+		var end_date = $('#end_date').value;
+		var title = $('#title').value;
+		var description = $('#description').value;
+		var role = $('#role').value;
+
+		if(start_date && end_date && title && description && role) {
+			$.ajax({
+				type: "POST",
+				url: baseurl + "User/add_user_experience",
+				data: { 
+					'start_date' : start_date,
+					'end_date' : end_date,
+					'title' : title,
+					'description' : description,
+					'role' : role,
+					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+				},
+				success: function(res) {
+					if (res) {
+						alert(res);
+					} else {
+						alert(res);
+					}
+				}
+			});
+		} else {
+			$('#experience-msg').text('Please fill out all fields');
+		}
 	});
 
 });

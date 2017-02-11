@@ -9,6 +9,10 @@ $(function() {
     	$('.delete-tag').toggle();
 	});
 
+	$('#experience-edit').on('click', function() {
+    	$('#experience-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
+	});
+
 	$('#search-toggle').on('click', function() {
     	$('#advanced-search').slideToggle(500, function() {
 	        if ($('#advanced-search').is(':visible')) {
@@ -18,6 +22,5 @@ $(function() {
         	}
     	});
 	});
-
 
 });
