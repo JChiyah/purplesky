@@ -51,9 +51,9 @@ class User extends CI_Controller {
 		$skill = $this->input->post('delete_skill');
 
 		// find the current users id
-		$id = $this->session->userdata('user_id');
+		$user_id = $this->session->userdata('user_id');
 
-		if($this->User_model->delete_user_skill($skill, $id)) {
+		if($this->User_model->delete_user_skill($skill, $user_id)) {
 			echo 'success';
 		}
 	}
@@ -66,11 +66,9 @@ class User extends CI_Controller {
 	 * @author JChiyah
 	 */
 	public function add_user_experience() {
-
 		// get and format input
 		$id = $this->session->userdata('user_id');
 		
-		// TO-DO - protect from injection
 		$additional_data = array(
 			'start_date' => $this->input->post('start_date'),
 			'end_date'	=> $this->input->post('end_date'),
@@ -79,14 +77,30 @@ class User extends CI_Controller {
 			'role'		=> $this->parse_input($this->input->post('role'))
 		);
 
-		/*** HERE ***/
-
 		if($this->User_model->add_user_experiences($id, $additional_data)) {
 			echo 'okay';
 		} else {
 			echo 'nope';
 		}
 		
+	}
+
+	/**
+	 * Deletes a user' skill
+	 * Call from a form post using AJAX
+	 *
+	 * @param post('delete_experience')
+	 * @author JChiyah
+	 */
+	public function delete_user_experience() {
+		$experience_id = $this->input->post('delete_experience');
+
+		// find the current users id
+		$user_id = $this->session->userdata('user_id');
+
+		if($this->User_model->delete_user_experience($experience_id, $user_id)) {
+			echo 'success';
+		}
 	}
 
 	/**

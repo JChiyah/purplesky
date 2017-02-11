@@ -190,14 +190,14 @@ class User_model extends CI_Model {
 	 * Returns the user's experiences
 	 *
 	 * @param $user_id
-	 * @return mixed boolean / object(start_date, end_date, project_id, title, description, role)
+	 * @return mixed boolean / object(id, start_date, end_date, project_id, title, description, role)
 	 * @author JChiyah
 	 */
 	public function get_user_experiences($id = FALSE) {
 		// if no id was passed use the current users id
 		$id = isset($id) ? $id : $this->session->userdata('user_id');
 
-		$query = $this->db->select('start_date, end_date, project_id, title, description, role')
+		$query = $this->db->select('experience_id, start_date, end_date, project_id, title, description, role')
 						->where('staff_id', $id)
 						->order_by('experience_id', 'desc')
 						->get('experience');
@@ -227,6 +227,36 @@ class User_model extends CI_Model {
 
 			return $this->db->insert('experience', $data);
 		}
+	}
+
+	/**
+	 * Delete a user' experience
+	 *
+	 * @param $experience_id
+	 * @param $user_id
+	 * @return boolean
+	 * @author JChiyah
+	 */
+	public function delete_user_experience($experience_id, $user_id) {
+
+		// Check we are deleting the right experience
+		$query = $this->db->select('experience_id, staff_id')
+						->where('experience_id', $experience_id)
+						->limit(1)
+						->get('experience');
+
+		$result = $query->row();
+
+		if(isset($result) && !empty($result)) {
+			
+			// Check if the staff_id is the same as the one provided
+			if($result->staff_id == $user_id) {
+				// Delete experience
+				return $this->db->delete('experience', array('experience_id' => $experience_id));
+			}
+			// Else trying to delete another's user data
+		}
+		return FALSE;
 	}
 
 	/**

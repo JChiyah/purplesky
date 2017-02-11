@@ -73,4 +73,29 @@ $(function() {
 		}
 	});
 
+	$('body').on('click', '.delete-experience', function() {
+		//var id = $(this).attr('id');
+		var id = "experience-6";
+		id = id.split("-");
+		id = id[1];
+		if(!isNaN(id)) {
+
+			// call AJAX
+			$.ajax({
+				type: "POST",
+				url: baseurl + "User/delete_user_experience",
+				data: { 
+					'delete_experience' : id,
+					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+				},
+				success: function(res) {
+					if (res == 'success') {
+						// Experience successfully deleted
+
+					}
+				}
+			});
+		}
+	});
+
 });
