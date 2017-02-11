@@ -94,5 +94,67 @@
 				?>
 			</div>
 		</section>
+
+		<!--Exp section-->
+		<div id="Experience">
+			<h1>Experience</h1> <hr>
+
+			<div class="container-box">
+
+				<form class="" method="post">
+					<div class="container-fluid">
+
+						<div class="row">
+							<div class="col-sm-12 col-md-6">
+								<label>Project Title:</label><br>
+								<input type="text" name="" value="" placeholder="Project Title">
+								</div>
+								
+								<div class="row">
+									<div class="col-sm-12 col-md-6">
+										<div class="row date-row">
+											<div class="col-md-3">
+												<label>From:</label>
+											</div>
+										<div class="col-md-9">
+											<input type="date" name="" value="">
+										</div>
+									 </div>
+									 <div class="row date-row">
+										 <div class="col-md-3">
+												<label>To:</label>
+											</div>
+											<div class="col-md-9">
+												<input type="date" name="" value="">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+						<div class="row">
+	            <div class="col-sm-12 col-md-8">
+	              <label>Description:</label><br>
+	              <textarea rows="5" cols="10" name="" value="" required></textarea>
+	            </div>
+	          </div>
+
+						<div class="row">
+							<div class="col-xs-12 col-md-6">
+								<label>Skills Developed:</label>
+								<input type="text" name="skillsDeveloped" value="Type skill here...">
+								<a href="#">Add</a>
+							</div>
+							<div class="col-xs-12 col-md-6">
+								<input type="submit" name="addExp" value="Add Experience">
+							</div>
+						</div>
+
+					</div>
+				</form>
+
+			</div>
+		</div>
 	</div>
 </div>
