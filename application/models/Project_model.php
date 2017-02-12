@@ -110,7 +110,9 @@ class Project_model extends CI_Model {
 		$location = $this->System_model->get_location_id($location);
 
 		/** Start the search **/
-		$query = $this->db->select();
+		$query = $this->db->select('project_id, title, description, priority, CONCAT(first_name, " ", last_name) AS manager, location.name AS location, budget, start_date, end_date')
+						->join('account', 'account.id=project.manager_id')
+						->join('location', 'location.location_id=project.location');
 
 		/** Filter by project location **/
 		if(isset($location) && $location) {

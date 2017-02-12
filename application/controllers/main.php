@@ -87,8 +87,8 @@ class Main extends CI_Controller {
 		$data['page_body'] = 'search';
 		$data['page_title'] = 'Search projects';
 		$data['page_description'] = 'Search projects';
-
-		var_dump($this->User_model->get_user_by_id());
+		$data['locations'] = $this->System_model->get_locations();
+		$data['projects'] = $this->Project_model->search_projects();
 
 		$this->load->view('html', $data);
 	}

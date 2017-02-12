@@ -3,21 +3,28 @@
 class System_model extends CI_Model {
 
 	/**
-	 * Get all the current skills in the db
+	 * Get all the skills in the db
 	 *
 	 * @return array
 	 * @author JChiyah
 	 */
 	public function get_skills() {
 
-		$query = $this->db->select('name')->get('skill');
+		$query = $this->db->select()->get('skill');
 
-		$array = array();
-		foreach ($query->result() as $row) {
-			$array[] = $row->name;
+		$result = $query->result_array();
+
+		if(isset($result) && $result) {
+			
+			// format array properly
+			$skills = array();
+			foreach ($result as $key => $value){
+				$skills[$value['skill_id']] = $value['name'];
+			}
+
+			return $skills;
 		}
-
-		return $array;
+		return FALSE;
 	}
 
 	/**
@@ -42,6 +49,31 @@ class System_model extends CI_Model {
 		}
 
 		return $result->skill_id;
+	}
+
+	/**
+	 * Get all the locations in the db
+	 *
+	 * @return array
+	 * @author JChiyah
+	 */
+	public function get_locations() {
+
+		$query = $this->db->select()->get('location');
+
+		$result = $query->result_array();
+
+		if(isset($result) && $result) {
+
+			// format array properly
+			$locations = array();
+			foreach ($result as $key => $value){
+				$locations[$value['location_id']] = $value['name'];
+			}
+
+			return $locations;
+		}
+		return FALSE;
 	}
 
 	/**
