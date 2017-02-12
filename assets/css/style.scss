@@ -927,6 +927,7 @@ section#quick-search{
 	}
 
 	hr {
+		width: 100%;
 			border: none;
 			height: 1px;
 			background-color: #C0C0C0;
@@ -987,7 +988,7 @@ section#quick-search{
 #current-projects {
 	font-family: $microsoft-font;
 	color: $blue;
-  
+
 h1 {
    padding-top: 20px;
    margin-top: 0;
@@ -995,19 +996,19 @@ h1 {
    font-size: 2.8em;
    margin-bottom: 0;
    display: inline-block;
-           
+
 #dropdown-menu {
-               margin: 0.8em 1em;
-               position: absolute;
-               right: 0px;
-                   
+           margin: 0.8em 1em;
+           position: absolute;
+           right: 0px;
+
 	.label {
-               font-size: 1.2em;
-               font-weight: 900;
+         font-size: 1.2em;
+         font-weight: 900;
 	       position: absolute;
 	       right: 0px;
-        }                                                  
-      }   
+        }
+      }
    }
 }
 
@@ -1016,45 +1017,45 @@ hr {
    width: 80%;
    height: 2px;
    background: $grey-background2;
-} 
-        
+}
+
 #container-fluid {
-                 display: block;
-                 background: $grey-background2;
-	         padding: 20px;
-                 border-radius: 4px;
-                 width: 80%;
-} 
+	display: block;
+	background: $grey-background2;
+	padding: 20px;
+	border-radius: 4px;
+	width: 80%;
+}
 
 #project-container-fluid {
-                         background: #ffffff;
-	                 padding: 10px;
-                         border-radius: 8px;
-                         width: 97%;
-                         color: $blue;
-	                 font-family: $microsoft-font;
+background: #ffffff;
+padding: 10px;
+border-radius: 8px;
+width: 97%;
+color: $blue;
+font-family: $microsoft-font;
 
-                         h2 {
-                            padding-top: 0px;
-                            margin-top: 0;
-                            text-align: left;
-                            font-size: 1.5em;
-                            margin-bottom: 0;
-                          }
-                                          
-                          h3 {
-                             padding-top: 2px;
-                             margin-top: 0;
-                             text-align: left;
-                             font-size: 1em;
-                             margin-bottom: 0;
-                          }                                            
+h2 {
+  padding-top: 0px;
+  margin-top: 0;
+  text-align: left;
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+h3 {
+   padding-top: 2px;
+   margin-top: 0;
+   text-align: left;
+   font-size: 1em;
+   margin-bottom: 0;
+}
 hr {
    display: block;
    width: 100%;
    height: 2px;
    background: $grey-background2;
-} 
+}
 
 button {
 	background: $light-blue;
@@ -1070,8 +1071,8 @@ button {
 	}
 	button:hover { background: $blue; }
 	button:focus { background: $light-blue; }
-	}
 }
+
 
 /**** Project Dashboard section - Daniel code here ****/
 #project-dashboard {

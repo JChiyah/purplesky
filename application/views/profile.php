@@ -10,6 +10,7 @@
 				<hr>
 				<a class="g-button" style="width: 50%;" href="change-password">Change password</a>
 			</div>
+
 			<!--Skill section-->
 			<section id="skills" class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
 				<div class="row">
@@ -36,7 +37,9 @@
 				</div>
 			</section>
 		</div>
-
+	</div>
+	
+	<div class="container">
 		<section id="experience">
 			<div class="row">
 				<div class="col-sm-12 col-md-6">
@@ -129,6 +132,9 @@
 						echo '<p>No previous experiences to show here</p>';
 					}
 					?>
+
 				</div>
 			</div>
 		</section>
+	</div>
+</div>
