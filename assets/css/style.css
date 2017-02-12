@@ -2446,6 +2446,19 @@ section#quick-search {
     font-size: 1.2em;
     font-weight: 900;
     margin-top: 8px; }
+  #experience #experience-edit {
+    position: absolute;
+    bottom: 1em;
+    right: 2em;
+    padding: 0 !important;
+    border: none;
+    display: inline;
+    float: right;
+    color: #0389ff;
+    background: none !important;
+    outline: none;
+    outline-offset: 0;
+    outline-color: transparent; }
 
 /**** My projects section - Aisha code here ****/
 #current-projects {

@@ -38,16 +38,17 @@
 			</section>
 		</div>
 	</div>
-	
+
 	<div class="container">
 		<section id="experience">
 			<div class="row">
-				<div class="col-sm-12 col-md-6">
+				<div class="col-sm-12 col-md-12">
 					<h1>Experiences</h1>
 					<button id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
 				</div>
 			</div>
 			<hr>
+
 			<div id="experience-set">
 				<?php echo form_open('User/experience_form', array('id' => 'experience-add')); ?>
 					<div id="experience-msg"><?php echo $message;?></div>

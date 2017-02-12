@@ -982,6 +982,21 @@ section#quick-search{
 			margin-top: 8px;
 		}
 	}
+
+	#experience-edit {
+		position: absolute;
+		bottom: 1em;
+		right: 2em;
+		padding: 0!important;
+		border: none;
+		display: inline;
+		float: right;
+		color: $light-blue;
+		background: none!important;
+		outline: none;
+		outline-offset: 0;
+		outline-color: transparent;
+	}
 }
 
 /**** My projects section - Aisha code here ****/
