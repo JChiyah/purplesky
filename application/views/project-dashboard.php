@@ -25,28 +25,40 @@
 			echo '<table>
 			<tr>
 			<td class="toptableleft">
-			Start date: $projectdescription[0]
+			Start date: ' . $project->start_date . '
 			</td>
 			<td class="toptableright">
-			Priority: $projectdescription[1]
+			Priority: ' . $project->priority . '
 			</td>
 			</tr>
 			<tr>
 			<td class="toptableleft">
-			End date:$projectdescription[2]
+			End date: ' . $project->end_date . '
 			</td>
 			<td class="toptableright">
-			Location:$projectdescription[3]
+			Location: ' . $project->location . '
 			</td>
 			</tr>
 			</table>
-			<p> $projectdescription[4] </p>'; 
-			if ($user== $projectowner){ //needs to be changed to the unique PM for the project, don't know how, put my best guess in
+			<p><b>Notificaions</b></p>';
+			foreach ($dashboard as $entry) {
+			echo '<p> Date: ' . $entry->date . '</p>
+			<p>' . $entry->description .'</p>';
+			}
+			
+			
+			echo '<hr>
+			<p><b>Description:</b>' . $project->description . '</p>
+			'; 
+			if ($user== $project->manager){ //needs to be changed to the unique PM for the project, don't know how, put my best guess in
 				echo '<form action="" method="post">
-				<input type="text" name="" value="" placeholder="Enter updates to the project description here">
-				<input type="submit" name="" value="Update Project Description" id="">
+				<input type="text" name="" value="" placeholder="Enter a new notification">
+				<input type="submit" name="" value="New Notification" id="">
 				</form>';
-				}?>
+				}
+			
+				echo '<hr';
+				?>
 
 	</div>
 
@@ -61,13 +73,15 @@
 		<!-- need to check what format the variable will be returned in, preferably array of a 5 position array, 0=staff name,1= start date, 2=end date, 3=daily rate, 4=job name -->
 		<?php 
 			global $user_group;
+			
 			if(isset($staff) && $staff) {
 				foreach ($staff as $employee) {
+					
 					echo '<tr>
 							<td>' . $employee->name . '</td>
 							<td>' . $employee->role . '</td>
 							<td>' . $employee->assigned_at . '</td>
-							<td>' . $employee->pay_rate . '</td>
+							<td>£ ' . $employee->pay_rate . '</td>
 						</tr>';
 				}
 			} else {
@@ -75,7 +89,7 @@
 			}
 		if ($user_group != 1 && $user_group != 2){	
 		echo '<hr>
-			<p class="bottomtotal"><b>Total: £ $total </b></p>';
+			<p class="bottomtotal"><b>Total: £ '. $project->budget . '</b></p>';
 
 		}
 
