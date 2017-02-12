@@ -2026,6 +2026,7 @@ footer {
     display: none; }
 
 #userProfile #verticalLine {
+  margin-top: 1em;
   border-right: solid #C0C0C0; }
 #userProfile #UPContainer {
   width: 100%;
@@ -2369,20 +2370,20 @@ section#quick-search {
         display: block;
         text-align: right; }
 
-#Experience {
+#experience {
   width: 100%;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
   margin: 80px auto; }
-  #Experience .date-row {
+  #experience .date-row {
     margin: 0.8em 1em;
     display: flex;
     justify-content: flex-end;
     align-items: center; }
-  #Experience h1 {
+  #experience h1 {
     text-align: left;
     font-size: 1.8em; }
-  #Experience button {
+  #experience button {
     background: #0389ff;
     color: #fff;
     text-transform: uppercase;
@@ -2392,28 +2393,28 @@ section#quick-search {
     border: none;
     border-radius: 4px;
     box-shadow: none; }
-  #Experience button:hover {
+  #experience button:hover {
     background: #1f1646; }
-  #Experience button:focus {
+  #experience button:focus {
     background: #0389ff; }
-  #Experience .container-box {
+  #experience .container-box {
     background: #E1E5E6;
     width: 95%;
     margin: 10px auto;
     padding: 1em;
     text-align: left; }
-  #Experience hr {
+  #experience hr {
     border: none;
     height: 1px;
     background-color: #C0C0C0; }
-  #Experience form input[type=text] {
+  #experience form input[type=text] {
     margin-top: 8px;
     padding: 8px 12px 8px 12px;
     border: 1px solid transparent;
     border-radius: 4px; }
-  #Experience form input[type=text]:focus {
+  #experience form input[type=text]:focus {
     border: 1px solid #0389ff; }
-  #Experience form input[type=submit] {
+  #experience form input[type=submit] {
     background: #0389ff;
     color: #fff;
     text-transform: uppercase;
@@ -2423,23 +2424,23 @@ section#quick-search {
     border: none;
     border-radius: 6px;
     box-shadow: none; }
-  #Experience form input[type=date] {
+  #experience form input[type=date] {
     text-align: left;
     padding: 8px 12px 8px 12px;
     border: 1px solid transparent;
     border-radius: 4px; }
-  #Experience form input[type=submit]:hover {
+  #experience form input[type=submit]:hover {
     background: #1f1646; }
-  #Experience form textarea {
+  #experience form textarea {
     width: 80%;
     margin-top: 8px;
     padding: 8px 12px 8px 12px;
     border: 1px solid transparent;
     border-radius: 4px; }
-  #Experience form .row {
+  #experience form .row {
     margin-right: 1.2em;
     margin-left: 1.2em; }
-  #Experience form label {
+  #experience form label {
     display: block;
     font-size: 1.2em;
     font-weight: 900;
