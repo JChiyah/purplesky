@@ -1,4 +1,3 @@
-@@ -1,57 +0,0 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
