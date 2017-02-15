@@ -81,7 +81,7 @@ class Project_model extends CI_Model {
 	 *
 	 * @param $project_id
 	 * @param $limit - amount of entries to return
-	 * @return mixed boolean / object(description, date)
+	 * @return mixed boolean / array of object(description, date)
 	 * @author JChiyah
 	 */
 	public function get_project_dashboard($id, $limit = FALSE) {

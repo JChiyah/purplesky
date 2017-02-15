@@ -82,6 +82,88 @@ class Project extends CI_Controller {
 		}
 	}
 
+	public function create_project() {
+		
+		// Check if user has privileges to access this page
+		$user_groups = $this->ion_auth->get_users_groups($this->session->userdata('user_id'))->row();
+		if($user_groups->id != 1 && $user_groups->id != 2) {
+			redirect('index');
+		}
+
+		// set rules
+
+		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+		{
+			redirect('index', 'refresh');
+		}
+
+		$user_id = $this->ion_auth->user()->row()->id;
+
+		if ($this->form_validation->run() == false)
+		{
+			// display the form
+			// set the flash data error message if there is one
+			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+
+			$this->data['title'] = array(
+				'name'  => 'title',
+				'id'    => 'title',
+				'value' => $this->form_validation->set_value('title'),
+			);
+			$this->data['description'] = array(
+				'name'  => 'description',
+				'id'    => 'description',
+				'value' => $this->form_validation->set_value('description'),
+			);
+			$this->data['start_date'] = array(
+				'name'  => 'start_date',
+				'id'    => 'start_date',
+				'value' => $this->form_validation->set_value('start_date'),
+			);
+			$this->data['end_date'] = array(
+				'name'  => 'end_date',
+				'id'    => 'end_date',
+				'value' => $this->form_validation->set_value('end_date'),
+			);
+			$this->data['location'] = array(
+				'name'  => 'location',
+				'id'    => 'location',
+				'value' => $this->form_validation->set_value('location'),
+			);
+			$this->data['user_id'] = array(
+				'name'  => 'user_id',
+				'id'    => 'user_id',
+				'type'  => 'hidden',
+				'value' => $user_id,
+			);
+
+			$this->data['locations'] = $this->System_model->get_locations();
+			// render
+			$this->data['page_body'] = 'create-project';
+			$this->data['page_title'] = 'Create project';
+			$this->data['page_description'] = 'Enter new project details';
+			$this->load->view('html', $this->data);
+		}
+		else
+		{
+			/*$identity = $this->session->userdata('identity');
+
+			$change = $this->ion_auth->change_password($identity, $this->input->post('old'), $this->input->post('new'));
+
+			if ($change)
+			{
+				//if the password was successfully changed
+				redirect('profile', 'refresh');
+			}
+			else
+			{
+				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				// render
+				redirect('change-password', 'refresh');
+			}*/
+		}
+	}
+
 	/**
 	 * Helper function to parse any simple text input
 	 *

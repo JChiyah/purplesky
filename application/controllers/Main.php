@@ -75,7 +75,7 @@ class Main extends CI_Controller {
 		if($user_groups->id != 1 && $user_groups->id != 2) {
 			redirect('index');
 		}
-
+		
 		$data['page_body'] = 'create-project';
 		$data['page_title'] = 'Create project';
 		$data['page_description'] = 'Enter new project details';
