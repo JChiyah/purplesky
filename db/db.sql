@@ -122,11 +122,11 @@ CREATE TABLE project (
 	title varchar(100) NOT NULL,
 	description varchar(255) NOT NULL,
 	priority enum('normal', 'high') NOT NULL,
-	location integer NOT NULL,
+	location integer,
 	budget decimal(10,2) NOT NULL,
 	start_date date NOT NULL,
 	end_date date NOT NULL,
-	FOREIGN KEY (manager_id) REFERENCES staff(staff_id) ON DELETE CASCADE,
+	FOREIGN KEY (manager_id) REFERENCES account(id),
 	FOREIGN KEY (location) REFERENCES location(location_id)
 ) ENGINE=InnoDB;
 

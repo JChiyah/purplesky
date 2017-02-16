@@ -82,22 +82,38 @@ class Project extends CI_Controller {
 		}
 	}
 
+	/**
+	 * Creates a new project or the form to do so
+	 *
+	 * @param post('title')
+	 * @param post('description')
+	 * @param post('start_date')
+	 * @param post('end_date')
+	 * @param post('location')
+	 * @param post('priority')
+	 * @author JChiyah
+	 */
 	public function create_project() {
 		
+		$user_id = $this->ion_auth->user()->row()->id;
+
 		// Check if user has privileges to access this page
-		$user_groups = $this->ion_auth->get_users_groups($this->session->userdata('user_id'))->row();
+		$user_groups = $this->ion_auth->get_users_groups($user_id)->row();
 		if($user_groups->id != 1 && $user_groups->id != 2) {
 			redirect('index');
 		}
-
-		// set rules
-
+		// Second check just in case...
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
 		{
-			redirect('index', 'refresh');
+			redirect('index');
 		}
 
-		$user_id = $this->ion_auth->user()->row()->id;
+		// Setting validation rules
+		$this->form_validation->set_rules('title', 'Project title', 'required|trim|min_length[3]|alpha_numeric_spaces');
+		$this->form_validation->set_rules('description', 'Project description', 'required|trim|min_length[3]|max_length[250]|alpha_dash');
+		$this->form_validation->set_rules('start_date', 'Project start date', 'callback_check_date');
+		$this->form_validation->set_rules('end_date', 'Project end date', 'callback_check_date');
+		$this->form_validation->set_rules('location', 'Location', 'is_natural_no_zero', array( 'is_natural_no_zero' => 'The project location is not valid.'));
 
 		if ($this->form_validation->run() == false)
 		{
@@ -108,59 +124,81 @@ class Project extends CI_Controller {
 			$this->data['title'] = array(
 				'name'  => 'title',
 				'id'    => 'title',
+				'required' => 'required',
 				'value' => $this->form_validation->set_value('title'),
 			);
 			$this->data['description'] = array(
 				'name'  => 'description',
 				'id'    => 'description',
+				'required' => 'required',
 				'value' => $this->form_validation->set_value('description'),
 			);
 			$this->data['start_date'] = array(
 				'name'  => 'start_date',
 				'id'    => 'start_date',
+				'required' => 'required',
 				'value' => $this->form_validation->set_value('start_date'),
 			);
 			$this->data['end_date'] = array(
 				'name'  => 'end_date',
 				'id'    => 'end_date',
+				'required' => 'required',
 				'value' => $this->form_validation->set_value('end_date'),
 			);
 			$this->data['location'] = array(
 				'name'  => 'location',
 				'id'    => 'location',
+				'required' => 'required',
 				'value' => $this->form_validation->set_value('location'),
 			);
-			$this->data['user_id'] = array(
-				'name'  => 'user_id',
-				'id'    => 'user_id',
-				'type'  => 'hidden',
-				'value' => $user_id,
+			$this->data['normal_priority'] = array(
+				'name'  => 'priority',
+				'id'    => 'normal',
+				'value' => '0',
+			);
+			$this->data['high_priority'] = array(
+				'name'  => 'priority',
+				'id'    => 'high',
+				'value' => '1',
 			);
 
 			$this->data['locations'] = $this->System_model->get_locations();
+			$this->data['manager'] = $this->User_model->get_user_by_id($user_id)->name;
 			// render
 			$this->data['page_body'] = 'create-project';
 			$this->data['page_title'] = 'Create project';
 			$this->data['page_description'] = 'Enter new project details';
+
+			$this->session->set_flashdata('message', $this->ion_auth->messages());
 			$this->load->view('html', $this->data);
 		}
 		else
 		{
-			/*$identity = $this->session->userdata('identity');
 
-			$change = $this->ion_auth->change_password($identity, $this->input->post('old'), $this->input->post('new'));
+			$project_info = array(
+				'title'			=> $this->parse_input($this->input->post('title')),
+				'description' 	=> $this->parse_input($this->input->post('description')),
+				'priority'		=> $this->input->post('priority'),
+				'location'		=> $this->input->post('location'),
+				'budget' 		=> 850,
+				'start_date' 	=> $this->input->post('start_date'),
+				'end_date'		=> $this->input->post('end_date')
+			);
 
-			if ($change)
+			$project = $this->Project_model->create_project($user_id, $project_info);
+
+			if ($project)
 			{
-				//if the password was successfully changed
-				redirect('profile', 'refresh');
+				//if the project was successfully created
+				redirect('dashboard/' . $project, 'refresh');
 			}
 			else
 			{
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				redirect('create-project', 'refresh');
+				//$this->session->set_flashdata('message', $this->ion_auth->errors());
 				// render
-				redirect('change-password', 'refresh');
-			}*/
+				//redirect('change-password', 'refresh');
+			}
 		}
 	}
 
@@ -176,5 +214,27 @@ class Project extends CI_Controller {
 		$input = htmlspecialchars($input);
 		return $input;
 	}
+
+	/**
+	 * Helper function to check if it is a valid date
+	 *
+	 * @param $date
+	 * @author JChiyah
+	 */
+	public function check_date($date) {
+		if(preg_match("/(0[1-9]|[1-2][0-9]|3[0-1]\/(0[1-9]|1[0-2])\/^[0-9]{4})$/", $date)) {
+			// Date is now yyyy-mm-dd
+			// Using checkdate(mm, dd, yyyy)
+			$date_arr = explode('-', $date);
+			if(count($date_arr) == 3) {
+				if(checkdate($date_arr[1], $date_arr[2], $date_arr[0])) {
+					return TRUE;
+				}
+			}
+		}
+		$this->form_validation->set_message('check_date', 'The {field} is not a valid date.');
+        return FALSE;
+	}
+
 
 }

@@ -132,11 +132,9 @@ class User_model extends CI_Model {
 	 * @return boolean
 	 * @author JChiyah
 	 */
-	public function add_user_skill($skill_name, $id = FALSE) {
-		// if no id was passed use the current users id
-		$id = isset($id) ? $id : $this->session->userdata('user_id');
-
-		if(!isset($skill_name)) {
+	public function add_user_skill($skill_name, $id) {
+		
+		if(!isset($skill_name) && $skill_name) {
 			return FALSE;
 		}
 

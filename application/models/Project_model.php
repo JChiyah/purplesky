@@ -151,4 +151,45 @@ class Project_model extends CI_Model {
 		return FALSE;
 	}
 
+	/**
+	 * Creates a new project
+	 *
+	 * @param $manager_id
+	 * @param $project_id
+	 * @return mixed boolean / project_id
+	 * @author JChiyah
+	 */
+	public function create_project($manager_id, $project_info) {
+
+		// Add other project info
+		$project_info = array_merge(array('manager_id' => $manager_id), $project_info);
+
+		$this->db->trans_start(); 	// Start transaction
+
+		// Insert new project
+		$project = $this->db->insert('project', $project_info);
+
+		if($project) {
+
+			// Get id of inserted project
+			$project_id = $this->db->insert_id();
+
+			// New project notification
+			$entry = array(
+				'project_id' 	=> $project_id,
+				'description'	=> 'Welcome to the project!',
+				'at_date'		=> date("Y-m-d H:i:s")
+			);
+
+			$this->db->insert('project_dashboard', $entry);
+
+			$this->db->trans_complete(); // Close transaction
+
+			// Return id of the inserted project
+			return $project_id;
+		}
+		return FALSE;
+	}
+
+
 }
