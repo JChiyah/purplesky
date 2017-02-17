@@ -2027,7 +2027,7 @@ footer {
 
 #userProfile #verticalLine {
   margin-top: 1em;
-  border-right: solid #C0C0C0; }
+  border-right: solid #E1E5E6; }
 #userProfile #UPContainer {
   width: 100%;
   background: #E1E5E6;
@@ -2036,6 +2036,7 @@ footer {
   margin: 10px auto;
   border-radius: 4px; }
 #userProfile hr {
+  width: 95%;
   height: 2px;
   background: #E1E5E6;
   margin-top: 0; }
@@ -2404,10 +2405,10 @@ section#quick-search {
     padding: 1em;
     text-align: left; }
   #experience hr {
-    width: 100%;
-    border: none;
-    height: 1px;
-    background-color: #C0C0C0; }
+    width: 95%;
+    height: 2px;
+    background: #E1E5E6;
+    margin-top: 0; }
   #experience form input[type=text] {
     margin-top: 8px;
     padding: 8px 12px 8px 12px;

@@ -452,7 +452,7 @@ footer {
 
 	#verticalLine {
 		margin-top: 1em;
-  	border-right: solid #C0C0C0;
+  	border-right: solid $grey-background2;
 }
 
 	#UPContainer {
@@ -465,6 +465,7 @@ footer {
 	}
 
 	hr {
+		width: 95%;
 		height: 2px;
 		background: $grey-background2;
 		margin-top: 0;
@@ -671,6 +672,10 @@ footer {
 	}
 }
 
+.experience-box {
+
+
+}
 /* * * * addSkills page style section * * * */
 #addSkill {
 	#ASContainer {
@@ -927,10 +932,10 @@ section#quick-search{
 	}
 
 	hr {
-		width: 100%;
-			border: none;
-			height: 1px;
-			background-color: #C0C0C0;
+		width: 95%;
+		height: 2px;
+		background: $grey-background2;
+		margin-top: 0;
 	}
 
 	form {

@@ -44,7 +44,7 @@
 			<div class="row">
 				<div class="col-sm-12 col-md-12">
 					<h1>Experiences</h1>
-					<button id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
+					<button id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Add</button>
 				</div>
 			</div>
 			<hr>
@@ -109,33 +109,38 @@
 							</div>
 						</div>
 
-					<?php
-					if(isset($user_experiences) && $user_experiences) {
-						foreach ($user_experiences as $experience) {
-							echo '<div class="experience-box">
-							<h2>' . $experience->role . '</h2>
-							<p><strong>'
-							. date_format(date_create($experience->start_date), 'j M Y') . '</strong> until <strong>'
-							. date_format(date_create($experience->end_date), 'j M Y') . '</strong> at ';
-							if($experience->project_id) {
-								echo '<a href="#">' . $experience->title . '</a>';
-							} else {
-								echo $experience->title;
-							}
-							echo
-							'</p>
-							<p>'
-							. $experience->description .
-							'</p>
-							</div>';
-						}
-					} else {
-						echo '<p>No previous experiences to show here</p>';
-					}
-					?>
-
 				</div>
 			</div>
 		</section>
 	</div>
+
+	<div class="container container-box container-fluid">
+		<section id="experience">
+			<?php
+			if(isset($user_experiences) && $user_experiences) {
+				foreach ($user_experiences as $experience) {
+					echo '<div class="experience-box">
+					<h2>' . $experience->role . '</h2>
+					<p><strong>'
+					. date_format(date_create($experience->start_date), 'j M Y') . '</strong> until <strong>'
+					. date_format(date_create($experience->end_date), 'j M Y') . '</strong> at ';
+					if($experience->project_id) {
+						echo '<a href="#">' . $experience->title . '</a>';
+					} else {
+						echo $experience->title;
+					}
+					echo
+					'</p>
+					<p>'
+					. $experience->description .
+					'</p>
+					</div>';
+				}
+			} else {
+				echo '<p>No previous experiences to show here</p>';
+			}
+			?>
+		</section>
+	</div>
+
 </div>
