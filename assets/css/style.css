@@ -2461,6 +2461,12 @@ section#quick-search {
     outline-offset: 0;
     outline-color: transparent; }
 
+.experience-box {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-top: solid #E1E5E6;
+  border-bottom: solid #E1E5E6; }
+
 /**** My projects section - Aisha code here ****/
 #current-projects {
   font-family: "Microsoft JhengHei";

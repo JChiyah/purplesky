@@ -672,10 +672,6 @@ footer {
 	}
 }
 
-.experience-box {
-
-
-}
 /* * * * addSkills page style section * * * */
 #addSkill {
 	#ASContainer {
@@ -1002,6 +998,13 @@ section#quick-search{
 		outline-offset: 0;
 		outline-color: transparent;
 	}
+}
+
+.experience-box {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	border-top: solid $grey-background2;
+	border-bottom: solid $grey-background2;
 }
 
 /**** My projects section - Aisha code here ****/
