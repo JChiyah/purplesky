@@ -104,6 +104,36 @@ class User extends CI_Controller {
 	}
 
 	/**
+	 * Gets all users with a certain skill
+	 * Call from a form post using AJAX
+	 *
+	 * @param post('skill')
+	 * @author JChiyah
+	 */
+	public function search_staff() {
+		$skill_id = $this->input->post('skill');
+
+		$filters = array(
+			'skills'	=> $skill_id
+		);
+		
+		$staff = $this->User_model->search_staff($filters);
+
+		//var_dump($staff);
+		if($staff) {
+			foreach($staff as $employee) {
+				echo '<div class="staff-result">
+						<h3>' . $employee->name . '</h3></a>
+						<span>' . $employee->group . '</span>
+						<p class="location">' . $employee->location . '</p>
+						<p class="pay-rate">£' . $employee->pay_rate . '</p>
+						<button class="add-staff-button" id="staff-' . $employee->id . '">Add</button>
+					</div>';
+			}
+		}
+	}
+
+	/**
 	 * Helper function to parse any simple text input
 	 *
 	 * @param $input

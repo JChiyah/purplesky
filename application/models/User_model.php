@@ -309,4 +309,46 @@ class User_model extends CI_Model {
 		return FALSE;
 	}
 
+	/**
+	 * Returns the user's most recent projects
+	 *
+	 * @param $user_id
+	 * @param $limit - amount of projects to return
+	 * @return mixed boolean / array of db project object(manager, title, description, priority, location, start_date, end_date)
+	 * @author JChiyah
+	 */
+	public function search_staff($filters) {
+
+		// Start the query
+		$query = $this->db->select('staff.staff_id AS id, CONCAT(first_name, " ", last_name) AS name, user_group.description AS group, location.name AS location, pay_rate')
+						->join('staff', 'staff.staff_id=staff_skill.staff_id')
+						->join('location', 'location.location_id=staff.current_location')
+						->join('account', 'account.id=staff.staff_id')
+						->join('account_group', 'account_group.user_id=staff.staff_id')
+						->join('user_group', 'user_group.id=account_group.group_id')
+						->group_by('staff.staff_id')
+						->limit(10);
+
+		// Filter by skills
+		if(isset($filters['skills']) && $filters['skills']) {
+			if(is_array($filters['skills'])) {
+				foreach ($filters['skills'] as $skill) {
+					$query = $query->where("EXISTS(SELECT 1 FROM staff_skill WHERE staff_skill.staff_id = staff.staff_id AND staff_skill.skill_id = $skill) AND 1 = ", 1);
+				}
+			} else {
+				$query = $query->where('skill_id', $filters['skills']);	
+			}
+		}
+
+		// End search
+		$query = $query->get('staff_skill');
+
+		$result = $query->result();
+
+		if(isset($result) && !empty($result)) {
+			return $result;
+		}
+		return FALSE;
+	}
+
 }

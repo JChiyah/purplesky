@@ -162,6 +162,13 @@ class Project extends CI_Controller {
 				'value' => '1',
 			);
 
+			// Staff allocation
+			$this->data['skill_select'] = array(
+				'name'  => 'skill_select',
+				'id'    => 'skill_select'
+			);
+			$this->data['skills'] = $this->System_model->get_skills();
+
 			$this->data['locations'] = $this->System_model->get_locations();
 			$this->data['manager'] = $this->User_model->get_user_by_id($user_id)->name;
 			// render

@@ -5,7 +5,7 @@
 			<button id="project-continue">Continue</button>
 			<?php echo form_open("Project/create_project");?>
 			<div id="infoMessage"><?php echo $message;?></div>
-			<div class="container project-tab" id="create-1">
+			<div class="container project-tab" id="create-1" style="display: none">
 				<h2>Step 1: Project Details</h2>
 				<hr>
 				<p>Please fill out all fields.</p>
@@ -38,11 +38,19 @@
 				</p>
 			</div>
 				
-			<div class="container project-tab" id="create-2" style="display: none">
+			<div class="container project-tab" id="create-2">
 				<h2>Step 2: Project Allocation</h2>
 				<hr>
-				<!--<div class="col-xs-12 col-sm-6 col-md-12" id="NPcontainer">
+				<section id="resource-allocation">
 					<p>Please fill out at least one of the required fields marked with an asterisk</p>
+					<p>
+						<?php echo form_dropdown($skill_select, $skills);?>
+						<button type="button" id="clear-skills">Clear</button>
+						<div id="selected-skills"></div>
+					</p>
+					<button id="staff-allocation-search">Search</button>
+					
+					<!--
 					<form class="" action="index.html" method="post">
 						<div class="row">
 							<div class="col-xs-12 col-sm-3 col-md-5">
@@ -89,8 +97,17 @@
 								<input type="submit" name="submit" value="Submit">
 							</div>
 						</div> 
-					</form>
-				</div>
+					</form>-->
+
+				</section>
+				<section id="resource-allocation-results">
+					<div id="results">
+
+					</div>
+					<div id="staff-added">
+
+					</div>
+				<section>
 				<div class="row">
 					<div class="col-xs-12 col-sm-3 col-md-6">
 						Results:
@@ -109,7 +126,7 @@
 						Employee B: <hr>
 					</div>
 					<input type="submit" name="Load" value="Load more results">
-				</div>-->
+				</div>
 			</div>
 
 			<div class="container project-tab" id="create-3" style="display: none">
