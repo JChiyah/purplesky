@@ -2470,76 +2470,69 @@ section#quick-search {
 /**** My projects section - Aisha code here ****/
 #current-projects {
   font-family: "Microsoft JhengHei";
-  color: #1f1646; }
+  color: #1f1646;
+  margin: 10px auto;
+  width: 80%; }
   #current-projects h1 {
     padding-top: 20px;
     margin-top: 0;
-    text-align: left;
+    text-align: center;
     font-size: 2.8em;
-    margin-bottom: 0;
-    display: inline-block; }
-    #current-projects h1 #dropdown-menu {
-      margin: 0.8em 1em;
-      position: absolute;
+    margin-bottom: 0; }
+  #current-projects #dropdown-menu {
+    margin: 0.8em 1em;
+    position: relative;
+    right: 0px; }
+    #current-projects #dropdown-menu label {
+      font-size: 1.2em;
+      font-weight: 900;
+      position: relative;
       right: 0px; }
-      #current-projects h1 #dropdown-menu .label {
-        font-size: 1.2em;
-        font-weight: 900;
-        position: absolute;
-        right: 0px; }
-
-hr {
-  display: block;
-  width: 80%;
-  height: 2px;
-  background: #E1E5E6; }
-
-#container-fluid {
-  display: block;
-  background: #E1E5E6;
-  padding: 20px;
-  border-radius: 4px;
-  width: 80%; }
-
-#project-container-fluid {
-  background: #ffffff;
-  padding: 10px;
-  border-radius: 8px;
-  width: 97%;
-  color: #1f1646;
-  font-family: "Microsoft JhengHei"; }
-  #project-container-fluid h2 {
-    padding-top: 0px;
-    margin-top: 0;
-    text-align: left;
-    font-size: 1.5em;
-    margin-bottom: 0; }
-  #project-container-fluid h3 {
-    padding-top: 2px;
-    margin-top: 0;
-    text-align: left;
-    font-size: 1em;
-    margin-bottom: 0; }
-  #project-container-fluid hr {
+  #current-projects hr {
     display: block;
-    width: 100%;
+    width: 80%;
     height: 2px;
     background: #E1E5E6; }
-  #project-container-fluid button {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 0.9em;
-    padding: 8px 12px 8px 12px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: none;
-    float: right; }
-  #project-container-fluid button:hover {
-    background: #1f1646; }
-  #project-container-fluid button:focus {
-    background: #0389ff; }
+  #current-projects .projects {
+    padding: 30px;
+    display: block;
+    background: #E1E5E6; }
+    #current-projects .projects .project-result {
+      background: #ffffff;
+      border-radius: 8px;
+      width: 90%;
+      margin: 0 auto;
+      padding: 10px;
+      color: #1f1646;
+      font-family: "Microsoft JhengHei";
+      position: center; }
+      #current-projects .projects .project-result h2 {
+        padding-top: 0px;
+        margin-top: 0;
+        text-align: left;
+        font-size: 1.5em;
+        margin-bottom: 0; }
+      #current-projects .projects .project-result h3 {
+        padding-top: 2px;
+        margin-top: 0;
+        text-align: left;
+        font-size: 1em;
+        margin-bottom: 0; }
+      #current-projects .projects .project-result .view-button {
+        background: #0389ff;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.9em;
+        padding: 8px 12px 8px 12px;
+        border: none;
+        border-radius: 4px;
+        box-shadow: none;
+        float: right; }
+      #current-projects .projects .project-result .view-button:hover {
+        background: #1f1646; }
+      #current-projects .projects .project-result .view-button:focus {
+        background: #0389ff; }
 
 /**** Project Dashboard section - Daniel code here ****/
 #project-dashboard {

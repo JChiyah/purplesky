@@ -1,9 +1,6 @@
 <section id="current-projects">
-	
-<!-- Code here -->
 
     <h1>My Projects</h1>
-
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
         <div id="dropdown-menu">
             <label>Order by:</label>
@@ -15,29 +12,10 @@
         </div>
     </div>
     <hr>
-    
-    <div id="container-fluid">
-        <!-- DO NOT USE IDs for this. Read: https://css-tricks.com/the-difference-between-id-and-class/ -->
-        <div id="project-container-fluid">
-            <div class="content">
-                <h2>Test Project</h2>
-                <h3>Manager example</h3>
-                <p>02-10-2016</p>
-                <p>16-11-2016</p>
-                <p>Edinburgh</p>
-                <hr>
-                <!--<label>Matching skills:</label>
-                <ul id="matching-skills">
 
-                    <!-- Ignore matching skills - Not fully implemented yet
+    <div class="container-fluid projects">
 
-                </ul>-->
-                <button id="view">VIEW</button>
-            </div>
-        </div>
-    
-        <!-- My recommended block of code to work on -->
-        <div class="project">
+        <div class="row project-result">
             <div class="left">
                 <a href="#"><h2>Test Project</h2></a>
                 <span>Manager example</span>
@@ -48,17 +26,37 @@
             </div>
             <a class="view-button" href="#">VIEW</a>
         </div>
-        
-        <!-- Whichever you choose, just delete the other one and repeat the block 3 times,
-            one after another, like this:
-            
-            block
-            block
-            block
 
-            So it gives you an idea how it would look with more than 1 project at the same time-->
+        <hr>
+        
+        <div class="row project-result">
+            <div class="left">
+                <a href="#"><h2>Test Project</h2></a>
+                <span>Manager example</span>
+            </div>
+            <div class="right">
+                <p class="project-date">02-10-2016 - 16-11-2016</p>
+                <p>Edinburgh</p>
+            </div>
+            <a class="view-button" href="#">VIEW</a>
+        </div>
+
+        <hr>
+
+        <div class="row project-result">
+            <div class="left">
+                <a href="#"><h2>Test Project</h2></a>
+                <span>Manager example</span>
+            </div>
+            <div class="right">
+                <p class="project-date">02-10-2016 - 16-11-2016</p>
+                <p>Edinburgh</p>
+            </div>
+            <a class="view-button" href="#">VIEW</a>
+        </div>
+  
     </div>
-    
+
     <?php
         /** This is the code used to generate multiple blocks of code. Do not use yet **
             The code inside the "echo" will be changed to match your block of code above 
@@ -80,6 +78,3 @@
     ?>
 
 </section>
-
-
-
