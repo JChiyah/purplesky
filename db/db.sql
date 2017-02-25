@@ -90,9 +90,10 @@ CREATE TABLE staff (
 # Create availability table
 CREATE TABLE availability (
 	staff_id integer(11) NOT NULL,
-	day date NOT NULL,
+	start_date date NOT NULL,
+	end_date date NOT NULL,
 	type enum('holiday', 'work', 'training', 'sick', 'other') NOT NULL,
-	PRIMARY KEY (staff_id, day),
+	PRIMARY KEY (staff_id, start_date),
 	FOREIGN KEY (staff_id) REFERENCES staff(staff_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
