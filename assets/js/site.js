@@ -42,8 +42,8 @@ $(function() {
 	$("#experience-submit").click(function(event) {
 		event.preventDefault();
 		// form validation
-		var start_date = $('#start_date').value;
-		var end_date = $('#end_date').value;
+		var start_date = $('#start_date').val();
+		var end_date = $('#end_date').val();
 		var title = $('#title').value;
 		var description = $('#description').value;
 		var role = $('#role').value;
