@@ -44,9 +44,19 @@
 				<section id="resource-allocation">
 					<p>Please fill out at least one of the required fields marked with an asterisk</p>
 					<p>
-						<?php echo form_dropdown($skill_select, $skills);?>
+						<?php echo form_dropdown($skill_select, array_merge(array( 0 => 'Select'), $skills));?>
 						<button type="button" id="clear-skills">Clear</button>
 						<div id="selected-skills"></div>
+					</p>
+					<p>
+						<?php echo form_date($staff_start_date);?>
+					</p>
+					<p>
+						<?php echo form_date($staff_end_date);?>
+					</p>
+					<p>
+						<label>Employee name:</label>
+						<?php echo form_input($staff_name);?>
 					</p>
 					<button id="staff-allocation-search">Search</button>
 					
@@ -105,7 +115,7 @@
 
 					</div>
 					<div id="staff-added">
-
+						<h1>Added</h1>
 					</div>
 				<section>
 				<div class="row">

@@ -125,31 +125,31 @@ class Project extends CI_Controller {
 				'name'  => 'title',
 				'id'    => 'title',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('title'),
+				'value' => $this->form_validation->set_value('title')
 			);
 			$this->data['description'] = array(
 				'name'  => 'description',
 				'id'    => 'description',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('description'),
+				'value' => $this->form_validation->set_value('description')
 			);
 			$this->data['start_date'] = array(
 				'name'  => 'start_date',
 				'id'    => 'start_date',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('start_date'),
+				'value' => $this->form_validation->set_value('start_date')
 			);
 			$this->data['end_date'] = array(
 				'name'  => 'end_date',
 				'id'    => 'end_date',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('end_date'),
+				'value' => $this->form_validation->set_value('end_date')
 			);
 			$this->data['location'] = array(
 				'name'  => 'location',
 				'id'    => 'location',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('location'),
+				'value' => $this->form_validation->set_value('location')
 			);
 			$this->data['normal_priority'] = array(
 				'name'  => 'priority',
@@ -166,6 +166,21 @@ class Project extends CI_Controller {
 			$this->data['skill_select'] = array(
 				'name'  => 'skill_select',
 				'id'    => 'skill_select'
+			);
+			$this->data['staff_start_date'] = array(
+				'name'  => 'staff_start_date',
+				'id'    => 'staff_start_date',
+				'value' => $this->form_validation->set_value('start_date')
+			);
+			$this->data['staff_end_date'] = array(
+				'name'  => 'staff_end_date',
+				'id'    => 'staff_end_date',
+				'value' => $this->form_validation->set_value('end_date')
+			);
+			$this->data['staff_name'] = array(
+				'name'  => 'staff_name',
+				'id'    => 'staff_name',
+				'value' => $this->form_validation->set_value('staff_name')
 			);
 			$this->data['skills'] = $this->System_model->get_skills();
 

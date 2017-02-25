@@ -112,22 +112,39 @@ class User extends CI_Controller {
 	 */
 	public function search_staff() {
 		$skill_id = $this->input->post('skill');
+		$start_date = $this->input->post('start_date');
+		$end_date = $this->input->post('end_date');
+		$staff_name = $this->input->post('staff_name');
+		$staff_ids = $this->input->post('staff_ids'); // Staff already added to project
 
 		$filters = array(
-			'skills'	=> $skill_id
+			'start_date'=> $start_date,
+			'end_date'  => $end_date
 		);
+
+		if(isset($skill_id) && $skill_id) {
+			$filters['skills'] = $skill_id;
+		}
+
+		if(isset($staff_name) && $staff_name) {
+			$filters['name'] = $staff_name;
+		}
+
+		if(!empty($staff_ids)) {
+			$filters['staff_ids'] = $staff_ids;
+		}
 		
 		$staff = $this->User_model->search_staff($filters);
 
 		//var_dump($staff);
 		if($staff) {
 			foreach($staff as $employee) {
-				echo '<div class="staff-result">
+				echo '<div class="staff-result" id="staff-' . $employee->id . '">
 						<h3>' . $employee->name . '</h3></a>
 						<span>' . $employee->group . '</span>
 						<p class="location">' . $employee->location . '</p>
 						<p class="pay-rate">£' . $employee->pay_rate . '</p>
-						<button class="add-staff-button" id="staff-' . $employee->id . '">Add</button>
+						<button type="button" class="allocate-staff-button" id="staff-button-' . $employee->id . '">Add</button>
 					</div>';
 			}
 		}

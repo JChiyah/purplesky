@@ -340,6 +340,30 @@ class User_model extends CI_Model {
 			}
 		}
 
+		// Filter by availability
+		if(isset($filters['start_date']) && $filters['start_date'] && isset($filters['end_date']) && $filters['end_date']) {
+			$query = $query->where("NOT EXISTS(SELECT 1 FROM availability 
+					WHERE staff.staff_id = availability.staff_id AND
+						((availability.start_date BETWEEN '{$filters['start_date']}' AND '{$filters['end_date']}') OR
+						(availability.end_date BETWEEN '{$filters['start_date']}' AND '{$filters['end_date']}'))
+					) AND 1 = ", 1);
+		}
+
+		// Do not show staff already added to project
+		if(isset($filters['staff_ids']) && $filters['staff_ids']) {
+			if(is_array($filters['staff_ids'])) {
+				$query = $query->where_not_in('staff.staff_id', $filters['staff_ids']);
+			} else {
+				$query = $query->where('staff.staff_id != ', $filters['staff_ids']);	
+			}
+		}
+
+		// Filter by name
+		if(isset($filters['name']) && $filters['name']) {
+			$query = $query->like('first_name', $filters['name']);
+			$query = $query->or_like('last_name', $filters['name']);
+		}
+
 		// End search
 		$query = $query->get('staff_skill');
 
@@ -350,5 +374,13 @@ class User_model extends CI_Model {
 		}
 		return FALSE;
 	}
+	/*
+	Rules
+		- start date after other start dates
+		- end date after other end dates
+		- start date has to be after other end dates
+		- end dates before other start dates 
+
+	*/
 
 }
