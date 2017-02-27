@@ -136,8 +136,8 @@ class User extends CI_Controller {
 		
 		$staff = $this->User_model->search_staff($filters);
 
-		echo $staff_ids;
-		var_dump($staff_ids);
+		//echo $staff_ids;
+		//var_dump($staff_ids);
 		if($staff) {
 			foreach($staff as $employee) {
 				echo '<div class="staff-result" id="staff-' . $employee->id . '">

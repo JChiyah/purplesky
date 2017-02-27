@@ -6,6 +6,7 @@ $(function() {
 
 	// Staff selected
 	var staff = [];
+	var staff_ids = [];
 
 	function create_hidden_inputs() {
 
@@ -59,7 +60,7 @@ $(function() {
 						'start_date' : start_date,
 						'end_date' : end_date,
 						'staff_name' : staff_name,
-						'staff_ids' : staff,
+						'staff_ids' : staff_ids,
 						'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 					},
 					success: function(data) {
@@ -118,13 +119,13 @@ $(function() {
 			var staff_info = current_query.slice();
 			staff_info.unshift(id);
 			staff.push(staff_info);
-			alert(staff);
+			staff_ids.push(id);
 
 			// Show staff in summary
 			// clone div -> change id -> append to summary -> remove the button
 			$('#staff-' + id).clone().attr('id', 'allocated-staff-' + id).appendTo('#allocated-staff');
 			$('#allocated-staff-' + id + ' > button').remove();
-			$('#allocated-staff-' + id).append('<p>From </p>' );
+			$('#allocated-staff-' + id).append( /*** Add here more info if needed ***/ );
 		}
 		// User is removing staff
 		else if($('#staff-added').find('#staff-' + id).length) {
@@ -132,7 +133,9 @@ $(function() {
 			staff = $.grep(staff, function(value) {
 				return value[0] != id;
 			});
-			alert(staff);
+			staff_ids = $.grep(staff_ids, function(value) {
+				return value != id;
+			});
 			// Refresh search results
 			$('#staff-' + id).remove();
 			search_staff();

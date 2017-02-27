@@ -7,7 +7,7 @@ class Project extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->library(array('form_validation'));
-		$this->load->helper(array('url','language'));
+		$this->load->helper(array('url','language','form'));
 		//$this->load->model("System_model");
 		//$this->load->model("User_model");
 		$this->load->model("Project_model");
@@ -110,11 +110,11 @@ class Project extends CI_Controller {
 
 		// Setting validation rules
 		$this->form_validation->set_rules('title', 'Project title', 'required|trim|min_length[3]|alpha_numeric_spaces');
-		$this->form_validation->set_rules('description', 'Project description', 'required|trim|min_length[3]|max_length[250]|alpha_dash');
+		$this->form_validation->set_rules('description', 'Project description', 'required|trim|min_length[3]|max_length[250]|alpha_numeric_spaces');
 		$this->form_validation->set_rules('start_date', 'Project start date', 'callback_check_date');
 		$this->form_validation->set_rules('end_date', 'Project end date', 'callback_check_date');
 		$this->form_validation->set_rules('location', 'Location', 'is_natural_no_zero', array( 'is_natural_no_zero' => 'The project location is not valid.'));
-
+		
 		if ($this->form_validation->run() == false)
 		{
 			// display the form
@@ -213,20 +213,23 @@ class Project extends CI_Controller {
 			);
 
 			$staff = $this->input->post('allocated_staff'); // Array of strings
-			$staff = $this->parse_allocated_staff($staff);
-			var_dump($staff);
-			return ;
+			if(isset($staff) && $staff) {
+				$staff = $this->parse_allocated_staff($staff);
+			} else {
+				$staff = FALSE;
+			}
+			var_dump($staff); echo "/n/n";
 
 			$project = $this->Project_model->create_project($user_id, $project_info, $staff);
 
-			if ($project)
+			if (isset($project))
 			{
 				//if the project was successfully created
 				redirect('dashboard/' . $project, 'refresh');
 			}
 			else
 			{
-				redirect('create-project', 'refresh');
+				//redirect('create-project', 'refresh');
 				//$this->session->set_flashdata('message', $this->ion_auth->errors());
 				// render
 				//redirect('change-password', 'refresh');

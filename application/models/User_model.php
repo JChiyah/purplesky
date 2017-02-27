@@ -355,7 +355,6 @@ class User_model extends CI_Model {
 				foreach ($filters['staff_ids'] as $id) {
 					$query = $query->where('staff.staff_id != ', $id);
 				}
-				//$query = $query->where_not_in('staff.staff_id', $filters['staff_ids']);
 			} else {
 				$query = $query->where('staff.staff_id != ', $filters['staff_ids']);	
 			}
