@@ -100,6 +100,47 @@ class Project_model extends CI_Model {
 	}
 
 	/**
+	 * Allocates staff to a project
+	 *
+	 * @param $project_id
+	 * @return mixed boolean / array of db project object()
+	 * @author JChiyah
+	 */
+	public function allocate_staff($project_id, $staff, $start_date, $end_date) {
+
+		if(!is_array($staff)) {
+			$staff = array($staff);
+		}
+
+		// Handle staff availability
+		$availability = array();
+		foreach($availability as $id) {
+			array_push($data, array(
+				'staff_id' => $id,
+				'start_date' => $start_date,
+				'end_date' => $end_date,
+				'type' => 1
+			));
+		}
+
+		$this->db->insert_batch('availability', $availability);
+
+		// Handle role allocation
+		$project_staff = array();
+		foreach($staff as $id) {
+			array_push($project_staff, array(
+				'project_id' => $project_id,
+				'staff_id' => $id,
+				'role' => 'General Staff',
+				'assigned_at' => date("Y-m-d H:i:s")
+			));
+		}
+
+		$this->db->insert_batch('availability', $project_staff);
+
+	}
+
+	/**
 	 * Search for a project
 	 *
 	 * @param $project_id
@@ -182,6 +223,10 @@ class Project_model extends CI_Model {
 			);
 
 			$this->db->insert('project_dashboard', $entry);
+
+			$staff = 
+
+			$this->allocate_staff($project_id, $staff, $project_info['start_date'], $project_info['end_date']);
 
 			$this->db->trans_complete(); // Close transaction
 

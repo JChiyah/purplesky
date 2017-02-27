@@ -136,7 +136,8 @@ class User extends CI_Controller {
 		
 		$staff = $this->User_model->search_staff($filters);
 
-		//var_dump($staff);
+		echo $staff_ids;
+		var_dump($staff_ids);
 		if($staff) {
 			foreach($staff as $employee) {
 				echo '<div class="staff-result" id="staff-' . $employee->id . '">
@@ -144,7 +145,7 @@ class User extends CI_Controller {
 						<span>' . $employee->group . '</span>
 						<p class="location">' . $employee->location . '</p>
 						<p class="pay-rate">£' . $employee->pay_rate . '</p>
-						<button type="button" class="allocate-staff-button" id="staff-button-' . $employee->id . '">Add</button>
+						<button type="button" class="allocate-staff-button">Add</button>
 					</div>';
 			}
 		}

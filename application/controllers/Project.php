@@ -125,31 +125,36 @@ class Project extends CI_Controller {
 				'name'  => 'title',
 				'id'    => 'title',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('title')
+				'value' => 'Testing'
+				//'value' => $this->form_validation->set_value('title')
 			);
 			$this->data['description'] = array(
 				'name'  => 'description',
 				'id'    => 'description',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('description')
+				'value' => 'Lorem ipsum rae et sit amet'
+				//'value' => $this->form_validation->set_value('description')
 			);
 			$this->data['start_date'] = array(
 				'name'  => 'start_date',
 				'id'    => 'start_date',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('start_date')
+				'value' => '2017-10-10'
+				//'value' => $this->form_validation->set_value('start_date')
 			);
 			$this->data['end_date'] = array(
 				'name'  => 'end_date',
 				'id'    => 'end_date',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('end_date')
+				'value' => '2017-10-11'
+				//'value' => $this->form_validation->set_value('end_date')
 			);
 			$this->data['location'] = array(
 				'name'  => 'location',
 				'id'    => 'location',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('location')
+				'value' => 1
+				//'value' => $this->form_validation->set_value('location')
 			);
 			$this->data['normal_priority'] = array(
 				'name'  => 'priority',
@@ -207,7 +212,12 @@ class Project extends CI_Controller {
 				'end_date'		=> $this->input->post('end_date')
 			);
 
-			$project = $this->Project_model->create_project($user_id, $project_info);
+			$staff = $this->input->post('allocated_staff'); // Array of strings
+			$staff = $this->parse_allocated_staff($staff);
+			var_dump($staff);
+			return ;
+
+			$project = $this->Project_model->create_project($user_id, $project_info, $staff);
 
 			if ($project)
 			{
@@ -256,6 +266,39 @@ class Project extends CI_Controller {
 		}
 		$this->form_validation->set_message('check_date', 'The {field} is not a valid date.');
         return FALSE;
+	}
+
+	/**
+	 * Helper function to parse allocated staff information
+	 *
+	 * @param $staff (array os strings)
+	 * @return array of arrays (3D array :-P)
+	 * @author JChiyah
+	 */
+	public function parse_allocated_staff($staff) {
+		if(!is_array($staff)) {
+			return FALSE;
+		}
+
+		$allocated_staff = array();
+		foreach ($staff as $string) {
+			$tmp = explode(',', $string);
+
+			$data = array(
+				'id'			=> $tmp[0],
+				'start_date'	=> $tmp[1],
+				'end_date'		=> $tmp[2]
+			);
+
+			$tmp = explode('|', $tmp[3]); // Array of skills
+			$data['skills'] = $tmp;
+
+			if(sizeof($data) == 4) {
+				array_push($allocated_staff, $data);
+			}
+		}
+		return $allocated_staff;
+
 	}
 
 

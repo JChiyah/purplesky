@@ -352,7 +352,10 @@ class User_model extends CI_Model {
 		// Do not show staff already added to project
 		if(isset($filters['staff_ids']) && $filters['staff_ids']) {
 			if(is_array($filters['staff_ids'])) {
-				$query = $query->where_not_in('staff.staff_id', $filters['staff_ids']);
+				foreach ($filters['staff_ids'] as $id) {
+					$query = $query->where('staff.staff_id != ', $id);
+				}
+				//$query = $query->where_not_in('staff.staff_id', $filters['staff_ids']);
 			} else {
 				$query = $query->where('staff.staff_id != ', $filters['staff_ids']);	
 			}

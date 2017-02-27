@@ -3,13 +3,13 @@
 		<h1>Create new Project</h1>
 		<div class="container">
 			<button id="project-continue">Continue</button>
-			<?php echo form_open("Project/create_project");?>
+			<?php echo form_open('Project/create_project');?>
+				<?php echo form_submit('submit', 'Submit', "id='create-project-submit'");?>
 			<div id="infoMessage"><?php echo $message;?></div>
-			<div class="container project-tab" id="create-1" style="display: none">
+			<div class="container project-tab" id="create-1">
 				<h2>Step 1: Project Details</h2>
 				<hr>
 				<p>Please fill out all fields.</p>
-				<?php echo form_submit('submit', 'Submit', "id='create-project-submit'");?>
 
 				<p>
 					<label>Title:</label>
@@ -38,7 +38,7 @@
 				</p>
 			</div>
 				
-			<div class="container project-tab" id="create-2">
+			<div class="container project-tab" id="create-2" style="display: none">
 				<h2>Step 2: Project Allocation</h2>
 				<hr>
 				<section id="resource-allocation">
@@ -59,57 +59,8 @@
 						<?php echo form_input($staff_name);?>
 					</p>
 					<button id="staff-allocation-search">Search</button>
-					
-					<!--
-					<form class="" action="index.html" method="post">
-						<div class="row">
-							<div class="col-xs-12 col-sm-3 col-md-5">
-								<label>*Skills:</label> <br>
-								<input type="text" name="skills" value="Type skills here..." required>
-								<p></p>
-							</div>
-							<div class="col-xs-12 col-sm-3 col-md-1">
-								<a href="#">Add</a>
-							</div>
-							<div class="col-xs-12 col-sm-3 col-md-6">
-								<label>Employee Name:</label> <br>
-								<input type="text" name="employeeName" value="" required>
-								<p></p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12 col-sm-3 col-md-6">
-								<label>*Are employees required to be on locations?</label>
-								<p></p>
-								<input type="radio" name="onSite" value="yes" checked>Yes
-								<input type="radio" name="onSite" value="no">no
-								<p></p>
-							</div>
-							<div class="col-xs-12 col-sm-3 col-md-6">
-								<label>Max. Daily Rate:</label><br>
-								<select name="payRate">
-									<option value="500">£500</option>
-									<option value="400">£400</option>
-								</select>
-								<p></p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12 col-sm-3 col-md-6">
-								<label>*From:</label>
-								<input type="date" name="fromDate" value="DD/MM/YYYY">
-								<p></p>
-								<label>*To:</label>
-								<input type="date" name="toDate" value="DD/MM/YYYY">
-								<p></p>
-								</div>
-							<div class="col-xs-12 col-sm-3 col-md-6">
-								<input type="submit" name="submit" value="Submit">
-							</div>
-						</div> 
-					</form>-->
-
 				</section>
+
 				<section id="resource-allocation-results">
 					<div id="results">
 
@@ -118,25 +69,6 @@
 						<h1>Added</h1>
 					</div>
 				<section>
-				<div class="row">
-					<div class="col-xs-12 col-sm-3 col-md-6">
-						Results:
-						Order by:
-						<select name="orderBy">
-							<option value="dailyRate">Daily Rate</option>
-							<option value="location">Locations</option>
-						</select>
-						<hr>
-						Employee A: <hr>
-						Employee B: <hr>
-					</div>
-					<div class="col-xs-12 col-sm-3 col-md-6">
-						Added: <hr>
-						Emplyee A: <hr>
-						Employee B: <hr>
-					</div>
-					<input type="submit" name="Load" value="Load more results">
-				</div>
 			</div>
 
 			<div class="container project-tab" id="create-3" style="display: none">
@@ -170,25 +102,9 @@
 					    <p id="description_summary"></p>
 					</div>
 				</div>
-				<div class="row">
-				  	<div class="col-xs-12 col-sm-12 col-md-12">
-					    <p>Slected staff  From:  To: Daily Rate:</p>
-					    <div class="row">
-					      <div class="col-xs-12 col-sm-12 col-md-12">
-					        test1
-					      </div>
-					      <div class="col-xs-12 col-sm-12 col-md-12">
-					        Test2
-					      </div>
-					      <div class="col-xs-12 col-sm-12 col-md-12">
-					        Test3
-					      </div>
-					      <div class="col-xs-12 col-sm-12 col-md-12">
-					        test4
-					      </div>
-					    </div>
-						
-					</div>
+				<div class="row" id="allocated-staff">
+				  	<h2>Staff</h2>
+					<div id="hidden-inputs"></div>
 				</div>
 			</div>
 
