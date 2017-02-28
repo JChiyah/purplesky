@@ -10,15 +10,15 @@
 						if(isset($activity) && $activity && sizeof($activity) > 0) {
 							$first = FALSE;
 							foreach($activity as $notification) {
-								echo '<div class="notification">
-										<p>' . $notification->description . '</p>
-										<p class="not-date">' . $notification->at_date . '</p>
-									</div>';
 								if(!$first) {
 									$first = TRUE;
 								} else {
 									echo '<hr>';
 								}
+								echo '<div class="notification">
+										<p>' . $notification->description . '</p>
+										<p class="not-date">' . $notification->at_date . '</p>
+									</div>';
 							}
 						} else {
 							// Example data
