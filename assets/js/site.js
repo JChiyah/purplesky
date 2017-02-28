@@ -74,8 +74,8 @@ $(function() {
 	});
 
 	$('body').on('click', '.delete-experience', function() {
-		var id = $(this).attr('id');
-		//var id = "experience-6";
+		//var id = $(this).attr('id');
+		var id = "experience-6";
 		id = id.split("-");
 		id = id[1];
 		if(!isNaN(id)) {
@@ -91,7 +91,7 @@ $(function() {
 				success: function(res) {
 					if (res == 'success') {
 						// Experience successfully deleted
-						id.remove();
+
 					}
 				}
 			});
