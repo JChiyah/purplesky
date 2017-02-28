@@ -137,6 +137,9 @@ class Project_model extends CI_Model {
 				'end_date' 		=> $s['end_date'],
 				'skills'		=> $this->System_model->compress_skills($s['skills'])
 			));
+
+			// Handle a staff notifications
+			$this->User_model->add_user_activity($s['id'],'',$project_id);
 		}
 
 		$this->db->insert_batch('project_staff', $project_staff);

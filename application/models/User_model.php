@@ -2,6 +2,12 @@
 
 class User_model extends CI_Model {
 
+	public function __construct()
+	{
+		$this->load->model("Project_model");
+		//$this->load->model("System_model");
+	}
+
 	/**
 	 * Returns the user id by name
 	 *
@@ -264,12 +270,12 @@ class User_model extends CI_Model {
 	 * @return mixed boolean / object(description, date)
 	 * @author JChiyah
 	 */
-	public function get_user_activity($id = FALSE) {
+	public function get_user_activity($user_id) {
 		// if no id was passed use the current users id
 		$id = isset($id) ? $id : $this->session->userdata('user_id');
 
 		$query = $this->db->select('description, at_date')
-						->where('staff_id', $id)
+						->where('user_id', $id)
 						->limit(10)
 						->get('activity');
 
@@ -279,6 +285,37 @@ class User_model extends CI_Model {
 			return $result;
 		}
 		return FALSE;
+	}
+
+	/**
+	 * Creates a new notification for the user
+	 *
+	 * @param $user_id
+	 * @param $description
+	 * @param $project_id
+	 * @return mixed boolean
+	 * @author JChiyah
+	 */
+	public function add_user_activity($user_id, $description = '', $project_id = FALSE) {
+		// if no id was passed use the current users id
+		$id = isset($id) ? $id : $this->session->userdata('user_id');
+
+		$notification = array(
+			'user_id'		=> $user_id,
+			'at_date'		=> date("Y-m-d H:i:s")
+		);
+
+		if(isset($project_id) && $project_id) {
+			// Find project title
+			$title = $this->Project_model->get_project_by_id($project_id)->title;
+
+			$notification['description'] = "You have been assigned to: <a href='/dashboard/$project_id'>$title</a>";
+		} else {
+			$notification['description'] = $description;
+		}
+
+		return $this->db->insert('activity', $notification);
+		
 	}
 
 	/**

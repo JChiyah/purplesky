@@ -148,10 +148,10 @@ CREATE TABLE experience (
 # Create activity table
 CREATE TABLE activity (
 	activity_id integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	staff_id integer NOT NULL,
+	user_id integer NOT NULL,
 	description varchar(255) NOT NULL,
 	at_date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	FOREIGN KEY (staff_id) REFERENCES staff(staff_id) ON DELETE CASCADE
+	FOREIGN KEY (user_id) REFERENCES account(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 # Create project_log table
