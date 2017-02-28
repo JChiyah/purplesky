@@ -113,9 +113,10 @@
 			</div>
 		</section>
 	</div>
-
+<!--TODO::do i need this for edit or insert function ? i think this may be the problem as
+a duplication of element id for add exp but even if i remove this error still presists -->
 	<div class="container">
-		<section class="experience-box" id="experience">
+		<section id="experience">
 			<div id="experience-set">
 				<?php echo form_open('User/experience_form', array('id' => 'experience-add')); ?>
 					<div id="experience-msg"><?php echo $message;?></div>
@@ -178,7 +179,7 @@
 					<?php
 						if(isset($user_experiences) && $user_experiences) {
 							foreach ($user_experiences as $experience) {
-								echo '<div class="experience-box">
+								echo '<div class="experience-box"> <i class="fa fa-times fa-lg delete-experience" aria-hidden="true"></i></span>
 									<h2>' . $experience->role . '</h2>
 									<p><strong>'
 										. date_format(date_create($experience->start_date), 'j M Y') . '</strong> until <strong>'

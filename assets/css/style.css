@@ -2462,8 +2462,8 @@ section#quick-search {
     outline-color: transparent; }
 
 .experience-box {
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 1em;
+  margin-bottom: 1em;
   border-top: solid #E1E5E6;
   border-bottom: solid #E1E5E6; }
 

@@ -6,7 +6,7 @@ $(function() {
 		$.ajax({
 			type: "POST",
 			url: baseurl + "User/delete_user_skill",
-			data: { 
+			data: {
 				'delete_skill' : skill,
 				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 			},
@@ -25,7 +25,7 @@ $(function() {
 		$.ajax({
 			type: "POST",
 			url: baseurl + "User/add_user_skill",
-			data: { 
+			data: {
 				'skill' : skill,
 				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 			},
@@ -52,7 +52,7 @@ $(function() {
 			$.ajax({
 				type: "POST",
 				url: baseurl + "User/add_user_experience",
-				data: { 
+				data: {
 					'start_date' : start_date,
 					'end_date' : end_date,
 					'title' : title,
@@ -84,7 +84,7 @@ $(function() {
 			$.ajax({
 				type: "POST",
 				url: baseurl + "User/delete_user_experience",
-				data: { 
+				data: {
 					'delete_experience' : id,
 					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 				},
@@ -105,7 +105,7 @@ $(function() {
 		var start_date = $('#start_date').val();
 		var end_date = $('#end_date').val();
 		var location = $('#location').val();
-		
+
 		// flag to control search options
 		if ($('#advanced-search').is(':visible')) {
 			var filter = true;
@@ -115,11 +115,11 @@ $(function() {
 
 		// Check whether the user entered a keyword or is filtering projects
 		if(keyword || filter) {
-			
+
 			$.ajax({
 				type: "POST",
 				url: baseurl + "Project/search_projects",
-				data: { 
+				data: {
 					'keyword' : keyword,
 					'start_date' : start_date,
 					'end_date' : end_date,
