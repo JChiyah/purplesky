@@ -218,7 +218,7 @@ class Project extends CI_Controller {
 			} else {
 				$staff = FALSE;
 			}
-			var_dump($staff); echo "/n/n";
+			var_dump($staff); echo "\n\n";
 
 			$project = $this->Project_model->create_project($user_id, $project_info, $staff);
 

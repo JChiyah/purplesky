@@ -106,20 +106,20 @@ class Project_model extends CI_Model {
 	 * @return mixed boolean / array of db project object()
 	 * @author JChiyah
 	 */
-	public function allocate_staff($project_id, $staff, $start_date, $end_date) {
+	public function allocate_staff($project_id, $staff) {
 
-		if(!is_array($staff)) {
+		if(!is_array($staff)) { // for use with single or multiple staff at the same time
 			$staff = array($staff);
 		}
 
 		// Handle staff availability
 		$availability = array();
-		foreach($availability as $id) {
-			array_push($data, array(
-				'staff_id' => $id,
-				'start_date' => $start_date,
-				'end_date' => $end_date,
-				'type' => 1
+		foreach($staff as $s) {
+			array_push($availability, array(
+				'staff_id' => $s['id'],
+				'start_date' => $s['start_date'],
+				'end_date' => $s['end_date'],
+				'type' => 2
 			));
 		}
 
@@ -127,16 +127,19 @@ class Project_model extends CI_Model {
 
 		// Handle role allocation
 		$project_staff = array();
-		foreach($staff as $id) {
+		foreach($staff as $s) {
 			array_push($project_staff, array(
-				'project_id' => $project_id,
-				'staff_id' => $id,
-				'role' => 'General Staff',
-				'assigned_at' => date("Y-m-d H:i:s")
+				'project_id' 	=> $project_id,
+				'staff_id' 		=> $s['id'],
+				'role' 			=> 'General Staff',
+				'assigned_at' 	=> date("Y-m-d H:i:s"),
+				'start_date' 	=> $s['start_date'],
+				'end_date' 		=> $s['end_date'],
+				'skills'		=> $this->System_model->compress_skills($s['skills'])
 			));
 		}
 
-		$this->db->insert_batch('availability', $project_staff);
+		$this->db->insert_batch('project_staff', $project_staff);
 
 	}
 
@@ -200,7 +203,7 @@ class Project_model extends CI_Model {
 	 * @return mixed boolean / project_id
 	 * @author JChiyah
 	 */
-	public function create_project($manager_id, $project_info) {
+	public function create_project($manager_id, $project_info, $staff) {
 
 		// Add other project info
 		$project_info = array_merge(array('manager_id' => $manager_id), $project_info);
@@ -224,9 +227,8 @@ class Project_model extends CI_Model {
 
 			$this->db->insert('project_dashboard', $entry);
 
-			$staff = 
-
-			$this->allocate_staff($project_id, $staff, $project_info['start_date'], $project_info['end_date']);
+			// Allocate staff
+			$this->allocate_staff($project_id, $staff);
 
 			$this->db->trans_complete(); // Close transaction
 

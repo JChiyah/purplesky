@@ -122,5 +122,45 @@ class System_model extends CI_Model {
 		return $result->name;
 	}
 
+	/**
+	 * This function compresses skills ids into one string
+	 * It is used to simplify the DB architecture and speed up queries by x10
+	 *
+	 * @param $skills
+	 * @return string
+	 * @author JChiyah
+	 */
+	public function compress_skills($skills) {
+
+		if(!is_array($skills)) {
+			$skills = array($skills);
+		}
+
+		$string = '';
+		foreach($skills as $skill) {
+			if(empty($string)) {
+				$string = $skill;
+			} else {
+				$string = $string . ',' . $skill;
+			}
+
+		}
+
+		return $string;
+	}
 	
+
+	/**
+	 * This function decompresses a string into an array of skill ids
+	 * It is used to simplify the DB architecture and speed up queries by x10
+	 *
+	 * @param $string
+	 * @return array of skill ids
+	 * @author JChiyah
+	 */
+	public function decompress_skills($string) {
+
+		return explode(',',$string);
+	}
+
 }
