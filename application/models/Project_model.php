@@ -112,22 +112,18 @@ class Project_model extends CI_Model {
 			$staff = array($staff);
 		}
 
-		// Handle staff availability
 		$availability = array();
+		$project_staff = array();
+		
 		foreach($staff as $s) {
+
 			array_push($availability, array(
 				'staff_id' => $s['id'],
 				'start_date' => $s['start_date'],
 				'end_date' => $s['end_date'],
 				'type' => 2
 			));
-		}
 
-		$this->db->insert_batch('availability', $availability);
-
-		// Handle role allocation
-		$project_staff = array();
-		foreach($staff as $s) {
 			array_push($project_staff, array(
 				'project_id' 	=> $project_id,
 				'staff_id' 		=> $s['id'],
@@ -142,6 +138,10 @@ class Project_model extends CI_Model {
 			$this->User_model->add_user_activity($s['id'],'',$project_id);
 		}
 
+		// Handle staff availability
+		$this->db->insert_batch('availability', $availability);
+
+		// Handle role allocation
 		$this->db->insert_batch('project_staff', $project_staff);
 
 	}

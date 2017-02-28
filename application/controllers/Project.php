@@ -218,7 +218,6 @@ class Project extends CI_Controller {
 			} else {
 				$staff = FALSE;
 			}
-			var_dump($staff); echo "\n\n";
 
 			$project = $this->Project_model->create_project($user_id, $project_info, $staff);
 
@@ -229,7 +228,7 @@ class Project extends CI_Controller {
 			}
 			else
 			{
-				//redirect('create-project', 'refresh');
+				redirect('create-project', 'refresh');
 				//$this->session->set_flashdata('message', $this->ion_auth->errors());
 				// render
 				//redirect('change-password', 'refresh');

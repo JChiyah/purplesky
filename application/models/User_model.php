@@ -309,7 +309,7 @@ class User_model extends CI_Model {
 			// Find project title
 			$title = $this->Project_model->get_project_by_id($project_id)->title;
 
-			$notification['description'] = "You have been assigned to: <a href='/dashboard/$project_id'>$title</a>";
+			$notification['description'] = "You have been assigned to: <a href='dashboard/$project_id'>$title</a>";
 		} else {
 			$notification['description'] = $description;
 		}
@@ -330,7 +330,7 @@ class User_model extends CI_Model {
 		// if no id was passed use the current users id
 		$id = isset($id) ? $id : $this->session->userdata('user_id');
 
-		$query = $this->db->select('CONCAT(first_name, " ", last_name) AS manager, title, description, priority, location.name AS location, start_date, end_date')
+		$query = $this->db->select('CONCAT(first_name, " ", last_name) AS manager, title, description, priority, location.name AS location, project.start_date, project.end_date')
 						->where('project_staff.staff_id', $id)
 						->join('project_staff', 'project_staff.project_id=project.project_id')
 						->join('account', 'account.id=project.manager_id')
