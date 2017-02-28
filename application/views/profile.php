@@ -52,81 +52,12 @@
 			<div id="experience-set">
 				<?php echo form_open('User/experience_form', array('id' => 'experience-add')); ?>
 					<div id="experience-msg"><//?php echo $message;?></div>
-					<div class="container-box container-fluid" id="experience">
-
-						<div class="row">
-							<div class="col-sm-12 col-md-6">
-								<p>
-									<label>Title:</label> <br>
-									<?php echo form_input($title,'',"required");?>
-								</p>
-							</div>
-							<div class="row">
-								<div class="col-sm-12 col-md-6">
-									<div class="row date-row">
-										<div class="col-md-3">
-											<p>
-												<label>Start date:</label>
-											</p>
-										</div>
-										<div class="col-md-9">
-											<?php echo form_input($start_date,'',"required");?>
-										</div>
-									</div>
-									<div class="row date-row">
-										<div class="col-md-3">
-											<p>
-												<label>End date:</label>
-											</p>
-										</div>
-										<div class="col-md-9">
-											<?php echo form_input($end_date,'',"required");?>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-sm-12 col-md-8">
-								<p>
-									<label>Description:</label> <br>
-									<?php echo form_textarea($description,'',"required");?>
-								</p>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-sm-12 col-md-6">
-								<p>
-									<label>Role:</label> <br>
-									<?php echo form_input($role,'',"required");?>
-								</p>
-							</div>
-							<div class="col-sm-12 col-md-6">
-								<?php echo form_submit('submit', "Add experience","id='experience-submit'");?>
-								<?php echo form_close(); ?>
-							</div>
-						</div>
-
-				</div>
-			</div>
-		</section>
-	</div>
-<!--TODO::do i need this for edit or insert function ? i think this may be the problem as
-a duplication of element id for add exp but even if i remove this error still presists -->
-	<div class="container">
-		<section id="experience">
-			<div id="experience-set">
-				<?php echo form_open('User/experience_form', array('id' => 'experience-add')); ?>
-					<div id="experience-msg"><?php echo $message;?></div>
 
 					<div class="row">
 						<div class="col-sm-12 col-md-6">
 							<p>
 								<label>Title:</label> <br>
 								<?php echo form_input($title,'',"required");?>
-								<button id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
 							</p>
 						</div>
 						<div class="row">
@@ -173,35 +104,35 @@ a duplication of element id for add exp but even if i remove this error still pr
 						</div>
 						<div class="col-sm-12 col-md-6">
 							<?php echo form_submit('submit', "Add experience","id='experience-submit'");?>
-							<?php echo form_close(); ?>
 						</div>
 					</div>
-					<?php
-						if(isset($user_experiences) && $user_experiences) {
-							foreach ($user_experiences as $experience) {
-								echo '<div class="experience-box"> <i class="fa fa-times fa-lg delete-experience" aria-hidden="true"></i></span>
-									<h2>' . $experience->role . '</h2>
-									<p><strong>'
-										. date_format(date_create($experience->start_date), 'j M Y') . '</strong> until <strong>'
-										. date_format(date_create($experience->end_date), 'j M Y') . '</strong> at ';
-									if($experience->project_id) {
-										echo '<a href="#">' . $experience->title . '</a>';
-									} else {
-										echo $experience->title;
-									}
-								echo
+				<?php echo form_close(); ?>
+
+			
+				<?php
+					if(isset($user_experiences) && $user_experiences) {
+						foreach ($user_experiences as $experience) {
+							echo '<div class="experience-box"> <i class="fa fa-times fa-lg delete-experience" aria-hidden="true"></i></span>
+								<h2>' . $experience->role . '</h2>
+								<p><strong>'
+									. date_format(date_create($experience->start_date), 'j M Y') . '</strong> until <strong>'
+									. date_format(date_create($experience->end_date), 'j M Y') . '</strong> at ';
+								if($experience->project_id) {
+									echo '<a href="#">' . $experience->title . '</a>';
+								} else {
+									echo $experience->title;
+								}
+							echo
 								'</p>
-								<p>'
-									. $experience->description .
-								'</p>
+								<p>'. $experience->description . '</p>
 							</div>';
 						}
 					} else {
 						echo '<p>No previous experiences to show here</p>';
 					}
 				?>
+
 			</div>
 		</section>
 	</div>
-
 </div>

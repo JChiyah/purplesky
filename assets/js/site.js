@@ -44,9 +44,9 @@ $(function() {
 		// form validation
 		var start_date = $('#start_date').val();
 		var end_date = $('#end_date').val();
-		var title = $('#title').value;
-		var description = $('#description').value;
-		var role = $('#role').value;
+		var title = $('#title').val();
+		var description = $('#description').val();
+		var role = $('#role').val();
 
 		if(start_date && end_date && title && description && role) {
 			$.ajax({
@@ -62,9 +62,12 @@ $(function() {
 				},
 				success: function(res) {
 					if (res) {
-						alert(res);
-					} else {
-						alert(res);
+						$('#experience-set').append('<div class="experience-box"> <i class="fa fa-times fa-lg delete-experience" aria-hidden="true"></i>' +
+							'</span><h2>' + role + '</h2>' +
+							'<p><strong>' + start_date + '</strong> until <strong>' +
+							end_date + '</strong> at ' +
+							'</p><p>' + description + '</p></div>');
+						$('#experience-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
 					}
 				}
 			});
@@ -74,8 +77,8 @@ $(function() {
 	});
 
 	$('body').on('click', '.delete-experience', function() {
-		//var id = $(this).attr('id');
-		var id = "experience-6";
+		var id = $(this).attr('id');
+		//var id = "experience-6";
 		id = id.split("-");
 		id = id[1];
 		if(!isNaN(id)) {
