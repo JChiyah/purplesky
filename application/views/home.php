@@ -6,20 +6,38 @@
 				<h2>Notifications</h2>
 				<hr>
 				<div id="notification-set">
-					<div class="notification">
-						<p>Report for <a href="#">Security Reinforcement</a> project is due soon</p>
-						<p class="not-date">An hour ago</p>
-					</div>
-					<hr>
-					<div class="notification">
-						<p>You were assigned to the project <a href="#">Analysis of Resources</a></p>
-						<p class="not-date">23 Jan 2017 at 11:29</p>
-					</div>
-					<hr>
-					<div class="notification">
-						<p>Address updated successfully</p>
-						<p class="not-date">18 Jan 2017 at 9:45</p>
-					</div>
+					<?php 
+						if(isset($activity) && $activity && sizeof($activity) > 0) {
+							$first = FALSE;
+							foreach($activity as $notification) {
+								echo '<div class="notification">
+										<p>' . $notification->description . '</p>
+										<p class="not-date">' . $notification->at_date . '</p>
+									</div>';
+								if(!$first) {
+									$first = TRUE;
+								} else {
+									echo '<hr>';
+								}
+							}
+						} else {
+							// Example data
+							echo '<div class="notification">
+									<p>Report for <a href="#">Security Reinforcement</a> project is due soon</p>
+									<p class="not-date">An hour ago</p>
+								</div>
+								<hr>
+								<div class="notification">
+									<p>You were assigned to the project <a href="#">Analysis of Resources</a></p>
+									<p class="not-date">23 Jan 2017 at 11:29</p>
+								</div>
+								<hr>
+								<div class="notification">
+									<p>Address updated successfully</p>
+									<p class="not-date">18 Jan 2017 at 9:45</p>
+								</div>';
+						}
+					?>
 				</div>
 			</div>
 		</div>

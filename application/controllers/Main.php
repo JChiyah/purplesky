@@ -36,6 +36,9 @@ class Main extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url_helper');
+
+		// Notifications
+		$data['activity'] = $this->User_model->get_user_activity($this->session->userdata('user_id'));
 	 
 		$data['page_body'] = 'home';
 		$data['page_title'] = 'Home';
