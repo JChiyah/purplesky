@@ -75,32 +75,39 @@ $(function() {
 			var start_date = $('#staff_start_date').val();
 			var end_date = $('#staff_end_date').val();
 
-			if(start_date && end_date && validate_dates(start_date, end_date)) {
-				$.ajax({
-					type: "POST",
-					url: baseurl + "User/search_staff",
-					data: { 
-						'skill' : skills,
-						'start_date' : start_date,
-						'end_date' : end_date,
-						'staff_name' : staff_name,
-						'staff_ids' : staff_ids,
-						'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
-					},
-					success: function(data) {
-						if (data) {
-							$("#results").html(data);
-							current_query = [start_date, end_date, skills.join('|')];
-						} else {
-							$("#results").html('<p>No staff available.</p>');
-							current_query = [];
-						}
-					},
-				    error: function(req, textStatus, errorThrown) {
-				        // To debug when an error happens (possibly a code 500 error)
-				        console.error('Ooops, something happened: ' + textStatus + ' ' +errorThrown);
-				    }
-				});
+			if(start_date && end_date) {
+
+				if(validate_dates(start_date, end_date) && validate_dates($('#start_date').val(), end_date) 
+					&& validate_dates(end_date, $('#end_date').val())) {
+
+					$.ajax({
+						type: "POST",
+						url: baseurl + "User/search_staff",
+						data: { 
+							'skill' : skills,
+							'start_date' : start_date,
+							'end_date' : end_date,
+							'staff_name' : staff_name,
+							'staff_ids' : staff_ids,
+							'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+						},
+						success: function(data) {
+							if (data) {
+								$("#results").html(data);
+								current_query = [start_date, end_date, skills.join('|')];
+							} else {
+								$("#results").html('<p>No staff available.</p>');
+								current_query = [];
+							}
+						},
+					    /*error: function(req, textStatus, errorThrown) {
+					        // To debug when an error happens (possibly a code 500 error)
+					        console.error('Ooops, something happened: ' + textStatus + ' ' +errorThrown);
+					    }*/
+					});
+				} else {
+					$("#results").html('<p>Start date must be before end date and within the project dates.</p>');
+				}
 			} else {
 				$("#results").html('<p>Select valid dates.</p>');
 			}
