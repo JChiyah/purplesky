@@ -18,27 +18,51 @@ $(function() {
 		}
 	}
 
+	function validate_dates(start_date, end_date) {
+		var now = new Date();
+		var d1 = new Date(start_date);
+		var d2 = new Date(end_date);
+
+		return d2.getTime() >= d1.getTime() && (d1.getTime() >= now.getTime());
+	}
+
 	// Project step
 	var create_project_flag = 1;
 	// Button to change steps
 	$('#project-continue').on('click', function() {
 		if(create_project_flag == 1) {
-			$('#create-1').hide();
-			$('#create-2').show();
-			create_project_flag = 2;
-			window.scrollTo(0, 0);
+
+			$('.error-msg').hide();
+			// Check if all fields are done and show error where needed
+			if($('#title').val()) {
+				if(validate_dates($('#start_date').val(), $('#end_date').val())) {
+					if($('#location').val() != 0) {
+						// All okay, continue
+						$('#create-1').hide();
+						$('#create-2').show();
+						create_project_flag = 2;
+						$('html, body').animate({ scrollTop: "0px" });
+					} else {
+						$('#location').after('<span class="error-msg">Please select a location<span>');
+					}
+				} else {
+					$('#end_date').after('<span class="error-msg">Please select valid dates<span>');
+				}
+			} else {
+				$('#title').after('<span class="error-msg">Please give a project title<span>');
+			}
 		} else if(create_project_flag == 2) {
 			$('#create-2').hide();
 			$('#create-3').show();
 			create_project_flag = 3;
-			window.scrollTo(0, 0);
+			$('html, body').animate({ scrollTop: "0px" });
 			create_hidden_inputs();
 			$('#project-continue').html('Back');
 		} else if(create_project_flag == 3) {
 			$('#create-3').hide();
 			$('#create-1').show();
 			create_project_flag = 1;
-			window.scrollTo(0, 0);
+			$('html, body').animate({ scrollTop: "0px" });
 			$('#project-continue').html('Continue');
 		}
 	});
@@ -51,7 +75,7 @@ $(function() {
 			var start_date = $('#staff_start_date').val();
 			var end_date = $('#staff_end_date').val();
 
-			if(start_date && end_date) {
+			if(start_date && end_date && validate_dates(start_date, end_date)) {
 				$.ajax({
 					type: "POST",
 					url: baseurl + "User/search_staff",

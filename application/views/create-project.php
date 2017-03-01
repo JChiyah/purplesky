@@ -2,9 +2,7 @@
 	<div class="container">
 		<h1>Create new Project</h1>
 		<div class="container">
-			<button id="project-continue">Continue</button>
 			<?php echo form_open('Project/create_project');?>
-				<?php echo form_submit('submit', 'Submit', "id='create-project-submit'");?>
 			<div id="infoMessage"><?php echo $message;?></div>
 			<div class="container project-tab" id="create-1">
 				<h2>Step 1: Project Details</h2>
@@ -42,7 +40,7 @@
 				<h2>Step 2: Project Allocation</h2>
 				<hr>
 				<section id="resource-allocation">
-					<p>Please fill out at least one of the required fields marked with an asterisk</p>
+					<p>You can search staff for this project by skills or by name</p>
 					<p>
 						<?php echo form_dropdown($skill_select, array_merge(array( 0 => 'Select'), $skills));?>
 						<button type="button" id="clear-skills">Clear</button>
@@ -106,9 +104,14 @@
 				  	<h2>Staff</h2>
 					<div id="hidden-inputs"></div>
 				</div>
+
+				<?php echo form_submit('submit', 'Submit', "id='create-project-submit'");?>
+
 			</div>
 
 			<?php echo form_close(); ?>
+
+			<button id="project-continue">Continue</button>
 		</div>
 	</div>
 </div>
