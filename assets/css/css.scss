@@ -2080,110 +2080,10 @@ footer {
   box-shadow: none; }
 #userProfile form input[type=submit]:hover {
   background: #1f1646; }
-#userProfile #experience {
-  width: 100%;
-  color: #1f1646;
-  font-family: "Microsoft JhengHei";
-  margin: 80px auto; }
-  #userProfile #experience .date-row {
-    margin: 0.8em 1em;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center; }
-  #userProfile #experience .sub-row {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-top: 33px; }
-  #userProfile #experience h1 {
-    text-align: left;
-    font-size: 1.8em; }
-  #userProfile #experience .container-box {
-    background: #E1E5E6;
-    width: 100%;
-    margin: 10px auto;
-    padding: 1em;
-    text-align: left; }
-  #userProfile #experience hr {
-    width: 95%;
-    height: 2px;
-    background: #E1E5E6;
-    margin-top: 0; }
-  #userProfile #experience form input[type=text] {
-    margin-top: 8px;
-    padding: 8px 12px 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
-  #userProfile #experience form input[type=text]:focus {
-    border: 1px solid #0389ff; }
-  #userProfile #experience form input[type=submit] {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 900;
-    padding: 10px 38px;
-    margin-top: 28px;
-    border: none;
-    border-radius: 6px;
-    box-shadow: none; }
-  #userProfile #experience form input[type=date] {
-    text-align: left;
-    padding: 8px 12px 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
-  #userProfile #experience form input[type=submit]:hover {
-    background: #1f1646; }
-  #userProfile #experience form textarea {
-    width: 80%;
-    margin-top: 8px;
-    padding: 8px 12px 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
-  #userProfile #experience form button {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 0.9em;
-    padding: 8px 12px 8px 12px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: none; }
-  #userProfile #experience form button:hover {
-    background: #1f1646; }
-  #userProfile #experience form button:focus {
-    background: #0389ff; }
-  #userProfile #experience form .row {
-    margin-right: 1.2em;
-    margin-left: 1.2em; }
-  #userProfile #experience form label {
-    display: block;
-    font-size: 1.2em;
-    font-weight: 900;
-    margin-top: 8px; }
-  #userProfile #experience #experience-edit {
-    position: absolute;
-    bottom: 1em;
-    right: 2em;
-    padding: 0 !important;
-    border: none;
-    display: inline;
-    float: right;
-    color: #0389ff;
-    background: none !important;
-    outline: none;
-    outline-offset: 0;
-    outline-color: transparent;
-    text-transform: none !important; }
-  #userProfile #experience #experience-edit:hover {
-    text-decoration: underline; }
-#userProfile #experience-add {
+
+#experience-add {
   visibility: hidden;
   display: none; }
-#userProfile .experience-box {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  border-bottom: solid #E1E5E6; }
 
 /* * * * Create new project page style section * * * */
 /* * * * Create new project page and allocate resources style section * * * */
@@ -2471,6 +2371,105 @@ section#quick-search {
         display: block;
         text-align: right; }
 
+#experience {
+  width: 100%;
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  margin: 80px auto; }
+  #experience .date-row {
+    margin: 0.8em 1em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+  #experience h1 {
+    text-align: left;
+    font-size: 1.8em; }
+  #experience button {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 0.9em;
+    padding: 8px 12px 8px 12px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none; }
+  #experience button:hover {
+    background: #1f1646; }
+  #experience button:focus {
+    background: #0389ff; }
+  #experience .container-box {
+    background: #E1E5E6;
+    width: 95%;
+    margin: 10px auto;
+    padding: 1em;
+    text-align: left; }
+  #experience hr {
+    width: 95%;
+    height: 2px;
+    background: #E1E5E6;
+    margin-top: 0; }
+  #experience form input[type=text] {
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #experience form input[type=text]:focus {
+    border: 1px solid #0389ff; }
+  #experience form input[type=submit] {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 38px;
+    margin-top: 28px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none; }
+  #experience form input[type=date] {
+    text-align: left;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #experience form input[type=submit]:hover {
+    background: #1f1646; }
+  #experience form textarea {
+    width: 80%;
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #experience form .row {
+    margin-right: 1.2em;
+    margin-left: 1.2em; }
+  #experience form label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 900;
+    margin-top: 8px; }
+  #experience #experience-edit {
+    position: absolute;
+    bottom: 1em;
+    right: 2em;
+    padding: 0 !important;
+    border: none;
+    display: inline;
+    float: right;
+    color: #0389ff;
+    background: none !important;
+    outline: none;
+    outline-offset: 0;
+    outline-color: transparent;
+    text-transform: none !important; }
+  #experience #experience-edit:hover {
+    text-decoration: underline; }
+
+.experience-box {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-top: solid #E1E5E6;
+  border-bottom: solid #E1E5E6; }
+
 /**** My projects section - Aisha code here ****/
 #current-projects {
   font-family: "Microsoft JhengHei";
@@ -2575,4 +2574,4 @@ section#quick-search {
     width: 50%;
     text-align: right; }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=css.scss.map */

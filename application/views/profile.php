@@ -44,7 +44,7 @@
 			<div class="row">
 				<div class="col-sm-12 col-md-12">
 					<h1>Experiences</h1>
-					<button id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Add</button>
+					<button id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
 				</div>
 			</div>
 			<hr>
@@ -53,62 +53,64 @@
 				<?php echo form_open('User/experience_form', array('id' => 'experience-add')); ?>
 					<div id="experience-msg"><//?php echo $message;?></div>
 
-					<div class="row">
-						<div class="col-sm-12 col-md-6">
-							<p>
-								<label>Title:</label> <br>
-								<?php echo form_input($title,'',"required");?>
-							</p>
-						</div>
+					<div class="container-box">
 						<div class="row">
 							<div class="col-sm-12 col-md-6">
-								<div class="row date-row">
-									<div class="col-md-3">
-										<p>
-											<label>Start date:</label>
-										</p>
+								<p>
+									<label>Title:</label> <br>
+									<?php echo form_input($title,'',"required");?>
+								</p>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 col-md-6">
+									<div class="row date-row">
+										<div class="col-md-3">
+											<p>
+												<label>Start date:</label>
+											</p>
+										</div>
+										<div class="col-md-9">
+											<?php echo form_input($start_date,'',"required");?>
+										</div>
 									</div>
-									<div class="col-md-9">
-										<?php echo form_input($start_date,'',"required");?>
-									</div>
-								</div>
-								<div class="row date-row">
-									<div class="col-md-3">
-										<p>
-											<label>End date:</label>
-										</p>
-									</div>
-									<div class="col-md-9">
-										<?php echo form_input($end_date,'',"required");?>
+									<div class="row date-row">
+										<div class="col-md-3">
+											<p>
+												<label>End date:</label>
+											</p>
+										</div>
+										<div class="col-md-9">
+											<?php echo form_input($end_date,'',"required");?>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+
+						<div class="row">
+							<div class="col-sm-12 col-md-8">
+								<p>
+									<label>Description:</label> <br>
+									<?php echo form_textarea($description,'',"required");?>
+								</p>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12 col-md-6">
+								<p>
+									<label>Role:</label> <br>
+									<?php echo form_input($role,'',"required");?>
+								</p>
+							</div>
+							<div class="col-sm-12 col-md-6 sub-row">
+								<?php echo form_submit('submit', "Add experience","id='experience-submit'");?>
+							</div>
+						</div>
+					<?php echo form_close(); ?>
 					</div>
 
-					<div class="row">
-						<div class="col-sm-12 col-md-8">
-							<p>
-								<label>Description:</label> <br>
-								<?php echo form_textarea($description,'',"required");?>
-							</p>
-						</div>
-					</div>
 
-					<div class="row">
-						<div class="col-sm-12 col-md-6">
-							<p>
-								<label>Role:</label> <br>
-								<?php echo form_input($role,'',"required");?>
-							</p>
-						</div>
-						<div class="col-sm-12 col-md-6">
-							<?php echo form_submit('submit', "Add experience","id='experience-submit'");?>
-						</div>
-					</div>
-				<?php echo form_close(); ?>
-
-			
 				<?php
 					if(isset($user_experiences) && $user_experiences) {
 						foreach ($user_experiences as $experience) {

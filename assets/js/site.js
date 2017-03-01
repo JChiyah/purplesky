@@ -77,10 +77,11 @@ $(function() {
 	});
 
 	$('body').on('click', '.delete-experience', function() {
-		var id = $(this).attr('id');
+		var id = parseInt($(this).attr('id'));
+		var info = 'experience-' + id;
 		//var id = "experience-6";
-		id = id.split("-");
-		id = id[1];
+		//id = id.split("-");
+		//id = id[1];
 		if(!isNaN(id)) {
 
 			// call AJAX
