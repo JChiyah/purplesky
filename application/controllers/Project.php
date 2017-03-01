@@ -228,10 +228,8 @@ class Project extends CI_Controller {
 			}
 			else
 			{
+				$this->session->set_flashdata('message', $this->ion_auth->errors());
 				redirect('create-project', 'refresh');
-				//$this->session->set_flashdata('message', $this->ion_auth->errors());
-				// render
-				//redirect('change-password', 'refresh');
 			}
 		}
 	}
