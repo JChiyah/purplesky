@@ -141,6 +141,7 @@ CREATE TABLE experience (
 	title varchar(100) NOT NULL,
 	description varchar(255),
 	role varchar(100) NOT NULL,
+	skills varchar(255) NOT NULL,
 	FOREIGN KEY (staff_id) REFERENCES staff(staff_id) ON DELETE CASCADE,
 	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
