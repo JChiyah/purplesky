@@ -6,7 +6,7 @@
 				<h1><?php echo $user->name; ?></h1>
 				<p><?php echo $user->email; ?></p>
 				<p><?php echo ucfirst( $user->group ); ?></p>
-				<?php if(isset($user->location) && $user->location) { echo '<p>' . $user->location . '</p>'; } ?>
+				<?php if(isset($user->location) && $user->location) { echo '<p><i class="fa fa-globe fa-lg" aria-hidden="true"></i> ' . $user->location . '</p>'; } ?>
 				<hr>
 				<a class="g-button" style="width: 50%;" href="change-password">Change password</a>
 			</div>
