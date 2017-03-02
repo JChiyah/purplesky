@@ -51,13 +51,13 @@
 
 			<div id="experience-set">
 				<?php echo form_open('User/experience_form', array('id' => 'experience-add')); ?>
-					<div id="experience-msg"><//?php echo $message;?></div>
+					<div id="experience-msg"><?php echo $message;?></div>
 
 					<div class="container-box">
 						<div class="row">
 							<div class="col-sm-12 col-md-6">
 								<p>
-									<label>Title:</label> <br>
+									<label>Title:</label>
 									<?php echo form_input($title,'',"required");?>
 								</p>
 							</div>
@@ -90,7 +90,7 @@
 						<div class="row">
 							<div class="col-sm-12 col-md-8">
 								<p>
-									<label>Description:</label> <br>
+									<label>Description:</label>
 									<?php echo form_textarea($description,'',"required");?>
 								</p>
 							</div>
@@ -99,7 +99,7 @@
 						<div class="row">
 							<div class="col-sm-12 col-md-6">
 								<p>
-									<label>Role:</label> <br>
+									<label>Role:</label>
 									<?php echo form_input($role,'',"required");?>
 								</p>
 							</div>
@@ -114,7 +114,7 @@
 				<?php
 					if(isset($user_experiences) && $user_experiences) {
 						foreach ($user_experiences as $experience) {
-							echo '<div class="experience-box"> <i class="fa fa-times fa-lg delete-experience" aria-hidden="true"></i></span>
+							echo '<div class="experience-box" id="experience-' . $experience->experience_id . '"> <i class="fa fa-times fa-lg delete-experience" aria-hidden="true"></i></span>
 								<h2>' . $experience->role . '</h2>
 								<p><strong>'
 									. date_format(date_create($experience->start_date), 'j M Y') . '</strong> until <strong>'
@@ -127,7 +127,7 @@
 							echo
 								'</p>
 								<p>'. $experience->description . '</p>
-							</div>';
+							</div><hr>';
 						}
 					} else {
 						echo '<p>No previous experiences to show here</p>';

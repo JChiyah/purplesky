@@ -2036,7 +2036,7 @@ footer {
   margin: 10px auto;
   border-radius: 4px; }
 #userProfile hr {
-  width: 95%;
+  width: 100%;
   height: 2px;
   background: #E1E5E6;
   margin-top: 0; }
@@ -2094,18 +2094,16 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-top: 33px; }
+    padding-top: 10px; }
   #userProfile #experience h1 {
     text-align: left;
     font-size: 1.8em; }
   #userProfile #experience .container-box {
     background: #E1E5E6;
     width: 100%;
-    margin: 10px auto;
-    padding: 1em;
     text-align: left; }
   #userProfile #experience hr {
-    width: 95%;
+    width: 100%;
     height: 2px;
     background: #E1E5E6;
     margin-top: 0; }
@@ -2182,8 +2180,16 @@ footer {
   display: none; }
 #userProfile .experience-box {
   margin-top: 1em;
-  margin-bottom: 1em;
-  border-bottom: solid #E1E5E6; }
+  margin-bottom: 1em; }
+#userProfile .experience-box:hover {
+  background-color: #E1E5E6; }
+#userProfile .delete-tag {
+  cursor: pointer;
+  padding: 3px;
+  position: relative;
+  right: -10px;
+  vertical-align: center;
+  display: none; }
 
 /* * * * Create new project page style section * * * */
 /* * * * Create new project page and allocate resources style section * * * */
