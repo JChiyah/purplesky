@@ -235,7 +235,7 @@ class Project_model extends CI_Model {
 				$this->allocate_staff($project_id, $staff);
 			}
 
-			$this->db->add_user_activity($manager_id,'',$project_id);
+			$this->User_model->add_user_activity($manager_id,'',$project_id);
 
 			$this->db->trans_complete(); // Close transaction
 
