@@ -86,7 +86,7 @@ class Project_model extends CI_Model {
 	 */
 	public function get_project_dashboard($id, $limit = FALSE) {
 
-		$query = $this->db->select('description, at_date')
+		$query = $this->db->select('description, at_date AS date')
 						->where('project_id', $id)
 						->limit($limit)
 						->get('project_dashboard');
@@ -95,6 +95,29 @@ class Project_model extends CI_Model {
 
 		if(isset($result) && !empty($result)) {
 			return $result;
+		}
+		return FALSE;
+	}
+
+	/**
+	 * Returns whether the user is the project's manager
+	 *
+	 * @param $project_id
+	 * @param $manager_id
+	 * @return boolean
+	 * @author JChiyah
+	 */
+	public function is_manager($project_id, $manager_id) {
+
+		$query = $this->db->select('manager_id')
+						->where('project_id', $project_id)
+						->limit(1)
+						->get('project');
+
+		$result = $query->row();
+
+		if(isset($result) && !empty($result)) {
+			return $result->manager_id == $manager_id;
 		}
 		return FALSE;
 	}
