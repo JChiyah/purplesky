@@ -53,12 +53,7 @@
 
 	<section id="search-results">
 		<div>
-			<h2>Results:</h2>
-			<label>Order by:</label>
-			<select name="orderBy">
-			 <option value="dailyRate">Date</option>
-			 <option value="location">Locations</option>
-		  </select>
+			<h2>Results</h2>
 		</div>
 		<hr>
 		<div id="results">
@@ -66,15 +61,16 @@
 				if(isset($projects) && $projects) {
 					echo '<p>Showing all projects for now to ease styling</p>';
 					foreach($projects as $project) {
-						echo '<div class="project-result">
-							<a href="dashboard/' . $project->project_id . '">
-							<h3>' . $project->title . '</h3></a>
+						echo '<a href="dashboard/' . $project->project_id . '"><div class="project-result">
+							
+							<h3>' . $project->title . '</h3>
 							<span>' . $project->manager . '</span>
+							<hr>
 							<p class="location">' . $project->location . '</p>
 							<p class="date">' . $project->start_date . ' until ' . $project->end_date . '</p>
 							<p class="description">' . $project->description . '</p>
 							<button class="apply-button" id="apply-' . $project->project_id . '">Apply</button>
-						</div>';
+						</div></a>';
 					}
 				}
 			?>
