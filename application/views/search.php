@@ -61,16 +61,24 @@
 				if(isset($projects) && $projects) {
 					echo '<p>Showing all projects for now to ease styling</p>';
 					foreach($projects as $project) {
-						echo '<a href="dashboard/' . $project->project_id . '"><div class="project-result">
-							
-							<h3>' . $project->title . '</h3>
-							<span>' . $project->manager . '</span>
-							<hr>
-							<p class="location">' . $project->location . '</p>
-							<p class="date">' . $project->start_date . ' until ' . $project->end_date . '</p>
-							<p class="description">' . $project->description . '</p>
-							<button class="apply-button" id="apply-' . $project->project_id . '">Apply</button>
-						</div></a>';
+						echo '<a href="dashboard/' . $project->project_id . '">
+							<div class="project-result">
+								<div class="row">
+								<h3 class="col-md-8">' . $project->title . '</h3>
+								<span class="col-md-4 date">' . date('j/n/Y', strtotime($project->start_date)) . ' - ' . date('j/n/Y', strtotime($project->end_date)) . '</span>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-md-10">
+										<h5>' . $project->manager . '</h5>
+										<p class="description">' . $project->description . '</p>
+									</div>
+									<div class="col-md-2">
+										<p class="location"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> ' . $project->location . '</p>
+										<button>Apply</button>
+									</div>
+								</div>
+							</div></a>';
 					}
 				}
 			?>
