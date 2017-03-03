@@ -26,16 +26,10 @@
 						<?php echo form_dropdown($skill_select, $skills);?>
 						<?php echo form_submit('submit', lang('add_label'), "id='skill-submit'");?>
 					<?php echo form_close(); ?>
-
-					<?php
-						if(isset($user_skills) && $user_skills) {
-							foreach ($user_skills as $skill) {
-								echo '<span class="skill-span">' . $skill->name . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
-							}
-						} else {
-							echo '<p>No skills to show here</p>';
-						}
-					?>
+					
+					<div id="user-skills">
+						<?php $this->load->view('displays/user-skills.php', $user_skills); ?>
+					</div>
 				</div>
 			</section>
 		</div>
@@ -113,30 +107,13 @@
 				<?php echo form_close(); ?>
 
 				<div id="experiences">
-				<?php
-					if(isset($user_experiences) && $user_experiences) {
-						foreach ($user_experiences as $experience) {
-							echo '<div class="experience-box" id="experience-' . $experience->experience_id . '">
-								<div class="row"><h2 class="col-md-9">' . $experience->role . '</h2>
-									<span class="col-md-3">'
-									. date('j/n/Y', strtotime($experience->start_date)) . ' - '
-									. date('j/n/Y', strtotime($experience->end_date)) . '</span>
-								</div>
-								<p class="title">';
-								echo isset($experience->project_id) ? '<a href="/dashboard/' . $experience->project_id . '">' . $experience->title . '</a>' : $experience->title;
-							echo
-								'</p><div class="row">
-								<p class="col-md-10">'. $experience->description . '</p>
-								<button class="g-button delete-experience-tag col-md-2"> <i class="fa fa-times fa-lg" aria-hidden="true"></i> Delete</button></div>
-							</div><hr>';
-						}
-					} else {
-						echo '<p>No previous experiences to show here</p>';
-					}
-				?>
+
+					<?php $this->load->view('displays/user-experiences.php', $user_experiences); ?>
+
 				</div>
 
 			</div>
 		</section>
+
 	</div>
 </div>

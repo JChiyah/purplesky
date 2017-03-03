@@ -12,7 +12,8 @@ $(function() {
 			},
 			success: function(res) {
 				if (res) {
-					e.remove();
+					$("#user-skills").html(res);
+					$('.delete-tag').toggle();
 				}
 			}
 		});
@@ -32,7 +33,7 @@ $(function() {
 			success: function(res) {
 				if (res) {
 					$('.delete-tag').toggle();
-					jQuery("div#skill-set").append(res);
+					$("#user-skills").html(res);
 					$('.delete-tag').toggle();
 				}
 			}
@@ -62,11 +63,7 @@ $(function() {
 				},
 				success: function(res) {
 					if (res) {
-						$('#experience-set').append('<div class="experience-box"> <i class="fa fa-times fa-lg delete-experience" aria-hidden="true"></i>' +
-							'</span><h2>' + role + '</h2>' +
-							'<p><strong>' + start_date + '</strong> until <strong>' +
-							end_date + '</strong> at ' +
-							'</p><p>' + description + '</p></div>');
+						$('#experiences').html(res);
 						$('#experience-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
 					}
 				}
@@ -76,8 +73,8 @@ $(function() {
 		}
 	});
 
-	$('body').on('click', '.delete-experience', function() {
-		var id = $(this).parent().attr('id');
+	$('body').on('click', '.delete-experience-tag', function() {
+		var id = $(this).parent().parent().attr('id');
 		id = id.split("-");
 		id = id[1];
 		if(!isNaN(id)) {
@@ -91,8 +88,8 @@ $(function() {
 					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 				},
 				success: function(res) {
-					if (res == 'success') {
-						$('#experience-' + id).remove();
+					if (res) {
+						$('#experiences').html(res);
 					}
 				}
 			});
