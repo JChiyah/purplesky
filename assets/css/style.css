@@ -1686,6 +1686,9 @@ a.button {
 hr {
   height: 1px;
   margin: 0;
+  margin-top: 0.3em;
+  margin-bottom: 0.8em;
+  border-top: none;
   background: #C0C0C0; }
 
 /* * * * Navigation bar style section * * * */
@@ -1978,10 +1981,14 @@ footer {
   color: #1f1646;
   padding: 20px 30px 30px 30px; }
   #skills .row {
-    margin: 0 20px 5px 20px;
+    margin: 0 20px 0 5px;
     position: relative; }
   #skills h1 {
-    display: inline; }
+    display: inline;
+    margin-bottom: 0;
+    -webkit-margin-after: 0; }
+  #skills #skill-set label {
+    display: block; }
   #skills #skill-set select {
     width: 40%;
     margin-top: 8px;
@@ -1989,21 +1996,6 @@ footer {
     border: 1px solid #0389ff;
     border-radius: 4px;
     font-weight: 900; }
-  #skills #skill-edit {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 0 !important;
-    border: none;
-    display: inline;
-    float: right;
-    color: #0389ff;
-    background: none !important;
-    outline: none;
-    outline-offset: 0;
-    outline-color: transparent; }
-  #skills #skill-edit:hover {
-    text-decoration: underline; }
   #skills #skill-add {
     visibility: hidden;
     display: none;
@@ -2025,38 +2017,43 @@ footer {
     padding: 3px;
     position: relative;
     right: -10px;
-    vertical-align: center;
     display: none; }
 
-#userProfile #vertical-line {
+#userProfile hr {
+  margin-top: 0; }
+#userProfile .edit-button {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  padding: 0 !important;
+  border: none;
+  display: inline;
+  float: right;
+  color: #0389ff;
+  background: none !important;
+  outline: none;
+  outline-offset: 0;
+  outline-color: transparent; }
+#userProfile .edit-button:hover {
+  text-decoration: underline; }
+#userProfile #personal-details {
+  color: #1f1646;
   margin-top: 1em;
   border-right: 1px solid #C0C0C0; }
-#userProfile #UPContainer {
-  width: 100%;
-  background: #E1E5E6;
-  color: #1f1646;
-  font-family: "Microsoft JhengHei";
-  margin: 10px auto;
-  border-radius: 4px; }
-#userProfile hr {
-  height: 2px;
-  margin-top: 0; }
-#userProfile form label {
-  display: block;
-  font-size: 1.2em;
-  font-weight: 900; }
-#userProfile form input[type=text] {
-  width: 75%;
-  margin-top: 8px;
-  padding: 8px 12px 8px 12px;
-  border: 1px solid transparent;
-  border-radius: 4px; }
-#userProfile form textarea {
-  width: 100%;
-  margin-top: 8px;
-  padding: 8px 12px 8px 12px;
-  border: 1px solid transparent;
-  border-radius: 4px; }
+  #userProfile #personal-details div {
+    margin-left: 3em; }
+  #userProfile #personal-details #staff-type {
+    font-size: 1.5em;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    font-weight: 600; }
+  #userProfile #personal-details hr {
+    margin-top: 2em;
+    margin-bottom: 1em; }
+  #userProfile #personal-details .g-button {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px; }
 #userProfile form input[type=text]:focus {
   border: 1px solid #0389ff; }
 #userProfile form .row {
@@ -2081,11 +2078,22 @@ footer {
   box-shadow: none; }
 #userProfile form input[type=submit]:hover {
   background: #1f1646; }
-#userProfile #experience {
+#userProfile #UPContainer {
   width: 100%;
+  background: #E1E5E6;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
-  margin: 80px auto; }
+  margin: 10px auto;
+  border-radius: 4px; }
+#userProfile #experience {
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  margin: 4em auto; }
+  #userProfile #experience #exp-row {
+    position: relative;
+    margin: 0 20px 0 5px; }
+    #userProfile #experience #exp-row button {
+      right: 40px; }
   #userProfile #experience .date-row {
     margin: 0.8em 1em;
     display: flex;
@@ -2097,15 +2105,13 @@ footer {
     align-items: center;
     padding-top: 10px; }
   #userProfile #experience h1 {
-    text-align: left;
-    font-size: 1.8em; }
+    display: inline;
+    margin-bottom: 0;
+    -webkit-margin-after: 0; }
   #userProfile #experience .container-box {
     background: #E1E5E6;
     width: 100%;
     text-align: left; }
-  #userProfile #experience hr {
-    height: 2px;
-    margin-top: 0; }
   #userProfile #experience form input[type=text] {
     margin-top: 8px;
     padding: 8px 12px 8px 12px;
@@ -2113,43 +2119,17 @@ footer {
     border-radius: 4px; }
   #userProfile #experience form input[type=text]:focus {
     border: 1px solid #0389ff; }
-  #userProfile #experience form input[type=submit] {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 900;
-    padding: 10px 38px;
-    margin-top: 28px;
-    border: none;
-    border-radius: 6px;
-    box-shadow: none; }
   #userProfile #experience form input[type=date] {
     text-align: left;
     padding: 8px 12px 8px 12px;
     border: 1px solid transparent;
     border-radius: 4px; }
-  #userProfile #experience form input[type=submit]:hover {
-    background: #1f1646; }
   #userProfile #experience form textarea {
     width: 80%;
     margin-top: 8px;
     padding: 8px 12px 8px 12px;
     border: 1px solid transparent;
     border-radius: 4px; }
-  #userProfile #experience form button {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 0.9em;
-    padding: 8px 12px 8px 12px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: none; }
-  #userProfile #experience form button:hover {
-    background: #1f1646; }
-  #userProfile #experience form button:focus {
-    background: #0389ff; }
   #userProfile #experience form .row {
     margin-right: 1.2em;
     margin-left: 1.2em; }
@@ -2158,37 +2138,39 @@ footer {
     font-size: 1.2em;
     font-weight: 900;
     margin-top: 8px; }
-  #userProfile #experience #experience-edit {
-    position: absolute;
-    bottom: 1em;
-    right: 2em;
-    padding: 0 !important;
-    border: none;
-    display: inline;
-    float: right;
-    color: #0389ff;
-    background: none !important;
-    outline: none;
-    outline-offset: 0;
-    outline-color: transparent;
-    text-transform: none !important; }
-  #userProfile #experience #experience-edit:hover {
-    text-decoration: underline; }
 #userProfile #experience-add {
   visibility: hidden;
   display: none; }
-#userProfile .experience-box {
-  margin-top: 1em;
-  margin-bottom: 1em; }
-#userProfile .experience-box:hover {
-  background: #E1E5E6; }
-#userProfile .delete-tag {
-  cursor: pointer;
-  padding: 3px;
-  position: relative;
-  right: -10px;
-  vertical-align: center;
-  display: none; }
+
+#experience-set #experiences {
+  padding: 0.7em 1.5em; }
+#experience-set hr {
+  margin: 0.5em 0; }
+#experience-set .experience-box {
+  padding: 1em;
+  border-radius: 0.5em;
+  position: relative; }
+  #experience-set .experience-box h2 {
+    margin: 0;
+    font-weight: 900; }
+  #experience-set .experience-box span {
+    text-align: right; }
+  #experience-set .experience-box .title {
+    font-size: 1em;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    font-weight: 700; }
+  #experience-set .experience-box .delete-experience-tag {
+    text-transform: none;
+    position: absolute;
+    right: 1.1em;
+    bottom: 1.1em;
+    display: none;
+    visibility: none; }
+  #experience-set .experience-box .delete-experience-tag:hover {
+    background: #e74c3c; }
+#experience-set .experience-box:hover {
+  background: #ECF0F1; }
 
 /* * * * Create new project page style section * * * */
 /* * * * Create new project page and allocate resources style section * * * */

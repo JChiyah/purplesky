@@ -11,6 +11,7 @@ $(function() {
 
 	$('#experience-edit').on('click', function() {
     	$('#experience-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
+    	$('.delete-experience-tag').toggle();    	
 	});
 
 	$('#search-toggle').on('click', function() {

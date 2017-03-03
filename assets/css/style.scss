@@ -10,6 +10,7 @@ $blue: #1f1646;
 $grey-background: #ECF0F1;
 $grey-background2: #E1E5E6;
 $light-blue: #0389ff;
+$delete-red: #e74c3c;
 
 $hr-colour: #C0C0C0;
 
@@ -40,6 +41,9 @@ a.button {
 hr {
 	height: 1px;
 	margin: 0;
+	margin-top: 0.3em;
+	margin-bottom: 0.8em;
+	border-top: none;
 	background: $hr-colour;
 }
 
@@ -388,15 +392,20 @@ footer {
 	padding: 20px 30px 30px 30px;
 
 	.row {
-		margin: 0 20px 5px 20px;
+		margin: 0 20px 0 5px;
 		position: relative;
 	}
 
 	h1 {
 		display: inline;
+		margin-bottom: 0;
+		-webkit-margin-after: 0;
 	}
 
 	#skill-set {
+		label {
+			display: block;
+		}
 		select {
 			width: 40%;
 			margin-top: 8px;
@@ -406,22 +415,6 @@ footer {
 			font-weight: 900;
 		}
 	}
-
-	#skill-edit {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		padding: 0!important;
-		border: none;
-		display: inline;
-		float: right;
-		color: $light-blue;
-		background: none!important;
-		outline: none;
-		outline-offset: 0;
-		outline-color: transparent;
-	}
-	#skill-edit:hover { text-decoration: underline; }
 
 	#skill-add {
 		visibility: hidden;
@@ -447,7 +440,6 @@ footer {
 		padding: 3px;
 		position: relative;
 		right: -10px;
-		vertical-align: center;
 		display: none;
 	}
 
@@ -455,48 +447,53 @@ footer {
 
 #userProfile {
 
-	#vertical-line {
+	hr { margin-top: 0; }
+
+	.edit-button {
+		position: absolute;
+		bottom: 5px;
+		right: 0;
+		padding: 0!important;
+		border: none;
+		display: inline;
+		float: right;
+		color: $light-blue;
+		background: none!important;
+		outline: none;
+		outline-offset: 0;
+		outline-color: transparent;
+	}
+	.edit-button:hover { text-decoration: underline; }
+
+	#personal-details {
+		color: $blue;
 		margin-top: 1em;
   		border-right: 1px solid $hr-colour;
-	}
 
-	#UPContainer {
-		width: 100%;
-		background: $grey-background2;
-		color: $blue;
-		font-family: $microsoft-font;
-		margin: 10px auto;
-		border-radius: 4px;
-	}
+  		div {
+  			margin-left: 3em;
+  		}
+		
+		#staff-type {
+			font-size: 1.5em;
+			margin-top: 0.6em;
+			margin-bottom: 0.6em;
+			font-weight: 600;
+		}
 
-	hr {
-		height: 2px;
-		margin-top: 0;
+  		hr {
+  			margin-top: 2em;
+  			margin-bottom: 1em;
+  		}
+
+  		.g-button {
+  			display: block;
+  			margin: 0 auto;
+  			margin-bottom: 20px;
+  		}
 	}
 
 	form {
-
-		label {
-			display: block;
-			font-size: 1.2em;
-			font-weight: 900;
-		}
-
-		input[type=text] {
-			width: 75%;
-			margin-top: 8px;
-			padding: 8px 12px 8px 12px;
-			border: 1px solid transparent;
-			border-radius: 4px;
-		}
-
-			textarea {
-			width: 100%;
-			margin-top: 8px;
-			padding: 8px 12px 8px 12px;
-			border: 1px solid transparent;
-			border-radius: 4px;
-		}
 
 		input[type=text]:focus { border: 1px solid $light-blue; }
 
@@ -521,11 +518,28 @@ footer {
 		input[type=submit]:hover { background: $blue; }
 	}
 
-	#experience {
+	#UPContainer {
 		width: 100%;
+		background: $grey-background2;
 		color: $blue;
 		font-family: $microsoft-font;
-		margin: 80px auto;
+		margin: 10px auto;
+		border-radius: 4px;
+	}
+
+	#experience {
+		color: $blue;
+		font-family: $microsoft-font;
+		margin: 4em auto;
+
+		#exp-row {
+			position: relative;
+			margin: 0 20px 0 5px;
+
+			button {
+				right: 40px;
+			}
+		}
 
 		.date-row {
 			margin: 0.8em 1em;
@@ -541,21 +555,15 @@ footer {
 		}
 
 		h1 {
-			text-align: left;
-			font-size: 1.8em;
+			display: inline;
+		    margin-bottom: 0;
+		    -webkit-margin-after: 0;
 		}
 
 		.container-box {
 			background: $grey-background2;
 			width: 100%;
-			//margin: 10px auto;
-			//padding: 1em;
 			text-align: left;
-		}
-
-		hr {
-			height: 2px;
-			margin-top: 0;
 		}
 
 		form {
@@ -567,18 +575,6 @@ footer {
 			}
 			input[type=text]:focus { border: 1px solid $light-blue; }
 
-			input[type=submit] {
-				background: $light-blue;
-				color: #fff;
-				text-transform: uppercase;
-				font-weight: 900;
-				padding: 10px 38px;
-				margin-top: 28px;
-				border: none;
-				border-radius: 6px;
-				box-shadow: none;
-			}
-
 			input[type=date] {
 				text-align: left;
 				padding: 8px 12px 8px 12px;
@@ -586,29 +582,13 @@ footer {
 				border-radius: 4px;
 			}
 
-			input[type=submit]:hover { background: $blue; }
-
 			textarea {
-			width: 80%;
-			margin-top: 8px;
-			padding: 8px 12px 8px 12px;
-			border: 1px solid transparent;
-			border-radius: 4px;
-			}
-
-			button {
-				background: $light-blue;
-				color: #fff;
-				text-transform: uppercase;
-				font-weight: 900;
-				font-size: 0.9em;
+				width: 80%;
+				margin-top: 8px;
 				padding: 8px 12px 8px 12px;
-				border: none;
+				border: 1px solid transparent;
 				border-radius: 4px;
-				box-shadow: none;
 			}
-			button:hover { background: $blue; }
-			button:focus { background: $light-blue; }
 
 			.row {
 			margin-right: 1.2em;
@@ -621,46 +601,58 @@ footer {
 				margin-top: 8px;
 			}
 		}
-
-		#experience-edit {
-			position: absolute;
-			bottom: 1em;
-			right: 2em;
-			padding: 0!important;
-			border: none;
-			display: inline;
-			float: right;
-			color: $light-blue;
-			background: none!important;
-			outline: none;
-			outline-offset: 0;
-			outline-color: transparent;
-			text-transform: none!important;
-		}
-		#experience-edit:hover { text-decoration: underline; }
 	}
 
 	#experience-add {
 		visibility: hidden;
 		display: none;
 	}
+}
+
+#experience-set {
+
+	#experiences {
+		padding: 0.7em 1.5em;
+	}
+
+	hr {
+		margin: 0.5em 0;
+	}
 
 	.experience-box {
-		margin-top: 1em;
-		margin-bottom: 1em;
-		//border-top: solid $grey-background2;
-		//border-bottom: solid $grey-background2;
-	}
-	.experience-box:hover {
-		background: $grey-background2;
-	}
-	.delete-tag {
-		cursor: pointer;
-		padding: 3px;
+		padding: 1em;
+		border-radius: 0.5em;
 		position: relative;
-		right: -10px;
-		vertical-align: center;
-		display: none;
+
+		h2 {
+			margin: 0;
+			font-weight: 900;
+		}
+		span {
+			text-align: right;
+		}
+
+		.title {
+			font-size: 1em;
+			margin-top: 0.8em;
+			margin-bottom: 0.8em;
+			font-weight: 700;
+		}
+
+		.delete-experience-tag {
+			text-transform: none;
+			position: absolute;
+			right: 1.1em;
+			bottom: 1.1em;
+			display: none;
+			visibility: none;
+		}
+		.delete-experience-tag:hover {
+			background: $delete-red;
+		}
+	}
+	 .experience-box:hover {
+		background: $grey-background;
 	}
 }
 
