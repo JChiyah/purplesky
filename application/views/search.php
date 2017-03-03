@@ -58,7 +58,7 @@
 		<hr>
 		<div id="results">
 			<?php
-				if(isset($projects) && $projects) {
+				/*if(isset($projects) && $projects) {
 					echo '<p>Showing all projects for now to ease styling</p>';
 					foreach($projects as $project) {
 						echo '<a href="dashboard/' . $project->project_id . '">
@@ -80,7 +80,7 @@
 								</div>
 							</div></a>';
 					}
-				}
+				}*/
 			?>
 		</div>
 	</section>

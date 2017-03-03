@@ -130,6 +130,7 @@ $(function() {
 				},
 				success: function(data) {
 					if (data) {
+						$('#search-results').css({'display': 'block'});
 						$("#results").html(data);
 					} else {
 						$("#results").html('<p>Nothing matches your search. Try to broaden your criteria.</p>');
