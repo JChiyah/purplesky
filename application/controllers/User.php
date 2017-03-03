@@ -28,12 +28,12 @@ class User extends CI_Controller {
 		$skill = $this->input->post('skill');
 
 		// find the current users id
-		$id = $this->session->userdata('user_id');
+		$user_id = $this->session->userdata('user_id');
 
 		// send value to database
-		if ($this->User_model->add_user_skill($skill, $id)) {
+		if ($this->User_model->add_user_skill($skill, $user_id)) {
 			// Print value
-			echo '<span class="skill-span">' . $skill . '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>';
+			return $this->display_user_skills($user_id);
 		} else {
 			// Failed to add -> Duplicated entry
 
@@ -54,8 +54,21 @@ class User extends CI_Controller {
 		$user_id = $this->session->userdata('user_id');
 
 		if($this->User_model->delete_user_skill($skill, $user_id)) {
-			echo 'success';
+			return $this->display_user_skills($user_id);
 		}
+	}
+
+	/**
+	 * Displays user' skills
+	 *
+	 * @param user_id
+	 * @author JChiyah
+	 */
+	public function display_user_skills($user_id) {
+
+		$data['user_skills'] = $this->User_model->get_user_skills($user_id);
+
+		return $this->load->view('displays/user-skills.php', $data);
 	}
 
 	/**
@@ -67,7 +80,7 @@ class User extends CI_Controller {
 	 */
 	public function add_user_experience() {
 		// get and format input
-		$id = $this->session->userdata('user_id');
+		$user_id = $this->session->userdata('user_id');
 		
 		$additional_data = array(
 			'start_date' => $this->input->post('start_date'),
@@ -77,16 +90,16 @@ class User extends CI_Controller {
 			'role'		=> $this->parse_input($this->input->post('role'))
 		);
 
-		if($this->User_model->add_user_experiences($id, $additional_data)) {
-			echo 'okay';
+		if($this->User_model->add_user_experiences($user_id, $additional_data)) {
+			return $this->display_user_experiences($user_id);
 		} else {
-			echo 'nope';
+			echo 'Error adding experience';
 		}
 		
 	}
 
 	/**
-	 * Deletes a user' skill
+	 * Deletes a user' experience
 	 * Call from a form post using AJAX
 	 *
 	 * @param post('delete_experience')
@@ -99,8 +112,21 @@ class User extends CI_Controller {
 		$user_id = $this->session->userdata('user_id');
 
 		if($this->User_model->delete_user_experience($experience_id, $user_id)) {
-			echo 'success';
+			return $this->display_user_experiences($user_id);
 		}
+	}
+
+	/**
+	 * Displays user' experiences
+	 *
+	 * @param user_id
+	 * @author JChiyah
+	 */
+	public function display_user_experiences($user_id) {
+
+		$data['user_experiences'] = $this->User_model->get_user_experiences($user_id);
+
+		return $this->load->view('displays/user-experiences.php', $data);
 	}
 
 	/**

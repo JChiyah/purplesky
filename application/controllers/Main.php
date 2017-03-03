@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+require_once('Base.php');
+class Main extends Base {
 
 	/**
 	 * Index Page for this controller.
@@ -22,11 +23,6 @@ class Main extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library(array('form_validation'));
-		$this->load->helper(array('url','language'));
-		$this->load->model("System_model");
-		$this->load->model("User_model");
-		$this->load->model("Project_model");
 
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 

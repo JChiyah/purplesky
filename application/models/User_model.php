@@ -203,7 +203,7 @@ class User_model extends CI_Model {
 
 		$query = $this->db->select('experience_id, start_date, end_date, project_id, title, description, role')
 						->where('staff_id', $id)
-						->order_by('experience_id', 'desc')
+						->order_by('end_date', 'desc')
 						->get('experience');
 
 		$result = $query->result();
