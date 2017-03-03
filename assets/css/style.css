@@ -2028,9 +2028,9 @@ footer {
     vertical-align: center;
     display: none; }
 
-#userProfile #verticalLine {
+#userProfile #vertical-line {
   margin-top: 1em;
-  border-right: solid #E1E5E6; }
+  border-right: 1px solid #C0C0C0; }
 #userProfile #UPContainer {
   width: 100%;
   background: #E1E5E6;
@@ -2470,7 +2470,10 @@ section#quick-search {
         text-align: right; }
 
 #search-results {
-  margin-top: 3em; }
+  margin-top: 3em;
+  display: none; }
+  #search-results hr {
+    margin-bottom: 1em; }
   #search-results a {
     color: #1f1646;
     text-decoration: none;

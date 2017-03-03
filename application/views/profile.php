@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<!-- A row with 2 columns -->
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-5" id="verticalLine">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-5" id="vertical-line">
 				<h1><?php echo $user->name; ?></h1>
 				<p><?php echo $user->email; ?></p>
 				<p><?php echo ucfirst( $user->group ); ?></p>

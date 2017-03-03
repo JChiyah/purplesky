@@ -455,10 +455,10 @@ footer {
 
 #userProfile {
 
-	#verticalLine {
+	#vertical-line {
 		margin-top: 1em;
-  	border-right: solid $grey-background2;
-}
+  		border-right: 1px solid $hr-colour;
+	}
 
 	#UPContainer {
 		width: 100%;
@@ -1021,6 +1021,9 @@ section#quick-search{
 
 #search-results {
 	margin-top: 3em;
+	display: none;
+
+	hr { margin-bottom: 1em; }
 
 	a {
 		color: $blue;
