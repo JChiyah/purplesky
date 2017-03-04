@@ -473,7 +473,7 @@ footer {
   		div {
   			margin-left: 3em;
   		}
-		
+
 		#staff-type {
 			font-size: 1.5em;
 			margin-top: 0.6em;
@@ -564,10 +564,12 @@ footer {
 			background: $grey-background2;
 			width: 100%;
 			text-align: left;
+			border-radius: 0.5em;
 		}
 
 		form {
 			input[type=text] {
+				width: 70%;
 				margin-top: 8px;
 				padding: 8px 12px 8px 12px;
 				border: 1px solid transparent;
@@ -583,7 +585,8 @@ footer {
 			}
 
 			textarea {
-				width: 80%;
+				width: 100%;
+				height: 5.5em;
 				margin-top: 8px;
 				padding: 8px 12px 8px 12px;
 				border: 1px solid transparent;
@@ -1016,7 +1019,7 @@ section#quick-search{
 	display: none;
 
 	hr { margin-bottom: 1em; }
-	
+
 	#results {
 		padding: 0 1em;
 	}
@@ -1103,7 +1106,7 @@ section#quick-search{
 		padding: 2em;
 		display: block;
         background: $grey-background2;
-		
+
 		a {
 			display: block;
 		}
@@ -1112,7 +1115,7 @@ section#quick-search{
 			border: 1px solid $hr-colour;
 			border-radius: 4px;
 			padding: 1.6em;
-			
+
 			p {
 				margin-bottom: 0;
 			}

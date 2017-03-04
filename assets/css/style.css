@@ -2111,8 +2111,10 @@ footer {
   #userProfile #experience .container-box {
     background: #E1E5E6;
     width: 100%;
-    text-align: left; }
+    text-align: left;
+    border-radius: 0.5em; }
   #userProfile #experience form input[type=text] {
+    width: 70%;
     margin-top: 8px;
     padding: 8px 12px 8px 12px;
     border: 1px solid transparent;
@@ -2125,7 +2127,8 @@ footer {
     border: 1px solid transparent;
     border-radius: 4px; }
   #userProfile #experience form textarea {
-    width: 80%;
+    width: 100%;
+    height: 5.5em;
     margin-top: 8px;
     padding: 8px 12px 8px 12px;
     border: 1px solid transparent;
