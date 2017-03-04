@@ -1,59 +1,63 @@
 <section id="current-projects">
 
     <h1>My Projects</h1>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-        <div id="dropdown-menu">
-            <label>Order by:</label>
-            <select id="orderBy" name="orderBy">
-                <option value="newest-proj">Date (Newest first)</option>
-                <option value="oldest-proj">Date (Oldest first)</option>
-                <option value="priority">Priority (Urgent first)</option>
-            </select>
-        </div>
-    </div>
     <hr>
 
     <div class="container-fluid projects">
 
-        <div class="row project-result">
-            <div class="left">
-                <a href="#"><h2>Test Project</h2></a>
-                <span>Manager example</span>
+        <a class="container-fluid project-result" href="dashboard/#">
+            <div class="row">
+                <h3 class="col-md-8">Project title</h3>
+                <span class="col-md-4 date">11/10/2017 - 12/10/2017</span>
             </div>
-            <div class="right">
-                <p class="project-date">02-10-2016 - 16-11-2016</p>
-                <p>Edinburgh</p>
+            <hr>
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Project manager</h5>
+                    <p>Matching skills: <span class="skill-span">Java</span><span class="skill-span">CSS</span></p>
+                </div>
+                <div class="col-md-2">
+                    <p class="location"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Edinburgh</p>
+                    <button class="g-button">View</button>
+                </div>
             </div>
-            <a class="view-button" href="#">VIEW</a>
-        </div>
+        </a>
 
-        <hr>
-        
-        <div class="row project-result">
-            <div class="left">
-                <a href="#"><h2>Test Project</h2></a>
-                <span>Manager example</span>
+        <a class="container-fluid project-result" href="dashboard/#">
+            <div class="row">
+                <h3 class="col-md-8">Project title</h3>
+                <span class="col-md-4 date">11/10/2017 - 12/10/2017</span>
             </div>
-            <div class="right">
-                <p class="project-date">02-10-2016 - 16-11-2016</p>
-                <p>Edinburgh</p>
+            <hr>
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Project manager</h5>
+                    <p>Matching skills: <span class="skill-span">Java</span><span class="skill-span">CSS</span></p>
+                </div>
+                <div class="col-md-2">
+                    <p class="location"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Edinburgh</p>
+                    <button class="g-button">View</button>
+                </div>
             </div>
-            <a class="view-button" href="#">VIEW</a>
-        </div>
+        </a>
 
-        <hr>
-
-        <div class="row project-result">
-            <div class="left">
-                <a href="#"><h2>Test Project</h2></a>
-                <span>Manager example</span>
+        <a class="container-fluid project-result" href="dashboard/#">
+            <div class="row">
+                <h3 class="col-md-8">Project title</h3>
+                <span class="col-md-4 date">11/10/2017 - 12/10/2017</span>
             </div>
-            <div class="right">
-                <p class="project-date">02-10-2016 - 16-11-2016</p>
-                <p>Edinburgh</p>
+            <hr>
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Project manager</h5>
+                    <p>Matching skills: <span class="skill-span">Java</span><span class="skill-span">CSS</span></p>
+                </div>
+                <div class="col-md-2">
+                    <p class="location"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Edinburgh</p>
+                    <button class="g-button">View</button>
+                </div>
             </div>
-            <a class="view-button" href="#">VIEW</a>
-        </div>
+        </a>
   
     </div>
 
