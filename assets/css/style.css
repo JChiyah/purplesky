@@ -2456,15 +2456,13 @@ section#quick-search {
   display: none; }
   #search-results hr {
     margin-bottom: 1em; }
-  #search-results a {
-    color: #1f1646;
-    text-decoration: none;
-    height: 100%; }
-  #search-results a:hover {
-    text-decoration: none; }
+  #search-results #results {
+    padding: 0 1em; }
 
 .project-result {
   color: #1f1646;
+  text-decoration: none;
+  display: block;
   padding: 1em 2em;
   border: thin solid #E1E5E6; }
   .project-result div.row {
@@ -2495,6 +2493,9 @@ section#quick-search {
   .project-result div.col-md-2 {
     text-align: right;
     position: relative; }
+
+.project-result:hover {
+  text-decoration: none; }
 
 .project-result:not(:last-child) {
   margin-bottom: 1em; }

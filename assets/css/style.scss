@@ -1016,18 +1016,16 @@ section#quick-search{
 	display: none;
 
 	hr { margin-bottom: 1em; }
-
-	a {
-		color: $blue;
-		text-decoration: none;
-		height: 100%;
+	
+	#results {
+		padding: 0 1em;
 	}
-	a:hover { text-decoration: none; }
-
 }
 
 .project-result {
 	color: $blue;
+	text-decoration: none;
+	display: block;
 	padding: 1em 2em;
 	border: thin solid $grey-background2;
 
@@ -1067,6 +1065,9 @@ section#quick-search{
 		text-align: right;
 		position: relative;
 	}
+}
+.project-result:hover {
+	text-decoration: none;
 }
 .project-result:not(:last-child) {
 	margin-bottom: 1em;
