@@ -52,6 +52,28 @@ class System_model extends CI_Model {
 	}
 
 	/**
+	 * Get a skill name by its id
+	 *
+	 * @param $skill_id
+	 * @return mixed boolean / string
+	 * @author JChiyah
+	 */
+	public function get_skill_name($skill_id) {
+
+		$query = $this->db->select('name')
+						->where('skill_id', $skill_id)
+						->limit(1)
+						->get('skill');
+
+		$result = $query->row();
+		if(!isset($result)) {
+			return FALSE;
+		}
+
+		return $result->name;
+	}
+
+	/**
 	 * Get all the locations in the db
 	 *
 	 * @return array
@@ -149,7 +171,6 @@ class System_model extends CI_Model {
 		return $string;
 	}
 	
-
 	/**
 	 * This function decompresses a string into an array of skill ids
 	 * It is used to simplify the DB architecture and speed up queries by x10
@@ -161,6 +182,28 @@ class System_model extends CI_Model {
 	public function decompress_skills($string) {
 
 		return explode(',',$string);
+	}
+
+	/**
+	 * This function turns an array of skills (ints) into their corresponding names
+	 * It works for arrays of the form [1,2,3] or with strings of the form 1,2,3
+	 *
+	 * @param $skill_arr
+	 * @return array of skill names
+	 * @author JChiyah
+	 */
+	public function get_skill_names($skill_arr) {
+
+		if(!is_array($skill_arr)) {
+			$skill_arr = $this->decompress_skills($skill_arr);
+		}
+
+		$data = array();
+		foreach($skill_arr as $skill) {
+			array_push($data, $this->get_skill_name($skill));
+		}
+
+		return $data;
 	}
 
 }

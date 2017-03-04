@@ -326,11 +326,11 @@ class User_model extends CI_Model {
 	 * @return mixed boolean / array of db project object(manager, title, description, priority, location, start_date, end_date)
 	 * @author JChiyah
 	 */
-	public function get_user_projects($id = FALSE, $limit = FALSE) {
+	public function get_user_projects($id, $limit = FALSE) {
 		// if no id was passed use the current users id
 		$id = isset($id) ? $id : $this->session->userdata('user_id');
 
-		$query = $this->db->select('CONCAT(first_name, " ", last_name) AS manager, title, description, priority, location.name AS location, project.start_date, project.end_date')
+		$query = $this->db->select('CONCAT(first_name, " ", last_name) AS manager, title, description, priority, location.name AS location, project.start_date, project.end_date, skills')
 						->where('project_staff.staff_id', $id)
 						->join('project_staff', 'project_staff.project_id=project.project_id')
 						->join('account', 'account.id=project.manager_id')
@@ -341,6 +341,9 @@ class User_model extends CI_Model {
 		$result = $query->result();
 
 		if(isset($result) && !empty($result)) {
+			foreach($result as $project) {
+				$project->skills = $this->System_model->get_skill_names($project->skills);
+			}
 			return $result;
 		}
 		return FALSE;
