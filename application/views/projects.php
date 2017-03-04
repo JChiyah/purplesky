@@ -8,7 +8,7 @@
     <?php if(isset($projects) && $projects) : ?>
         <?php foreach($projects as $project) : ?>
             
-            <a class="container-fluid project-result" href="dashboard/#">
+            <a class="container-fluid project-result" href="dashboard/<?= $project->project_id ?>">
                 <div class="row">
                     <h3 class="col-md-8"><?= $project->title ?></h3>
                     <span class="col-md-4 date">
