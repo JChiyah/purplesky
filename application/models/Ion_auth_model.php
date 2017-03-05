@@ -169,6 +169,7 @@ class Ion_auth_model extends CI_Model
 		$this->load->helper('cookie');
 		$this->load->helper('date');
 		$this->lang->load('ion_auth');
+		$this->load->model('User_model');
 
 		// initialize db tables data
 		$this->tables  = $this->config->item('tables', 'ion_auth');
@@ -925,6 +926,9 @@ class Ion_auth_model extends CI_Model
 			'pay_rate'			=> 10.5
 		);
 
+		// Add notifications
+		$this->User_model->add_user_activity($id, 'Welcome to People+!');
+
 		// add in groups array if it doesn't exists and stop adding into default group if default group ids are set
 		if( isset($default_group->id) && empty($groups) )
 		{
@@ -938,6 +942,8 @@ class Ion_auth_model extends CI_Model
 			{
 				if($group > 2) {
 					$this->db->insert('staff', $staff_data);
+
+					$this->User_model->add_user_activity($id, 'Don\'t forget to add information to your profile!');
 				}
 				$this->add_to_group($group, $id);
 			}
