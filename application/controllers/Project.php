@@ -106,7 +106,7 @@ class Project extends CI_Controller {
 						</div>
 						<div class="col-md-2">
 							<p class="location"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> ' . $project->location . '</p>
-							<button>Apply</button>
+							<button>View</button>
 						</div>
 					</div>
 				</a>';
