@@ -30,10 +30,12 @@ public static void main (String[] args) throws IOException{
 	BufferedWriter projectbw= new BufferedWriter(project);
 	FileWriter projectdash= new FileWriter("project_dashboard.csv");		//project_dashboard format: projectID,text,date(yyyy-mm-dd hh:mm:ss)
 	BufferedWriter projectdashbw= new BufferedWriter(projectdash);
-	FileWriter projectresources= new FileWriter("project_resources.csv");		//project_dashboard format: projectID,text,date(yyyy-mm-dd hh:mm:ss)
-	BufferedWriter projectresourcesbw= new BufferedWriter(projectresources);
-	FileWriter projectstaff= new FileWriter("project_staff_skills.csv");		//project_staff_skills format: projectID,staffID,skillID
+	FileWriter projectstaff= new FileWriter("project_staff.csv");		//project_staff format: projectID,staffID,role,assigned at (yyyy-mm-dd hh:mm:ss),start date, end date,skillID
 	BufferedWriter projectstaffbw= new BufferedWriter(projectstaff);
+	FileWriter availability = new FileWriter("availability.csv");		//availability format:staffID, startdate, end date, type(1 work, 0 holiday)
+	BufferedWriter availabilitybw = new BufferedWriter(availability);
+	FileWriter activity = new FileWriter("activity.csv");		//activity format:activityID, accountID, date time (yyyy-mm-dd hh:mm:ss)
+	BufferedWriter activitybw = new BufferedWriter(activity);
 	
 	
 	FileWriter accgroup = new FileWriter("account_group.csv");
@@ -97,8 +99,22 @@ public static void main (String[] args) throws IOException{
 	staffbw.newLine();
 	
 	while(linecounter <= (toGenerate+5)){
-		
-		
+		//availability format:staffID, startdate, end date, type(1 work, 0 holiday)
+		int month=rand2.nextInt(12)+1;
+		int day=rand2.nextInt(28)+1;
+		int month2=rand2.nextInt(12)+1;
+		int day2=rand2.nextInt(28)+1;
+		if(month >month2){
+			month=1;
+		}
+		if(month == month2){
+			if(day>day2){
+				day=1;
+				day2=10;
+			}
+		}
+		availabilitybw.write("\""+linecounter+"\",\""+"2017-"+month+"-"+day+"\",\""+"2017-"+month2+"-"+day2+"\",\""+"1"+"\"");
+		availabilitybw.newLine();
 		//staff generation
 		skillcount= rand.nextInt(10)+1;
 		staffskillbw.write("\""+linecounter+"\",\""+ skillcount+"\",\"0\"");
@@ -140,20 +156,26 @@ public static void main (String[] args) throws IOException{
 		String toWrite = "\""+email + "\",\""+ip_address + "\",\""+password+"\",\""+forgotpasswordcode+"\",\"1\",\""+firstname+"\",\""+lastname+"\"";
 		bw.write(toWrite);
 		bw.newLine();
+		
+		//activity format:activityID, accountID, date time (yyyy-mm-dd hh:mm:ss)
+		activitybw.write("\""+linecounter+"\",\""+"Welcome to People+!"+"\",\""+"2017-03-25 00:00:00"+"\"");
+		activitybw.newLine();
+		activitybw.write("\""+linecounter+"\",\""+"Don't forget to add information to your profile!"+"\",\""+"2017-03-25 00:00:01"+"\"");
+		activitybw.newLine();
 		//experiences table
 				int year=2000+rand2.nextInt(16);
-				int month=rand2.nextInt(12)+1;
-				int day=rand2.nextInt(28)+1;
+				month=rand2.nextInt(12)+1;
+				day=rand2.nextInt(28)+1;
 				int year2=2000+rand2.nextInt(17);
 				if(year2<=year) {
 					year=2000;
 					year2=2000+rand.nextInt(17)+1;}
-				int month2=rand2.nextInt(12)+1;
-				int day2=+rand2.nextInt(28)+1;
+				month2=rand2.nextInt(12)+1;
+				day2=+rand2.nextInt(28)+1;
 				int rolepos=rand2.nextInt(5);
 				
 				String titleofexperince= role[rolepos]+" apprentice";
-				experiencesbw.write("\""+linecounter+"\",\""+year+"-"+month+"-"+day+"\",\""+year2+"-"+month2+"-"+day2+"\",\""+titleofexperince+ "\",\""+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus."+"\",\""+role[rolepos]+"\"");
+				experiencesbw.write("\""+linecounter+"\",\""+year+"-"+month+"-"+day+"\",\""+year2+"-"+month2+"-"+day2+"\",\""+titleofexperince+ "\",\""+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus."+"\",\""+role[rolepos]+"\",\""+skillarray[linecounter]+"\"");
 				experiencesbw.newLine();
 								
 				linecounter++;
@@ -241,6 +263,10 @@ public static void main (String[] args) throws IOException{
 			year=2000;
 			year2=2000+rand.nextInt(17)+1;}
 		int month2=rand2.nextInt(12)+1;
+			if(month2 >= month){
+				month=4;
+				month2=7;
+			}
 		int day2=+rand2.nextInt(28)+1;
 		// project table
 		int prio =rand.nextInt(2);
@@ -271,17 +297,29 @@ public static void main (String[] args) throws IOException{
 				staffing[temp]++;
 			}
 		}
-		projectresourcesbw.write("\""+projectID+"\",\""+staffing[temp]+"\",\""+role[rand.nextInt(5)]+"\"");
-		projectresourcesbw.newLine();
+		
+		//project_staff projectID,staffID,role,assigned at (yyyy-mm-dd hh:mm:ss),start date, end date,skillID
 		
 		
-		//project_staff_skills
-		
-		//TODO
 		int temp2 = staffing[temp];
-		projectstaffbw.write("\""+projectID+"\",\""+staffing[temp]+"\",\""+skillarray[temp2]+"\""); //check if it cares if person has skill or not
+		month=rand.nextInt(3)+1;
+		int month3=rand2.nextInt(12)+1;
+		if (month3 <=3 ){
+			month3=4;
+		}
+		if(month2>=month){
+			month=1;
+			month2=2;
+		}
+		if(month3 <=month2){
+			month=1;
+			month2=2;
+			month3=3;
+		}
+		projectstaffbw.write("\""+projectID+"\",\""+staffing[temp]+"\",\""+role[rand.nextInt(5)]+"\",\""+"2017-"+month+"-"+day+" 00:00:00"+"\",\""+"2017-"+month2+"-"+day2+"\",\""+"2017-"+month3+"-"+day2+"\",\""+skillarray[temp2]+"\""); //check if it cares if person has skill or not
 		projectstaffbw.newLine();
 		temp++;
+		
 		}
 		linecounter++;
 		if(lletter1 == 25){ //loop for changing one letter each time through the loop
@@ -358,8 +396,6 @@ public static void main (String[] args) throws IOException{
 	projectstaff.close();
 	projectdashbw.close();
 	projectdash.close();
-	projectresourcesbw.close();
-	projectresources.close();
 	projectbw.close();
 	project.close();
 	experiencesbw.close();
@@ -367,6 +403,10 @@ public static void main (String[] args) throws IOException{
 	staffskillbw.close();
 	staffskill.close();
 	
+	activitybw.close();
+	activity.close();
+	availabilitybw.close();
+	availability.close();
 	staffbw.close();
 	staff.close();
 	
