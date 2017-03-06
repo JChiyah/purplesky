@@ -47,7 +47,6 @@
 
 			<div id="experience-set">
 				<?php echo form_open('User/experience_form', array('id' => 'experience-add')); ?>
-					<div id="experience-msg"><?php echo $message;?></div>
 
 					<div class="container-box">
 						<div class="row">
@@ -103,6 +102,7 @@
 								<?php echo form_submit('submit', "Add experience","id='experience-submit'");?>
 							</div>
 						</div>
+						<p id="experience-msg"><?php echo $message;?></p>
 					</div>
 				<?php echo form_close(); ?>
 

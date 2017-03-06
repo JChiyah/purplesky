@@ -1,5 +1,13 @@
 $(function() {
 
+	function validate_dates(start_date, end_date) {
+		var now = new Date();
+		var d1 = new Date(start_date);
+		var d2 = new Date(end_date);
+
+		return d2.getTime() >= d1.getTime() && (d1.getTime() <= now.getTime());
+	}
+
 	$('body').on('click', '.delete-tag', function() {
 		var e = $(this).parent();
 		var skill = e.text();
@@ -50,25 +58,30 @@ $(function() {
 		var role = $('#role').val();
 
 		if(start_date && end_date && title && description && role) {
-			$.ajax({
-				type: "POST",
-				url: baseurl + "User/add_user_experience",
-				data: {
-					'start_date' : start_date,
-					'end_date' : end_date,
-					'title' : title,
-					'description' : description,
-					'role' : role,
-					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
-				},
-				success: function(res) {
-					if (res) {
-						$('#experiences').html(res);
-						$('#experience-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
-						$('#experience-add')[0].reset();
+			
+			if(validate_dates(start_date, end_date)) {
+				$.ajax({
+					type: "POST",
+					url: baseurl + "User/add_user_experience",
+					data: {
+						'start_date' : start_date,
+						'end_date' : end_date,
+						'title' : title,
+						'description' : description,
+						'role' : role,
+						'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+					},
+					success: function(res) {
+						if (res) {
+							$('#experiences').html(res);
+							$('#experience-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
+							$('#experience-add')[0].reset();
+						}
 					}
-				}
-			});
+				});
+			} else {
+				$('#experience-msg').text('The dates are not valid');
+			}
 		} else {
 			$('#experience-msg').text('Please fill out all fields');
 		}
@@ -91,6 +104,7 @@ $(function() {
 				success: function(res) {
 					if (res) {
 						$('#experiences').html(res);
+						$('.delete-tag').toggle();
 					}
 				}
 			});
