@@ -5,7 +5,7 @@
 			<div class="row">
 			    <ul>
 			        <li><a href="<?php echo site_url('index') ?>">Home</a></li>-
-			        <li><a href="<?php echo site_url('index') ?>">Projects</a></li>-
+			        <li><a href="<?php echo site_url('projects') ?>">Projects</a></li>-
          		    <li><a href="<?php echo site_url('profile') ?>">Profile</a></li>
 			        <li><a href="<?php echo site_url('search') ?>">Search</a></li>-
 			        <li><a href="<?php echo site_url('index') ?>">Help</a></li>
