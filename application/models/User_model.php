@@ -87,12 +87,12 @@ class User_model extends CI_Model {
 	 * @return mixed boolean / string
 	 * @author JChiyah
 	 */
-	public function get_user_location($id = FALSE) {
+	public function get_user_location($user_id = FALSE) {
 		// if no id was passed use the current users id
-		$id = isset($id) ? $id : $this->session->userdata('user_id');
+		$user_id = isset($user_id) ? $user_id : $this->session->userdata('user_id');
 
-		$query = $this->db->select()
-						->where('staff_id', $id)
+		$query = $this->db->select('location.name AS name')
+						->where('staff_id', $user_id)
 						->limit(1)
 						->join('location', 'location.location_id=staff.current_location')
 						->get('staff');
@@ -102,7 +102,30 @@ class User_model extends CI_Model {
 		if(isset($result) && $result) {
 			return $result->name;
 		}
-		// Dummy value in case it fails (Fix later)
+		return FALSE;
+	}
+
+	/**
+	 * Returns the user's location name
+	 *
+	 * @param $user_id
+	 * @return mixed boolean / string
+	 * @author JChiyah
+	 */
+	public function get_user_location_id($user_id) {
+		// if no id was passed use the current users id
+
+		$query = $this->db->select('location_id AS id')
+						->where('staff_id', $user_id)
+						->limit(1)
+						->join('location', 'location.location_id=staff.current_location')
+						->get('staff');
+
+		$result = $query->row();
+
+		if(isset($result) && $result) {
+			return $result->id;
+		}
 		return FALSE;
 	}
 

@@ -172,11 +172,13 @@ class Project_model extends CI_Model {
 	/**
 	 * Search for a project
 	 *
-	 * @param $project_id
+	 * @param $keyword
+	 * @param $filters
+	 * @param $limit
 	 * @return mixed boolean / array of db project object()
 	 * @author JChiyah
 	 */
-	public function search_projects($keyword = FALSE, $filters = FALSE) {
+	public function search_projects($keyword = FALSE, $filters = FALSE, $limit = FALSE) {
 
 		// Check if there is a manager name associated with the keyword provided
 		$manager_id = $this->User_model->get_user_by_name($keyword);
@@ -212,13 +214,54 @@ class Project_model extends CI_Model {
 			$query = $query->or_like('description', $keyword);
 		}
 
-		$query = $query->get('project');
+		$query = $query->limit($limit)->get('project');
 		$result = $query->result();
 
 		if(isset($result) && !empty($result)) {
-			return $result;
+
+			if(sizeof($result) < $limit && isset($limit) && $limit) {
+
+				return $this->repeat_search($result, $keyword, $filters, $limit);
+
+			} else {
+
+				return $result;
+
+			}
+		} else if(isset($limit) && $limit) {
+			return $this->repeat_search($result, $keyword, $filters, $limit);
 		}
 		return FALSE;
+	}
+
+	/**
+	 * Repeats a search based on some conditions
+	 *
+	 * @param $keyword
+	 * @param $filters
+	 * @param $limit
+	 * @return mixed boolean / project_id
+	 * @author JChiyah
+	 */
+	protected function repeat_search($result, $keyword = '', $filters = FALSE, $limit = 10) {
+
+		/* Get other projects in different locations **/
+		for($i = 1; $i < 5; $i++) {
+			$filters['location'] = $this->System_model->get_closest_location($filters['location']);
+			$filters['location'] = 2;
+
+			$tmp = $this->search_projects('Project');
+
+			if($tmp) {
+				$result = array_merge($result, $tmp);
+			}
+
+			if(sizeof($result) >= $limit) {
+				break;
+			}
+		}
+
+		return array_slice($result, 0, $limit);
 	}
 
 	/**

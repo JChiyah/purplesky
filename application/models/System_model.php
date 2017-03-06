@@ -145,6 +145,32 @@ class System_model extends CI_Model {
 	}
 
 	/**
+	 * Get a location closest to a given one
+	 *
+	 * @param $location_id
+	 * @return int
+	 * @author JChiyah
+	 */
+	public function get_closest_location($id) {
+
+		/** hardcoded -> change later **/
+		switch ($id) {
+			case 1:
+				return 2;
+			case 2:
+				return 3;
+			case 3:
+				return 4;
+			case 4:
+				return 1;
+			case 5:
+				return 3;
+			default:
+				return 1;
+		}
+	}
+
+	/**
 	 * This function compresses skills ids into one string
 	 * It is used to simplify the DB architecture and speed up queries by x10
 	 *

@@ -58,16 +58,42 @@
 			<div class="content">
 				<h2>Current Projects</h2>
 				<hr>
-				<a class="g-button" style="display: block;" href="#">Project A</a>
-				<a class="g-button" style="display: block;" href="#">Project B</a>
-				<a class="g-button" style="display: block;" href="#">Project C</a>
+				<?php if (isset($current_projects) && $current_projects): ?>
+
+					<?php foreach($current_projects as $project): ?>
+						
+						<a class="g-button" style="display: block;" href="dashboard/<?= $project->project_id ?>">
+							<?= $project->title ?>
+						</a>
+					
+					<?php endforeach ?>
+
+				<?php else : ?>
+
+					<p>No projects to show here</p>
+
+				<?php endif ?>
 			</div>
 		</div>
 		<div class="home-container col-md-8 col-sm-12">
 			<div class="content">
 				<h2>Recommended for you</h2>
 				<hr>
-				<p>Nothing new to show</p>
+				<?php if (isset($recommended_projects) && $recommended_projects): ?>
+
+					<?php foreach($recommended_projects as $project): ?>
+						
+						<a class="g-button" style="display: block;" href="dashboard/<?= $project->project_id ?>">
+							<?= $project->title ?>
+						</a>
+					
+					<?php endforeach ?>
+
+				<?php else : ?>
+
+					<p>No projects to show here</p>
+
+				<?php endif ?>
 			</div>
 		</div>
 	</div>

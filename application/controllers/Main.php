@@ -33,9 +33,17 @@ class Main extends Base {
 	{
 		$this->load->helper('url_helper');
 
-		// Notifications
+		$user_id = $this->session->userdata('user_id');
+
+		// General stuff
 		$data['activity'] = $this->User_model->get_user_activity($this->session->userdata('user_id'));
-	 
+		$data['current_projects'] = $this->User_model->get_user_projects($user_id, 3);
+
+		$filters = array( 
+			'location' => $this->User_model->get_user_location_id($user_id)
+		);
+		$data['recommended_projects'] = $this->Project_model->search_projects('', $filters, 3);
+
 		$data['page_body'] = 'home';
 		$data['page_title'] = 'Home';
 		$data['page_description'] = 'Homepage with dashboard';
