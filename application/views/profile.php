@@ -53,7 +53,6 @@
 							<div class="col-sm-12 col-md-6">
 								<p>
 									<label>Title:</label>
-									<?php echo form_input($title,'',"required");?>
 								</p>
 							</div>
 							<div class="row">
@@ -65,7 +64,7 @@
 											</p>
 										</div>
 										<div class="col-md-9">
-											<?php echo form_input($start_date,'',"required");?>
+											<?php echo form_input($start_date,'','required');?>
 										</div>
 									</div>
 									<div class="row date-row">
@@ -75,7 +74,7 @@
 											</p>
 										</div>
 										<div class="col-md-9">
-											<?php echo form_input($end_date,'',"required");?>
+											<?php echo form_input($end_date,'','required');?>
 										</div>
 									</div>
 								</div>
@@ -86,7 +85,7 @@
 							<div class="col-sm-12 col-md-8">
 								<p>
 									<label>Description:</label>
-									<?php echo form_textarea($description,'',"required");?>
+									<?php echo form_textarea($description,'','required maxlength="250"');?>
 								</p>
 							</div>
 						</div>
@@ -95,7 +94,6 @@
 							<div class="col-sm-12 col-md-6">
 								<p>
 									<label>Role:</label>
-									<?php echo form_input($role,'',"required");?>
 								</p>
 							</div>
 							<div class="col-sm-12 col-md-6 sub-row">
