@@ -30,8 +30,6 @@ public static void main (String[] args) throws IOException{
 	BufferedWriter projectbw= new BufferedWriter(project);
 	FileWriter projectdash= new FileWriter("project_dashboard.csv");		//project_dashboard format: projectID,text,date(yyyy-mm-dd hh:mm:ss)
 	BufferedWriter projectdashbw= new BufferedWriter(projectdash);
-	FileWriter projectresources= new FileWriter("project_resources.csv");		//project_dashboard format: projectID,text,date(yyyy-mm-dd hh:mm:ss)
-	BufferedWriter projectresourcesbw= new BufferedWriter(projectresources);
 	FileWriter projectstaff= new FileWriter("project_staff.csv");		//project_staff format: projectID,staffID,role,assigned at (yyyy-mm-dd hh:mm:ss),start date, end date,skillID
 	BufferedWriter projectstaffbw= new BufferedWriter(projectstaff);
 	FileWriter availability = new FileWriter("availability.csv");		//availability format:staffID, startdate, end date, type(1 work, 0 holiday)
@@ -299,15 +297,26 @@ public static void main (String[] args) throws IOException{
 				staffing[temp]++;
 			}
 		}
-		projectresourcesbw.write("\""+projectID+"\",\""+staffing[temp]+"\",\""+role[rand.nextInt(5)]+"\"");
-		projectresourcesbw.newLine();
-		
 		
 		//project_staff projectID,staffID,role,assigned at (yyyy-mm-dd hh:mm:ss),start date, end date,skillID
 		
 		
 		int temp2 = staffing[temp];
-		projectstaffbw.write("\""+projectID+"\",\""+staffing[temp]+"\",\""+role[rand.nextInt(5)]+"\",\""+"2017-"+month+"-"+day+"00:00:00"+"\",\""+"2017-"+month+"-"+day+"\",\""+"2017-"+month2+"-"+day2+"\",\""+skillarray[temp2]+"\""); //check if it cares if person has skill or not
+		month=rand.nextInt(3)+1;
+		int month3=rand2.nextInt(12)+1;
+		if (month3 <=3 ){
+			month3=4;
+		}
+		if(month2>=month){
+			month=1;
+			month2=2;
+		}
+		if(month3 <=month2){
+			month=1;
+			month2=2;
+			month3=3;
+		}
+		projectstaffbw.write("\""+projectID+"\",\""+staffing[temp]+"\",\""+role[rand.nextInt(5)]+"\",\""+"2017-"+month+"-"+day+" 00:00:00"+"\",\""+"2017-"+month2+"-"+day2+"\",\""+"2017-"+month3+"-"+day2+"\",\""+skillarray[temp2]+"\""); //check if it cares if person has skill or not
 		projectstaffbw.newLine();
 		temp++;
 		
@@ -387,8 +396,6 @@ public static void main (String[] args) throws IOException{
 	projectstaff.close();
 	projectdashbw.close();
 	projectdash.close();
-	projectresourcesbw.close();
-	projectresources.close();
 	projectbw.close();
 	project.close();
 	experiencesbw.close();
