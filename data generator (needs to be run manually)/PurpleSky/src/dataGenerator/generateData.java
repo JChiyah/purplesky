@@ -160,9 +160,10 @@ public static void main (String[] args) throws IOException{
 		bw.newLine();
 		
 		//activity format:activityID, accountID, date time (yyyy-mm-dd hh:mm:ss)
-		activitybw.write("\""+linecounter+"\",\""+"Welcome to People+!"+"2017-03-25 00:00:00");
+		activitybw.write("\""+linecounter+"\",\""+"Welcome to People+!"+"\",\""+"2017-03-25 00:00:00"+"\"");
 		activitybw.newLine();
-		activitybw.write("\""+linecounter+"\",\""+"Don't forget to add information to your profile!"+"2017-03-25 00:00:01");
+		activitybw.write("\""+linecounter+"\",\""+"Don't forget to add information to your profile!"+"\",\""+"2017-03-25 00:00:01"+"\"");
+		activitybw.newLine();
 		//experiences table
 				int year=2000+rand2.nextInt(16);
 				month=rand2.nextInt(12)+1;
