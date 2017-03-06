@@ -53,6 +53,7 @@
 							<div class="col-sm-12 col-md-6">
 								<p>
 									<label>Title:</label>
+									<?php echo form_input($title,'','required maxlength="90"');?>
 								</p>
 							</div>
 							<div class="row">
@@ -94,6 +95,7 @@
 							<div class="col-sm-12 col-md-6">
 								<p>
 									<label>Role:</label>
+									<?php echo form_input($role,'','required maxlength="90"');?>
 								</p>
 							</div>
 							<div class="col-sm-12 col-md-6 sub-row">

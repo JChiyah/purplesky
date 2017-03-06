@@ -11,11 +11,11 @@
 
 				<p>
 					<label>Title:</label>
-					<?php echo form_input($title, '', 'placeholder="Project title"');?>
+					<?php echo form_input($title, '', 'placeholder="Project title" maxlength="90"');?>
 				</p>
 				<p>
 					<label>Description:</label>
-					<?php echo form_textarea($description, '', 'placeholder="Project description"');?>
+					<?php echo form_textarea($description, '', 'placeholder="Project description" maxlength="250"');?>
 				</p>
 				<p>
 					<label>From:</label>
