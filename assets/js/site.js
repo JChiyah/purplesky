@@ -65,6 +65,7 @@ $(function() {
 					if (res) {
 						$('#experiences').html(res);
 						$('#experience-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
+						$('#experience-add')[0].reset();
 					}
 				}
 			});
