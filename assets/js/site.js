@@ -58,7 +58,7 @@ $(function() {
 		var role = $('#role').val();
 
 		if(start_date && end_date && title && description && role) {
-			
+
 			if(validate_dates(start_date, end_date)) {
 				$.ajax({
 					type: "POST",
@@ -104,7 +104,7 @@ $(function() {
 				success: function(res) {
 					if (res) {
 						$('#experiences').html(res);
-						$('.delete-tag').toggle();
+						$('.delete-experience-tag').toggle();
 					}
 				}
 			});
