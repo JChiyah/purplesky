@@ -144,7 +144,7 @@ class Auth extends CI_Controller {
 			);
 
 			// render
-			$this->data['body'] = 'change-password';
+			$this->data['page_body'] = 'change-password';
 			$this->load->view('html', $this->data);
 		}
 		else
