@@ -128,7 +128,7 @@ $(function() {
 
 		// Check whether the user entered a keyword or is filtering projects
 		if(keyword || filter) {
-
+			
 			$.ajax({
 				type: "POST",
 				url: baseurl + "Project/search_projects",

@@ -67,26 +67,49 @@ class Project extends CI_Controller {
 		}
 		
 		// Check result and output appropiately
-		if(isset($result) && $result)  {
-			foreach($result as $project) {
-				echo '<a class="container-fluid project-result" href="dashboard/' . $project->project_id . '">
-						<div class="row">
-							<h3 class="col-md-8">' . $project->title . '</h3>
-							<span class="col-md-4 date">' . date('d/m/Y', strtotime($project->start_date)) . ' - ' . date('j/n/Y', strtotime($project->end_date)) . '</span>
-						</div>
-						<hr>
-						<div class="row">
-							<div class="col-md-10">
-								<h5>' . $project->manager . '</h5>
-								<p class="description">' . $project->description . '</p>
-							</div>
-							<div class="col-md-2">
-								<p class="location"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> ' . $project->location . '</p>
-								<button>Apply</button>
-							</div>
-						</div>
-					</a>';
+		if(!isset($result) || !$result)  {
+			// If we are here it means there were no results
+
+			echo '<p>Nothing matches your search. Try to broaden your criteria.</p>';
+			echo '<br/><h2>Other Recommended Projects:</h2><hr>';
+
+			// Perform a "recommended search"
+
+			if(!isset($filters['location']) || !$filters['location']) { // No location
+
+				// Get user location
+				$location = $this->User_model->get_user_location_id($this->ion_auth->user()->row()->id);
+
+				if(isset($location) && $location) {
+					$filters['location'] = $location;
+				} else {
+					$filters['location'] = 1; // Edinburgh
+				}
 			}
+
+			$result = $this->Project_model->search_projects('', $filters, 5);
+			
+		}
+
+		// Print results
+		foreach($result as $project) {
+			echo '<a class="container-fluid project-result" href="dashboard/' . $project->project_id . '">
+					<div class="row">
+						<h3 class="col-md-8">' . $project->title . '</h3>
+						<span class="col-md-4 date">' . date('d/m/Y', strtotime($project->start_date)) . ' - ' . date('j/n/Y', strtotime($project->end_date)) . '</span>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-10">
+							<h5>' . $project->manager . '</h5>
+							<p class="description">' . $project->description . '</p>
+						</div>
+						<div class="col-md-2">
+							<p class="location"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> ' . $project->location . '</p>
+							<button>Apply</button>
+						</div>
+					</div>
+				</a>';
 		}
 	}
 

@@ -43,7 +43,10 @@ hr {
 	margin: 0;
 	margin-top: 0.3em;
 	margin-bottom: 0.8em;
-	border-top: none;
+	margin-left: auto;
+	margin-right: auto;
+	border: 0 none;
+	color: $hr-colour;
 	background: $hr-colour;
 }
 
@@ -914,7 +917,7 @@ footer {
 	}
 
 	hr {
-		height: 0.5px;
+		height: 1px;
 		margin-top: 0.2em;
 	}
 

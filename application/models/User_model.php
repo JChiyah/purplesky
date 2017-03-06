@@ -106,7 +106,7 @@ class User_model extends CI_Model {
 	}
 
 	/**
-	 * Returns the user's location name
+	 * Returns the user's location id
 	 *
 	 * @param $user_id
 	 * @return mixed boolean / string
