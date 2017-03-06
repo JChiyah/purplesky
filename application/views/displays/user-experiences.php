@@ -5,8 +5,8 @@
 			<div class="experience-box" id="experience-<?= $experience->experience_id ?>">
 				<div class="row"><h2 class="col-md-9"> <?= $experience->role ?> </h2>
 					<span class="col-md-3">
-						<?= date('j/n/Y', strtotime($experience->start_date)) ?> -
-						<?= date('j/n/Y', strtotime($experience->end_date)) ?>
+						<?= date('d/m/Y', strtotime($experience->start_date)) ?> -
+						<?= date('d/m/Y', strtotime($experience->end_date)) ?>
 					</span>
 				</div>
 				<p class="title">

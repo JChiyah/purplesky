@@ -72,7 +72,7 @@ class Project extends CI_Controller {
 				echo '<a class="container-fluid project-result" href="dashboard/' . $project->project_id . '">
 						<div class="row">
 							<h3 class="col-md-8">' . $project->title . '</h3>
-							<span class="col-md-4 date">' . date('j/n/Y', strtotime($project->start_date)) . ' - ' . date('j/n/Y', strtotime($project->end_date)) . '</span>
+							<span class="col-md-4 date">' . date('d/m/Y', strtotime($project->start_date)) . ' - ' . date('j/n/Y', strtotime($project->end_date)) . '</span>
 						</div>
 						<hr>
 						<div class="row">
@@ -133,36 +133,31 @@ class Project extends CI_Controller {
 				'name'  => 'title',
 				'id'    => 'title',
 				'required' => 'required',
-				'value' => 'Testing'
-				//'value' => $this->form_validation->set_value('title')
+				'value' => $this->form_validation->set_value('title')
 			);
 			$this->data['description'] = array(
 				'name'  => 'description',
 				'id'    => 'description',
 				'required' => 'required',
-				'value' => 'Lorem ipsum rae et sit amet'
-				//'value' => $this->form_validation->set_value('description')
+				'value' => $this->form_validation->set_value('description')
 			);
 			$this->data['start_date'] = array(
 				'name'  => 'start_date',
 				'id'    => 'start_date',
 				'required' => 'required',
-				'value' => '2017-10-10'
-				//'value' => $this->form_validation->set_value('start_date')
+				'value' => $this->form_validation->set_value('start_date')
 			);
 			$this->data['end_date'] = array(
 				'name'  => 'end_date',
 				'id'    => 'end_date',
 				'required' => 'required',
-				'value' => '2017-10-11'
-				//'value' => $this->form_validation->set_value('end_date')
+				'value' => $this->form_validation->set_value('end_date')
 			);
 			$this->data['location'] = array(
 				'name'  => 'location',
 				'id'    => 'location',
 				'required' => 'required',
-				'value' => 1
-				//'value' => $this->form_validation->set_value('location')
+				'value' => $this->form_validation->set_value('location')
 			);
 			$this->data['normal_priority'] = array(
 				'name'  => 'priority',

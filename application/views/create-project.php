@@ -1,6 +1,6 @@
 <div id="newProject">
 	<div class="container">
-		<h1>Create new Project</h1>
+		<h1>Create New Project</h1>
 		<div class="container">
 			<?php echo form_open('Project/create_project');?>
 			<div id="infoMessage"><?php echo $message;?></div>
