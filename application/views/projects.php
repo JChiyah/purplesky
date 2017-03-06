@@ -3,7 +3,7 @@
     <h1>My Projects</h1>
     <hr>
 
-    <div class="container-fluid projects">
+    <div class="container-fluid" id="projects">
 
     <?php if(isset($projects) && $projects) : ?>
         <?php foreach($projects as $project) : ?>
@@ -35,7 +35,7 @@
             </a>
         <?php endforeach ?>
     <?php else : ?>
-            <p>No projects to show here.<br/>Try applying for project in the <a href="search">search page</a>.</p>
+            <p>No projects to show here.<br/>Try applying for projects in the <a href="search">search page</a>.</p>
     <?php endif ?>
 
     </div>

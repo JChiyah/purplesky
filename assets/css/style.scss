@@ -1099,14 +1099,12 @@ section#quick-search{
         }
     }
 
-	.projects {
+	#projects {
 		padding: 2em;
 		display: block;
+		min-height: 350px;
         background: $grey-background2;
 		
-		a {
-			display: block;
-		}
 		.project-result {
 			background: #ffffff;
 			border: 1px solid $hr-colour;

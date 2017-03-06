@@ -2518,18 +2518,17 @@ section#quick-search {
       font-weight: 900;
       position: relative;
       right: 0px; }
-  #current-projects .projects {
+  #current-projects #projects {
     padding: 2em;
     display: block;
+    min-height: 350px;
     background: #E1E5E6; }
-    #current-projects .projects a {
-      display: block; }
-    #current-projects .projects .project-result {
+    #current-projects #projects .project-result {
       background: #ffffff;
       border: 1px solid #C0C0C0;
       border-radius: 4px;
       padding: 1.6em; }
-      #current-projects .projects .project-result p {
+      #current-projects #projects .project-result p {
         margin-bottom: 0; }
 
 /**** Project Dashboard section - Daniel code here ****/
