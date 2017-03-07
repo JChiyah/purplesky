@@ -473,6 +473,11 @@ class User_model extends CI_Model {
 						->group_by('staff.staff_id')
 						->limit(10);
 
+		/** Filter by project location **/
+		if(isset($filters['location']) && $filters['location']) {
+			$query = $query->where('location_id', $filters['location']);
+		}
+
 		// Filter by skills
 		if(isset($filters['skills']) && $filters['skills']) {
 			if(is_array($filters['skills'])) {

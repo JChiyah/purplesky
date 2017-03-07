@@ -195,7 +195,8 @@ class Project extends CI_Controller {
 				'name'  => 'location',
 				'id'    => 'location',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('location')
+				'value' => 1
+				//'value' => $this->form_validation->set_value('location')
 			);
 			$this->data['normal_priority'] = array(
 				'name'  => 'priority',

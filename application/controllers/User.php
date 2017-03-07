@@ -142,6 +142,7 @@ class User extends CI_Controller {
 		$end_date = $this->input->post('end_date');
 		$staff_name = $this->input->post('staff_name');
 		$staff_ids = $this->input->post('staff_ids'); // Staff already added to project
+		$location = $this->input->post('location');
 
 		$filters = array(
 			'start_date'=> $start_date,
@@ -159,26 +160,32 @@ class User extends CI_Controller {
 		if(!empty($staff_ids)) {
 			$filters['staff_ids'] = $staff_ids;
 		}
+
+		if(isset($location) && $location) {
+			$filters['location'] = $location;
+		}
 		
 		$staff = $this->User_model->search_staff($filters);
 
-		//echo $staff_ids;
-		//var_dump($staff_ids);
 		if($staff) {
 			foreach($staff as $employee) {
 				echo '<div class="staff-result" id="staff-' . $employee->id . '">
 						<h5>' . $employee->name . '</h5>
 						<p class="location">' . $employee->location . '</p>
 						<p class="pay-rate">£' . $employee->pay_rate . '/day</p>
-						Skills:';
+						<div class="row">';
+
 				if(isset($skill_id) && $skill_id) {
+					echo '<div class="col-md-9">Skills: ';
+
 					foreach($skill_id as $skill) {
 						echo '<span class="skill-span">' . $this->System_model->get_skill_name($skill) . '</span>';
 					}
 				}
 
-				echo '<button type="button" class="allocate-staff-button">Add</button>
-					</div>';
+				echo '</div>
+						<button type="button" class="col-md-3 allocate-staff-button">Add</button>
+					</div></div>';
 			}
 		}
 	}

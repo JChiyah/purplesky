@@ -902,14 +902,20 @@ footer {
 	}
 
 	#resource-allocation-results {
+		background: #ffffff;
 		padding-top: 2em;
 		
 		.col-md-6:first-child {
 			border-right: 1px solid $hr-colour;
 		}
 
+		#results, #staff-added {
+			max-height: 550px; 
+			overflow: scroll;
+		}
+
 		.staff-result {
-			padding: 0.5em 1em;
+			padding: 1em 1.5em 0.5em 1.5em;
 			margin: 0.7em;
 			border-radius: 4px;
 			border: 1px solid $hr-colour;
@@ -933,9 +939,16 @@ footer {
 			}
 
 			button {
-				font-size: 0.8em;
+				font-size: 0.7em;
+				margin: 0.5em 0;
 				display: block;
-				margin: 0 auto;
+			}
+
+			.skill-span {
+				font-size: 0.7em;
+				margin: 0;
+				border: 1px solid $hr-colour;
+				padding: 3px 12px;
 			}
 		}
 	}

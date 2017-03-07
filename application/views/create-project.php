@@ -87,15 +87,31 @@
 								<h5>Name</h5>
 								<p class="location">Edinburgh</p>
 								<p class="pay-rate">£100/day</p>
-								Skills:<span class="skill-span">HTML</span><span class="skill-span">CSS</span>
-								<button type="button" class="allocate-staff-button">Add</button>
+								<div class="row">
+									<div class="col-md-9">
+										Skills:
+										<span class="skill-span">HTML</span>
+										<span class="skill-span">CSS</span>
+										<span class="skill-span">Java</span>
+										<span class="skill-span">PHP</span>
+										<span class="skill-span">MySQL</span>
+									</div>
+									<button type="button" class="col-md-2 allocate-staff-button">Add</button>
+									<div class="col-md-1"></div>
+								</div>
 							</div>
 							<div class="staff-result" id="staff-' . $employee->id . '">
 								<h5>Name</h5>
 								<p class="location">Edinburgh</p>
 								<p class="pay-rate">£100/day</p>
-								Skills:<span class="skill-span">HTML</span><span class="skill-span">CSS</span>
-								<button type="button" class="allocate-staff-button">Add</button>
+								<div class="row">
+									<div class="col-md-9">
+										Skills:
+										<span class="skill-span">HTML</span>
+										<span class="skill-span">CSS</span>
+									</div>
+									<button type="button" class="col-md-3 allocate-staff-button">Add</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -103,7 +119,7 @@
 						<h2>Added</h2>
 						<hr>
 						<div id="staff-added">
-						
+
 						</div>
 					</div>
 				<section>

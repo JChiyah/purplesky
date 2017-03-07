@@ -143,7 +143,7 @@ $(function() {
 	// $body instead of click for better support of dynamic content
 	$('body').on('click', '.allocate-staff-button', function() {
 		// Get staff id from parsing the button's parent id
-		var id = (($(this).closest('div').attr('id')).split("-"))[1];
+		var id = (($(this).parent().parent().attr('id')).split("-"))[1];
 
 		// User is adding staff
 		if($('#results').find('#staff-' + id).length) {
