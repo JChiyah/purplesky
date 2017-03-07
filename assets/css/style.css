@@ -2603,5 +2603,14 @@ section#quick-search {
   #project-dashboard #toptableright {
     width: 50%;
     text-align: right; }
+  #project-dashboard #tablepay {
+    text-align: right;
+    width: 20%; }
+  #project-dashboard #tabledate {
+    width: 20%; }
+  #project-dashboard #tablerole {
+    width: 30%; }
+  #project-dashboard #tablename {
+    width: 30%; }
 
 /*# sourceMappingURL=style.css.map */

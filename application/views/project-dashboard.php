@@ -8,39 +8,41 @@
 			echo '<table>
 			<tr>
 			<td class="toptableleft">
-			Start date: ' . $project->start_date . '
+			<b>Start date:</b> ' . $project->start_date . '
 			</td>
 			<td class="toptableright">
-			Priority: ' . $project->priority . '
+			<b>Priority:</b> ' . $project->priority . '
 			</td>
 			</tr>
 			<tr>
 			<td class="toptableleft">
-			End date: ' . $project->end_date . '
+			<b>End date:</b> ' . $project->end_date . '
 			</td>
 			<td class="toptableright">
-			Location: ' . $project->location . '
+			<b>Location:</b> ' . $project->location . '
 			</td>
 			</tr>
 			</table>
 			<p><b>Notificaions</b></p>';
 			foreach ($dashboard as $entry) {
-				echo '<p> Date: ' . $entry->date . '</p>
-				<p>' . $entry->description .'</p>';
+				echo '<p> <b>Date: ' . $entry->date . '</b></p>
+				<p>' . $entry->description .'</p>
+				';
 			}
 			
 			
 			echo '<hr>
-			<p><b>Description:</b>' . $project->description . '</p>
+			<p><b>Description:</b></p> <p>' . $project->description . '</p>
 			'; 
 			if ($is_manager){ 
 				echo '<form action="" method="post">
 				<input type="text" name="" value="" placeholder="Enter a new notification">
 				<input type="submit" name="" value="New Notification" id="">
 				</form>';
+			echo '<hr';
 			}
 			
-			echo '<hr';
+			
 		?>
 
 	</div>
@@ -48,10 +50,10 @@
 	<div class="projectstaff">
 		<table>
 			<tr>
-				<th><b>Staff:</b></th>
-				<th><b>Role:</b></th>
-				<th><b>Since:</b></th>
-				<th><b>Daily Rate:</b></th>
+				<th class="tablename"<b>Staff:</b></th>
+				<th class="tablerole"><b>Role:</b></th>
+				<th class="tabledate"><b>Since:</b></th>
+				<th class="tablepay"><b>Daily Rate:</b></th>
 			</tr>
 			<!-- need to check what format the variable will be returned in, preferably array of a 5 position array, 0=staff name,1= start date, 2=end date, 3=daily rate, 4=job name -->
 			<?php 
@@ -62,8 +64,8 @@
 						echo '<tr>
 								<td>' . $employee->name . '</td>
 								<td>' . $employee->role . '</td>
-								<td>' . $employee->assigned_at . '</td>
-								<td>£ ' . $employee->pay_rate . '</td>
+								<td>' . date('d/m/Y', strtotime($employee->assigned_at) . '</td>
+								<td class="tablepay">£ ' . $employee->pay_rate . '</td>
 							</tr>';
 					}
 				} else {
