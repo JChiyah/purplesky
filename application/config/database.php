@@ -96,8 +96,8 @@ $db['default'] = array(
 );
 
 $db['university'] = array(
-	'dsn'	   => 'mysql:dbname=mma10;host=mysql-server-1.macs.hw.ac.uk',
-	'hostname' => 'www.macs.hw.ac.uk',
+	'dsn'	   => 'mysql:dbname=mma10;host=mysql-server-1',
+	'hostname' => 'mysql-server-1',
 	'username' => 'mma10',
 	'password' => 'abcmma10354',
 	'database' => 'mma10',
