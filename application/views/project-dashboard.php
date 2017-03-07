@@ -23,6 +23,7 @@
 			</td>
 			</tr>
 			</table>
+			<hr>
 			<p><b>Notificaions</b></p>';
 			foreach ($dashboard as $entry) {
 				echo '<p> <b>Date: ' . $entry->date . '</b></p>
