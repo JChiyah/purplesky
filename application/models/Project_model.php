@@ -178,10 +178,12 @@ class Project_model extends CI_Model {
 	 * @return mixed boolean / array of db project object()
 	 * @author JChiyah
 	 */
-	public function search_projects($keyword = FALSE, $filters = FALSE, $limit = FALSE) {
+	public function search_projects($keyword = '', $filters = FALSE, $limit = FALSE) {
 
 		// Check if there is a manager name associated with the keyword provided
-		$manager_id = $this->User_model->get_project_manager_by_name($keyword);
+		if(isset($keyword) && $keyword) {
+			$manager_id = $this->User_model->get_project_manager_by_name($keyword);
+		}
 
 		/** Start the search **/
 		$query = $this->db->select('project_id, title, description, priority, CONCAT(first_name, " ", last_name) AS manager, location.name AS location, budget, start_date, end_date')
@@ -248,7 +250,6 @@ class Project_model extends CI_Model {
 		/* Get other projects in different locations **/
 		for($i = 1; $i < 5; $i++) {
 			$filters['location'] = $this->System_model->get_closest_location($filters['location']);
-			$filters['location'] = 2;
 
 			$tmp = $this->search_projects('Project');
 

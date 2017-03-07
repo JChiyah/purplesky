@@ -46,11 +46,15 @@ class Project extends CI_Controller {
 				return ;
 			}
 
-			$filters = array(
-				'location'		=> $location,
-				'start_date'	=> $start_date,
-				'end_date'		=> $end_date
-			);
+			if(isset($start_date) && $start_date) {
+				$filters['start_date'] = $start_date;
+			}
+			if(isset($end_date) && $end_date) {
+				$filters['end_date'] = $end_date;
+			}
+			if(isset($location) && $location && $location != 0) {
+				$filters['location'] = $location;
+			}
 
 			$result = $this->Project_model->search_projects($keyword, $filters);
 
@@ -83,11 +87,19 @@ class Project extends CI_Controller {
 				if(isset($location) && $location) {
 					$filters['location'] = $location;
 				} else {
-					$filters['location'] = 1; // Edinburgh
+					$filters['location'] = 1; // Default -> Edinburgh
 				}
 			}
 
 			$result = $this->Project_model->search_projects('', $filters, 5);
+
+			if(!isset($result) || !$result)  {
+
+				$location = $this->User_model->get_user_location_id($this->ion_auth->user()->row()->id);
+				
+				$result = $this->Project_model->search_projects($keyword, array('location' => $location), 5);
+
+			}
 			
 		}
 

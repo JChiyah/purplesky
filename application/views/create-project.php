@@ -16,6 +16,7 @@
 				<p>
 					<label>Description:</label>
 					<?php echo form_textarea($description, '', 'placeholder="Project description" maxlength="250"');?>
+					<span>250 characters maximum</span>
 				</p>
 				<p>
 					<label>From:</label>
