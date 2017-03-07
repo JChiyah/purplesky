@@ -2209,112 +2209,140 @@ footer {
   background: #ECF0F1; }
 
 /* * * * Create new project page style section * * * */
-/* * * * Create new project page and allocate resources style section * * * */
-#newProject {
-  padding: 20px 30px 30px 30px; }
-  #newProject #NPcontainer {
-    width: 100%;
-    background: #E1E5E6;
-    color: #1f1646;
-    font-family: "Microsoft JhengHei";
-    margin: 80px auto;
-    border-radius: 4px;
-    text-align: left;
-    padding: 1em; }
-  #newProject label, #newProject p {
-    display: block;
+#create-project {
+  padding: 1em 2em 4em 2em; }
+  #create-project h1 {
+    text-align: center;
+    font-size: 2.8em;
+    margin: 0.3em 0; }
+  #create-project form {
+    width: 70%;
     font-size: 1.2em;
-    font-weight: 900; }
-  #newProject .container-box {
+    margin: 0 auto;
+    /*
+    input[type=submit] {
+    	background: $light-blue;
+    	color: #fff;
+    	text-transform: uppercase;
+    	font-weight: 900;
+    	padding: 10px 38px;
+    	margin-top: 30px;
+    	border: none;
+    	border-radius: 6px;
+    	box-shadow: none;
+    }*/ }
+    #create-project form label {
+      display: block;
+      margin-top: 8px;
+      font-weight: 700; }
+    #create-project form input[type=text] {
+      width: 40%;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: 1px solid #C0C0C0;
+      border-radius: 4px; }
+    #create-project form input[type=text]:focus {
+      border: 1px solid #0389ff; }
+    #create-project form textarea {
+      width: 90%;
+      resize: none;
+      display: block;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 1px solid transparent; }
+    #create-project form textarea:focus {
+      border: 1px solid #0389ff; }
+    #create-project form #project-dates {
+      width: 90%;
+      margin-left: 0; }
+      #create-project form #project-dates p {
+        padding: 0; }
+    #create-project form input[type=date] {
+      width: 100%;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px; }
+    #create-project form input[type=date]:focus {
+      border: 1px solid #0389ff; }
+    #create-project form select {
+      width: 40%;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px; }
+    #create-project form select:focus {
+      border: 1px solid #0389ff; }
+    #create-project form input[type=radio]:not(old) {
+      display: inline-block;
+      width: 1em;
+      height: 1em; }
+    #create-project form #priority-buttons label {
+      display: inline-block;
+      font-weight: 500; }
+    #create-project form .error-msg {
+      display: block;
+      margin: 0 0.5em;
+      color: #e74c3c; }
+    #create-project form input[type=submit]:hover {
+      background: #1f1646; }
+  #create-project .project-tab h2 {
+    font-size: 1.8em;
+    margin: 0; }
+  #create-project .project-tab .content {
+    padding: 1em 4em;
+    color: #1f1646;
+    background: #E1E5E6;
+    border-radius: 4px; }
+  #create-project .project-tab button {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1em;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none; }
+  #create-project .project-tab button:hover {
+    background: #1f1646; }
+  #create-project .project-tab button:focus {
+    background: #0389ff; }
+  #create-project .project-tab .project-continue {
+    padding: 12px 18px;
+    float: right; }
+  #create-project #resource-allocation .skill-span {
+    background: #ffffff;
+    font-weight: 500;
+    border: 2px solid #C0C0C0; }
+  #create-project .container-box {
     background: #E1E5E6;
     width: 95%;
     margin: 10px auto;
     padding: 1em;
     text-align: left;
     border-radius: 4px; }
-  #newProject h1 {
-    padding-top: 20px;
-    margin-top: 0;
-    text-align: center;
-    font-size: 2.8em;
-    margin-bottom: 0; }
-  #newProject h2 {
-    padding-top: 5px;
-    margin-top: 0;
-    text-align: left;
-    font-size: 1.8em;
-    margin-bottom: 0; }
-  #newProject hr {
-    height: 2px; }
-  #newProject .date-row {
+  #create-project .date-row {
     margin: 0.8em 1em;
     display: flex;
     justify-content: flex-end;
     align-items: center; }
-  #newProject button {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 0.9em;
-    padding: 8px 12px 8px 12px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: none; }
-  #newProject button:hover {
-    background: #1f1646; }
-  #newProject button:focus {
-    background: #0389ff; }
-  #newProject form {
-    padding: 10px 10px 20px 20px; }
-    #newProject form input[type=text] {
-      width: 80%;
-      margin-top: 8px;
-      padding: 8px 12px 8px 12px;
-      border: 1px solid transparent;
-      border-radius: 4px; }
-    #newProject form input[type=text]:focus {
-      border: 1px solid #0389ff; }
-    #newProject form input[type=submit] {
-      background: #0389ff;
-      color: #fff;
-      text-transform: uppercase;
-      font-weight: 900;
-      padding: 10px 38px;
-      margin-top: 30px;
-      border: none;
-      border-radius: 6px;
-      box-shadow: none; }
-    #newProject form input[type=date] {
-      width: 70%;
-      text-align: left;
-      padding: 8px 12px 8px 12px;
-      border: 1px solid transparent;
-      border-radius: 4px; }
-    #newProject form input[type=submit]:hover {
-      background: #1f1646; }
-    #newProject form textarea {
-      width: 90%;
-      margin-top: 8px;
-      padding: 8px 12px 8px 12px;
-      border: 1px solid transparent;
-      border-radius: 4px; }
-    #newProject form .row {
-      margin-right: 1.5em;
-      margin-left: 1.5em; }
-    #newProject form label {
-      display: block;
-      font-size: 1.2em;
-      font-weight: 900;
-      margin-top: 8px; }
-    #newProject form select {
-      width: 40%;
-      margin-top: 8px;
-      padding: 8px 12px 8px 12px;
-      border: 1px solid #0389ff;
-      border-radius: 4px;
-      font-weight: 900; }
 
+@media (max-width: 768px) {
+  #create-project form {
+    width: 100%; }
+    #create-project form input[type=text], #create-project form textarea, #create-project form select, #create-project form #project-dates {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0; }
+    #create-project form input[type=submit] {
+      padding: 12px 55px 12px 55px;
+      margin: 15px auto;
+      display: block;
+      text-align: center; }
+  #create-project .project-tab .content {
+    padding: 1em 1em; } }
 /* * * * addSkills page style section * * * */
 #addSkill #ASContainer {
   width: 50%;

@@ -1,52 +1,63 @@
-<div id="newProject">
-	<div class="container">
-		<h1>Create New Project</h1>
-		<div class="container">
-			<?php echo form_open('Project/create_project');?>
+<div id="create-project">
+	<h1>Create New Project</h1>
+
+		<?php echo form_open('Project/create_project');?>
+
 			<div id="infoMessage"><?php echo $message;?></div>
-			<div class="container project-tab" id="create-1">
+			<div class="container-fluid project-tab" id="create-1" style="display: none">
 				<h2>Step 1: Project Details</h2>
 				<hr>
-				<p>Please fill out all fields.</p>
 
-				<p>
-					<label>Title:</label>
-					<?php echo form_input($title, '', 'placeholder="Project title" maxlength="90"');?>
-				</p>
-				<p>
-					<label>Description:</label>
-					<?php echo form_textarea($description, '', 'placeholder="Project description" maxlength="250"');?>
-					<span>250 characters maximum</span>
-				</p>
-				<p>
-					<label>From:</label>
-					<?php echo form_date($start_date);?>
-				</p>
-				<p>
-					<label>To:</label>
-					<?php echo form_date($end_date);?>
-				</p>
-				<p>
-					<label>Location:</label>
-					<?php echo form_dropdown($location, array_merge(array( 0 => 'Select'), $locations));?>
-				</p>
-				<p>
-					<label>Priority:</label>
-					<?php echo form_radio($normal_priority, '', true);?><?php echo form_label('Normal', 'normal');?>
-					<?php echo form_radio($high_priority);?><?php echo form_label('High', 'high');?>
-				</p>
+				<section class="container-fluid content">
+					<p>Please fill out all fields</p>
+					<p>
+						<label>Title:</label>
+						<?php echo form_input($title, '', 'maxlength="90"');?>
+					</p>
+					<p>
+						<label>Description:</label>
+						<?php echo form_textarea($description, '', 'maxlength="250" rows="5"');?>
+						<span>250 characters maximum</span>
+					</p>
+					<div class="row" id="project-dates">
+						<p class="col-xs-12 col-sm-6 col-md-4">
+							<label>From:</label>
+							<?php echo form_date($start_date);?>
+						</p>
+						<p class="hidden-sm col-md-2"></p>
+						<p class="col-xs-12 col-sm-6 col-md-4">
+							<label>To:</label>
+							<?php echo form_date($end_date);?>
+						</p>
+						<p class="hidden-sm col-md-2"></p>
+					</div>
+					<p>
+						<label>Location:</label>
+						<?php echo form_dropdown($location, array_merge(array( 0 => 'Select'), $locations));?>
+					</p>
+					<p id="priority-buttons">
+						<b>Priority:</b><br/>
+						<?php echo form_radio($normal_priority, '', true);?><?php echo form_label('Normal', 'normal');?>
+						<?php echo form_radio($high_priority);?><?php echo form_label('High', 'high');?>
+					</p>
+
+					<button type="button" class="project-continue">Continue</button>
+
+				</section>
 			</div>
 				
-			<div class="container project-tab" id="create-2" style="display: none">
+			<div class="container-fluid project-tab" id="create-2">
 				<h2>Step 2: Project Allocation</h2>
 				<hr>
-				<section id="resource-allocation">
+
+				<section class="container-fluid content" id="resource-allocation">
 					<p>You can search staff for this project by skills or by name</p>
-					<p>
+					<div>
+						<label>Skills:</label>
 						<?php echo form_dropdown($skill_select, array_merge(array( 0 => 'Select'), $skills));?>
 						<button type="button" id="clear-skills">Clear</button>
 						<div id="selected-skills"></div>
-					</p>
+					</div>
 					<p>
 						<?php echo form_date($staff_start_date);?>
 					</p>
@@ -110,11 +121,8 @@
 
 			</div>
 
-			<?php echo form_close(); ?>
+		<?php echo form_close(); ?>
 
-			<button id="project-continue">Continue</button>
-		</div>
-	</div>
 </div>
 <script type="text/javascript">var locations = <?php echo json_encode($locations, JSON_HEX_TAG); ?>;</script>
 <script type="text/javascript" src="<?php echo base_url("assets/js/create-project.js"); ?>" ></script>

@@ -29,7 +29,7 @@ $(function() {
 	// Project step
 	var create_project_flag = 1;
 	// Button to change steps
-	$('#project-continue').on('click', function() {
+	$('.project-continue').on('click', function() {
 		if(create_project_flag == 1) {
 
 			$('.error-msg').hide();
@@ -46,7 +46,7 @@ $(function() {
 						$('#location').after('<span class="error-msg">Please select a location<span>');
 					}
 				} else {
-					$('#end_date').after('<span class="error-msg">Please select valid dates<span>');
+					$('#project-dates').after('<span class="error-msg">Please select valid dates<span>');
 				}
 			} else {
 				$('#title').after('<span class="error-msg">Please give a project title<span>');
@@ -57,13 +57,13 @@ $(function() {
 			create_project_flag = 3;
 			$('html, body').animate({ scrollTop: "0px" });
 			create_hidden_inputs();
-			$('#project-continue').html('Back');
+			$('.project-continue').html('Back');
 		} else if(create_project_flag == 3) {
 			$('#create-3').hide();
 			$('#create-1').show();
 			create_project_flag = 1;
 			$('html, body').animate({ scrollTop: "0px" });
-			$('#project-continue').html('Continue');
+			$('.project-continue').html('Continue');
 		}
 	});
 
@@ -124,8 +124,8 @@ $(function() {
 		var e = document.getElementById("skill_select");
 		var skill = e.options[e.selectedIndex].text;
 		if(this.value != 0) {
-			$("div#selected-skills").append('<span class="skill-span">' + 
-				skill + '<i class="fa fa-times fa-lg delete-tag" aria-hidden="true"></i></span>');
+			$("#selected-skills").append('<span class="skill-span">' + 
+				skill + '</span>');
 
 			skills.push(this.value);
 		}
@@ -134,7 +134,7 @@ $(function() {
 	$('#clear-skills').click(function(event) {
 		skills = [];
 		$('#skill_select').val(0);
-		$("div#selected-skills").html('');
+		$("#selected-skills").html('');
 	});
 
 	// $body instead of click for better support of dynamic content
