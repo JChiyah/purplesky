@@ -2341,6 +2341,8 @@ footer {
     margin-top: 10px;
     margin-left: 3px;
     font-size: 0.8em; }
+  #create-project #resource-allocation #selected-skills {
+    padding-top: 5px; }
   #create-project #resource-allocation #search-name-toggle {
     font-size: 0.7em;
     display: block; }
@@ -2362,7 +2364,10 @@ footer {
     #create-project #resource-allocation-results .col-md-6:first-child {
       border-right: 1px solid #C0C0C0; }
     #create-project #resource-allocation-results .staff-result {
-      padding: 1em; }
+      padding: 0.5em 1em;
+      margin: 0.7em;
+      border-radius: 4px;
+      border: 1px solid #C0C0C0; }
       #create-project #resource-allocation-results .staff-result h5 {
         font-size: 1.2em;
         font-weight: 700;
@@ -2374,7 +2379,9 @@ footer {
       #create-project #resource-allocation-results .staff-result .pay-rate {
         font-weight: 800; }
       #create-project #resource-allocation-results .staff-result button {
-        font-size: 0.8em; }
+        font-size: 0.8em;
+        display: block;
+        margin: 0 auto; }
 
 @media (max-width: 768px) {
   #create-project form {

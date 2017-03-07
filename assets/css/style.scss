@@ -871,6 +871,10 @@ footer {
 			font-size: 0.8em;
 		}
 
+		#selected-skills {
+			padding-top: 5px;
+		}
+
 		#search-name-toggle {
 			font-size: 0.7em;
 			display: block;
@@ -905,7 +909,10 @@ footer {
 		}
 
 		.staff-result {
-			padding: 1em;
+			padding: 0.5em 1em;
+			margin: 0.7em;
+			border-radius: 4px;
+			border: 1px solid $hr-colour;
 
 			h5 {
 				font-size: 1.2em;
@@ -927,6 +934,8 @@ footer {
 
 			button {
 				font-size: 0.8em;
+				display: block;
+				margin: 0 auto;
 			}
 		}
 	}

@@ -181,13 +181,15 @@ class Project extends CI_Controller {
 				'name'  => 'start_date',
 				'id'    => 'start_date',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('start_date')
+				'value' => '2017-10-08'
+				//'value' => $this->form_validation->set_value('start_date')
 			);
 			$this->data['end_date'] = array(
 				'name'  => 'end_date',
 				'id'    => 'end_date',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('end_date')
+				'value' => '2017-10-12'
+				//'value' => $this->form_validation->set_value('end_date')
 			);
 			$this->data['location'] = array(
 				'name'  => 'location',
@@ -214,12 +216,14 @@ class Project extends CI_Controller {
 			$this->data['staff_start_date'] = array(
 				'name'  => 'staff_start_date',
 				'id'    => 'staff_start_date',
-				'value' => $this->form_validation->set_value('start_date')
+				'value' => '2017-10-08'
+				//'value' => $this->form_validation->set_value('start_date')
 			);
 			$this->data['staff_end_date'] = array(
 				'name'  => 'staff_end_date',
 				'id'    => 'staff_end_date',
-				'value' => $this->form_validation->set_value('end_date')
+				'value' => '2017-10-12'
+				//'value' => $this->form_validation->set_value('end_date')
 			);
 			$this->data['staff_name'] = array(
 				'name'  => 'staff_name',

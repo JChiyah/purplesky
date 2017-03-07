@@ -79,7 +79,7 @@
 				</section>
 
 				<section class="row" id="resource-allocation-results">
-					<div class="col-md-6">
+					<div class="col-xs-12 col-sm-6 col-md-6">
 						<h2>Results</h2>
 						<hr>
 						<div id="results">
@@ -99,24 +99,11 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-xs-12 col-sm-6 col-md-6">
 						<h2>Added</h2>
 						<hr>
 						<div id="staff-added">
-							<div class="staff-result" id="staff-' . $employee->id . '">
-								<h5>Name</h5>
-								<p class="location">Edinburgh</p>
-								<p class="pay-rate">£100/day</p>
-								<span class="skill-span">HTML</span><span class="skill-span">CSS</span>
-								<button type="button" class="allocate-staff-button">Add</button>
-							</div>
-							<div class="staff-result" id="staff-' . $employee->id . '">
-								<h5>Name</h5>
-								<p class="location">Edinburgh</p>
-								<p class="pay-rate">£100/day</p>
-								<span class="skill-span">HTML</span><span class="skill-span">CSS</span>
-								<button type="button" class="allocate-staff-button">Add</button>
-							</div>
+						
 						</div>
 					</div>
 				<section>

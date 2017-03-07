@@ -167,11 +167,17 @@ class User extends CI_Controller {
 		if($staff) {
 			foreach($staff as $employee) {
 				echo '<div class="staff-result" id="staff-' . $employee->id . '">
-						<h3>' . $employee->name . '</h3>
-						<span>' . $employee->group . '</span>
+						<h5>' . $employee->name . '</h5>
 						<p class="location">' . $employee->location . '</p>
-						<p class="pay-rate">£' . $employee->pay_rate . '</p>
-						<button type="button" class="allocate-staff-button">Add</button>
+						<p class="pay-rate">£' . $employee->pay_rate . '/day</p>
+						Skills:';
+				if(isset($skill_id) && $skill_id) {
+					foreach($skill_id as $skill) {
+						echo '<span class="skill-span">' . $this->System_model->get_skill_name($skill) . '</span>';
+					}
+				}
+
+				echo '<button type="button" class="allocate-staff-button">Add</button>
 					</div>';
 			}
 		}
