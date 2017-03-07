@@ -17,9 +17,9 @@ $(function() {
 	$('#search-toggle').on('click', function() {
     	$('#advanced-search').slideToggle(500, function() {
 	        if ($('#advanced-search').is(':visible')) {
-	            $('#search-toggle').text('Close advanced search');                
+	            $('#search-toggle').text('Close advanced search');
 	        } else {
-	            $('#search-toggle').text('Open advanced search');                
+	            $('#search-toggle').text('Open advanced search');
         	}
     	});
 	});

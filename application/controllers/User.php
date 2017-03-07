@@ -167,7 +167,7 @@ class User extends CI_Controller {
 		if($staff) {
 			foreach($staff as $employee) {
 				echo '<div class="staff-result" id="staff-' . $employee->id . '">
-						<h3>' . $employee->name . '</h3></a>
+						<h3>' . $employee->name . '</h3>
 						<span>' . $employee->group . '</span>
 						<p class="location">' . $employee->location . '</p>
 						<p class="pay-rate">£' . $employee->pay_rate . '</p>
