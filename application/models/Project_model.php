@@ -181,7 +181,7 @@ class Project_model extends CI_Model {
 	public function search_projects($keyword = FALSE, $filters = FALSE, $limit = FALSE) {
 
 		// Check if there is a manager name associated with the keyword provided
-		$manager_id = $this->User_model->get_user_by_name($keyword);
+		$manager_id = $this->User_model->get_project_manager_by_name($keyword);
 
 		/** Start the search **/
 		$query = $this->db->select('project_id, title, description, priority, CONCAT(first_name, " ", last_name) AS manager, location.name AS location, budget, start_date, end_date')

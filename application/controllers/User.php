@@ -119,7 +119,7 @@ class User extends CI_Controller {
 	/**
 	 * Displays user' experiences
 	 *
-	 * @param user_id
+	 * @param $user_id
 	 * @author JChiyah
 	 */
 	public function display_user_experiences($user_id) {

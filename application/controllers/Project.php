@@ -134,7 +134,7 @@ class Project extends CI_Controller {
 			redirect('index');
 		}
 		// Second check just in case...
-		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+		if (!$this->ion_auth->logged_in())
 		{
 			redirect('index');
 		}
