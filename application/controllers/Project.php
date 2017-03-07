@@ -41,10 +41,11 @@ class Project extends CI_Controller {
 		if($filter) { // Advanced search
 
 			// return if location is not valid
-			if($location == 0 && !$start_date && !$end_date) {
+			if($location == 0 && !$start_date && !$end_date && !$keyword) {
 				echo '<p>Please, fill out some filters to search</p>';
 				return ;
 			}
+			$filters = array();
 
 			if(isset($start_date) && $start_date) {
 				$filters['start_date'] = $start_date;
