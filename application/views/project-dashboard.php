@@ -65,7 +65,7 @@
 						echo '<tr>
 								<td>' . $employee->name . '</td>
 								<td>' . $employee->role . '</td>
-								<td>' . date('d/m/Y', strtotime($employee->assigned_at) . '</td>
+								<td>' . date('d/m/Y', strtotime($employee->assigned_at)) . '</td>
 								<td class="tablepay">£ ' . $employee->pay_rate . '</td>
 							</tr>';
 					}
