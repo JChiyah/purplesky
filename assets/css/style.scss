@@ -346,6 +346,54 @@ footer {
 				margin: 0;
 			}
 		}
+
+		#recommended-projects {
+			padding: 0 1.2em;
+
+			.recommended-project {
+				display: block;
+				color: #000000;
+				padding: 0 0.8em;
+				cursor: default;
+
+				div {
+					border: thin solid $grey-background2;
+					padding: 1em;
+					border-radius: 4px;
+					cursor: pointer;
+				}
+
+				h5 {
+					margin: 0;
+					font-size: 1.2em;
+					font-weight: 900;
+				}
+
+				hr {
+					height: 1px;
+				}
+
+				p {
+					margin: 0.5em 0;
+				}
+
+				.location {
+					font-size: 0.9em;
+					font-weight: 700;
+				}
+
+				span {
+					font-size: 0.85em;
+				}
+				div:hover {
+					text-decoration: none;
+					background: $grey-background2;
+				}
+			}
+			.recommended-project:hover {
+				text-decoration: none;
+			}
+		}
 	}
 }
 

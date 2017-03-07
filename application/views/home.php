@@ -80,15 +80,26 @@
 				<h2>Recommended for you</h2>
 				<hr>
 				<?php if (isset($recommended_projects) && $recommended_projects): ?>
+					<div class="row" id="recommended-projects">
 
 					<?php foreach($recommended_projects as $project): ?>
-						
-						<a class="g-button" style="display: block;" href="dashboard/<?= $project->project_id ?>">
-							<?= $project->title ?>
+
+						<a class="recommended-project col-md-4" href="dashboard/<?= $project->project_id ?>">
+							<div>
+								<h5><?= $project->title ?></h5>
+								<hr>
+								<p class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <?= $project->location ?></p>
+								<p class="manager"><?= $project->manager ?></p>
+								<span class="date">
+									<?= date('d/m/Y', strtotime($project->start_date)) ?> - 
+									<?= date('j/n/Y', strtotime($project->end_date)) ?>
+								</span>
+							</div>
 						</a>
 					
 					<?php endforeach ?>
 
+					</div>
 				<?php else : ?>
 
 					<p>No projects to show here</p>

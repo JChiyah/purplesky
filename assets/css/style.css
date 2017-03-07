@@ -1947,6 +1947,36 @@ footer {
       height: 0.5px;
       width: 100%;
       margin: 0; }
+    .home-container .content #recommended-projects {
+      padding: 0 1.2em; }
+      .home-container .content #recommended-projects .recommended-project {
+        display: block;
+        color: #000000;
+        padding: 0 0.8em;
+        cursor: default; }
+        .home-container .content #recommended-projects .recommended-project div {
+          border: thin solid #E1E5E6;
+          padding: 1em;
+          border-radius: 4px;
+          cursor: pointer; }
+        .home-container .content #recommended-projects .recommended-project h5 {
+          margin: 0;
+          font-size: 1.2em;
+          font-weight: 900; }
+        .home-container .content #recommended-projects .recommended-project hr {
+          height: 1px; }
+        .home-container .content #recommended-projects .recommended-project p {
+          margin: 0.5em 0; }
+        .home-container .content #recommended-projects .recommended-project .location {
+          font-size: 0.9em;
+          font-weight: 700; }
+        .home-container .content #recommended-projects .recommended-project span {
+          font-size: 0.85em; }
+        .home-container .content #recommended-projects .recommended-project div:hover {
+          text-decoration: none;
+          background: #E1E5E6; }
+      .home-container .content #recommended-projects .recommended-project:hover {
+        text-decoration: none; }
 
 .notification p {
   margin-top: 0.2em;
