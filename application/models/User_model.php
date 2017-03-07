@@ -406,12 +406,10 @@ class User_model extends CI_Model {
 	 * @return mixed boolean / array of db project object(manager, title, description, priority, location, start_date, end_date)
 	 * @author JChiyah
 	 */
-	public function get_user_projects($id, $limit = FALSE) {
-		// if no id was passed use the current users id
-		$id = isset($id) ? $id : $this->session->userdata('user_id');
+	public function get_user_projects($user_id, $limit = FALSE) {
 
 		$query = $this->db->select('project.project_id, CONCAT(first_name, " ", last_name) AS manager, title, description, priority, location.name AS location, project.start_date, project.end_date, skills')
-						->where('project_staff.staff_id', $id)
+						->where('project_staff.staff_id', $user_id)
 						->join('project_staff', 'project_staff.project_id=project.project_id')
 						->join('account', 'account.id=project.manager_id')
 						->join('location', 'location.location_id=project.location')
@@ -424,6 +422,32 @@ class User_model extends CI_Model {
 			foreach($result as $project) {
 				$project->skills = $this->System_model->get_skill_names($project->skills);
 			}
+			return $result;
+		}
+		return FALSE;
+	}
+
+	/**
+	 * Returns projects in which the user is a project manager
+	 *
+	 * @param $user_id
+	 * @param $limit - amount of projects to return
+	 * @return mixed boolean / array of db project object(manager, title, description, priority, location, start_date, end_date)
+	 * @author JChiyah
+	 */
+	public function get_manager_projects($user_id, $limit = FALSE) {
+
+		$query = $this->db->select('project.project_id, CONCAT(first_name, " ", last_name) AS manager, title, description, priority, location.name AS location, project.start_date, project.end_date')
+						->where('project.manager_id', $user_id)
+						->join('account', 'account.id=project.manager_id')
+						->join('location', 'location.location_id=project.location')
+						->limit($limit)
+						->order_by('end_date', 'asc')
+						->get('project');
+
+		$result = $query->result();
+
+		if(isset($result) && !empty($result)) {
 			return $result;
 		}
 		return FALSE;

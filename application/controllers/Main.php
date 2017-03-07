@@ -71,7 +71,6 @@ class Main extends Base {
 		$data['user_skills'] = $this->User_model->get_user_skills($user_id);
 		$data['user_experiences'] = $this->User_model->get_user_experiences($user_id);
 
-		//var_dump($this->User_model->add_user_experiences($user_id, array('start_date' => '2017-02-02')));
 		$this->load->view('html', $data);
 	}
 
@@ -126,7 +125,15 @@ class Main extends Base {
 		$data['page_body'] = 'projects';
 		$data['page_title'] = 'My projects';
 		$data['page_description'] = 'List of your current projects';
-		$data['projects'] = $this->User_model->get_user_projects($this->session->userdata('user_id'));
+
+		$user_id = $this->session->userdata('user_id');
+
+		$data['projects'] = $this->User_model->get_user_projects($user_id);
+
+		$user_groups = $this->ion_auth->get_users_groups($user_id)->row();
+		if($user_groups->id == 1 || $user_groups->id == 2) {
+			$data['own_projects'] = $this->User_model->get_manager_projects($user_id);
+		}
 
 		$this->load->view('html', $data);
 	}

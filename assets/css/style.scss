@@ -1153,11 +1153,12 @@ section#quick-search{
         }
     }
 
-	#projects {
+	.projects {
 		padding: 2em;
 		display: block;
 		min-height: 350px;
         background: $grey-background2;
+        margin-bottom: 2em;
 
 		.project-result {
 			background: #ffffff;
