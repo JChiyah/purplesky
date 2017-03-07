@@ -2325,9 +2325,12 @@ footer {
     background: #1f1646; }
   #create-project .project-tab button:focus {
     background: #0389ff; }
+  #create-project .project-tab .project-continue, #create-project .project-tab .project-back {
+    padding: 12px 18px; }
   #create-project .project-tab .project-continue {
-    padding: 12px 18px;
     float: right; }
+  #create-project #create-2 .project-continue, #create-project #create-2 .project-back {
+    display: block; }
   #create-project #resource-allocation .skill-span {
     background: #ffffff;
     font-weight: 500;

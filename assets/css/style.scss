@@ -842,11 +842,20 @@ footer {
 		button:hover { background: $blue; }
 		button:focus { background: $light-blue; }
 
-		.project-continue {
+		.project-continue, .project-back {
 			padding: 12px 18px;
+		}
+		.project-continue {
 			float: right;
 		}
 
+	}
+
+	#create-2 {
+
+		.project-continue, .project-back {
+			display: block;
+		}
 	}
 
 	#resource-allocation {

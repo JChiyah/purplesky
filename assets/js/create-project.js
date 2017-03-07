@@ -70,6 +70,7 @@ $(function() {
 	function search_staff() {
 		event.preventDefault();
 		var staff_name = $('#staff_name').val();
+		var location = 1;//$('#location').val();
 		
 		if(skills.length > 0 || staff_name) {
 			var start_date = $('#staff_start_date').val();
@@ -89,6 +90,7 @@ $(function() {
 							'end_date' : end_date,
 							'staff_name' : staff_name,
 							'staff_ids' : staff_ids,
+							'location' : location,
 							'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 						},
 						success: function(data) {

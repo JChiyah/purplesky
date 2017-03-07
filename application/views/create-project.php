@@ -122,7 +122,12 @@
 
 						</div>
 					</div>
-				<section>
+				</section>
+
+				<button type="button" class="project-back">Back</button>
+
+				<button type="button" class="project-continue">Continue</button>
+
 			</div>
 
 			<div class="container project-tab" id="create-3" style="display: none">
