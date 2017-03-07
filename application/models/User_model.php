@@ -52,7 +52,7 @@ class User_model extends CI_Model {
 		if(sizeof($name_arr) == 2) {
 
 			return $this->get_user_by_name($name);
-		} else if(sizeof($name_arr) >= 2) {
+		} else if(sizeof($name_arr) > 2) {
 			// Bad formed name
 			return FALSE;
 		}
@@ -61,8 +61,8 @@ class User_model extends CI_Model {
 						->join('account_group','user_id=account.id')
 						->like('first_name', $name)
 						->or_like('last_name', $name)
-						->where('group_id', 2)
-						->or_where('group_id', 1)
+						//->where('group_id', 2)
+						//->or_where('group_id', 1)
 						->limit(1)
 						->get('account');
 
