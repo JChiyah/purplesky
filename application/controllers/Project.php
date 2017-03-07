@@ -198,12 +198,12 @@ class Project extends CI_Controller {
 			$this->data['normal_priority'] = array(
 				'name'  => 'priority',
 				'id'    => 'normal',
-				'value' => '0',
+				'value' => '1',
 			);
 			$this->data['high_priority'] = array(
 				'name'  => 'priority',
 				'id'    => 'high',
-				'value' => '1',
+				'value' => '2',
 			);
 
 			// Staff allocation
