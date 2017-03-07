@@ -58,7 +58,7 @@
 			</tr>
 			<!-- need to check what format the variable will be returned in, preferably array of a 5 position array, 0=staff name,1= start date, 2=end date, 3=daily rate, 4=job name -->
 			<?php 
-				
+				echo "<hr>";
 				if(isset($staff) && $staff) {
 					foreach ($staff as $employee) {
 						
@@ -70,17 +70,19 @@
 							</tr>';
 					}
 				} else {
-					echo '<p>No staff working in the project</p>';
+					echo '</table>
+					<p>No staff working in the project</p>';
 				}
-			if ($user_group != 1 && $user_group != 2){	
+				echo "</table>
+				</div>";
+			if ($user_group == 1 || $user_group == 2){	
 			echo '<hr>
 				<p class="bottomtotal"><b>Total: £ '. $project->budget . '</b></p>';
 
 			}
 
 				?>
-		</table>
-	</div>
+		
+	
 
-</div>
 </div>
