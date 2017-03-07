@@ -124,10 +124,13 @@ $(function() {
 		var e = document.getElementById("skill_select");
 		var skill = e.options[e.selectedIndex].text;
 		if(this.value != 0) {
-			$("#selected-skills").append('<span class="skill-span">' + 
-				skill + '</span>');
+			if(!skills.includes(this.value)) {
+				$("#selected-skills").append('<span class="skill-span">' + 
+					skill + '</span>');
 
-			skills.push(this.value);
+				skills.push(this.value);
+			}
+			// else repeated element 
 		}
 	})
 
@@ -175,6 +178,18 @@ $(function() {
 			$('#allocated-staff-' + id).remove();			
 		}
 		// else something is not right...
+	});
+
+	// Show search by name
+	$('#search-name-toggle').on('click', function() {
+    	$('#search-name').slideToggle(500, function() {
+	        if ($('#search-name').is(':visible')) {
+	            $('#search-name-toggle').text('Hide');
+	        } else {
+	            $('#search-name-toggle').text('Search by name');
+	            $('#staff_name').val('');
+        	}
+    	});
 	});
 
 	$('#title').on('change keyup paste click', function(){

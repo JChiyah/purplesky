@@ -58,25 +58,66 @@
 						<button type="button" id="clear-skills">Clear</button>
 						<div id="selected-skills"></div>
 					</div>
-					<p>
-						<?php echo form_date($staff_start_date);?>
-					</p>
-					<p>
-						<?php echo form_date($staff_end_date);?>
-					</p>
-					<p>
+					<div class="row" id="search-dates">
+						<p class="col-xs-12 col-sm-6 col-md-4">
+							<label>From:</label>
+							<?php echo form_date($staff_start_date);?>
+						</p>
+						<p class="hidden-sm col-md-2"></p>
+						<p class="col-xs-12 col-sm-6 col-md-4">
+							<label>To:</label>
+							<?php echo form_date($staff_end_date);?>
+						</p>
+						<p class="hidden-sm col-md-2"></p>						
+					</div>
+					<button type="button" id="search-name-toggle">Search by name</button>
+					<div id="search-name">
 						<label>Employee name:</label>
-						<?php echo form_input($staff_name);?>
-					</p>
+						<?php echo form_input($staff_name,'', 'maxlength="50"');?>
+					</div>
 					<button id="staff-allocation-search">Search</button>
 				</section>
 
-				<section id="resource-allocation-results">
-					<div id="results">
-
+				<section class="row" id="resource-allocation-results">
+					<div class="col-md-6">
+						<h2>Results</h2>
+						<hr>
+						<div id="results">
+							<div class="staff-result" id="staff-' . $employee->id . '">
+								<h5>Name</h5>
+								<p class="location">Edinburgh</p>
+								<p class="pay-rate">£100/day</p>
+								Skills:<span class="skill-span">HTML</span><span class="skill-span">CSS</span>
+								<button type="button" class="allocate-staff-button">Add</button>
+							</div>
+							<div class="staff-result" id="staff-' . $employee->id . '">
+								<h5>Name</h5>
+								<p class="location">Edinburgh</p>
+								<p class="pay-rate">£100/day</p>
+								Skills:<span class="skill-span">HTML</span><span class="skill-span">CSS</span>
+								<button type="button" class="allocate-staff-button">Add</button>
+							</div>
+						</div>
 					</div>
-					<div id="staff-added">
-						<h1>Added</h1>
+					<div class="col-md-6">
+						<h2>Added</h2>
+						<hr>
+						<div id="staff-added">
+							<div class="staff-result" id="staff-' . $employee->id . '">
+								<h5>Name</h5>
+								<p class="location">Edinburgh</p>
+								<p class="pay-rate">£100/day</p>
+								<span class="skill-span">HTML</span><span class="skill-span">CSS</span>
+								<button type="button" class="allocate-staff-button">Add</button>
+							</div>
+							<div class="staff-result" id="staff-' . $employee->id . '">
+								<h5>Name</h5>
+								<p class="location">Edinburgh</p>
+								<p class="pay-rate">£100/day</p>
+								<span class="skill-span">HTML</span><span class="skill-span">CSS</span>
+								<button type="button" class="allocate-staff-button">Add</button>
+							</div>
+						</div>
 					</div>
 				<section>
 			</div>

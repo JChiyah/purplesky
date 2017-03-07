@@ -2210,7 +2210,23 @@ footer {
 
 /* * * * Create new project page style section * * * */
 #create-project {
-  padding: 1em 2em 4em 2em; }
+  padding: 1em 2em 4em 2em;
+  	/*
+  	.container-box {
+  		background: $grey-background2;
+  		width: 95%;
+  		margin: 10px auto;
+  		padding: 1em;
+  		text-align: left;
+  		border-radius: 4px;
+  	}
+  
+  	.date-row {
+  		margin: 0.8em 1em;
+  		display: flex;
+  		justify-content: flex-end;
+  		align-items: center;
+  	}*/ }
   #create-project h1 {
     text-align: center;
     font-size: 2.8em;
@@ -2316,18 +2332,49 @@ footer {
     background: #ffffff;
     font-weight: 500;
     border: 2px solid #C0C0C0; }
-  #create-project .container-box {
-    background: #E1E5E6;
-    width: 95%;
-    margin: 10px auto;
-    padding: 1em;
-    text-align: left;
-    border-radius: 4px; }
-  #create-project .date-row {
-    margin: 0.8em 1em;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center; }
+  #create-project #resource-allocation .row {
+    margin-left: 0;
+    margin-right: 0; }
+  #create-project #resource-allocation .col-md-6 {
+    padding: 0; }
+  #create-project #resource-allocation #clear-skills {
+    margin-top: 10px;
+    margin-left: 3px;
+    font-size: 0.8em; }
+  #create-project #resource-allocation #search-name-toggle {
+    font-size: 0.7em;
+    display: block; }
+  #create-project #resource-allocation #search-name {
+    display: none;
+    margin: 1em 0; }
+    #create-project #resource-allocation #search-name input[type=text] {
+      width: 70%; }
+  #create-project #resource-allocation #search-dates p {
+    padding: 0;
+    margin-top: 0.5em; }
+  #create-project #resource-allocation #staff-allocation-search {
+    margin: 0 auto;
+    display: block;
+    font-size: 0.9em;
+    padding: 12px 18px; }
+  #create-project #resource-allocation-results {
+    padding-top: 2em; }
+    #create-project #resource-allocation-results .col-md-6:first-child {
+      border-right: 1px solid #C0C0C0; }
+    #create-project #resource-allocation-results .staff-result {
+      padding: 1em; }
+      #create-project #resource-allocation-results .staff-result h5 {
+        font-size: 1.2em;
+        font-weight: 700;
+        margin: 0; }
+      #create-project #resource-allocation-results .staff-result p {
+        margin: 0.3em 0; }
+      #create-project #resource-allocation-results .staff-result .location {
+        font-style: italic; }
+      #create-project #resource-allocation-results .staff-result .pay-rate {
+        font-weight: 800; }
+      #create-project #resource-allocation-results .staff-result button {
+        font-size: 0.8em; }
 
 @media (max-width: 768px) {
   #create-project form {

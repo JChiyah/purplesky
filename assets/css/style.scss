@@ -856,8 +856,82 @@ footer {
 			font-weight: 500;
 			border: 2px solid $hr-colour;
 		}
+
+		.row {
+			margin-left: 0;
+			margin-right: 0;
+		}
+		.col-md-6 {
+			padding: 0;
+		}
+
+		#clear-skills {
+			margin-top: 10px;
+			margin-left: 3px;
+			font-size: 0.8em;
+		}
+
+		#search-name-toggle {
+			font-size: 0.7em;
+			display: block;
+		}
+
+		#search-name {
+			display: none;
+			margin: 1em 0;
+
+			input[type=text] {
+				width: 70%;
+			}
+		}
+
+		#search-dates {
+			p { padding: 0; margin-top: 0.5em; }
+		}
+
+		#staff-allocation-search {
+			margin: 0 auto;
+			display: block;
+			font-size: 0.9em;
+			padding: 12px 18px;
+		}
 	}
 
+	#resource-allocation-results {
+		padding-top: 2em;
+		
+		.col-md-6:first-child {
+			border-right: 1px solid $hr-colour;
+		}
+
+		.staff-result {
+			padding: 1em;
+
+			h5 {
+				font-size: 1.2em;
+				font-weight: 700;
+				margin: 0;
+			}
+
+			p {
+				margin: 0.3em 0;
+			}
+
+			.location {
+				font-style: italic;
+			}
+
+			.pay-rate {
+				font-weight: 800;
+			}
+
+			button {
+				font-size: 0.8em;
+			}
+		}
+	}
+
+	/*
 	.container-box {
 		background: $grey-background2;
 		width: 95%;
@@ -872,7 +946,7 @@ footer {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-	}
+	}*/
 	
 }
 
