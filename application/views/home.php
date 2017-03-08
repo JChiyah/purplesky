@@ -16,8 +16,8 @@
 									echo '<hr>';
 								}
 								echo '<div class="notification">
-										<p class="col-xs-10">' . $notification->description . '</p>
-										<p class="col-xs-2 not-date">' . time_elapsed_string($notification->at_date) . '</p>
+										<p class="col-xs-9">' . $notification->description . '</p>
+										<p class="col-xs-3 not-date">' . time_elapsed_string($notification->at_date) . '</p>
 									</div>';
 							}
 						} else {

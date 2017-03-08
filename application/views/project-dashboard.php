@@ -23,8 +23,8 @@
 				foreach($dashboard as $notification) : ?>
 
 					<div class="notification">
-						<p class="col-xs-10"><?= $notification->description ?></p>
-						<p class="col-xs-2 not-date"><?= time_elapsed_string($notification->date) ?></p>
+						<p class="col-xs-9"><?= $notification->description ?></p>
+						<p class="col-xs-3 not-date"><?= time_elapsed_string($notification->date) ?></p>
 					</div>
 					<hr>
 
