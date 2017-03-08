@@ -36,7 +36,7 @@ class Main extends Base {
 		$user_id = $this->session->userdata('user_id');
 
 		// General stuff
-		$data['activity'] = $this->User_model->get_user_activity($this->session->userdata('user_id'));
+		$data['activity'] = $this->User_model->get_user_activity($this->session->userdata('user_id'), 3);
 		$data['current_projects'] = $this->User_model->get_user_projects($user_id, 3);
 
 		$filters = array( 

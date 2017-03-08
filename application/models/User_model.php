@@ -330,13 +330,14 @@ class User_model extends CI_Model {
 	 * @return mixed boolean / object(description, date)
 	 * @author JChiyah
 	 */
-	public function get_user_activity($user_id) {
+	public function get_user_activity($user_id, $limit = FALSE) {
 		// if no id was passed use the current users id
 		$id = isset($id) ? $id : $this->session->userdata('user_id');
 
 		$query = $this->db->select('description, at_date')
 						->where('user_id', $id)
-						->limit(10)
+						->order_by('activity_id', 'desc')
+						->limit($limit)
 						->get('activity');
 
 		$result = $query->result();
