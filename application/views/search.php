@@ -3,7 +3,7 @@
 
 	<div class="container-box">
 		<section id="quick-search">
-			<?php global $user_group; if ($user_group != 1 && $user_group != 2) 
+			<?php global $user_group; if ($user_group == 1 || $user_group == 2) 
 				{ echo '<p>Search for any current or future projects within the organisation</p>'; } else echo '<p>Search and apply for any current or future projects within the organisation</p>'; ?>
          	
          	<?php echo form_open();?>
@@ -12,7 +12,8 @@
 
 				<div id="advanced-search">
 					<hr>
-					<p>You can fill in as many details as you want</p>
+					<h2>Advanced Search</h2>
+					<p>You can fill in as many details as you want to filter projects</p>
 					<div class="container-fluid">
 						<div class="col-sm-12 col-md-6">
 							<div class="row date-row">

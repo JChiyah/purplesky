@@ -52,7 +52,11 @@
 						<div class="row">
 							<div class="col-sm-12 col-md-6">
 								<p>
-									<label>Title:</label>
+									<label>Role:</label>
+									<?php echo form_input($role,'','required maxlength="90"');?>
+								</p>
+								<p>
+									<label>Company/institution:</label>
 									<?php echo form_input($title,'','required maxlength="90"');?>
 								</p>
 							</div>
@@ -92,12 +96,6 @@
 						</div>
 
 						<div class="row">
-							<div class="col-sm-12 col-md-6">
-								<p>
-									<label>Role:</label>
-									<?php echo form_input($role,'','required maxlength="90"');?>
-								</p>
-							</div>
 							<div class="col-sm-12 col-md-6 sub-row">
 								<?php echo form_submit('submit', "Add experience","id='experience-submit'");?>
 							</div>

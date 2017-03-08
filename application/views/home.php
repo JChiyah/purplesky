@@ -77,12 +77,12 @@
 		</div>
 		<div class="home-container col-md-8 col-sm-12">
 			<div class="content">
-				<h2>Recommended for you</h2>
+				<h2>Projects Near You</h2>
 				<hr>
-				<?php if (isset($recommended_projects) && $recommended_projects): ?>
+				<?php if (isset($nearby_projects) && $nearby_projects): ?>
 					<div class="row" id="recommended-projects">
 
-					<?php foreach($recommended_projects as $project): ?>
+					<?php foreach($nearby_projects as $project): ?>
 
 						<a class="recommended-project col-md-4" href="dashboard/<?= $project->project_id ?>">
 							<div>

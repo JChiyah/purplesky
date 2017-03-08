@@ -42,7 +42,7 @@ class Main extends Base {
 		$filters = array( 
 			'location' => $this->User_model->get_user_location_id($user_id)
 		);
-		$data['recommended_projects'] = $this->Project_model->search_projects('', $filters, 3);
+		$data['nearby_projects'] = $this->Project_model->search_projects('', $filters, 3);
 
 		$data['page_body'] = 'home';
 		$data['page_title'] = 'Home';
