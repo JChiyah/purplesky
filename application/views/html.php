@@ -47,9 +47,11 @@
 		<link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>" />
 	</head>
 	<body>
-		<?php $this->load->view('inc/navbar'); ?>
-		<?php $this->load->view($page_body); ?>
-		<?php $this->load->view('inc/footer'); ?>
+		<div id="html">
+			<?php $this->load->view('inc/navbar'); ?>
+			<div id="html-body"><?php $this->load->view($page_body); ?></div>
+			<?php $this->load->view('inc/footer'); ?>
+		</div>
 		<!-- CodeIgniter does not recognise base_url() method from outside files (e.g. Javascript files)
 				thus I defined here a var with that value for later use in external files. -->
 		<script type="text/javascript">var baseurl = "<?php print base_url(); ?>";</script>

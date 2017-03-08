@@ -1,7 +1,7 @@
 @import "layout";
 
 /* Fonts */
-$microsoft-font: "Microsoft JhengHei";
+$font: "Microsoft JhengHei";
 //$YuGothic-font: "Yu Gothic";
 
 /* Colours used */
@@ -17,16 +17,28 @@ $hr-colour: #C0C0C0;
 $nav-font-color: white;
 $nav-hover-color: #0389ff;
 
+/* Others */
+$footer-height: 9em;
+
 html, body{
 	width: 100%;
-	overflow-x:hidden;
+	height: 100%;
+	overflow-x: hidden;
 	margin: 0;
 	padding: 0;
 }
 
 body {
 	background: white;
-	font-family: $microsoft-font, 'Open Sans', sans-serif; // Test files -- change values
+	font-family: $font, 'Open Sans', sans-serif; // Test files -- change values
+}
+
+#html {
+	min-height: 100%;
+	position: relative;
+}
+#html-body {
+	padding-bottom: $footer-height;
 }
 
 /* * * * General style section * * * */
@@ -54,7 +66,7 @@ hr {
 nav {
 	position: relative;
 	overflow: hidden;
-	font-family: $microsoft-font;
+	font-family: $font;
 	background: white;
 
 	#logo {
@@ -123,13 +135,13 @@ nav {
 /* * * * Footer style section * * * */
 footer {
 	width: 100%;
-	height: 105px;
+	height: $footer-height;
 	background: $blue;
 	color: $nav-font-color;
 	text-align: center;
-	padding: 15px;
-	font-family: "Microsoft JhengHei";
-	position: relative;
+	padding: 1.5em;
+	font-family: $font;
+	position: absolute;
 	bottom: 0;
 
 	ul {
@@ -166,24 +178,36 @@ footer {
 }
 
 @media (max-width: 767px) {
+	#html-body { padding-bottom: 21em; }
 	footer {
-		height: 260px;
+		height: 21em;
 		#footer-right { padding-top: 10px; text-align: center; }
 	}
 }
-@media (min-width: 768px) and (max-width: 1135px) {
+@media (min-width: 768px) and (max-width: 992px) {
+	#html-body { padding-bottom: 16em; }
 	footer {
-		height: 200px;
+		height: 16em;
 		#footer-right { padding-top: 20px; text-align: center; }
+		#footer-center { padding-left: 15px; padding-right: 15px; }
+	}
+}
+@media (min-width: 993px) and (max-width: 1135px) {
+	#html-body { padding-bottom: 10em; }
+	footer {
+		height: 10em;
+		#footer-right { padding-top: 20px; }
+		#footer-center { padding-left: 30px; padding-right: 0; }
 	}
 }
 
 /* * * * Login style section * * * */
 #login-container, #change-password, #reset-pass {
 	width: 50%;
+	max-width: 10em;
 	background: $grey-background2;
 	color: $blue;
-	font-family: $microsoft-font;
+	font-family: $font;
 	margin: 100px auto;
 	padding-top: 20px;
 	border-radius: 4px;
@@ -481,7 +505,7 @@ footer {
 	display: inline-block;
 	position: relative;
 	color: $blue;
-	font-family: $microsoft-font;
+	font-family: $font;
 	padding: 5px 18px 5px 18px;
 	margin: 5px;
 	border: 2px solid $grey-background2;
@@ -575,14 +599,14 @@ footer {
 		width: 100%;
 		background: $grey-background2;
 		color: $blue;
-		font-family: $microsoft-font;
+		font-family: $font;
 		margin: 10px auto;
 		border-radius: 4px;
 	}
 
 	#experience {
 		color: $blue;
-		font-family: $microsoft-font;
+		font-family: $font;
 		margin: 4em auto;
 
 		#exp-row {
@@ -1046,7 +1070,7 @@ footer {
 	width: 50%;
 	background: $grey-background2;
 	color: $blue;
-	font-family: $microsoft-font;
+	font-family: $font;
 	margin: 10px auto;
 	border-radius: 4px;
 	}
@@ -1119,7 +1143,7 @@ footer {
 #search {
 	width: 80%;
 	color: $blue;
-	font-family: $microsoft-font;
+	font-family: $font;
 	margin: 80px auto;
 
 	h1 {
@@ -1204,16 +1228,18 @@ section#quick-search{
 	padding: 0 1em 1em 1em;
 	display: none;
 
+	hr { margin-top: 1em; }
+
+	p {
+		width: 85%;
+		margin: 5px auto;
+	}
+
 	.container-fluid {
 		margin: 0 auto;
 		text-align: center;
 
 		div { text-align: left; }
-
-		p {
-			width: 85%;
-			margin: 5px auto;
-		}
 
 		label {
 			font-size: 1.2em;
@@ -1311,6 +1337,7 @@ section#quick-search{
 }
 .project-result:hover {
 	text-decoration: none;
+	background: $grey-background;
 }
 .project-result:not(:last-child) {
 	margin-bottom: 1em;
@@ -1319,7 +1346,7 @@ section#quick-search{
 /**** My projects section - Aisha code here ****/
 
 #current-projects {
-  	font-family: $microsoft-font;
+  	font-family: $font;
   	color: $blue;
 	margin: 3em auto;
 	width: 80%;
@@ -1366,7 +1393,7 @@ section#quick-search{
 #project-dashboard {
 	width: 70%;
 	color: $blue;
-	font-family: $microsoft-font;
+	font-family: $font;
 	margin: 3em auto;
 	font-size: 1.2em;
 
