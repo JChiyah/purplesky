@@ -7,7 +7,7 @@
 				{ echo '<p>Search for any current or future projects within the organisation</p>'; } else echo '<p>Search and apply for any current or future projects within the organisation</p>'; ?>
          	
          	<?php echo form_open();?>
-				<?php echo form_input($keyword, '', 'placeholder="Enter keyword, project title or manager name"');?>
+				<?php echo form_input($keyword, '', 'placeholder="Enter description keyword, project title or manager name"');?>
 				<?php echo form_submit('submit', 'Search', "id='search-submit'");?>
 
 				<div id="advanced-search">
@@ -48,7 +48,7 @@
 			<?php echo form_close();?>
 		</section>
 
-		<button id="search-toggle">Open Advanced Search</button>
+		<button id="search-toggle"><i class="fa fa-caret-down fa-2x" aria-hidden="true"></i></button>
 	</div>
 
 	<section id="search-results">

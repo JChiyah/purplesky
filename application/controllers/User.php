@@ -181,6 +181,8 @@ class User extends CI_Controller {
 					foreach($skill_id as $skill) {
 						echo '<span class="skill-span">' . $this->System_model->get_skill_name($skill) . '</span>';
 					}
+				} else {
+					echo '<div class="col-md-9"><br/>';
 				}
 
 				echo '</div>
