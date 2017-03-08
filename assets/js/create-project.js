@@ -27,7 +27,7 @@ $(function() {
 	}
 
 	// Project step
-	var create_project_flag = 1;
+	var create_project_flag = 2;
 	// Button to change steps
 	$('.project-continue').on('click', function() {
 		if(create_project_flag == 1) {
@@ -57,13 +57,24 @@ $(function() {
 			create_project_flag = 3;
 			$('html, body').animate({ scrollTop: "0px" });
 			create_hidden_inputs();
-			$('.project-continue').html('Back');
 		} else if(create_project_flag == 3) {
-			$('#create-3').hide();
+			
+		}
+	});
+
+	$('.project-back').on('click', function() {
+		if(create_project_flag == 1) {
+
+		} else if(create_project_flag == 2) {
+			$('#create-2').hide();
 			$('#create-1').show();
 			create_project_flag = 1;
 			$('html, body').animate({ scrollTop: "0px" });
-			$('.project-continue').html('Continue');
+		} else if(create_project_flag == 3) {
+			$('#create-3').hide();
+			$('#create-2').show();
+			create_project_flag = 2;
+			$('html, body').animate({ scrollTop: "0px" });
 		}
 	});
 

@@ -145,7 +145,7 @@
 				    	<p id="priority_summary">Normal</p>
 				  	</div>
 				</div>
-				<div class="row"> <!--end and location-->
+				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-md-6">
 				    	<label>End date:</label>
 				    	<p id="end_date_summary"></p>
@@ -167,6 +167,8 @@
 				</div>
 
 				<?php echo form_submit('submit', 'Submit', "id='create-project-submit'");?>
+
+				<button type="button" class="project-back">Back</button>
 
 			</div>
 

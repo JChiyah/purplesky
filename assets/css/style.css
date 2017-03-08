@@ -2330,7 +2330,7 @@ footer {
   #create-project .project-tab .project-continue {
     float: right; }
   #create-project #create-2 .project-continue, #create-project #create-2 .project-back {
-    display: block; }
+    margin-top: 1.5em; }
   #create-project #resource-allocation .skill-span {
     background: #ffffff;
     font-weight: 500;
