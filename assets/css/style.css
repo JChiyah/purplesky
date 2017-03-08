@@ -1978,15 +1978,17 @@ footer {
       .home-container .content #recommended-projects .recommended-project:hover {
         text-decoration: none; }
 
-.notification p {
-  margin-top: 0.2em;
-  margin-bottom: 0.4em;
-  font-weight: 900;
-  display: inline-block; }
-.notification .not-date {
-  color: #E1E5E6;
-  font-weight: 600;
-  float: right; }
+.notification {
+  width: 100%; }
+  .notification p {
+    margin-top: 0.2em;
+    margin-bottom: 0.4em;
+    font-weight: 900;
+    display: inline-block; }
+  .notification .not-date {
+    color: #C0C0C0;
+    font-weight: 600;
+    font-size: 0.9em; }
 
 #date {
   text-align: center;

@@ -398,6 +398,8 @@ footer {
 }
 
 .notification {
+	width: 100%;
+
 	p {
 		margin-top: 0.2em;
 		margin-bottom: 0.4em;
@@ -405,9 +407,9 @@ footer {
 		display: inline-block;
 	}
 	.not-date {
-		color: $grey-background2;
+		color: $hr-colour;
 		font-weight: 600;
-		float: right;
+		font-size: 0.9em;
 	}
 }
 
