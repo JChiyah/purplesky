@@ -156,6 +156,8 @@ class Auth extends CI_Controller {
 			if ($change)
 			{
 				//if the password was successfully changed
+
+				$this->User_model->add_user_activity($user->id,'You have changed the password successfully');
 				redirect('profile', 'refresh');
 			}
 			else
