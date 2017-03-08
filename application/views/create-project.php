@@ -4,7 +4,7 @@
 		<?php echo form_open('Project/create_project');?>
 
 			<div id="infoMessage"><?php echo $message;?></div>
-			<div class="container-fluid project-tab" id="create-1" style="display: none">
+			<div class="container-fluid project-tab" id="create-1">
 				<h2>Step 1: Project Details</h2>
 				<hr>
 
@@ -46,7 +46,7 @@
 				</section>
 			</div>
 				
-			<div class="container-fluid project-tab" id="create-2">
+			<div class="container-fluid project-tab" id="create-2" style="display: none">
 				<h2>Step 2: Project Allocation</h2>
 				<hr>
 
@@ -83,36 +83,7 @@
 						<h2>Results</h2>
 						<hr>
 						<div id="results">
-							<div class="staff-result" id="staff-' . $employee->id . '">
-								<h5>Name</h5>
-								<p class="location">Edinburgh</p>
-								<p class="pay-rate">£100/day</p>
-								<div class="row">
-									<div class="col-md-9">
-										Skills:
-										<span class="skill-span">HTML</span>
-										<span class="skill-span">CSS</span>
-										<span class="skill-span">Java</span>
-										<span class="skill-span">PHP</span>
-										<span class="skill-span">MySQL</span>
-									</div>
-									<button type="button" class="col-md-2 allocate-staff-button">Add</button>
-									<div class="col-md-1"></div>
-								</div>
-							</div>
-							<div class="staff-result" id="staff-' . $employee->id . '">
-								<h5>Name</h5>
-								<p class="location">Edinburgh</p>
-								<p class="pay-rate">£100/day</p>
-								<div class="row">
-									<div class="col-md-9">
-										Skills:
-										<span class="skill-span">HTML</span>
-										<span class="skill-span">CSS</span>
-									</div>
-									<button type="button" class="col-md-3 allocate-staff-button">Add</button>
-								</div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-6">
@@ -130,45 +101,52 @@
 
 			</div>
 
-			<div class="container project-tab" id="create-3" style="display: none">
+			<div class="container-fluid project-tab" id="create-3" style="display: none">
 				<h2>Step 3: Project Summary</h2>
 				<hr>
-				<h1 id="title_summary"></h1>
-				<h3><?php echo $manager; ?></h3>
-				<div class="row">
-				  	<div class="col-xs-12 col-sm-6 col-md-6">
-				    	<label>Start date:</label>
-				    	<p id="start_date_summary"></p>
-				  	</div>
-				  	<div class="col-xs-12 col-sm-6 col-md-6">
-				    	<label>Priority:</label>
-				    	<p id="priority_summary">Normal</p>
-				  	</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 col-sm-6 col-md-6">
-				    	<label>End date:</label>
-				    	<p id="end_date_summary"></p>
-				  	</div>
-					<div class="col-xs-12 col-sm-6 col-md-6">
-					    <label>Location:</label>
-					    <p id="location_summary"></p>
-					</div>
-				</div>
-				<p></p>
-				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12">
-					    <p id="description_summary"></p>
-					</div>
-				</div>
-				<div class="row" id="allocated-staff">
-				  	<h2>Staff</h2>
-					<div id="hidden-inputs"></div>
-				</div>
 
-				<?php echo form_submit('submit', 'Submit', "id='create-project-submit'");?>
+				<div class="container-fluid">
+					
+					<h1 id="title_summary">Test Project</h1>
+					<h3><?php echo $manager; ?></h3>
 
-				<button type="button" class="project-back">Back</button>
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<p>
+					    		<b>Start date:</b>
+					    		<span id="start_date_summary">10/10/2017</span>
+					    	</p>
+					    	<p>
+					    		<b>End date:</b>
+					    		<span id="end_date_summary">15/10/2017</span>
+					    	</p>
+					    </div>
+					    <div class="col-xs-6 col-sm-6 col-md-6" id="right-div">
+					    	<p>
+					    		<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>  
+					    		<span id="location_summary">Edinburgh</span>
+					    	</p>
+							<p>
+					    		<span id="priority_summary">Normal</span>
+					    		priority
+					    	</p>
+					    </div>
+					</div>
+					<p id="description_summary"></p>
+
+					<div class="row" id="allocated-staff">
+					  	<h2>Selected staff</h2>
+					  	<hr>
+						<div id="hidden-inputs">
+							
+						</div>
+					</div>
+
+					<button type="button" class="project-back">Back</button>
+
+					<?php echo form_submit('submit', 'Submit', "id='create-project-submit'");?>
+
+				</div>
 
 			</div>
 

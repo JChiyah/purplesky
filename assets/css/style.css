@@ -2210,23 +2210,7 @@ footer {
 
 /* * * * Create new project page style section * * * */
 #create-project {
-  padding: 1em 2em 4em 2em;
-  	/*
-  	.container-box {
-  		background: $grey-background2;
-  		width: 95%;
-  		margin: 10px auto;
-  		padding: 1em;
-  		text-align: left;
-  		border-radius: 4px;
-  	}
-  
-  	.date-row {
-  		margin: 0.8em 1em;
-  		display: flex;
-  		justify-content: flex-end;
-  		align-items: center;
-  	}*/ }
+  padding: 1em 2em 4em 2em; }
   #create-project h1 {
     text-align: center;
     font-size: 2.8em;
@@ -2234,19 +2218,7 @@ footer {
   #create-project form {
     width: 70%;
     font-size: 1.2em;
-    margin: 0 auto;
-    /*
-    input[type=submit] {
-    	background: $light-blue;
-    	color: #fff;
-    	text-transform: uppercase;
-    	font-weight: 900;
-    	padding: 10px 38px;
-    	margin-top: 30px;
-    	border: none;
-    	border-radius: 6px;
-    	box-shadow: none;
-    }*/ }
+    margin: 0 auto; }
     #create-project form label {
       display: block;
       margin-top: 8px;
@@ -2301,6 +2273,16 @@ footer {
       display: block;
       margin: 0 0.5em;
       color: #e74c3c; }
+    #create-project form input[type=submit] {
+      background: #0389ff;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 900;
+      padding: 12px 38px;
+      border: none;
+      border-radius: 6px;
+      box-shadow: none;
+      float: right; }
     #create-project form input[type=submit]:hover {
       background: #1f1646; }
   #create-project .project-tab h2 {
@@ -2369,7 +2351,7 @@ footer {
       border-right: 1px solid #C0C0C0; }
     #create-project #resource-allocation-results #results, #create-project #resource-allocation-results #staff-added {
       max-height: 550px;
-      overflow: scroll; }
+      overflow-y: scroll; }
     #create-project #resource-allocation-results .staff-result {
       padding: 1em 1.5em 0.5em 1.5em;
       margin: 0.7em;
@@ -2394,6 +2376,29 @@ footer {
         margin: 0;
         border: 1px solid #C0C0C0;
         padding: 3px 12px; }
+  #create-project #create-3 h1 {
+    font-size: 2.4em; }
+  #create-project #create-3 h3 {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: 400; }
+  #create-project #create-3 #right-div p {
+    text-align: right; }
+  #create-project #create-3 #allocated-staff {
+    margin: 1.5em 0.5em; }
+    #create-project #create-3 #allocated-staff h2 {
+      font-size: 1.5em; }
+    #create-project #create-3 #allocated-staff .staff-result h5 {
+      font-size: 1.2em;
+      font-weight: 700;
+      margin: 0; }
+    #create-project #create-3 #allocated-staff .staff-result p {
+      margin: 0.3em 0; }
+    #create-project #create-3 #allocated-staff .staff-result .location {
+      font-style: italic; }
+    #create-project #create-3 #allocated-staff .staff-result .pay-rate {
+      font-weight: 800; }
 
 @media (max-width: 768px) {
   #create-project form {

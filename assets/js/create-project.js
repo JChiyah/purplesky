@@ -27,7 +27,7 @@ $(function() {
 	}
 
 	// Project step
-	var create_project_flag = 2;
+	var create_project_flag = 1;
 	// Button to change steps
 	$('.project-continue').on('click', function() {
 		if(create_project_flag == 1) {
@@ -58,7 +58,7 @@ $(function() {
 			$('html, body').animate({ scrollTop: "0px" });
 			create_hidden_inputs();
 		} else if(create_project_flag == 3) {
-			
+
 		}
 	});
 
@@ -171,7 +171,8 @@ $(function() {
 			// Show staff in summary
 			// clone div -> change id -> append to summary -> remove the button
 			$('#staff-' + id).clone().attr('id', 'allocated-staff-' + id).appendTo('#allocated-staff');
-			$('#allocated-staff-' + id + ' > button').remove();
+			$('#allocated-staff').append('<hr id="hr-' + id + '"">');
+			$('#allocated-staff-' + id + ' > div > button').remove();
 			$('#allocated-staff-' + id).append( /*** Add here more info if needed ***/ );
 		}
 		// User is removing staff
@@ -188,7 +189,9 @@ $(function() {
 			search_staff();
 
 			// Remove from summary
-			$('#allocated-staff-' + id).remove();			
+			$('#allocated-staff-' + id).remove();
+			$('#hr-' + id).remove();
+
 		}
 		// else something is not right...
 	});
