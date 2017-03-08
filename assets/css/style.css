@@ -1839,7 +1839,6 @@ footer {
 /* * * * Login style section * * * */
 #login-container, #change-password, #reset-pass {
   width: 50%;
-  max-width: 10em;
   background: #E1E5E6;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
@@ -2118,9 +2117,9 @@ footer {
   background: #2ecc71;
   border: 2px solid #2ecc71; }
 
-#userProfile hr {
+#profile hr {
   margin-top: 0; }
-#userProfile .edit-button {
+#profile .edit-button {
   position: absolute;
   bottom: 5px;
   right: 0;
@@ -2133,39 +2132,39 @@ footer {
   outline: none;
   outline-offset: 0;
   outline-color: transparent; }
-#userProfile .edit-button:hover {
+#profile .edit-button:hover {
   text-decoration: underline; }
-#userProfile #personal-details {
+#profile #personal-details {
   color: #1f1646;
   margin-top: 1em;
   border-right: 1px solid #C0C0C0; }
-  #userProfile #personal-details div {
+  #profile #personal-details div {
     margin-left: 3em; }
-  #userProfile #personal-details #staff-type {
+  #profile #personal-details #staff-type {
     font-size: 1.5em;
     margin-top: 0.6em;
     margin-bottom: 0.6em;
     font-weight: 600; }
-  #userProfile #personal-details hr {
+  #profile #personal-details hr {
     margin-top: 2em;
     margin-bottom: 1em; }
-  #userProfile #personal-details .g-button {
+  #profile #personal-details .g-button {
     display: block;
     margin: 0 auto;
     margin-bottom: 20px; }
-#userProfile form input[type=text]:focus {
+#profile form input[type=text]:focus {
   border: 1px solid #0389ff; }
-#userProfile form .row {
+#profile form .row {
   margin-right: 70px;
   margin-left: 70px; }
-  #userProfile form .row p {
+  #profile form .row p {
     padding: 0;
     margin-right: 0;
     margin-left: 0; }
-  #userProfile form .row label {
+  #profile form .row label {
     display: inline;
     font-size: 1em; }
-#userProfile form input[type=submit] {
+#profile form input[type=submit] {
   background: #0389ff;
   color: #fff;
   text-transform: uppercase;
@@ -2175,60 +2174,63 @@ footer {
   border: none;
   border-radius: 6px;
   box-shadow: none; }
-#userProfile form input[type=submit]:hover {
+#profile form input[type=submit]:hover {
   background: #1f1646; }
-#userProfile #experience {
+#profile #experience {
   width: 80%;
   font-size: 1.2em;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
   margin: 4em auto; }
-  #userProfile #experience #exp-row {
+  #profile #experience #exp-row {
     position: relative;
     margin: 0 20px 0 5px; }
-    #userProfile #experience #exp-row button {
+    #profile #experience #exp-row button {
       right: 40px; }
-  #userProfile #experience .date-row {
+  #profile #experience .date-row {
     margin: 0.8em 1em;
     display: flex;
     justify-content: flex-end;
     align-items: center; }
-  #userProfile #experience .sub-row {
+  #profile #experience .sub-row {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding-top: 10px; }
-  #userProfile #experience h1 {
+  #profile #experience h1 {
     display: inline;
     margin-bottom: 0;
     -webkit-margin-after: 0; }
-  #userProfile #experience .container-box {
+  #profile #experience .container-box {
     background: #E1E5E6;
     width: 80%;
     text-align: left;
     border-radius: 4px;
     padding: 2em 3em;
     margin: 0 auto; }
-    #userProfile #experience .container-box .row {
+    #profile #experience .container-box .row {
       margin: 0 1em; }
-  #userProfile #experience form input[type=text], #userProfile #experience form input[type=date] {
+  #profile #experience form input[type=text], #profile #experience form input[type=date] {
     width: 70%;
     margin-top: 8px;
     padding: 8px 12px;
     border: 1px solid transparent;
     border-radius: 4px; }
-  #userProfile #experience form input[type=text]:focus, #userProfile #experience form input[type=date]:focus {
+  #profile #experience form input[type=text]:focus, #profile #experience form input[type=date]:focus {
     border: 1px solid #0389ff; }
-  #userProfile #experience form textarea {
+  #profile #experience form textarea {
     width: 100%;
     margin-top: 8px;
     padding: 8px 12px;
     border: 1px solid transparent;
     border-radius: 4px; }
-  #userProfile #experience form label {
+  #profile #experience form label {
     display: block;
     font-weight: 900;
     margin-top: 8px; }
+#profile #experience-add {
+  visibility: hidden;
+  display: none; }
 
 #experience-set #experiences {
   padding: 0.7em 1.5em; }
@@ -2259,6 +2261,11 @@ footer {
     background: #e74c3c; }
 #experience-set .experience-box:hover {
   background: #ECF0F1; }
+
+/* * * * Change password page style section * * * */
+#change-password {
+  width: 70%;
+  max-width: 70%; }
 
 /* * * * Create new project page style section * * * */
 #create-project {

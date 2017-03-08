@@ -2,8 +2,6 @@
       <h1><?php echo lang('change_password_heading');?></h1>
 
       <?php echo form_open("change-password");?>
-            
-            <div id="infoMessage"><?php echo $message;?></div>
 
             <p>
                   <?php echo lang('change_password_old_password_label', 'old_password');?>
@@ -21,6 +19,9 @@
             </p>
 
             <?php echo form_input($user_id);?>
+
+            <div class="error-msg" id="infoMessage"><?php echo $message;?></div>
+
             <p><?php echo form_submit('submit', lang('change_password_submit_btn'));?></p>
 
       <?php echo form_close();?>

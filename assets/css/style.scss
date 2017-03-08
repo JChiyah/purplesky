@@ -214,7 +214,6 @@ footer {
 /* * * * Login style section * * * */
 #login-container, #change-password, #reset-pass {
 	width: 50%;
-	max-width: 10em;
 	background: $grey-background2;
 	color: $blue;
 	font-family: $font;
@@ -561,7 +560,7 @@ footer {
 	border: 2px solid $go-green;
 }
 
-#userProfile {
+#profile {
 
 	hr { margin-top: 0; }
 
@@ -713,8 +712,8 @@ footer {
 	}
 
 	#experience-add {
-		//visibility: hidden;
-		//display: none;
+		visibility: hidden;
+		display: none;
 	}
 }
 
@@ -765,6 +764,11 @@ footer {
 	}
 }
 
+/* * * * Change password page style section * * * */
+#change-password {
+	width: 70%;
+	max-width: 70%;
+}
 
 /* * * * Create new project page style section * * * */
 #create-project {

@@ -1,4 +1,4 @@
-<div id="userProfile">
+<div id="profile">
 	<div class="container">
 		<div class="row">
 			<!-- A row with 2 columns -->

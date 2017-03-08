@@ -121,10 +121,10 @@ $lang['change_password_heading']                               = 'Change Passwor
 $lang['change_password_old_password_label']                    = 'Old Password:';
 $lang['change_password_new_password_label']                    = 'New Password (at least %s characters long):';
 $lang['change_password_new_password_confirm_label']            = 'Confirm New Password:';
-$lang['change_password_submit_btn']                            = 'Change';
-$lang['change_password_validation_old_password_label']         = 'Old Password';
-$lang['change_password_validation_new_password_label']         = 'New Password';
-$lang['change_password_validation_new_password_confirm_label'] = 'Confirm New Password';
+$lang['change_password_submit_btn']                            = 'Change Password';
+$lang['change_password_validation_old_password_label']         = 'old password';
+$lang['change_password_validation_new_password_label']         = 'new password';
+$lang['change_password_validation_new_password_confirm_label'] = 'confirm new password';
 
 // Forgot Password
 $lang['forgot_password_heading']                 = 'Forgot Password';

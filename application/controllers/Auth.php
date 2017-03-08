@@ -102,7 +102,7 @@ class Auth extends CI_Controller {
 	public function change_password()
 	{
 		$this->form_validation->set_rules('old', $this->lang->line('change_password_validation_old_password_label'), 'required');
-		$this->form_validation->set_rules('new', $this->lang->line('change_password_validation_new_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[new_confirm]');
+		$this->form_validation->set_rules('new', $this->lang->line('change_password_validation_new_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[new_confirm]|callback_notmatches[old]');
 		$this->form_validation->set_rules('new_confirm', $this->lang->line('change_password_validation_new_password_confirm_label'), 'required');
 
 		if (!$this->ion_auth->logged_in())
@@ -167,6 +167,21 @@ class Auth extends CI_Controller {
 				redirect('change-password', 'refresh');
 			}
 		}
+	}
+
+	/**
+	 * Checks whether the new password is equal to the old password
+	 *
+	 * @param $old_password
+	 * @param $new_password_field
+	 * @author StackOverflow - Girish - Modified by JChiyah
+	 */
+	function notmatches($new_password, $old_password_field) {
+	    if($new_password == $this->input->post($old_password_field)) {
+	        $this->form_validation->set_message('notmatches', 'The new password must be different from the old password');
+	        return false;
+	    }
+	    return true;
 	}
 
 	// forgot password
