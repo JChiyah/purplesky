@@ -11,6 +11,7 @@ $grey-background: #ECF0F1;
 $grey-background2: #E1E5E6;
 $light-blue: #0389ff;
 $delete-red: #e74c3c;
+$go-green: #2ecc71;
 
 $hr-colour: #C0C0C0;
 
@@ -60,6 +61,15 @@ hr {
 	border: 0 none;
 	color: $hr-colour;
 	background: $hr-colour;
+}
+
+.error-msg {
+	display: block;
+	margin: 0 0.5em;
+	color: $delete-red;
+}
+.error-field {
+	border: 1px solid $delete-red !important;
 }
 
 /* * * * Navigation bar style section * * * */
@@ -473,10 +483,19 @@ footer {
 		position: relative;
 	}
 
+	form {
+		p { margin-bottom: 0; }
+	}
+
 	h1 {
 		display: inline;
 		margin-bottom: 0;
 		-webkit-margin-after: 0;
+	}
+
+	h3 {
+		font-size: 1.3em;
+		margin: 1em 0 0.2em 0;
 	}
 
 	#skill-set {
@@ -519,7 +538,27 @@ footer {
 		right: -10px;
 		display: none;
 	}
-
+}
+.delete-hover {
+	color: #ffffff;
+	background: $delete-red;
+	border: 2px solid $delete-red;
+}
+.undo-skill-span {
+	display: inline-block;
+	color: $blue;
+	font-family: $font;
+	padding: 5px 18px;
+	margin: 5px;
+	border: 2px solid $grey-background2;
+	border-radius: 8px;
+	font-weight: 900;
+}
+.undo-skill-span:hover {
+	cursor: pointer;
+	color: #ffffff;
+	background: $go-green;
+	border: 2px solid $go-green;
 }
 
 #userProfile {
@@ -595,16 +634,9 @@ footer {
 		input[type=submit]:hover { background: $blue; }
 	}
 
-	#UPContainer {
-		width: 100%;
-		background: $grey-background2;
-		color: $blue;
-		font-family: $font;
-		margin: 10px auto;
-		border-radius: 4px;
-	}
-
 	#experience {
+		width: 80%;
+		font-size: 1.2em;
 		color: $blue;
 		font-family: $font;
 		margin: 4em auto;
@@ -639,44 +671,41 @@ footer {
 
 		.container-box {
 			background: $grey-background2;
-			width: 100%;
+			width: 80%;
 			text-align: left;
-			border-radius: 0.5em;
+			border-radius: 4px;
+			padding: 2em 3em;
+			margin: 0 auto;
+
+			.row {
+				margin: 0 1em;
+			}
 		}
 
 		form {
-			input[type=text] {
+			input[type=text], input[type=date] {
 				width: 70%;
 				margin-top: 8px;
-				padding: 8px 12px 8px 12px;
+				padding: 8px 12px;
 				border: 1px solid transparent;
 				border-radius: 4px;
 			}
-			input[type=text]:focus { border: 1px solid $light-blue; }
+			input[type=text]:focus, input[type=date]:focus { border: 1px solid $light-blue; }
 
 			input[type=date] {
-				text-align: left;
-				padding: 8px 12px 8px 12px;
-				border: 1px solid transparent;
-				border-radius: 4px;
+				//width: 40%;
 			}
 
 			textarea {
 				width: 100%;
-				height: 5.5em;
 				margin-top: 8px;
-				padding: 8px 12px 8px 12px;
+				padding: 8px 12px;
 				border: 1px solid transparent;
 				border-radius: 4px;
 			}
 
-			.row {
-			margin-right: 1.2em;
-			margin-left: 1.2em;
-			}
 			label {
 				display: block;
-				font-size: 1.2em;
 				font-weight: 900;
 				margin-top: 8px;
 			}
@@ -684,8 +713,8 @@ footer {
 	}
 
 	#experience-add {
-		visibility: hidden;
-		display: none;
+		//visibility: hidden;
+		//display: none;
 	}
 }
 
@@ -814,12 +843,6 @@ footer {
 				display: inline-block;
 				font-weight: 500;
 			}
-		}
-
-		.error-msg {
-			display: block;
-			margin: 0 0.5em;
-			color: $delete-red;
 		}
 
 		input[type=submit] {

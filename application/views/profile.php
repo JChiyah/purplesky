@@ -22,13 +22,17 @@
 				<hr>
 				<div id="skill-set">
 					<?php echo form_open('', array('id' => 'skill-add')); ?>
-						<?php echo lang('skill_edit_label', 'skills');?>
+						<label>Select a skill to add</label>
 						<?php echo form_dropdown($skill_select, $skills);?>
 						<?php echo form_submit('submit', lang('add_label'), "id='skill-submit'");?>
+						<p>You can also delete skills by clicking on the cross</p>
 					<?php echo form_close(); ?>
 					
 					<div id="user-skills">
 						<?php $this->load->view('displays/user-skills.php', $user_skills); ?>
+					</div>
+					<div id="user-undo-skills">
+
 					</div>
 				</div>
 			</section>
@@ -50,7 +54,7 @@
 
 					<div class="container-box">
 						<div class="row">
-							<div class="col-sm-12 col-md-6">
+							<div class="col-sm-12 col-md-8">
 								<p>
 									<label>Role:</label>
 									<?php echo form_input($role,'','required maxlength="90"');?>
@@ -60,43 +64,24 @@
 									<?php echo form_input($title,'','required maxlength="90"');?>
 								</p>
 							</div>
-							<div class="row">
-								<div class="col-sm-12 col-md-6">
-									<div class="row date-row">
-										<div class="col-md-3">
-											<p>
-												<label>Start date:</label>
-											</p>
-										</div>
-										<div class="col-md-9">
-											<?php echo form_input($start_date,'','required');?>
-										</div>
-									</div>
-									<div class="row date-row">
-										<div class="col-md-3">
-											<p>
-												<label>End date:</label>
-											</p>
-										</div>
-										<div class="col-md-9">
-											<?php echo form_input($end_date,'','required');?>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-sm-12 col-md-8">
+							<div class="col-sm-12 col-md-4">
 								<p>
-									<label>Description:</label>
-									<?php echo form_textarea($description,'','required maxlength="250"');?>
+									<label>Start date:</label>
+									<?php echo form_input($start_date,'','required');?>
+								</p>
+								<p>
+									<label>End date:</label>								
+									<?php echo form_input($end_date,'','required');?>
 								</p>
 							</div>
 						</div>
 
 						<div class="row">
-							<div class="col-sm-12 col-md-6 sub-row">
+							<div class="col-sm-12 col-md-8">
+								<label>Description:</label>
+								<?php echo form_textarea($description,'','required maxlength="250" rows="4"');?>
+							</div>
+							<div class="col-sm-12 col-md-4">
 								<?php echo form_submit('submit', "Add experience","id='experience-submit'");?>
 							</div>
 						</div>
@@ -115,3 +100,5 @@
 
 	</div>
 </div>
+
+<script type="text/javascript" src="<?php echo base_url("assets/js/profile.js"); ?>" ></script>

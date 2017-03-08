@@ -35,8 +35,7 @@ class User extends CI_Controller {
 			// Print value
 			return $this->display_user_skills($user_id);
 		} else {
-			// Failed to add -> Duplicated entry
-
+			echo 'duplicated';
 		}
 	}
 

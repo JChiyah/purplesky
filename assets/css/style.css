@@ -1703,6 +1703,14 @@ hr {
   color: #C0C0C0;
   background: #C0C0C0; }
 
+.error-msg {
+  display: block;
+  margin: 0 0.5em;
+  color: #e74c3c; }
+
+.error-field {
+  border: 1px solid #e74c3c !important; }
+
 /* * * * Navigation bar style section * * * */
 nav {
   position: relative;
@@ -2048,10 +2056,15 @@ footer {
   #skills .row {
     margin: 0 20px 0 5px;
     position: relative; }
+  #skills form p {
+    margin-bottom: 0; }
   #skills h1 {
     display: inline;
     margin-bottom: 0;
     -webkit-margin-after: 0; }
+  #skills h3 {
+    font-size: 1.3em;
+    margin: 1em 0 0.2em 0; }
   #skills #skill-set label {
     display: block; }
   #skills #skill-set select {
@@ -2083,6 +2096,27 @@ footer {
     position: relative;
     right: -10px;
     display: none; }
+
+.delete-hover {
+  color: #ffffff;
+  background: #e74c3c;
+  border: 2px solid #e74c3c; }
+
+.undo-skill-span {
+  display: inline-block;
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  padding: 5px 18px;
+  margin: 5px;
+  border: 2px solid #E1E5E6;
+  border-radius: 8px;
+  font-weight: 900; }
+
+.undo-skill-span:hover {
+  cursor: pointer;
+  color: #ffffff;
+  background: #2ecc71;
+  border: 2px solid #2ecc71; }
 
 #userProfile hr {
   margin-top: 0; }
@@ -2143,14 +2177,9 @@ footer {
   box-shadow: none; }
 #userProfile form input[type=submit]:hover {
   background: #1f1646; }
-#userProfile #UPContainer {
-  width: 100%;
-  background: #E1E5E6;
-  color: #1f1646;
-  font-family: "Microsoft JhengHei";
-  margin: 10px auto;
-  border-radius: 4px; }
 #userProfile #experience {
+  width: 80%;
+  font-size: 1.2em;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
   margin: 4em auto; }
@@ -2175,40 +2204,31 @@ footer {
     -webkit-margin-after: 0; }
   #userProfile #experience .container-box {
     background: #E1E5E6;
-    width: 100%;
+    width: 80%;
     text-align: left;
-    border-radius: 0.5em; }
-  #userProfile #experience form input[type=text] {
+    border-radius: 4px;
+    padding: 2em 3em;
+    margin: 0 auto; }
+    #userProfile #experience .container-box .row {
+      margin: 0 1em; }
+  #userProfile #experience form input[type=text], #userProfile #experience form input[type=date] {
     width: 70%;
     margin-top: 8px;
-    padding: 8px 12px 8px 12px;
+    padding: 8px 12px;
     border: 1px solid transparent;
     border-radius: 4px; }
-  #userProfile #experience form input[type=text]:focus {
+  #userProfile #experience form input[type=text]:focus, #userProfile #experience form input[type=date]:focus {
     border: 1px solid #0389ff; }
-  #userProfile #experience form input[type=date] {
-    text-align: left;
-    padding: 8px 12px 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
   #userProfile #experience form textarea {
     width: 100%;
-    height: 5.5em;
     margin-top: 8px;
-    padding: 8px 12px 8px 12px;
+    padding: 8px 12px;
     border: 1px solid transparent;
     border-radius: 4px; }
-  #userProfile #experience form .row {
-    margin-right: 1.2em;
-    margin-left: 1.2em; }
   #userProfile #experience form label {
     display: block;
-    font-size: 1.2em;
     font-weight: 900;
     margin-top: 8px; }
-#userProfile #experience-add {
-  visibility: hidden;
-  display: none; }
 
 #experience-set #experiences {
   padding: 0.7em 1.5em; }
@@ -2301,10 +2321,6 @@ footer {
     #create-project form #priority-buttons label {
       display: inline-block;
       font-weight: 500; }
-    #create-project form .error-msg {
-      display: block;
-      margin: 0 0.5em;
-      color: #e74c3c; }
     #create-project form input[type=submit] {
       background: #0389ff;
       color: #fff;
