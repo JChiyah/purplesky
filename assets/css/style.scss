@@ -1362,60 +1362,101 @@ section#quick-search{
 
 /**** Project Dashboard section - Daniel code here ****/
 #project-dashboard {
-	width: 80%;
+	width: 70%;
 	color: $blue;
 	font-family: $microsoft-font;
-	margin: 80px auto;
+	margin: 3em auto;
 	font-size: 1.2em;
-		h1{
-			text-align: center;
-			font-size: 2em;
 
+	h1 {
+		text-align: center;
+		font-size: 2.4em;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 1.5em;
+		margin: 0;
+		font-weight: 400;
+	}
+
+	#right-div {
+		p {
+			text-align: right;
 		}
-		h2{
-			text-align: center;
-			font-size: 1.6em;
-		}
-		th{
-			font-size: 1.6em;
+	}
+
+	#project-view {
+		h2 {
 			text-align: left;
-			width:25%;
 		}
+	}
+
+	form {
+		margin: 1em auto;
+
+		input[type=text] {
+			width: 50%;
+			margin-top: 8px;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid $hr-colour;
+			border-radius: 4px;
+		}
+		input[type=text]:focus { border: 1px solid $light-blue; }
+
 		input[type=submit] {
 			background: $light-blue;
 			color: #fff;
 			text-transform: uppercase;
 			font-weight: 900;
-			padding: 10px 38px;
+			padding: 10px 16px 10px 16px;
 			margin-top: 15px;
 			border: none;
 			border-radius: 6px;
 			box-shadow: none;
 		}
-	#bottomtotal{
+		input[type=submit]:hover { background: $blue; }
+	}
+	
+	th {
+		font-size: 1.6em;
+		text-align: left;
+		width:25%;
+	}
+	input[type=submit] {
+		background: $light-blue;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 900;
+		padding: 10px 38px;
+		margin-top: 15px;
+		border: none;
+		border-radius: 6px;
+		box-shadow: none;
+	}
+	#budget {
 		text-align: right;
 		font-size: 1.6em;
 	}
-	#toptableleft{
-		width: 50%;
-		text-align: left;
-	}
-	#toptableright{
-		width: 50%;
-		text-align: right;
-	}
-	#tablepay{
-		text-align: right;
-		width: 20%
-	}
-	#tabledate{
-		width:20%
+	table {
+		width: 95%;
+		margin: 1em auto;
+
+		th, td {
+			width: 20%;
+		}
+		tbody {
+			tr {
+				border-bottom: 0.5px solid $hr-colour;
+			}
+
+			td {
+				padding-top: 10px;
+			}
+		}
 
 	}
-	#tablerole{
-		width: 30%
-	}
-	#tablename{
-		width: 30%
+	.tablepay {
+		text-align: right;
 	}
 }

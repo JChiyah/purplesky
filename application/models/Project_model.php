@@ -62,7 +62,7 @@ class Project_model extends CI_Model {
 	 */
 	public function get_project_staff($id) {
 
-		$query = $this->db->select('project_staff.staff_id AS id, CONCAT(first_name, " ", last_name) AS name, role, assigned_at, pay_rate')
+		$query = $this->db->select('project_staff.staff_id AS id, CONCAT(first_name, " ", last_name) AS name, role, assigned_at, start_date, end_date, pay_rate')
 						->where('project_id', $id)
 						->join('staff', 'staff.staff_id=project_staff.staff_id')
 						->join('account', 'account.id=staff.staff_id')

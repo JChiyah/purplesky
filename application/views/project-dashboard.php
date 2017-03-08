@@ -1,88 +1,101 @@
 <?php global $user_group; ?>
 <div id="project-dashboard">
-	<?php 
-		echo '<h1> <b>' . $project->title . '</b> </h1>
-			<h2>' . $project->manager . '</h2>'; ?>
-	<div class="projectview"> 
-			<?php
-			echo '<table>
-			<tr>
-			<td class="toptableleft">
-			<b>Start date:</b> ' . $project->start_date . '
-			</td>
-			<td class="toptableright">
-			<b>Priority:</b> ' . $project->priority . '
-			</td>
-			</tr>
-			<tr>
-			<td class="toptableleft">
-			<b>End date:</b> ' . $project->end_date . '
-			</td>
-			<td class="toptableright">
-			<b>Location:</b> ' . $project->location . '
-			</td>
-			</tr>
-			</table>
-			<hr>
-			<p><b>Notificaions</b></p>';
-			foreach ($dashboard as $entry) {
-				echo '<p> <b>Date: ' . $entry->date . '</b></p>
-				<p>' . $entry->description .'</p>
-				';
-			}
-			
-			
-			echo '<hr>
-			<p><b>Description:</b></p> <p>' . $project->description . '</p>
-			'; 
-			if ($is_manager){ 
-				echo '<form action="" method="post">
+	
+	<h1><b><?= $project->title ?></b></h1>
+	<h2><?= $project->manager ?></h2>
+
+	<div id="project-view"> 
+
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6">
+				<p><b>Start date:</b> <?= $project->start_date ?></p>
+				<p><b>End date:</b> <?= $project->end_date ?></p>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6" id="right-div">
+				<p><?= ucfirst($project->priority) ?> priority</p>
+				<p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <?= $project->location ?></p>
+			</div>
+		</div>
+		<p><?= $project->description ?></p>
+		<hr>
+		<h2>Notifications</h2>
+			<?php if(isset($dashboard) && $dashboard && sizeof($dashboard) > 0) :
+				foreach($dashboard as $notification) : ?>
+
+					<div class="notification">
+						<p><?= $notification->description ?></p>
+						<p class="not-date"><?= $notification->date ?></p>
+					</div>
+					<hr>
+
+				<?php endforeach ?>
+
+			<?php else : ?>
+				<p>No notifications to show here</p>
+			<?php endif ?>
+
+		<?php if ($is_manager) : ?>
+			<form action="" method="post">
 				<input type="text" name="" value="" placeholder="Enter a new notification">
-				<input type="submit" name="" value="New Notification" id="">
-				</form>';
-			echo '<hr';
-			}
-			
-			
-		?>
+				<input type="submit" name="" value="Add notification" id="">
+			</form>
+			<hr>
+		
+		<?php endif ?>
 
 	</div>
 
 	<div class="projectstaff">
-		<table>
-			<tr>
-				<th class="tablename"<b>Staff:</b></th>
-				<th class="tablerole"><b>Role:</b></th>
-				<th class="tabledate"><b>Since:</b></th>
-				<th class="tablepay"><b>Daily Rate:</b></th>
-			</tr>
-			<!-- need to check what format the variable will be returned in, preferably array of a 5 position array, 0=staff name,1= start date, 2=end date, 3=daily rate, 4=job name -->
-			<?php 
-				echo "<hr>";
-				if(isset($staff) && $staff) {
-					foreach ($staff as $employee) {
+
+		<?php if(isset($staff) && $staff) : ?>
+
+			<table>
+				<thead>
+				<tr>
+					<th class="tablename">Staff</th>
+					<th class="tablerole">Role</th>
+					<th class="tabledate">From</th>
+					<th class="tabledate">To</th>
+
+					<?php if ($is_manager) : ?>
+						<th class="tablepay">Daily Rate</th>		
+					<?php endif ?>
+				</tr>
+				</thead>
+
+				<tbody>
+
+				<?php foreach ($staff as $employee) : ?>
+					
+					<tr>
+						<td><?= $employee->name ?></td>
+						<td><?= $employee->role ?></td>
+						<td><?= date('d/m/Y', strtotime($employee->start_date)) ?></td>
+						<td><?= date('d/m/Y', strtotime($employee->end_date)) ?></td>
 						
-						echo '<tr>
-								<td>' . $employee->name . '</td>
-								<td>' . $employee->role . '</td>
-								<td>' . date('d/m/Y', strtotime($employee->assigned_at)) . '</td>
-								<td class="tablepay">£ ' . $employee->pay_rate . '</td>
-							</tr>';
-					}
-				} else {
-					echo '</table>
-					<p>No staff working in the project</p>';
-				}
-				echo "</table>
-				</div>";
-			if ($user_group == 1 || $user_group == 2){	
-			echo '<hr>
-				<p class="bottomtotal"><b>Total: £ '. $project->budget . '</b></p>';
+						<?php if ($is_manager) : ?>
+							<td class="tablepay">£<?= $employee->pay_rate ?></td>
+						<?php endif ?>
+					</tr>
 
-			}
+				<?php endforeach ?>
+				</tbody>
+			
+			</table>
 
-				?>
+		<?php else : ?>
+
+			<p>No staff working in the project</p>
+
+		<?php endif ?>
+
+		<hr>
 		
+		<?php if ($is_manager) : ?>
+			<p id="budget"><b>Total budget:</b> £<?= $project->budget ?></p>		
+		<?php endif ?>
+
+	</div>
 	
 
 </div>

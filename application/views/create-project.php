@@ -123,7 +123,7 @@
 					    </div>
 					    <div class="col-xs-6 col-sm-6 col-md-6" id="right-div">
 					    	<p>
-					    		<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>  
+					    		<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> 
 					    		<span id="location_summary">Edinburgh</span>
 					    	</p>
 							<p>

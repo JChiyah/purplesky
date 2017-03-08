@@ -81,7 +81,7 @@ $(function() {
 	function search_staff() {
 		event.preventDefault();
 		var staff_name = $('#staff_name').val();
-		var location = 1;//$('#location').val();
+		var location = $('#location').val();
 		
 		if(skills.length > 0 || staff_name) {
 			var start_date = $('#staff_start_date').val();

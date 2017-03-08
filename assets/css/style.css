@@ -2669,17 +2669,45 @@ section#quick-search {
 
 /**** Project Dashboard section - Daniel code here ****/
 #project-dashboard {
-  width: 80%;
+  width: 70%;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
-  margin: 80px auto;
+  margin: 3em auto;
   font-size: 1.2em; }
   #project-dashboard h1 {
     text-align: center;
-    font-size: 2em; }
+    font-size: 2.4em; }
   #project-dashboard h2 {
     text-align: center;
-    font-size: 1.6em; }
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: 400; }
+  #project-dashboard #right-div p {
+    text-align: right; }
+  #project-dashboard #project-view h2 {
+    text-align: left; }
+  #project-dashboard form {
+    margin: 1em auto; }
+    #project-dashboard form input[type=text] {
+      width: 50%;
+      margin-top: 8px;
+      padding: 8px 12px 8px 12px;
+      border: 1px solid #C0C0C0;
+      border-radius: 4px; }
+    #project-dashboard form input[type=text]:focus {
+      border: 1px solid #0389ff; }
+    #project-dashboard form input[type=submit] {
+      background: #0389ff;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 900;
+      padding: 10px 16px 10px 16px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 6px;
+      box-shadow: none; }
+    #project-dashboard form input[type=submit]:hover {
+      background: #1f1646; }
   #project-dashboard th {
     font-size: 1.6em;
     text-align: left;
@@ -2694,23 +2722,19 @@ section#quick-search {
     border: none;
     border-radius: 6px;
     box-shadow: none; }
-  #project-dashboard #bottomtotal {
+  #project-dashboard #budget {
     text-align: right;
     font-size: 1.6em; }
-  #project-dashboard #toptableleft {
-    width: 50%;
-    text-align: left; }
-  #project-dashboard #toptableright {
-    width: 50%;
+  #project-dashboard table {
+    width: 95%;
+    margin: 1em auto; }
+    #project-dashboard table th, #project-dashboard table td {
+      width: 20%; }
+    #project-dashboard table tbody tr {
+      border-bottom: 0.5px solid #C0C0C0; }
+    #project-dashboard table tbody td {
+      padding-top: 10px; }
+  #project-dashboard .tablepay {
     text-align: right; }
-  #project-dashboard #tablepay {
-    text-align: right;
-    width: 20%; }
-  #project-dashboard #tabledate {
-    width: 20%; }
-  #project-dashboard #tablerole {
-    width: 30%; }
-  #project-dashboard #tablename {
-    width: 30%; }
 
 /*# sourceMappingURL=style.css.map */
