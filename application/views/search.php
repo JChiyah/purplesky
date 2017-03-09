@@ -53,9 +53,7 @@
 	</div>
 
 	<section id="search-results">
-		<div>
-			<h2>Results</h2>
-		</div>
+		<h2>Results</h2>
 		<hr>
 		<div id="results">
 			

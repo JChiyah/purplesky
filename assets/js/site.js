@@ -10,6 +10,7 @@ $(function() {
 
 	$("#search-submit").click(function(event) {
 		event.preventDefault();
+
 		// form validation
 		var keyword = $('#keyword').val();
 		var start_date = $('#start_date').val();
@@ -22,7 +23,7 @@ $(function() {
 		} else {
 			var filter = false;
 		}
-
+		
 		// Check whether the user entered a keyword or is filtering projects
 		if(keyword || filter) {
 			
@@ -40,10 +41,13 @@ $(function() {
 				success: function(data) {
 					if (data) {
 						$('#search-results').css({'display': 'block'});
-						$("#results").html(data);
+						$('#results').html(data);
 					} else {
-						$("#results").html('<p>Nothing matches your search. Try to broaden your criteria.</p>');
+						$('#results').html('<p>Nothing matches your search. Try to broaden your criteria.</p>');
 					}
+					$('html, body').animate({
+					    scrollTop: $("#search-results").offset().top - 100
+					}, 1000);
 				}
 			});
 		} else {
