@@ -75,7 +75,6 @@ hr {
 .scroll-button {
 	background: none !important;
 	border: none !important;
-	font-size: 1.5em !important;
 }
 .scroll-button:hover {
 	color: $light-blue !important;
@@ -126,6 +125,7 @@ nav {
 
 				.scroll-button {
 					padding: 0 24px;
+					font-size: 1.5em;
 				}
 
 				a {
@@ -1187,6 +1187,7 @@ footer {
 	font-family: $font;
 	margin: 0 auto;
 	padding: 4em 0;
+	position: relative;
 
 	h1 {
 		text-align: center;
@@ -1215,7 +1216,7 @@ footer {
 		color: $blue;
 		background: $grey-background2;
 		margin-top: 1em;
-		border-top: 1px solid $hr-colour;
+		border-top: 2px solid $hr-colour;
 	}
 	#search-toggle:hover {
 		background: $hr-colour;
@@ -1265,10 +1266,22 @@ footer {
 		}
 	}
 
-	#up-button {
+	#scroll-up {
+		color: $blue;
+		padding: 0;
 		position: fixed;
-		top: 0;
-		bottom: 0;
+		bottom: 1em;
+		left: 0.5em;
+		font-size: 4em;
+	}
+	#scroll-up:focus, #scroll-up:active {
+		color: $blue;
+		outline: none;
+	}
+	.bottom {
+		position: absolute;
+		bottom: 10em;
+		left: 0.5em;
 	}
 }
 
