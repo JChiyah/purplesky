@@ -915,13 +915,6 @@ footer {
 
 	}
 
-	#create-2 {
-
-		.project-continue, .project-back {
-			margin-top: 1.5em;
-		}
-	}
-
 	#resource-allocation {
 
 		.skill-span {
@@ -1026,7 +1019,7 @@ footer {
 		}
 	}
 
-	#create-3 {
+	#project-summary {
 
 		h1 {
 			font-size: 2.4em;
@@ -1045,7 +1038,7 @@ footer {
 			}
 		}
 
-		#allocated-staff {
+		/*#allocated-staff {
 			margin: 1.5em 0.5em;
 
 			h2 {
@@ -1071,7 +1064,7 @@ footer {
 					font-weight: 800;
 				}
 			}
-		}
+		}*/
 	}
 	
 }

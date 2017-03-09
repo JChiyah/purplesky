@@ -2377,8 +2377,6 @@ footer {
     padding: 12px 18px; }
   #create-project .project-tab .project-continue {
     float: right; }
-  #create-project #create-2 .project-continue, #create-project #create-2 .project-back {
-    margin-top: 1.5em; }
   #create-project #resource-allocation .skill-span {
     background: #ffffff;
     font-weight: 500;
@@ -2442,29 +2440,43 @@ footer {
         margin: 0;
         border: 1px solid #C0C0C0;
         padding: 3px 12px; }
-  #create-project #create-3 h1 {
-    font-size: 2.4em; }
-  #create-project #create-3 h3 {
-    text-align: center;
-    font-size: 1.5em;
-    margin: 0;
-    font-weight: 400; }
-  #create-project #create-3 #right-div p {
-    text-align: right; }
-  #create-project #create-3 #allocated-staff {
-    margin: 1.5em 0.5em; }
-    #create-project #create-3 #allocated-staff h2 {
-      font-size: 1.5em; }
-    #create-project #create-3 #allocated-staff .staff-result h5 {
-      font-size: 1.2em;
-      font-weight: 700;
-      margin: 0; }
-    #create-project #create-3 #allocated-staff .staff-result p {
-      margin: 0.3em 0; }
-    #create-project #create-3 #allocated-staff .staff-result .location {
-      font-style: italic; }
-    #create-project #create-3 #allocated-staff .staff-result .pay-rate {
-      font-weight: 800; }
+  #create-project #project-summary {
+    		/*#allocated-staff {
+    			margin: 1.5em 0.5em;
+    
+    			h2 {
+    				font-size: 1.5em;
+    			}
+    
+    			.staff-result {
+    				h5 {
+    					font-size: 1.2em;
+    					font-weight: 700;
+    					margin: 0;
+    				}
+    
+    				p {
+    					margin: 0.3em 0;
+    				}
+    
+    				.location {
+    					font-style: italic;
+    				}
+    
+    				.pay-rate {
+    					font-weight: 800;
+    				}
+    			}
+    		}*/ }
+    #create-project #project-summary h1 {
+      font-size: 2.4em; }
+    #create-project #project-summary h3 {
+      text-align: center;
+      font-size: 1.5em;
+      margin: 0;
+      font-weight: 400; }
+    #create-project #project-summary #right-div p {
+      text-align: right; }
 
 @media (max-width: 768px) {
   #create-project form {

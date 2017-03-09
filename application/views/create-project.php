@@ -4,7 +4,7 @@
 		<?php echo form_open('Project/create_project');?>
 
 			<div id="infoMessage"><?php echo $message;?></div>
-			<div class="container-fluid project-tab" id="project-details">
+			<div class="container-fluid project-tab" id="project-details" style="display: none">
 				<h2>Project Details</h2>
 				<hr>
 
@@ -46,11 +46,11 @@
 				</section>
 			</div>
 				
-			<div class="container-fluid project-tab" id="project-summary" style="display: none">
+			<div class="container-fluid project-tab" id="project-summary">
 				<h2>Summary</h2>
 				<hr>
 
-				<div class="container-fluid">
+				<div class="container-fluid content">
 					
 					<h1 id="title_summary">Test Project</h1>
 					<h3><?php echo $manager; ?></h3>
@@ -81,7 +81,7 @@
 
 					<button type="button" class="project-back">Back</button>
 
-					<?php echo form_submit('submit', 'Submit', "id='create-project-submit'");?>
+					<?php echo form_submit('submit', 'Create project', "id='create-project-submit'");?>
 
 				</div>
 
