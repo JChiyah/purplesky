@@ -958,7 +958,7 @@ class Ion_auth_model extends CI_Model
 	 * login
 	 *
 	 * @return bool
-	 * @author Mathew
+	 * @author Mathew | Modified by JChiyah
 	 **/
 	public function login($identity, $password, $remember=FALSE)
 	{
@@ -1727,19 +1727,27 @@ class Ion_auth_model extends CI_Model
 	 * set_session
 	 *
 	 * @return bool
-	 * @author jrmadsen67
+	 * @author jrmadsen67 | Modified by JChiyah
 	 **/
 	public function set_session($user)
 	{
 
 		$this->trigger_events('pre_set_session');
 
+		// Get user groups and add them to array for session data
+		$array = $this->ion_auth->get_users_groups($user->id)->result();
+		$access_level = array();
+		foreach($array as $group) {
+			$access_level[] = $group->id;
+		}
+
 		$session_data = array(
-		    'identity'             => $user->{$this->identity_column},
-		    $this->identity_column             => $user->{$this->identity_column},
-		    'email'                => $user->email,
-		    'user_id'              => $user->id, //everyone likes to overwrite id so we'll use user_id
-		    'old_last_login'       => $user->last_login
+		    'identity'             	=> $user->{$this->identity_column},
+		    $this->identity_column 	=> $user->{$this->identity_column},
+		    'email'                	=> $user->email,
+		    'user_id'              	=> $user->id, //everyone likes to overwrite id so we'll use user_id
+		    'old_last_login'       	=> $user->last_login,
+		    'access_level'			=> $access_level
 		);
 
 		$this->session->set_userdata($session_data);

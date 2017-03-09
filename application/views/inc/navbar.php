@@ -11,7 +11,7 @@
          <li><a href="<?php echo site_url('index') ?>">Home</a></li>
          <li><a href="<?php echo site_url('projects') ?>">My Projects</a></li>
          <li><a href="<?php echo site_url('profile') ?>">Profile</a></li>
-         <?php global $user_group; echo ($user_group == 1 || $user_group == 2) ? "<li><a href=" . site_url('create-project') . ">New Project</a></li>" : ""; ?>
+         <?php echo in_array(2, $_SESSION['access_level']) ? "<li><a href=" . site_url('create-project') . ">Create Project</a></li>" : ""; ?>
          <li><a href="<?php echo site_url('search') ?>">Search</a></li>
       </ul>
       <a id="logout" href="<?= base_url('auth/logout') ?>"><i class="fa fa-power-off fa-fw"></i></a>
