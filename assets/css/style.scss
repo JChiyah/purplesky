@@ -39,6 +39,7 @@ body {
 }
 #html-body {
 	padding-bottom: $footer-height;
+	position: relative;
 }
 
 /* * * * General style section * * * */
@@ -69,6 +70,15 @@ hr {
 }
 .error-field {
 	border: 1px solid $delete-red !important;
+}
+
+.scroll-button {
+	background: none !important;
+	border: none !important;
+	font-size: 1.5em !important;
+}
+.scroll-button:hover {
+	color: $light-blue !important;
 }
 
 /* * * * Navigation bar style section * * * */
@@ -106,12 +116,17 @@ nav {
 			list-style: none;
 			display: inline-block;
 			padding: 10px;
-			padding-left: 85px;
+			padding-left: 3em;
 			margin: 0;
+			cursor: default;
 
 			li {
 				display: inline-block;
 				line-height: 20px;
+
+				.scroll-button {
+					padding: 0 24px;
+				}
 
 				a {
 					text-decoration: none;
@@ -1170,7 +1185,8 @@ footer {
 	width: 80%;
 	color: $blue;
 	font-family: $font;
-	margin: 80px auto;
+	margin: 0 auto;
+	padding: 4em 0;
 
 	h1 {
 		text-align: center;
@@ -1247,6 +1263,12 @@ footer {
 			margin-left: 7px;
 			cursor: pointer;
 		}
+	}
+
+	#up-button {
+		position: fixed;
+		top: 0;
+		bottom: 0;
 	}
 }
 
@@ -1389,7 +1411,8 @@ footer {
 #current-projects {
   	font-family: $font;
   	color: $blue;
-	margin: 3em auto;
+	margin: 0 auto;
+	padding: 3em 0;
 	width: 80%;
 
     h1 {

@@ -5,6 +5,9 @@
    <img id="bg" src="<?= base_url('assets/img/triangle.png') ?>" alt="" />
    <div class="row">
       <ul>
+         <li><a href="javascript:window.history.go(-1);" class="scroll-button">
+               <i class="fa fa-arrow-left" aria-hidden="true"></i>
+         </a></li>
          <li><a href="<?php echo site_url('index') ?>">Home</a></li>
          <li><a href="<?php echo site_url('projects') ?>">My Projects</a></li>
          <li><a href="<?php echo site_url('profile') ?>">Profile</a></li>

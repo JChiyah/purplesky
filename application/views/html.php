@@ -49,7 +49,13 @@
 	<body>
 		<div id="html">
 			<?php $this->load->view('inc/navbar'); ?>
-			<div id="html-body"><?php $this->load->view($page_body); ?></div>
+			<div id="html-body">
+
+				<a href="javascript:window.history.go(-1);" class="scroll-button">
+					<i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></a>
+				<?php $this->load->view($page_body); ?>
+					
+			</div>
 			<?php $this->load->view('inc/footer'); ?>
 		</div>
 		<!-- CodeIgniter does not recognise base_url() method from outside files (e.g. Javascript files)
