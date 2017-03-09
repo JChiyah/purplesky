@@ -74,20 +74,6 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
-	public function create_project_view()
-	{
-		// Check if user has privileges to access this page
-		$user_groups = $this->ion_auth->get_users_groups($this->session->userdata('user_id'))->row();
-		if($user_groups->id != 1 && $user_groups->id != 2) {
-			redirect('index');
-		}
-		
-		$data['page_body'] = 'create-project';
-		$data['page_title'] = 'Create project';
-		$data['page_description'] = 'Enter new project details';
-		$this->load->view('html', $data);
-	}
-
 	public function search_view()
 	{
 		$data['page_body'] = 'search';

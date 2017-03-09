@@ -1,5 +1,11 @@
 $(function() {
 
+	/* Restrict input date pickers */
+	var tomorrow = new Date();
+	tomorrow.setDate(tomorrow.getDate() + 1);
+	
+
+	/*
 	// Skills selected
 	var skills = [];
 	var current_query = [];
@@ -16,68 +22,76 @@ $(function() {
 		for(var i = 0; i < staff.length; i++) {
 			$('#hidden-inputs').append('<input type="hidden" name="allocated_staff[]" value="' + staff[i].join(',') + '">');
 		}
-	}
+	}*/
 
 	function validate_dates(start_date, end_date) {
-		var now = new Date();
-		var d1 = new Date(start_date);
-		var d2 = new Date(end_date);
 
 		return d2.getTime() >= d1.getTime() && (d1.getTime() >= now.getTime());
 	}
 
-	// Project step
-	var create_project_flag = 1;
-	// Button to change steps
+	// Button to continue 
 	$('.project-continue').on('click', function() {
-		if(create_project_flag == 1) {
 
-			$('.error-msg').hide();
-			// Check if all fields are done and show error where needed
-			if($('#title').val()) {
-				if(validate_dates($('#start_date').val(), $('#end_date').val())) {
-					if($('#location').val() != 0) {
-						// All okay, continue
-						$('#create-1').hide();
-						$('#create-2').show();
-						create_project_flag = 2;
-						$('html, body').animate({ scrollTop: "0px" });
+		$('.error-msg').hide();
+		$('.error-field').removeClass('error-field');
+		// Check if all fields are done and show error where needed
+		if($('#title').val().length > 2) {
+			var now = new Date();
+			var start = new Date($('#start_date').val());
+			var end = new Date($('#end_date').val());
+
+			if(!isNaN(start)) {
+
+				if(now.getTime() <= start.getTime()) {
+
+					if(!isNaN(end)) {
+
+						if(start.getTime() <= end.getTime()) {
+							if($('#location').val() != 0) {
+								// All okay, continue
+								$('#project-details').hide();
+								$('#project-summary').show();
+								$('html, body').animate({ scrollTop: "0px" });
+							} else {
+								$('#location').after('<span class="error-msg">Select a location<span>');
+								scroll_to_error('#location');
+							}
+						} else {
+							$('#end_date').after('<span class="error-msg">The end date cannot be before the start date<span>');
+							scroll_to_error('#end_date');
+						}
 					} else {
-						$('#location').after('<span class="error-msg">Please select a location<span>');
+						$('#end_date').after('<span class="error-msg">Select a valid date<span>');
+						scroll_to_error('#end_date');
 					}
 				} else {
-					$('#project-dates').after('<span class="error-msg">Please select valid dates<span>');
+					$('#start_date').after('<span class="error-msg">The start date must be in the future<span>');
+					scroll_to_error('#start_date');
 				}
 			} else {
-				$('#title').after('<span class="error-msg">Please give a project title<span>');
+				$('#start_date').after('<span class="error-msg">Select a valid date<span>');
+				scroll_to_error('#start_date');
 			}
-		} else if(create_project_flag == 2) {
-			$('#create-2').hide();
-			$('#create-3').show();
-			create_project_flag = 3;
-			$('html, body').animate({ scrollTop: "0px" });
-			create_hidden_inputs();
-		} else if(create_project_flag == 3) {
-
+		} else {
+			$('#title').after('<span class="error-msg">The project title must contain at least 3 characters<span>');
+			scroll_to_error('#title');
 		}
 	});
 
 	$('.project-back').on('click', function() {
-		if(create_project_flag == 1) {
-
-		} else if(create_project_flag == 2) {
-			$('#create-2').hide();
-			$('#create-1').show();
-			create_project_flag = 1;
-			$('html, body').animate({ scrollTop: "0px" });
-		} else if(create_project_flag == 3) {
-			$('#create-3').hide();
-			$('#create-2').show();
-			create_project_flag = 2;
-			$('html, body').animate({ scrollTop: "0px" });
-		}
+		$('#project-summary').hide();
+		$('#project-details').show();
+		$('html, body').animate({ scrollTop: "0px" });
 	});
 
+	function scroll_to_error($element_id) {
+		$($element_id).addClass('error-field');
+		$('html, body').animate({
+		    scrollTop: $($element_id).offset().top - 100
+		}, 500);
+	}
+
+	/*
 	function search_staff() {
 		event.preventDefault();
 		var staff_name = $('#staff_name').val();
@@ -116,7 +130,7 @@ $(function() {
 					    /*error: function(req, textStatus, errorThrown) {
 					        // To debug when an error happens (possibly a code 500 error)
 					        console.error('Ooops, something happened: ' + textStatus + ' ' +errorThrown);
-					    }*/
+					    }
 					});
 				} else {
 					$("#results").html('<p>Start date must be before end date and within the project dates.</p>');
@@ -173,7 +187,7 @@ $(function() {
 			$('#staff-' + id).clone().attr('id', 'allocated-staff-' + id).appendTo('#allocated-staff');
 			$('#allocated-staff').append('<hr id="hr-' + id + '"">');
 			$('#allocated-staff-' + id + ' > div > button').remove();
-			$('#allocated-staff-' + id).append( /*** Add here more info if needed ***/ );
+			$('#allocated-staff-' + id).append('');
 		}
 		// User is removing staff
 		else if($('#staff-added').find('#staff-' + id).length) {
@@ -206,7 +220,7 @@ $(function() {
 	            $('#staff_name').val('');
         	}
     	});
-	});
+	});*/
 
 	$('#title').on('change keyup paste click', function(){
 		$('#title_summary').text($(this).val());
@@ -238,7 +252,5 @@ $(function() {
 	$('#high').on('change keyup paste click', function(){
 		$('#priority_summary').text('High');
 	});
-
-	/* Remember: add js to stop users from continuing before the first part is done */
 	
 });

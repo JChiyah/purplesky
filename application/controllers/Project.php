@@ -141,14 +141,13 @@ class Project extends CI_Controller {
 		
 		$user_id = $this->ion_auth->user()->row()->id;
 
-		// Check if user has privileges to access this page
-		$user_groups = $this->ion_auth->get_users_groups($user_id)->row();
-		if($user_groups->id != 1 && $user_groups->id != 2) {
+		// Check user is logged in
+		if (!$this->ion_auth->logged_in()) {
 			redirect('index');
 		}
-		// Second check just in case...
-		if (!$this->ion_auth->logged_in())
-		{
+
+		// Check if user has privileges to access this page
+		if(!in_array(2, $_SESSION['access_level'])) {
 			redirect('index');
 		}
 
@@ -181,12 +180,16 @@ class Project extends CI_Controller {
 				'name'  => 'start_date',
 				'id'    => 'start_date',
 				'required' => 'required',
+				'min'	=> date('Y-m-d', strtotime('tomorrow')),
+				'max'	=> '2024-12-30',
 				'value' => $this->form_validation->set_value('start_date')
 			);
 			$this->data['end_date'] = array(
 				'name'  => 'end_date',
 				'id'    => 'end_date',
 				'required' => 'required',
+				'min'	=> date('Y-m-d', time()+172800),
+				'max'	=> '2024-12-31',
 				'value' => $this->form_validation->set_value('end_date')
 			);
 			$this->data['location'] = array(
@@ -206,6 +209,7 @@ class Project extends CI_Controller {
 				'value' => '2',
 			);
 
+			/*
 			// Staff allocation
 			$this->data['skill_select'] = array(
 				'name'  => 'skill_select',
@@ -227,7 +231,7 @@ class Project extends CI_Controller {
 				'value' => $this->form_validation->set_value('staff_name')
 			);
 			$this->data['skills'] = $this->System_model->get_skills();
-
+			*/
 			$this->data['locations'] = $this->System_model->get_locations();
 			$this->data['manager'] = $this->User_model->get_user_by_id($user_id)->name;
 			// render
