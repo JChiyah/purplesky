@@ -127,6 +127,7 @@ CREATE TABLE project (
 	budget decimal(10,2) NOT NULL,
 	start_date date NOT NULL,
 	end_date date NOT NULL,
+	status enum('active', 'scheduled', 'finished', 'delayed', 'unsuccessful', 'cancelled') DEFAULT 'scheduled',
 	FOREIGN KEY (manager_id) REFERENCES account(id),
 	FOREIGN KEY (location) REFERENCES location(location_id)
 ) ENGINE=InnoDB;
@@ -141,6 +142,7 @@ CREATE TABLE experience (
 	title varchar(100) NOT NULL,
 	description varchar(255),
 	role varchar(100) NOT NULL,
+  	active tinyint(1) unsigned DEFAULT 1,
 	skills varchar(255) NOT NULL,
 	FOREIGN KEY (staff_id) REFERENCES staff(staff_id) ON DELETE CASCADE,
 	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE SET NULL
