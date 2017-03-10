@@ -1760,9 +1760,9 @@ nav {
           display: block;
           color: white;
           padding: 8px 24px; }
-        nav div ul li a:hover {
-          text-decoration: none;
-          color: #0389ff; }
+        nav div ul li a:hover, nav div ul li a.active {
+          text-decoration: underline;
+          color: #ffffff; }
     nav div #logout {
       display: inline-block;
       padding: 15px;

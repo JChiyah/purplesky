@@ -98,7 +98,6 @@ nav {
 	#bg {
 		width: 75%;
 		height: auto;
-
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -134,9 +133,9 @@ nav {
 					color: $nav-font-color;
 					padding: 8px 24px;
 				}
-				a:hover {
-					text-decoration: none;
-					color: $nav-hover-color;
+				a:hover, a.active {
+					text-decoration: underline;
+					color: #ffffff;
 				}
 			}
 		}
