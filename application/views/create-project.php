@@ -4,7 +4,7 @@
 		<?php echo form_open('Project/create_project');?>
 
 			<div id="infoMessage"><?php echo $message;?></div>
-			<div class="container-fluid project-tab" id="project-details" style="display: none">
+			<div class="container-fluid project-tab" id="project-details">
 				<h2>Project Details</h2>
 				<hr>
 
@@ -46,11 +46,13 @@
 				</section>
 			</div>
 				
-			<div class="container-fluid project-tab" id="project-summary">
+			<div class="container-fluid project-tab" id="project-summary" style="display: none">
 				<h2>Summary</h2>
 				<hr>
 
 				<div class="container-fluid content">
+
+					<p>These are the details of the project you are about to create. Please check that all information is correct. You will be able to assign people to the project after it has been created.</p><br/>
 					
 					<h1 id="title_summary">Test Project</h1>
 					<h3><?php echo $manager; ?></h3>
@@ -77,7 +79,7 @@
 					    	</p>
 					    </div>
 					</div>
-					<p id="description_summary"></p>
+					<p id="description_summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros tortor. Quisque vulputate nisl ac ex fringilla, ac euismod libero imperdiet. Donec porta vel dolor ut tempus. Cras vel tortor neque. Ut ac mauris dolor. Integer a magna metus.</p><br/>
 
 					<button type="button" class="project-back">Back</button>
 

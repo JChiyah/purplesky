@@ -152,11 +152,11 @@ class Project extends CI_Controller {
 		}
 
 		// Setting validation rules
-		$this->form_validation->set_rules('title', 'Project title', 'required|trim|min_length[3]|alpha_numeric_spaces');
-		$this->form_validation->set_rules('description', 'Project description', 'required|trim|min_length[3]|max_length[250]|alpha_numeric_spaces');
-		$this->form_validation->set_rules('start_date', 'Project start date', 'callback_check_date');
-		$this->form_validation->set_rules('end_date', 'Project end date', 'callback_check_date');
-		$this->form_validation->set_rules('location', 'Location', 'is_natural_no_zero', array( 'is_natural_no_zero' => 'The project location is not valid.'));
+		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[3]|alpha_numeric_spaces');
+		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[3]|max_length[250]|alpha_numeric_spaces');
+		$this->form_validation->set_rules('start_date', 'start date', 'trim|exact_length[10]|callback_check_date');
+		$this->form_validation->set_rules('end_date', 'end date', 'trim|exact_length[10]|callback_check_date');
+		$this->form_validation->set_rules('location', 'location', 'is_natural_no_zero', array( 'is_natural_no_zero' => 'You have to assign a location for the project'));
 		
 		if ($this->form_validation->run() == false)
 		{
@@ -296,8 +296,11 @@ class Project extends CI_Controller {
 	 * @param $date
 	 * @author JChiyah
 	 */
+	// "/(0[1-9]|[1-2][0-9]|3[0-1]\/(0[1-9]|1[0-2])\/^[0-9]{4})$/"
 	public function check_date($date) {
-		if(preg_match("/(0[1-9]|[1-2][0-9]|3[0-1]\/(0[1-9]|1[0-2])\/^[0-9]{4})$/", $date)) {
+		$regex = "/([0-9]{4}-(0[1-9]|1[0-2])-0[1-9]|[1-2][0-9]|3[0-1])$/";
+
+		if(preg_match($regex, $date)) {
 			// Date is now yyyy-mm-dd
 			// Using checkdate(mm, dd, yyyy)
 			$date_arr = explode('-', $date);
@@ -307,7 +310,7 @@ class Project extends CI_Controller {
 				}
 			}
 		}
-		$this->form_validation->set_message('check_date', 'The {field} is not a valid date.');
+		$this->form_validation->set_message('check_date', "The {field} is not a valid date");
         return FALSE;
 	}
 

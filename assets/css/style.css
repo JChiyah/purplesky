@@ -2441,6 +2441,7 @@ footer {
         border: 1px solid #C0C0C0;
         padding: 3px 12px; }
   #create-project #project-summary {
+    font-size: 1.2em;
     		/*#allocated-staff {
     			margin: 1.5em 0.5em;
     
@@ -2468,6 +2469,8 @@ footer {
     				}
     			}
     		}*/ }
+    #create-project #project-summary .content {
+      padding: 2em 4em 3em 4em; }
     #create-project #project-summary h1 {
       font-size: 2.4em; }
     #create-project #project-summary h3 {
@@ -2477,6 +2480,10 @@ footer {
       font-weight: 400; }
     #create-project #project-summary #right-div p {
       text-align: right; }
+    #create-project #project-summary .row {
+      margin: 1em; }
+    #create-project #project-summary #description_summary {
+      margin: 2em 1em; }
 
 @media (max-width: 768px) {
   #create-project form {

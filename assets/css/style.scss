@@ -1020,6 +1020,11 @@ footer {
 	}
 
 	#project-summary {
+		font-size: 1.2em;
+
+		.content {
+			padding: 2em 4em 3em 4em;
+		}
 
 		h1 {
 			font-size: 2.4em;
@@ -1036,6 +1041,14 @@ footer {
 			p {
 				text-align: right;
 			}
+		}
+
+		.row {
+			margin: 1em;
+		}
+
+		#description_summary {
+			margin: 2em 1em;
 		}
 
 		/*#allocated-staff {
