@@ -263,6 +263,7 @@ class User_model extends CI_Model {
 
 		$query = $this->db->select('experience_id, start_date, end_date, project_id, title, description, role')
 						->where('staff_id', $id)
+						->where('active', 1)
 						->order_by('end_date', 'desc')
 						->get('experience');
 
@@ -316,7 +317,8 @@ class User_model extends CI_Model {
 			// Check if the staff_id is the same as the one provided
 			if($result->staff_id == $user_id) {
 				// Delete experience
-				return $this->db->delete('experience', array('experience_id' => $experience_id));
+
+				return $this->db->update('experience', array('active' => 0),array('experience_id' => $experience_id));
 			}
 			// Else trying to delete another's user data
 		}
