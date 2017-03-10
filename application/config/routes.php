@@ -60,5 +60,7 @@ $route['create-project'] = 'Project/create_project';
 $route['dashboard/(:num)'] = 'Main/project_dashboard_view/$1';
 $route['search'] = 'Main/search_view';
 $route['register'] = 'Auth/create_user';
+$route['privacy-policy'] = 'Main/privacy_view';
+$route['terms-of-use'] = 'Main/terms_view';
 $route['change-password'] = 'Auth/change_password';
 $route['passforgot'] = 'Main/forgot_password';

@@ -138,6 +138,24 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
+	public function privacy_view()
+	{
+		$data['page_body'] = 'inc/privacy';
+		$data['page_title'] = 'Privacy Policy';
+		$data['page_description'] = 'Privacy policy for the resource allocation system';
+
+		$this->load->view('html', $data);
+	}
+
+	public function terms_view()
+	{
+		$data['page_body'] = 'inc/terms';
+		$data['page_title'] = 'Terms of Use';
+		$data['page_description'] = 'Terms of use for the resource allocation system';
+
+		$this->load->view('html', $data);
+	}
+
   	// forgot password
   	public function forgot_password()
   	{       
