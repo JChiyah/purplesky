@@ -23,4 +23,3 @@
 	    <p>Powered by Purple Sky &#169 2016</p>
 	</div>
 </footer>
-<!--<script type="text/javascript" src="inc/fnc/site.js"></script>-->

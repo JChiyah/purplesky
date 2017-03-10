@@ -19,25 +19,18 @@
 		<p><?= $project->description ?></p>
 		<hr>
 		<h2>Notifications</h2>
-			<?php if(isset($dashboard) && $dashboard && sizeof($dashboard) > 0) :
-				foreach($dashboard as $notification) : ?>
 
-					<div class="notification">
-						<p class="col-xs-9"><?= $notification->description ?></p>
-						<p class="col-xs-3 not-date"><?= time_elapsed_string($notification->date) ?></p>
-					</div>
-					<hr>
+		<div id="dashboard_entries">
 
-				<?php endforeach ?>
+			<?php $this->load->view('displays/project-dashboard-entries.php', $dashboard_entries); ?>
 
-			<?php else : ?>
-				<p>No notifications to show here</p>
-			<?php endif ?>
+		</div>
 
 		<?php if ($is_manager) : ?>
 			<form action="" method="post">
-				<input type="text" name="" value="" placeholder="Enter a new notification">
-				<input type="submit" name="" value="Add notification" id="">
+				<input type="text" name="" id="description" placeholder="Enter a new notification">
+				<input type="submit" name="" value="Add notification" id="dashboard-entry-submit">
+				<input type="hidden" name="" value="<?= $project->project_id ?>" id="project_id">
 			</form>
 			<hr>
 		

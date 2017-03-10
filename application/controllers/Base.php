@@ -19,6 +19,17 @@ class Base extends CI_Controller {
 		$this->load->model("Project_model");
 	}
 
-
+	/**
+	 * Helper function to parse any simple text input
+	 *
+	 * @param $input
+	 * @author JChiyah
+	 */
+	protected function parse_input($input) {
+		$input = trim($input);
+		$input = stripslashes($input);
+		$input = htmlspecialchars($input);
+		return $input;
+	}
 
 }

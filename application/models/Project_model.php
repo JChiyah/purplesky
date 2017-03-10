@@ -17,7 +17,7 @@ class Project_model extends CI_Model {
 	 */
 	public function get_project_by_id($id) {
 
-		$query = $this->db->select('title, description, priority, CONCAT(first_name, " ", last_name) AS manager, location.name AS location, budget, start_date, end_date')
+		$query = $this->db->select('project_id, title, description, priority, CONCAT(first_name, " ", last_name) AS manager, location.name AS location, budget, start_date, end_date')
 						->where('project_id', $id)
 						->limit(1)
 						->join('account', 'account.id=project.manager_id')
@@ -60,10 +60,10 @@ class Project_model extends CI_Model {
 	 * @return mixed boolean / array of object(id, name, role, assigned_at, pay_rate)
 	 * @author JChiyah
 	 */
-	public function get_project_staff($id) {
+	public function get_project_staff($project_id) {
 
 		$query = $this->db->select('project_staff.staff_id AS id, CONCAT(first_name, " ", last_name) AS name, role, assigned_at, start_date, end_date, pay_rate')
-						->where('project_id', $id)
+						->where('project_id', $project_id)
 						->join('staff', 'staff.staff_id=project_staff.staff_id')
 						->join('account', 'account.id=staff.staff_id')
 						->get('project_staff');
@@ -89,6 +89,7 @@ class Project_model extends CI_Model {
 		$query = $this->db->select('description, at_date AS date')
 						->where('project_id', $id)
 						->limit($limit)
+						->order_by('entry_id', 'desc')
 						->get('project_dashboard');
 
 		$result = $query->result();
@@ -97,6 +98,65 @@ class Project_model extends CI_Model {
 			return $result;
 		}
 		return FALSE;
+	}
+
+	/**
+	 * Creates a new entry in the project dashboard
+	 *
+	 * @param $user_id
+	 * @param $project_id
+	 * @param $description
+	 * @return mixed boolean
+	 * @author JChiyah
+	 */
+	public function add_dashboard_entry($user_id, $project_id, $description) {
+
+		if(!$this->is_manager($project_id, $user_id)) {
+			return FALSE;
+		}
+
+		$entry = array(
+			'project_id'	=> $project_id,
+			'description'	=> $description,
+			'at_date'		=> date("Y-m-d H:i:s")
+		);
+
+		if($this->db->insert('project_dashboard', $entry)) {
+
+			// Find project title
+			$title = $this->get_project_by_id($project_id)->title;
+			
+			$des = "New manager post on <a href='dashboard/$project_id'>$title</a>";
+
+			return $this->notify_project_staff($project_id, $des);
+		}
+		return FALSE;
+	}
+
+	/**
+	 * Shortcut to create a new notification for all staff in a project
+	 *
+	 * @param $project_id
+	 * @param $description
+	 * @author JChiyah
+	 */
+	public function notify_project_staff($project_id, $description) {
+
+		$this->db->trans_start(); 	// Start transaction
+
+		$staff = $this->get_project_staff($project_id);
+
+		if(isset($staff) && $staff) {
+
+			foreach($staff as $employee) {
+				$this->User_model->add_user_activity($employee->id, $description);
+			}
+
+		}
+
+		$this->db->trans_complete(); // Close transaction
+
+		return TRUE;
 	}
 
 	/**
@@ -158,7 +218,7 @@ class Project_model extends CI_Model {
 			));
 
 			// Handle a staff notifications
-			$this->User_model->add_user_activity($s['id'],'',$project_id);
+			$this->User_model->add_assign_employee_activity($s['id'],$project_id);
 		}
 
 		// Handle staff availability

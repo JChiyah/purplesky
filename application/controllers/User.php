@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller {
+require_once('Base.php');
+class User extends Base {
 
 	public function __construct()
 	{
@@ -94,7 +95,6 @@ class User extends CI_Controller {
 		} else {
 			echo 'Error adding experience';
 		}
-		
 	}
 
 	/**
@@ -189,19 +189,6 @@ class User extends CI_Controller {
 					</div></div>';
 			}
 		}
-	}
-
-	/**
-	 * Helper function to parse any simple text input
-	 *
-	 * @param $input
-	 * @author JChiyah
-	 */
-	protected function parse_input($input) {
-		$input = trim($input);
-		$input = stripslashes($input);
-		$input = htmlspecialchars($input);
-		return $input;
 	}
 
 }

@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Project extends CI_Controller {
+require_once('Base.php');
+class Project extends Base {
 
 	public function __construct()
 	{
@@ -15,6 +16,27 @@ class Project extends CI_Controller {
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
 		$this->lang->load('auth');
+	}
+
+	/**
+	 * Adds a project dashboard entry
+	 * Call from a form post using AJAX
+	 *
+	 * @param project notification form
+	 * @author JChiyah
+	 */
+	public function add_dashboard_entry() {
+		// get and format input
+		$user_id = $this->session->userdata('user_id');
+		$project_id = $this->input->post('project_id');
+		$description = $this->parse_input($this->input->post('description'));
+
+		if($this->Project_model->add_dashboard_entry($user_id, $project_id, $description)) {
+			$data['dashboard_entries'] = $this->Project_model->get_project_dashboard($project_id);
+			return $this->load->view('displays/project-dashboard-entries.php', $data);
+		} else {
+			echo 'Error adding activity';
+		}
 	}
 
 	/**

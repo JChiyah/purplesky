@@ -357,38 +357,46 @@ class User_model extends CI_Model {
 	 * @return mixed boolean
 	 * @author JChiyah
 	 */
-	public function add_user_activity($user_id, $description = '', $project_id = FALSE) {
+	public function add_user_activity($user_id, $description) {
 		// if no id was passed use the current users id
 		$id = isset($id) ? $id : $this->session->userdata('user_id');
 
 		$notification = array(
 			'user_id'		=> $user_id,
+			'description'	=> $description,
 			'at_date'		=> date("Y-m-d H:i:s")
 		);
 
-		if(isset($project_id) && $project_id) {
-			// Find project title
-			$title = $this->Project_model->get_project_by_id($project_id)->title;
-
-			$notification['description'] = "You have been assigned to: <a href='dashboard/$project_id'>$title</a>";
-		} else {
-			$notification['description'] = $description;
-		}
-
 		return $this->db->insert('activity', $notification);
-		
+	}
+
+	/**
+	 * Shortcut to create a new notification for employees when assigned to a project
+	 *
+	 * @param $user_id
+	 * @param $project_id
+	 * @return mixed boolean
+	 * @author JChiyah
+	 */
+	public function add_assign_employee_activity($user_id, $project_id) {
+
+		// Find project title
+		$title = $this->Project_model->get_project_by_id($project_id)->title;
+
+		$description = "You have been assigned to: <a href='dashboard/$project_id'>$title</a>";
+
+		return $this->add_user_activity($user_id, $description);
 	}
 
 	/**
 	 * Shortcut to create a new notification for project managers
 	 *
 	 * @param $manager_id
-	 * @param $description
 	 * @param $project_id
 	 * @return mixed boolean
 	 * @author JChiyah
 	 */
-	public function add_manager_activity($manager_id, $project_id) {
+	public function add_project_manager_activity($manager_id, $project_id) {
 
 		// Find project title
 		$title = $this->Project_model->get_project_by_id($project_id)->title;
@@ -396,7 +404,6 @@ class User_model extends CI_Model {
 		$description = "You have created a new project <a href='dashboard/$project_id'>$title</a>";
 
 		return $this->add_user_activity($manager_id, $description);
-		
 	}
 
 	/**
