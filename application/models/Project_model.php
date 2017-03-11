@@ -329,7 +329,8 @@ class Project_model extends CI_Model {
 	 * Creates a new project
 	 *
 	 * @param $manager_id
-	 * @param $project_id
+	 * @param $project_info
+	 * @param $staff
 	 * @return mixed boolean / project_id
 	 * @author JChiyah
 	 */
@@ -370,6 +371,64 @@ class Project_model extends CI_Model {
 			return $project_id;
 		}
 		return FALSE;
+	}
+
+	/**
+	 * Update project details
+	 *
+	 * @param $manager_id
+	 * @param $project_id
+	 * @param $project_info
+	 * @return mixed boolean / project_id
+	 * @author JChiyah
+	 */
+	public function update_project($manager_id, $project_id, $project_info) {
+
+		if(!$this->is_manager($project_id, $manager_id)) {
+			return FALSE;
+		}
+
+		$query = $this->db->select()
+						->where('project_id', $project_id)
+						->where('manager_id', $manager_id)
+						->limit(1)
+						->get('project');
+
+		$old_data = $query->row();
+
+		if(!isset($old_data) || !$old_data) {
+			return FALSE;
+		}
+
+		if($this->db->update('project', $project_info, 
+			array('project_id' => $project_id, 'manager_id' => $manager_id))) {
+
+			// All okay, get data from db
+			$query = $this->db->select()
+						->where('project_id', $project_id)
+						->where('manager_id', $manager_id)
+						->limit(1)
+						->get('project');
+
+			$new_data = $query->row();
+
+			// Check changes
+			$changes = array();
+			foreach($new_data as $key => $value) {
+
+				if($value != $old_data->$key) {
+					$changes[$key]['old'] = $old_data->$key;
+					$changes[$key]['new'] = $value;
+				}
+
+			}
+
+			// Do something with the list of changes
+
+			return TRUE;
+
+		}
+
 	}
 
 

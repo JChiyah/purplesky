@@ -9,7 +9,7 @@ $(function() {
 			url: baseurl + "Project/add_dashboard_entry",
 			data: {
 				'project_id' : $('#project_id').val(),
-				'description' : $('#description').val(),
+				'description' : $('#entry-description').val(),
 				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 			},
 			success: function(res) {
@@ -83,7 +83,8 @@ $(function() {
 	});
 
 	$("#edit-project-submit").click(function(event) {
-		event.preventDefault();
+		event.preventDefault();			
+
 		if(!validate_project()) {
 			// Extra security
 			$('#edit-details').show();
@@ -94,24 +95,25 @@ $(function() {
 
 			$.ajax({
 				type: "POST",
-				url: baseurl + "Project/edit_project",
+				url: baseurl + "Project/update_project",
 				data: {
 					'project_id' : project_id,
 					'title' : $('#title').val(),
 					'description' : $('#description').val(),
 					'start_date' : $('#start_date').val(),
 					'end_date' : $('#end_date').val(),
+					'location' : $('#location').val(),
 					'priority' : $('input[name=priority]:checked').val(),
 					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 				},
 				success: function(res) {
-					if(res) {
-						window.location.replace(window.location.href + '/action-edit');
+					if(res === 'success') {
+						window.location.replace(baseurl + 'project-management/' + project_id + '/action-edit');
 					}
-				}, error: function(req, textStatus, errorThrown) {
+				}/*, error: function(req, textStatus, errorThrown) {
 			        // To debug when an error happens (possibly a code 500 error)
 			        console.error('Ooops, something happened: ' + textStatus + ' ' +errorThrown);
-			    }
+			    }*/
 			});
 		}
 	});

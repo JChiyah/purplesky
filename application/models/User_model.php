@@ -322,7 +322,7 @@ class User_model extends CI_Model {
 			if($result->staff_id == $user_id) {
 				// Delete experience
 
-				return $this->db->update('experience', array('active' => 0),array('experience_id' => $experience_id));
+				return $this->db->update('experience', array('active' => 0), array('experience_id' => $experience_id));
 			}
 			// Else trying to delete another's user data
 		}

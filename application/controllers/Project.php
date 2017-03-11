@@ -300,6 +300,41 @@ class Project extends Base {
 	}
 
 	/**
+	 * Updates project details
+	 * Call from a form post using AJAX
+	 *
+	 * @param post('project_id')
+	 * @param post('title')
+	 * @param post('description')
+	 * @param post('start_date')
+	 * @param post('end_date')
+	 * @param post('location')
+	 * @param post('priority')
+	 * @author JChiyah
+	 */
+	public function update_project() {
+		// get and format input
+		$user_id = $this->session->userdata('user_id');
+		$project_id = $this->input->post('project_id');
+
+		$project_details = array(
+			'title' 		=> $this->parse_input($this->input->post('title')),
+			'description' 	=> $this->parse_input($this->input->post('description')),
+			'start_date' 	=> $this->input->post('start_date'),
+			'end_date' 		=> $this->input->post('end_date'),
+			'location' 		=> $this->input->post('location'),
+			'priority' 		=> $this->input->post('priority')
+		);
+
+		if($this->Project_model->update_project($user_id, $project_id, $project_details)) {
+			echo 'success';
+		} else {
+			echo 'Error adding activity';
+		}
+	}
+
+
+	/**
 	 * Helper function to parse any simple text input
 	 *
 	 * @param $input

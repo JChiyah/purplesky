@@ -23,7 +23,7 @@
 				Staff working in the project will also be notified</p>
 
 				<form method="post" id="new-entry">
-					<input type="text" name="" id="description" placeholder="Enter a new notification" maxlength="250">
+					<input type="text" name="" id="entry-description" placeholder="Enter a new notification" maxlength="250">
 					<input type="submit" name="" value="Add notification" id="dashboard-entry-submit">
 					<input type="hidden" name="" value="<?= $project->project_id ?>" id="project_id">
 				</form>
@@ -31,7 +31,7 @@
 				<button id="another-entry">Add another entry</button>
 			</div>
 
-			<div class="container-fluid tab" id="edit-project" style="display: none">
+			<div class="container-fluid tab" id="edit-project">
 				
 				<?php echo form_open('', array('id' => 'edit-project-form'));?>
 
@@ -116,7 +116,7 @@
 
 			</div>
 
-			<div class="container-fluid tab" id="project-status">
+			<div class="container-fluid tab" id="project-status" style="display: none">
 	
 				<p>Here you can change the project status.<br/>
 				Any changes made will be notified to the staff working on the project and some changes may require admin aproval.</p>
