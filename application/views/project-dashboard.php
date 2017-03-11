@@ -1,5 +1,11 @@
 <?php global $user_group; ?>
 <div id="project-dashboard">
+
+	<?php if ($is_manager) : ?>
+
+		<a href="<?= site_url('project-management') ?>/<?= $project->project_id ?>" class="g-button">Project Management</a>
+
+	<?php endif ?>
 	
 	<h1><b><?= $project->title ?></b></h1>
 	<h2><?= $project->manager ?></h2>
@@ -12,6 +18,7 @@
 				<p><b>End date:</b> <?= $project->end_date ?></p>
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-6" id="right-div">
+				<p><?= ucfirst($project->status) ?> <span class="circle" id="<?= $status ?>"></span></p>
 				<p><?= ucfirst($project->priority) ?> priority</p>
 				<p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <?= $project->location ?></p>
 			</div>
@@ -25,16 +32,6 @@
 			<?php $this->load->view('displays/project-dashboard-entries.php', $dashboard_entries); ?>
 
 		</div>
-
-		<?php if ($is_manager) : ?>
-			<form action="" method="post">
-				<input type="text" name="" id="description" placeholder="Enter a new notification">
-				<input type="submit" name="" value="Add notification" id="dashboard-entry-submit">
-				<input type="hidden" name="" value="<?= $project->project_id ?>" id="project_id">
-			</form>
-			<hr>
-		
-		<?php endif ?>
 
 	</div>
 

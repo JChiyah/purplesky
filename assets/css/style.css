@@ -2853,4 +2853,28 @@ footer {
   #project-dashboard .tablepay {
     text-align: right; }
 
+/** Project status **/
+.circle {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%; }
+
+#green {
+  background: #2ecc71; }
+
+#yellow {
+  background: #f1c40f; }
+
+#blue {
+  background: #0389ff; }
+
+#orange {
+  background: #f39c12; }
+
+#red {
+  background: #e74c3c; }
+
 /*# sourceMappingURL=style.css.map */
