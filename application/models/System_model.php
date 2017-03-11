@@ -207,6 +207,10 @@ class System_model extends CI_Model {
 	 */
 	public function decompress_skills($string) {
 
+		if(empty($string)) {
+			return array();
+		}
+
 		return explode(',',$string);
 	}
 
@@ -225,6 +229,10 @@ class System_model extends CI_Model {
 		}
 
 		$data = array();
+		if(empty($skill_arr)) {
+			return $data;
+		}
+
 		foreach($skill_arr as $skill) {
 			array_push($data, $this->get_skill_name($skill));
 		}

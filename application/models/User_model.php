@@ -261,7 +261,7 @@ class User_model extends CI_Model {
 		// if no id was passed use the current users id
 		$id = isset($id) ? $id : $this->session->userdata('user_id');
 
-		$query = $this->db->select('experience_id, start_date, end_date, project_id, title, description, role')
+		$query = $this->db->select('experience_id, start_date, end_date, project_id, title, description, role, skills')
 						->where('staff_id', $id)
 						->where('active', 1)
 						->order_by('end_date', 'desc')
@@ -270,6 +270,10 @@ class User_model extends CI_Model {
 		$result = $query->result();
 
 		if(isset($result) && !empty($result)) {
+			foreach($result as $experience) {
+				$experience->skills = $this->System_model->get_skill_names($experience->skills);
+			}
+			
 			return $result;
 		}
 		return FALSE;

@@ -12,13 +12,28 @@
 				<p class="title">
 
 				<?php if(isset($experience->project_id)) : ?>
+
 					<a href="dashboard/' . $experience->project_id . '"> <?= $experience->title ?> </a>
+
 				<?php else : ?> <?= $experience->title ?> <?php endif ?>
 	
 				</p>
+				
+				<p> <?= $experience->description ?> </p>
 
 				<div class="row">
-					<p class="col-md-10"> <?= $experience->description ?> </p>
+					<p class="col-md-10">
+						
+						<?php if(!empty($experience->skills) && sizeof($experience->skills) > 0) : ?>
+							Skills: 
+
+	                        <?php foreach($experience->skills as $skill) : ?>
+	                            <span class="skill-span"><?= $skill ?></span>
+	                        <?php endforeach ?>
+
+	                    <?php endif ?>
+
+                    </p>
 					<button class="g-button delete-experience-tag col-md-2"> 
 						<i class="fa fa-times fa-lg" aria-hidden="true"></i> Delete
 					</button>
