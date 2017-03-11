@@ -17,7 +17,7 @@ class Project_model extends CI_Model {
 	 */
 	public function get_project_by_id($id) {
 
-		$query = $this->db->select('project_id, title, description, priority, CONCAT(first_name, " ", last_name) AS manager, location.name AS location, budget, start_date, end_date')
+		$query = $this->db->select('project_id, title, description, priority, CONCAT(first_name, " ", last_name) AS manager, location.name AS location, budget, start_date, end_date, status')
 						->where('project_id', $id)
 						->limit(1)
 						->join('account', 'account.id=project.manager_id')

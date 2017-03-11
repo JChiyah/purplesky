@@ -130,10 +130,123 @@ class Main extends Base {
 		$data['page_title'] = 'Project dashboard';
 		$data['page_description'] = 'Dashboard for the project containing relevant details';
 
-		$data['is_manager'] = $this->Project_model->is_manager($project_id, $this->session->userdata('user_id'));
 		$data['project'] = $this->Project_model->get_project_by_id($project_id);
+
+		if(!isset($data['project']) || !$data['project']) {
+			// Trying to access a page that doesn't exists...
+			redirect('index');
+		}
+
+		switch ($data['project']->status) {
+			case 'active':
+				$data['status'] = 'green';
+				break;
+			case 'scheduled':
+				$data['status'] = 'yellow';
+				break;
+			case 'finished':
+				$data['status'] = 'blue';
+				break;
+			case 'delayed':
+				$data['status'] = 'orange';
+				break;
+			default:
+				$data['status'] = 'red';
+				break;
+		}
+
+		$data['is_manager'] = $this->Project_model->is_manager($project_id, $this->session->userdata('user_id'));
 		$data['staff'] = $this->Project_model->get_project_staff($project_id);
 		$data['dashboard_entries'] = $this->Project_model->get_project_dashboard($project_id);
+
+		$this->load->view('html', $data);
+	}
+
+	public function project_management_view($project_id, $state = FALSE)
+	{		
+		// Check user is logged in
+		if (!$this->ion_auth->logged_in()) {
+			redirect('index');
+		}
+		if(!$this->Project_model->is_manager($project_id, $this->session->userdata('user_id'))) {
+			// No permission
+			redirect('index');
+		}
+
+		$data['page_body'] = 'project-panel';
+		$data['page_title'] = 'Project Management';
+		$data['page_description'] = 'Management control panel for project';
+		
+		$data['project'] = $this->Project_model->get_project_by_id($project_id);
+
+		if(!isset($data['project']) || !$data['project']) {
+			// Trying to access a page that doesn't exists...
+			redirect('index');
+		}
+
+		$data['locations'] = $this->System_model->get_locations();
+
+		switch($state) {
+			case 'action-edit' : 
+					$data['action'] = 'edit'; 
+					break;
+			case 'action-lol' : 
+					$data['action'] = 'edit'; 
+					break;
+			default :
+		
+		}
+
+		$data['edit_project']['title'] = array(
+			'name'  => 'title',
+			'id'    => 'title',
+			'required' => 'required',
+			'value' => $data['project']->title
+		);
+		$data['edit_project']['description'] = array(
+			'name'  => 'description',
+			'id'    => 'description',
+			'required' => 'required',
+			'value' => $data['project']->description
+		);
+		$data['edit_project']['start_date'] = array(
+			'name'  => 'start_date',
+			'id'    => 'start_date',
+			'required' => 'required',
+			'min'	=> date('Y-m-d', strtotime('tomorrow')),
+			'max'	=> '2024-12-30',
+			'value' => $data['project']->start_date
+		);
+		$data['edit_project']['end_date'] = array(
+			'name'  => 'end_date',
+			'id'    => 'end_date',
+			'required' => 'required',
+			'min'	=> date('Y-m-d', time()+172800),
+			'max'	=> '2024-12-31',
+			'value' => $data['project']->end_date
+		);
+		$data['edit_project']['location'] = array(
+			'name'  => 'location',
+			'id'    => 'location',
+			'required' => 'required'
+		);
+		$data['edit_project']['current_location'] = $this->System_model->get_location_id($data['project']->location);
+		$data['edit_project']['normal_priority'] = array(
+			'name'  => 'priority',
+			'id'    => 'normal',
+			'value' => '1'
+		);
+		$data['edit_project']['high_priority'] = array(
+			'name'  => 'priority',
+			'id'    => 'high',
+			'value' => '2'
+		);
+
+		if($data['project']->priority == 'normal') {
+			$data['edit_project']['normal_priority']['checked'] = true;
+		} else {
+			$data['edit_project']['high_priority']['checked'] = true;
+		}
 
 		$this->load->view('html', $data);
 	}

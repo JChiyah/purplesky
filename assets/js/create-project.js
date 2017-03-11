@@ -24,11 +24,6 @@ $(function() {
 		}
 	}*/
 
-	function validate_dates(start_date, end_date) {
-
-		return d2.getTime() >= d1.getTime() && (d1.getTime() >= now.getTime());
-	}
-
 	// Button to continue 
 	$('.project-continue').on('click', function() {
 
