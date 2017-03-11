@@ -1740,6 +1740,7 @@ nav {
   nav div {
     background: #1f1646;
     font-size: 1.4em;
+    line-height: 20px;
     position: relative;
     z-index: 2; }
     nav div ul {
@@ -1750,19 +1751,29 @@ nav {
       margin: 0;
       cursor: default; }
       nav div ul li {
+        float: none;
         display: inline-block;
-        line-height: 20px; }
+        margin: 0;
+        padding: 0; }
         nav div ul li .scroll-button {
           padding: 0 24px;
-          font-size: 1.5em; }
+          font-size: 1.3em; }
         nav div ul li a {
           text-decoration: none;
+          text-align: center;
           display: block;
+          float: left;
           color: white;
-          padding: 8px 24px; }
+          padding: 4px;
+          margin: 0 5px;
+          -webkit-transition: all ease 0.8s;
+          -moz-transition: all ease 0.8s;
+          transition: all ease 0.8s;
+          border-bottom: 2px solid #1f1646; }
         nav div ul li a:hover, nav div ul li a.active {
-          text-decoration: underline;
-          color: #ffffff; }
+          color: white;
+          text-decoration: none;
+          border-bottom: 2px solid white; }
     nav div #logout {
       display: inline-block;
       padding: 15px;
@@ -1932,9 +1943,6 @@ footer {
     font-size: .8em; }
 
 @media (max-width: 768px) {
-  body {
-    background: #E1E5E6; }
-
   #login-container {
     width: 100%;
     margin-top: 0px; }
@@ -1969,10 +1977,8 @@ footer {
   text-decoration: none; }
 
 /* * * * Home style section * * * */
-#home-page {
-  background: #E1E5E6; }
-  #home-page .container:first-child {
-    width: 90%; }
+#home-page .container:first-child {
+  width: 90%; }
 
 .home-container {
   padding: 1em;

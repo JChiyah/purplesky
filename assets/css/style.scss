@@ -107,6 +107,7 @@ nav {
 	div {
 		background: $blue;
 		font-size: 1.4em;
+		line-height: 20px;
 		position: relative;
 		z-index: 2;
 
@@ -119,23 +120,33 @@ nav {
 			cursor: default;
 
 			li {
+				float: none;
 				display: inline-block;
-				line-height: 20px;
+				margin: 0;
+				padding: 0;
 
 				.scroll-button {
 					padding: 0 24px;
-					font-size: 1.5em;
+					font-size: 1.3em;
 				}
 
 				a {
 					text-decoration: none;
+					text-align: center;
 					display: block;
+					float: left;
 					color: $nav-font-color;
-					padding: 8px 24px;
+					padding: 4px;
+					margin: 0 5px;
+					-webkit-transition: all ease 0.8s;
+				    -moz-transition: all ease 0.8s;
+				    transition: all ease 0.8s;
+					border-bottom: 2px solid $blue;
 				}
 				a:hover, a.active {
-					text-decoration: underline;
-					color: #ffffff;
+					color: $nav-font-color;
+					text-decoration: none;
+					border-bottom: 2px solid $nav-font-color;
 				}
 			}
 		}
@@ -319,7 +330,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-	body { background: $grey-background2; }
 	#login-container {
 		width: 100%;
 		margin-top: 0px;
@@ -357,7 +367,6 @@ footer {
 
 /* * * * Home style section * * * */
 #home-page {
-	background: $grey-background2;
 
 	.container:first-child {
 		width: 90%;
