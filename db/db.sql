@@ -189,15 +189,16 @@ CREATE TABLE project_staff (
 	FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 ) ENGINE=InnoDB;
 
-# Create past_staff table
-CREATE TABLE past_staff (
-	id integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	first_name varchar(255) NOT NULL,
-	last_name varchar(255) NOT NULL,
-	email varchar(255) NOT NULL,
-	created_at datetime NOT NULL,
-	deleted_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	type enum('employee', 'contractor', 'projectManager') NOT NULL
+# Create project_task table
+CREATE TABLE project_task (
+	task_id integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	project_id integer NOT NULL,
+	skills varchar(255) NOT NULL,
+	staff varchar(255) NOT NULL,
+	description varchar(255) NOT NULL,
+	at_date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	status enum('active', 'scheduled', 'finished', 'cancelled') DEFAULT 'scheduled', 
+	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 COMMIT;
