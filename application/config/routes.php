@@ -58,6 +58,7 @@ $route['profile'] = 'Main/profile_view';
 $route['projects'] = 'Main/projects_view';
 $route['create-project'] = 'Project/create_project';
 $route['dashboard/(:num)'] = 'Main/project_dashboard_view/$1';
+$route['project-management/(:num)/staff-allocation'] = 'Main/staff_allocation_view/$1';
 $route['project-management/(:num)/(:any)'] = 'Main/project_management_view/$1/$2';
 $route['project-management/(:num)'] = 'Main/project_management_view/$1';
 $route['search'] = 'Main/search_view';

@@ -7,16 +7,16 @@
 
 	<div class="container-fluid row">
 		
-		<div class="col-md-4" id="left-bar">
+		<div class="col-md-2" id="left-bar">
 			<ul>
 				<li><button id="notification">Add Notification</button></li>
 				<li><button id="edit">Edit Project</button></li>
-				<li><button href="<?= site_url('allocate-staff') ?>/<?= $project->project_id ?>" id="allocate-staff">Allocate staff</button></li>
+				<li><a href="<?= site_url('project-management') ?>/<?= $project->project_id ?>/staff-allocation">Allocate staff</a></li>
 				<li><button id="status">Change Project Status</button></li>
 			</ul>
 		</div>
 
-		<div class="container-fluid col-md-8">
+		<div class="container-fluid col-md-10">
 			
 			<div class="container-fluid tab" id="dashboard-entry" style="display: none">
 				<p>Here you can add a new notification to the project dashboard that everyone can see.<br/>

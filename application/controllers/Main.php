@@ -29,8 +29,8 @@ class Main extends Base {
 		$this->lang->load('auth');
 	}
 	
-	public function index()
-	{
+	public function index()	{
+
 		$this->load->helper('url_helper');
 
 		$user_id = $this->session->userdata('user_id');
@@ -50,8 +50,8 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
-	public function profile_view()
-	{
+	public function profile_view() {
+
 		$data = $this->experience_form();
 		$data['page_body'] = 'profile';
 		$data['page_title'] = 'Profile';
@@ -74,8 +74,8 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
-	public function search_view()
-	{
+	public function search_view() {
+
 		$data['page_body'] = 'search';
 		$data['page_title'] = 'Search projects';
 		$data['page_description'] = 'Search projects';
@@ -106,8 +106,8 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
-	public function projects_view()
-	{
+	public function projects_view() {
+
 		$data['page_body'] = 'projects';
 		$data['page_title'] = 'My projects';
 		$data['page_description'] = 'List of your current projects';
@@ -124,8 +124,8 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
-	public function project_dashboard_view($project_id)
-	{
+	public function project_dashboard_view($project_id) {
+
 		$data['page_body'] = 'project-dashboard';
 		$data['page_title'] = 'Project dashboard';
 		$data['page_description'] = 'Dashboard for the project containing relevant details';
@@ -162,8 +162,7 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
-	public function project_management_view($project_id, $state = FALSE)
-	{		
+	public function project_management_view($project_id, $state = FALSE) {
 		// Check user is logged in
 		if (!$this->ion_auth->logged_in()) {
 			redirect('index');
@@ -251,8 +250,68 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
-	public function privacy_view()
-	{
+	/**
+	 * Creates a new project or the form to do so
+	 *
+	 * @param post('title')
+	 * @param post('description')
+	 * @param post('start_date')
+	 * @param post('end_date')
+	 * @param post('location')
+	 * @param post('priority')
+	 * @author JChiyah
+	 */
+	public function staff_allocation_view($project_id) {
+		// Check user is logged in
+		if (!$this->ion_auth->logged_in()) {
+			redirect('index');
+		}
+		if(!$this->Project_model->is_manager($project_id, $this->session->userdata('user_id'))) {
+			// No permission
+			redirect('index');
+		}
+
+		$data['page_body'] = 'staff-allocation';
+		$data['page_title'] = 'Project Staff Allocation';
+		$data['page_description'] = 'Manage staff assigned to a project';
+		
+		$data['project'] = $this->Project_model->get_project_by_id($project_id);
+
+		if(!isset($data['project']) || !$data['project']) {
+			// Trying to access a page that doesn't exists...
+			redirect('index');
+		}
+	
+		// Staff allocation
+		$data['skill_select'] = array(
+			'name'  => 'skill_select',
+			'id'    => 'skill_select'
+		);
+		$data['staff_start_date'] = array(
+			'name'  => 'staff_start_date',
+			'id'    => 'staff_start_date',
+			'value' => $this->form_validation->set_value('start_date')
+		);
+		$data['staff_end_date'] = array(
+			'name'  => 'staff_end_date',
+			'id'    => 'staff_end_date',
+			'value' => $this->form_validation->set_value('end_date')
+		);
+		$data['staff_name'] = array(
+			'name'  => 'staff_name',
+			'id'    => 'staff_name',
+			'value' => $this->form_validation->set_value('staff_name')
+		);
+		$data['skills'] = $this->System_model->get_skills();
+		
+		$data['locations'] = $this->System_model->get_locations();
+
+		$this->load->view('html', $data);
+	}
+
+
+	public function privacy_view() {
+
 		$data['page_body'] = 'inc/privacy';
 		$data['page_title'] = 'Privacy Policy';
 		$data['page_description'] = 'Privacy policy for the resource allocation system';
@@ -260,8 +319,8 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
-	public function terms_view()
-	{
+	public function terms_view() {
+
 		$data['page_body'] = 'inc/terms';
 		$data['page_title'] = 'Terms of Use';
 		$data['page_description'] = 'Terms of use for the resource allocation system';
@@ -270,8 +329,8 @@ class Main extends Base {
 	}
 
   	// forgot password
-  	public function forgot_password()
-  	{       
+  	public function forgot_password() {
+
 	 	$this->form_validation->set_rules('identity', $this->lang->line('forgot_password_validation_email_label'), 'required|valid_email');
 
 	 	if ($this->form_validation->run() == false) {
