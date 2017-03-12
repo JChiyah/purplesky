@@ -18,19 +18,19 @@ $(function() {
 	function scroll_top() {
 
         if ($('#search-toggle').offset().top < $(window).scrollTop() + $('#quick-search').height()) {
-            $('#scroll-up:hidden').stop(true, true).fadeIn();
-  			$('#scroll-up').css({'position': 'fixed', 'left': '0.5em'});
+            $('#scroll-up-search:hidden').stop(true, true).fadeIn();
+  			$('#scroll-up-search').css({'position': 'fixed', 'left': '0.5em'});
         } else {
-            $('#scroll-up').stop(true, true).fadeOut();
-  			$('#scroll-up').css({'position': 'fixed', 'left': '0.5em'});
+            $('#scroll-up-search').stop(true, true).fadeOut();
+  			$('#scroll-up-search').css({'position': 'fixed', 'left': '0.5em'});
         }
-        if(($('#scroll-up').offset().top + $('#scroll-up').outerHeight() + 100) > $('#footer-center').offset().top
+        if(($('#scroll-up-search').offset().top + $('#scroll-up-search').outerHeight() + 100) > $('#footer-center').offset().top
         	&& ($(window).scrollTop() > $('#search-results').offset().top)) {
-  			$('#scroll-up').css({'position': 'absolute', 'left': '-2em'});
+  			$('#scroll-up-search').css({'position': 'absolute', 'left': '-2em'});
         }
 	}
 	
-	$('#scroll-up').click(function() {
+	$('#scroll-up-search').click(function() {
 		$('html, body').animate({
 		    scrollTop: $("#search").offset().top
 		}, 500);

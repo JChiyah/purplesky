@@ -80,6 +80,19 @@ hr {
 	color: $light-blue !important;
 }
 
+#scroll-up {
+	color: $blue;
+	padding: 0;
+	position: fixed;
+	bottom: 1em;
+	left: 0.5em;
+	font-size: 4em;
+}
+#scroll-up:focus, #scroll-up:active {
+	color: $blue !important;
+	outline: none;
+}
+
 /* * * * Navigation bar style section * * * */
 nav {
 	position: relative;
@@ -122,7 +135,7 @@ nav {
 			li {
 				float: none;
 				display: inline-block;
-				margin: 0;
+				margin: 0 5px;
 				padding: 0;
 
 				.scroll-button {
@@ -1312,19 +1325,6 @@ footer {
 			cursor: pointer;
 		}
 	}
-
-	#scroll-up {
-		color: $blue;
-		padding: 0;
-		position: fixed;
-		bottom: 1em;
-		left: 0.5em;
-		font-size: 4em;
-	}
-	#scroll-up:focus, #scroll-up:active {
-		color: $blue;
-		outline: none;
-	}
 	.bottom {
 		position: absolute;
 		bottom: 10em;
@@ -1642,15 +1642,15 @@ footer {
 
 /* privacy-policy */
 #privacy-policy {
-	width: 95%;
+	width: 90%;
 	font-size: 1.2em;
 	color: $blue;
 	font-family: $font;
 	margin: 4em auto;
 
 	h1 {
-		text-align: center;
-		//display: inline;
+		width: 90%;
+		margin: 0 auto;
 		margin-bottom: 0;
 		-webkit-margin-after: 0;
 	}
@@ -1669,15 +1669,15 @@ footer {
 }
 
 #terms-of-use {
-	width: 95%;
+	width: 90%;
 	font-size: 1.2em;
 	color: $blue;
 	font-family: $font;
 	margin: 4em auto;
 
 	h1 {
-//		display: inline;
-		text-align: center;
+		width: 90%;
+		margin: 0 auto;
 		margin-bottom: 0;
 		-webkit-margin-after: 0;
 	}

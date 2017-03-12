@@ -30,4 +30,7 @@
     <p><strong>Contact Us</strong></p>
     <p>If you have any questions about this Privacy Policy, please contact us.</p>
   </div>
+
+<button class="scroll-button" id="scroll-up"><i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></button>
+
 </section>

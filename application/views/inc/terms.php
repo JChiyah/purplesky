@@ -30,4 +30,7 @@
     <p>If you have any questions about these Terms, please contact us.</p>
   </div>
 </div>
+
+<button class="scroll-button" id="scroll-up"><i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></button>
+
 </section>

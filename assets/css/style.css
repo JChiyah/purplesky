@@ -1718,6 +1718,18 @@ hr {
 .scroll-button:hover {
   color: #0389ff !important; }
 
+#scroll-up {
+  color: #1f1646;
+  padding: 0;
+  position: fixed;
+  bottom: 1em;
+  left: 0.5em;
+  font-size: 4em; }
+
+#scroll-up:focus, #scroll-up:active {
+  color: #1f1646 !important;
+  outline: none; }
+
 /* * * * Navigation bar style section * * * */
 nav {
   position: relative;
@@ -1753,7 +1765,7 @@ nav {
       nav div ul li {
         float: none;
         display: inline-block;
-        margin: 0;
+        margin: 0 5px;
         padding: 0; }
         nav div ul li .scroll-button {
           padding: 0 24px;
@@ -2663,16 +2675,6 @@ footer {
     width: 1.15em;
     margin-left: 7px;
     cursor: pointer; }
-  #search #scroll-up {
-    color: #1f1646;
-    padding: 0;
-    position: fixed;
-    bottom: 1em;
-    left: 0.5em;
-    font-size: 4em; }
-  #search #scroll-up:focus, #search #scroll-up:active {
-    color: #1f1646;
-    outline: none; }
   #search .bottom {
     position: absolute;
     bottom: 10em;
@@ -2908,13 +2910,14 @@ footer {
 
 /* privacy-policy */
 #privacy-policy {
-  width: 95%;
+  width: 90%;
   font-size: 1.2em;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
   margin: 4em auto; }
   #privacy-policy h1 {
-    text-align: center;
+    width: 90%;
+    margin: 0 auto;
     margin-bottom: 0;
     -webkit-margin-after: 0; }
   #privacy-policy .container-box {
@@ -2928,13 +2931,14 @@ footer {
     width: 90%; }
 
 #terms-of-use {
-  width: 95%;
+  width: 90%;
   font-size: 1.2em;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
   margin: 4em auto; }
   #terms-of-use h1 {
-    text-align: center;
+    width: 90%;
+    margin: 0 auto;
     margin-bottom: 0;
     -webkit-margin-after: 0; }
   #terms-of-use .container-box {

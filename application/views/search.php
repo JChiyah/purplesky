@@ -60,7 +60,7 @@
 		</div>
 	</section>
 
-	<button class="scroll-button" id="scroll-up"><i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></button>
+	<button class="scroll-button" id="scroll-up-search"><i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></button>
 
 </div>
 
