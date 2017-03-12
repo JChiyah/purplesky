@@ -81,12 +81,12 @@ hr {
 }
 
 #scroll-up {
-	color: $blue;
-	padding: 0;
+	color: $blue !important;
+	padding: 0 !important;
 	position: fixed;
 	bottom: 1em;
 	left: 0.5em;
-	font-size: 4em;
+	font-size: 4em !important;
 }
 #scroll-up:focus, #scroll-up:active {
 	color: $blue !important;
@@ -1640,8 +1640,8 @@ footer {
 }
 
 
-/* privacy-policy */
-#privacy-policy {
+/* * * * Privacy Policy and Terms of Use Pages * * * */
+#privacy-policy, #terms-of-use {
 	width: 90%;
 	font-size: 1.2em;
 	color: $blue;
@@ -1666,31 +1666,6 @@ footer {
 	hr {
 		width: 90%;
 	}
+	.scroll-button{ font-size: 3.5em !important; }
 }
 
-#terms-of-use {
-	width: 90%;
-	font-size: 1.2em;
-	color: $blue;
-	font-family: $font;
-	margin: 4em auto;
-
-	h1 {
-		width: 90%;
-		margin: 0 auto;
-		margin-bottom: 0;
-		-webkit-margin-after: 0;
-	}
-
-	.container-box {
-		background: $grey-background2;
-		width: 90%;
-		text-align: left;
-		border-radius: 4px;
-		padding: 2em 3em;
-		margin: 0 auto;
-	}
-	hr {
-		width: 90%;
-	}
-}

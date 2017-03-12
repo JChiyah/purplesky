@@ -1,4 +1,4 @@
-<div id="terms-of-use">
+<section id="terms-of-use">
   <h1>Terms and Conditions (&quot;Terms&quot;)</h1> <hr>
   <div class="container-box">
     <section>
@@ -29,8 +29,8 @@
     <p><strong>Contact Us</strong></p>
     <p>If you have any questions about these Terms, please contact us.</p>
   </div>
-</div>
 
 <button class="scroll-button" id="scroll-up"><i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></button>
 
 </section>
+<script type="text/javascript" src="<?php echo base_url("assets/js/scroll-button.js"); ?>" ></script>
