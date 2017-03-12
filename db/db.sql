@@ -201,4 +201,16 @@ CREATE TABLE project_task (
 	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
+# Create project_task table
+CREATE TABLE application (
+	application_id integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	project_id integer NOT NULL,
+	staff_id integer NOT NULL,
+	comments varchar(255) NOT NULL,
+	at_date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	status enum('submitted', 'acepted', 'rejected') DEFAULT 'submitted', 
+	FOREIGN KEY (project_id) REFERENCES project(project_id),
+	FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
+) ENGINE=InnoDB;
+
 COMMIT;
