@@ -1,10 +1,10 @@
 # Delete database
 DROP DATABASE leidosdb;
 
-# Create database called 'Le_idosDB'
+# Create database called 'LeidosDB'
 CREATE DATABASE leidosdb;
 
-# Use the database Le_idosDB
+# Use the database LeidosDB
 USE leidosdb;
 
 START TRANSACTION;
@@ -139,7 +139,7 @@ CREATE TABLE experience (
 	start_date date NOT NULL,
 	end_date date NOT NULL,
 	project_id integer,
-	title varchar(100) NOT NULL,
+	institution varchar(100) NOT NULL,
 	description varchar(255),
 	role varchar(100) NOT NULL,
   	active tinyint(1) unsigned DEFAULT 1,
@@ -180,7 +180,7 @@ CREATE TABLE project_staff (
 	project_id integer NOT NULL,
 	staff_id integer NOT NULL,
 	role varchar(50) NOT NULL,
-	assigned_at datetime NOT NULL,
+	assigned_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	start_date date NOT NULL,
 	end_date date NOT NULL,
 	skills varchar(255) NOT NULL,
