@@ -68,13 +68,11 @@ $(function() {
 
 	// Button to continue 
 	$('.project-continue').on('click', function() {
-
 		if(validate_project()) {
 			// All okay, continue
 			$('#edit-details').hide();
 			$('#project-summary').show();
 		}
-
 	});
 
 	$('.project-back').on('click', function() {
@@ -124,7 +122,6 @@ $(function() {
 			$('#project-confirmation').hide();
 			$('#edit-details').show();
 		}
-
 		$('.tab').hide();
 
 	}

@@ -9,10 +9,13 @@
 		
 		<div class="col-md-2" id="left-bar">
 			<ul>
+				<li><button id="staff">Project Staff</button></li>
+				<li><button id="tasks">Project Tasks</button></li>
 				<li><button id="notification">Add Notification</button></li>
 				<li><button id="edit">Edit Project</button></li>
 				<li><a href="<?= site_url('project-management') ?>/<?= $project->project_id ?>/staff-allocation">Allocate staff</a></li>
 				<li><button id="status">Change Project Status</button></li>
+				<li><button id="applications">Applications</button></li>
 			</ul>
 		</div>
 
