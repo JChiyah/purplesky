@@ -197,20 +197,22 @@ class Project_model extends CI_Model {
 
 		$availability = array();
 		$project_staff = array();
+
+		$this->db->trans_start(); 	// Start transaction
 		
 		foreach($staff as $s) {
 
 			array_push($availability, array(
-				'staff_id' => $s['id'],
-				'start_date' => $s['start_date'],
-				'end_date' => $s['end_date'],
-				'type' => 2
+				'staff_id' 		=> $s['staff_id'],
+				'start_date' 	=> $s['start_date'],
+				'end_date' 		=> $s['end_date'],
+				'type'			=> 2
 			));
 
 			array_push($project_staff, array(
 				'project_id' 	=> $project_id,
-				'staff_id' 		=> $s['id'],
-				'role' 			=> 'General Staff',
+				'staff_id' 		=> $s['staff_id'],
+				'role' 			=> $s['role'],
 				'assigned_at' 	=> date("Y-m-d H:i:s"),
 				'start_date' 	=> $s['start_date'],
 				'end_date' 		=> $s['end_date'],
@@ -227,6 +229,9 @@ class Project_model extends CI_Model {
 		// Handle role allocation
 		$this->db->insert_batch('project_staff', $project_staff);
 
+		$this->db->trans_complete(); 	// Close transaction
+
+		return TRUE;
 	}
 
 	/**
@@ -357,11 +362,6 @@ class Project_model extends CI_Model {
 			);
 
 			$this->db->insert('project_dashboard', $entry);
-
-			if(isset($staff) && $staff) {
-				// Allocate staff
-				$this->allocate_staff($project_id, $staff);
-			}
 
 			$this->User_model->add_manager_activity($manager_id, $project_id);
 

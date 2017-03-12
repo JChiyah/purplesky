@@ -314,12 +314,16 @@ class Main extends Base {
 		$data['staff_start_date'] = array(
 			'name'  => 'staff_start_date',
 			'id'    => 'staff_start_date',
-			'value' => $this->form_validation->set_value('start_date')
+			'min'	=> $data['project']->start_date,
+			'max'	=> $data['project']->end_date,
+			'value' => $data['project']->start_date
 		);
 		$data['staff_end_date'] = array(
 			'name'  => 'staff_end_date',
 			'id'    => 'staff_end_date',
-			'value' => $this->form_validation->set_value('end_date')
+			'min'	=> $data['project']->start_date,
+			'max'	=> $data['project']->end_date,
+			'value' => $data['project']->end_date
 		);
 		$data['staff_name'] = array(
 			'name'  => 'staff_name',
@@ -329,6 +333,7 @@ class Main extends Base {
 		$data['skills'] = $this->System_model->get_skills();
 		
 		$data['locations'] = $this->System_model->get_locations();
+		$data['current_location'] = $this->System_model->get_location_id($data['project']->location);
 
 		$this->load->view('html', $data);
 	}

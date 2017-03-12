@@ -83,11 +83,11 @@ class User extends Base {
 		$user_id = $this->session->userdata('user_id');
 		
 		$additional_data = array(
-			'start_date' => $this->input->post('start_date'),
-			'end_date'	=> $this->input->post('end_date'),
-			'title'		=> $this->parse_input($this->input->post('title')),
-			'description' => $this->parse_input($this->input->post('description')),
-			'role'		=> $this->parse_input($this->input->post('role'))
+			'start_date' 	=> $this->input->post('start_date'),
+			'end_date'		=> $this->input->post('end_date'),
+			'institution'	=> $this->parse_input($this->input->post('title')),
+			'description' 	=> $this->parse_input($this->input->post('description')),
+			'role'			=> $this->parse_input($this->input->post('role'))
 		);
 
 		if($this->User_model->add_user_experiences($user_id, $additional_data)) {
@@ -140,7 +140,6 @@ class User extends Base {
 		$start_date = $this->input->post('start_date');
 		$end_date = $this->input->post('end_date');
 		$staff_name = $this->input->post('staff_name');
-		$staff_ids = $this->input->post('staff_ids'); // Staff already added to project
 		$location = $this->input->post('location');
 
 		$filters = array(
@@ -165,30 +164,22 @@ class User extends Base {
 		}
 		
 		$staff = $this->User_model->search_staff($filters);
-
+		
 		if($staff) {
-			foreach($staff as $employee) {
-				echo '<div class="staff-result" id="staff-' . $employee->id . '">
-						<h5>' . $employee->name . '</h5>
-						<p class="location">' . $employee->location . '</p>
-						<p class="pay-rate">£' . $employee->pay_rate . '/day</p>
-						<div class="row">';
-
-				if(isset($skill_id) && $skill_id) {
-					echo '<div class="col-md-9">Skills: ';
-
-					foreach($skill_id as $skill) {
-						echo '<span class="skill-span">' . $this->System_model->get_skill_name($skill) . '</span>';
-					}
-				} else {
-					echo '<div class="col-md-9"><br/>';
-				}
-
-				echo '</div>
-						<button type="button" class="col-md-3 allocate-staff-button">Add</button>
-					</div></div>';
+			foreach($skills as $skill_id) {
+				$skills->skill_id = $this->System_model->get_skill_name($skill_id);
 			}
+
+			$staff = (array)$staff;
+			$staff['skills'] = $skills;
+			$staff = (object)$staff;
+
+			$data['staff'] = $staff;
+
+			return $this->load->view('displays/project-staff.php', $data);
+
 		}
+
 	}
 
 }

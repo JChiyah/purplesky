@@ -199,7 +199,7 @@ class System_model extends CI_Model {
 	
 	/**
 	 * This function decompresses a string into an array of skill ids
-	 * It is used to simplify the DB architecture and speed up queries by x10
+	 * It is used to simplify the DB architecture and speed up queries
 	 *
 	 * @param $string
 	 * @return array of skill ids

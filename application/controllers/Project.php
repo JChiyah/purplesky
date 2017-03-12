@@ -37,6 +37,31 @@ class Project extends Base {
 	}
 
 	/**
+	 * Adds a task to a project
+	 * Call from a form post using AJAX
+	 *
+	 * @param project task form
+	 * @author JChiyah
+	 */
+	/*public function add_project_task() {
+		// get and format input
+		$user_id = $this->session->userdata('user_id');
+		$project_id = $this->input->post('project_id');
+		$skills = $this->input->post('skills');
+		$staff = $this->input->post('staff');
+		$task['description'] = $this->parse_input($this->input->post('description'));
+
+		if()
+
+		if($this->Project_model->add_project_task($user_id, $project_id, $description)) {
+			$data['dashboard_entries'] = $this->Project_model->get_project_dashboard($project_id);
+			return $this->load->view('displays/project-dashboard-entries.php', $data);
+		} else {
+			echo 'Error adding activity';
+		}
+	}*/
+
+	/**
 	 * Searches for projects
 	 * Call from a form post using AJAX
 	 *
@@ -228,29 +253,6 @@ class Project extends Base {
 				'value' => '2',
 			);
 
-			/*
-			// Staff allocation
-			$this->data['skill_select'] = array(
-				'name'  => 'skill_select',
-				'id'    => 'skill_select'
-			);
-			$this->data['staff_start_date'] = array(
-				'name'  => 'staff_start_date',
-				'id'    => 'staff_start_date',
-				'value' => $this->form_validation->set_value('start_date')
-			);
-			$this->data['staff_end_date'] = array(
-				'name'  => 'staff_end_date',
-				'id'    => 'staff_end_date',
-				'value' => $this->form_validation->set_value('end_date')
-			);
-			$this->data['staff_name'] = array(
-				'name'  => 'staff_name',
-				'id'    => 'staff_name',
-				'value' => $this->form_validation->set_value('staff_name')
-			);
-			$this->data['skills'] = $this->System_model->get_skills();
-			*/
 			$this->data['locations'] = $this->System_model->get_locations();
 			$this->data['manager'] = $this->User_model->get_user_by_id($user_id)->name;
 			// render
@@ -273,13 +275,6 @@ class Project extends Base {
 				'start_date' 	=> $this->input->post('start_date'),
 				'end_date'		=> $this->input->post('end_date')
 			);
-
-			$staff = $this->input->post('allocated_staff'); // Array of strings
-			if(isset($staff) && $staff) {
-				$staff = $this->parse_allocated_staff($staff);
-			} else {
-				$staff = FALSE;
-			}
 
 			$project_id = $this->Project_model->create_project($user_id, $project_info, $staff);
 
@@ -330,6 +325,43 @@ class Project extends Base {
 		}
 	}
 
+	/**
+	 * Adds staff to a project
+	 * Call from a form post using AJAX
+	 *
+	 * @param project staff form
+	 * @author JChiyah
+	 */
+	public function add_project_staff() {
+		// get and format input
+		$project_id = $this->input->post('project_id');
+		$manager_id = $this->session->userdata('user_id');
+
+		if(!$this->Project_model->is_manager($project_id, $manager_id)) {
+			echo 'no permission';
+			return ;
+		}
+
+		$staff = array(
+			'staff_id'		=> $this->input->post('project_id'),
+			'role'			=> $this->parse_input($this->input->post('role')),
+			'start_date'	=> $this->input->post('start_date'),
+			'end_date'		=> $this->input->post('end_date'),
+		);
+
+		if(check_date($staff['start_date']) || check_date($staff['end_date'])) {
+			echo 'dates not valid';
+		}
+
+		$staff['skills'] = $this->System_model->decompress_skills($this->input->post('skills'));
+
+		if($this->Project_model->allocate_staff($project_id, $staff)) {
+			echo 'success';
+			//return $this->load->view('displays/project-dashboard-entries.php', $data);
+		} else {
+			echo 'error adding staff';
+		}
+	}
 
 	/**
 	 * Helper function to parse any simple text input
@@ -371,7 +403,7 @@ class Project extends Base {
 	/**
 	 * Helper function to parse allocated staff information
 	 *
-	 * @param $staff (array os strings)
+	 * @param $staff (array of strings)
 	 * @return array of arrays (3D array :-P)
 	 * @author JChiyah
 	 */
@@ -400,6 +432,5 @@ class Project extends Base {
 		return $allocated_staff;
 
 	}
-
 
 }

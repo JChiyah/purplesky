@@ -289,7 +289,7 @@ class User_model extends CI_Model {
 	public function add_user_experiences($id, $additional_data) {
 
 		if(isset($additional_data['project_id']) && $additional_data['project_id']) {
-
+			// TO-DO
 		} else {
 
 			$data = array_merge(array('staff_id' => $id), $additional_data);
