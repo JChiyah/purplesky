@@ -1,4 +1,4 @@
-<section id="staff-allocation">
+<section class="container-fluid" id="staff-allocation">
 
 	<h1>Project Management Panel</h1>
 	<hr>

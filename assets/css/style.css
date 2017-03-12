@@ -2505,6 +2505,29 @@ footer {
       text-align: center; }
   #create-project .project-tab .content {
     padding: 1em 1em; } }
+/* * * * Create Project Confirm * * * */
+#project-confirm {
+  width: 60%;
+  margin: 0 auto;
+  padding: 5em 0;
+  text-align: center;
+  color: #1f1646; }
+  #project-confirm h1 {
+    font-size: 2.8em; }
+  #project-confirm h3 {
+    font-size: 1.5em; }
+  #project-confirm .fa-check {
+    color: #2ecc71;
+    font-size: 12em; }
+  #project-confirm h5 {
+    font-size: 1.3em; }
+  #project-confirm p {
+    color: #0389ff; }
+  #project-confirm a {
+    text-decoration: underline; }
+  #project-confirm a:hover {
+    color: #1f1646; }
+
 /* * * * addSkills page style section * * * */
 #addSkill #ASContainer {
   width: 50%;

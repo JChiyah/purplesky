@@ -124,6 +124,26 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
+	public function project_confirm_view($project_id) {
+
+		$data['page_body'] = 'inc/create-project-confirm';
+		$data['page_title'] = 'Project dashboard';
+		$data['page_description'] = 'Dashboard for the project containing relevant details';
+
+		$project = $this->Project_model->get_project_by_id($project_id);
+
+		if(!isset($project) || !$project) {
+			// Trying to access a page that doesn't exists...
+			redirect('index');
+		}
+
+		$data['project_id'] = $project->project_id;
+		$data['project_title'] = $project->title;
+
+		$this->load->view('html', $data);
+
+	}
+
 	public function project_dashboard_view($project_id) {
 
 		$data['page_body'] = 'project-dashboard';

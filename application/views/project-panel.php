@@ -1,4 +1,4 @@
-<section id="project-management-panel">
+<section class="container-fluid" id="project-management-panel">
 
 	<h1>Project Management Panel</h1>
 	<hr>

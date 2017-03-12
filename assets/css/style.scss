@@ -1119,6 +1119,39 @@ footer {
 	}
 }
 
+/* * * * Create Project Confirm * * * */
+#project-confirm {
+	width: 60%;
+	margin: 0 auto;
+	padding: 5em 0;
+	text-align: center;
+	color: $blue;
+
+	h1 {
+		font-size: 2.8em;
+	}
+	h3 {
+		font-size: 1.5em;
+	}
+
+	.fa-check {
+		color: $go-green;
+		font-size: 12em;
+	}
+	h5 {
+		font-size: 1.3em;
+	}
+	p {
+		color: $light-blue;
+	}
+	a {
+		text-decoration: underline;
+	}
+	a:hover {
+		color: $blue;
+	}
+}
+
 /* * * * addSkills page style section * * * */
 #addSkill {
 	#ASContainer {
