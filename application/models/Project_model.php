@@ -186,12 +186,14 @@ class Project_model extends CI_Model {
 	 * Allocates staff to a project
 	 *
 	 * @param $project_id
+	 * @param $staff (staff_id, start_date, end_date, role, skills)
 	 * @return mixed boolean / array of db project object()
 	 * @author JChiyah
 	 */
 	public function allocate_staff($project_id, $staff) {
-
-		if(!is_array($staff)) { // for use with single or multiple staff at the same time
+		
+		// for use with single or multiple staff at the same time
+		if(isset($staff['staff_id']) || $staff['staff_id']) { 
 			$staff = array($staff);
 		}
 
@@ -220,7 +222,7 @@ class Project_model extends CI_Model {
 			));
 
 			// Handle a staff notifications
-			$this->User_model->add_assign_employee_activity($s['id'],$project_id);
+			$this->User_model->add_assign_employee_activity($s['staff_id'],$project_id);
 		}
 
 		// Handle staff availability

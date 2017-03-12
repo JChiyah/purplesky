@@ -14,8 +14,8 @@
 
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
-				<p><b>Start date:</b> <?= $project->start_date ?></p>
-				<p><b>End date:</b> <?= $project->end_date ?></p>
+				<p><b>Start date:</b> <?= date('d/m/Y', strtotime($project->start_date)) ?></p>
+				<p><b>End date:</b> <?= date('d/m/Y', strtotime($project->end_date)) ?></p>
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-6" id="right-div">
 				<p><?= ucfirst($project->status) ?> <span class="circle" id="<?= $status ?>"></span></p>

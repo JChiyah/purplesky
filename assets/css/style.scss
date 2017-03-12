@@ -1000,44 +1000,6 @@ footer {
 			max-height: 550px;
 			overflow-y: scroll;
 		}
-
-		.staff-result {
-			padding: 1em 1.5em 0.5em 1.5em;
-			margin: 0.7em;
-			border-radius: 4px;
-			border: 1px solid $hr-colour;
-
-			h5 {
-				font-size: 1.2em;
-				font-weight: 700;
-				margin: 0;
-			}
-
-			p {
-				margin: 0.3em 0;
-			}
-
-			.location {
-				font-style: italic;
-			}
-
-			.pay-rate {
-				font-weight: 800;
-			}
-
-			button {
-				font-size: 0.7em;
-				margin: 0.5em 0;
-				display: block;
-			}
-
-			.skill-span {
-				font-size: 0.7em;
-				margin: 0;
-				border: 1px solid $hr-colour;
-				padding: 3px 12px;
-			}
-		}
 	}
 
 	#project-summary {
@@ -1667,5 +1629,47 @@ footer {
 		width: 90%;
 	}
 	.scroll-button{ font-size: 3.5em !important; }
+}
+
+/* * * * Project Panel * * * */
+
+
+/* * * * Staff search * * * */
+.staff-result {
+	padding: 1em 1.5em 0.5em 1.5em;
+	margin: 0.7em;
+	border-radius: 4px;
+	border: 1px solid $hr-colour;
+
+	h5 {
+		font-size: 1.2em;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	p {
+		margin: 0.3em 0;
+	}
+
+	.location {
+		font-style: italic;
+	}
+
+	.pay-rate {
+		font-weight: 800;
+	}
+
+	button {
+		font-size: 0.7em;
+		margin: 0.5em 0;
+		display: block;
+	}
+
+	.skill-span {
+		font-size: 0.7em;
+		margin: 0;
+		border: 1px solid $hr-colour;
+		padding: 3px 12px;
+	}
 }
 

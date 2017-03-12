@@ -336,6 +336,7 @@ class Project extends Base {
 		// get and format input
 		$project_id = $this->input->post('project_id');
 		$manager_id = $this->session->userdata('user_id');
+		$skills = $this->input->post('skills');
 
 		if(!$this->Project_model->is_manager($project_id, $manager_id)) {
 			echo 'no permission';
@@ -343,17 +344,24 @@ class Project extends Base {
 		}
 
 		$staff = array(
-			'staff_id'		=> $this->input->post('project_id'),
+			'staff_id'		=> $this->input->post('staff_id'),
 			'role'			=> $this->parse_input($this->input->post('role')),
 			'start_date'	=> $this->input->post('start_date'),
-			'end_date'		=> $this->input->post('end_date'),
+			'end_date'		=> $this->input->post('end_date')
 		);
 
-		if(check_date($staff['start_date']) || check_date($staff['end_date'])) {
-			echo 'dates not valid';
+		if(!$this->System_model->check_date_format($staff['start_date'])) {
+			echo 'start date not valid';
+			return ;
+		}
+		if(!$this->System_model->check_date_format($staff['end_date'])) {
+			echo 'end date not valid';
+			return ;
 		}
 
-		$staff['skills'] = $this->System_model->decompress_skills($this->input->post('skills'));
+		if($this->System_model->check_skills_format($skills)) {
+			$staff['skills'] = $skills;
+		}
 
 		if($this->Project_model->allocate_staff($project_id, $staff)) {
 			echo 'success';

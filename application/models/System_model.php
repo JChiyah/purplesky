@@ -213,6 +213,48 @@ class System_model extends CI_Model {
 
 		return explode(',',$string);
 	}
+	
+	/**
+	 * This function checks an array of skill ids is valid
+	 *
+	 * @param $skills
+	 * @return boolean
+	 * @author JChiyah
+	 */
+	public function check_skills_format($skills) {
+
+		if(empty($skills)) {
+			return FALSE;
+		}
+
+		foreach($skills as $skill) {
+			$tmp = $this->get_skill_name($skill);
+			if(!isset($tmp) || !$tmp) {
+				return FALSE;
+			}
+		}
+		return TRUE;
+	}
+	
+	/**
+	 * This function checks a date is valid
+	 *
+	 * @param $skills
+	 * @return boolean
+	 * @author JChiyah
+	 */
+	public function check_date_format($date) {
+
+		// Date is yyyy-mm-dd
+		// Using checkdate(mm, dd, yyyy)
+		$date_arr = explode('-', $date);
+		if(count($date_arr) == 3) {
+			if(checkdate($date_arr[1], $date_arr[2], $date_arr[0])) {
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
 
 	/**
 	 * This function turns an array of skills (ints) into their corresponding names

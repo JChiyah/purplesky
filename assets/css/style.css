@@ -2434,30 +2434,6 @@ footer {
     #create-project #resource-allocation-results #results, #create-project #resource-allocation-results #staff-added {
       max-height: 550px;
       overflow-y: scroll; }
-    #create-project #resource-allocation-results .staff-result {
-      padding: 1em 1.5em 0.5em 1.5em;
-      margin: 0.7em;
-      border-radius: 4px;
-      border: 1px solid #C0C0C0; }
-      #create-project #resource-allocation-results .staff-result h5 {
-        font-size: 1.2em;
-        font-weight: 700;
-        margin: 0; }
-      #create-project #resource-allocation-results .staff-result p {
-        margin: 0.3em 0; }
-      #create-project #resource-allocation-results .staff-result .location {
-        font-style: italic; }
-      #create-project #resource-allocation-results .staff-result .pay-rate {
-        font-weight: 800; }
-      #create-project #resource-allocation-results .staff-result button {
-        font-size: 0.7em;
-        margin: 0.5em 0;
-        display: block; }
-      #create-project #resource-allocation-results .staff-result .skill-span {
-        font-size: 0.7em;
-        margin: 0;
-        border: 1px solid #C0C0C0;
-        padding: 3px 12px; }
   #create-project #project-summary {
     font-size: 1.2em;
     		/*#allocated-staff {
@@ -2931,5 +2907,32 @@ footer {
     width: 90%; }
   #privacy-policy .scroll-button, #terms-of-use .scroll-button {
     font-size: 3.5em !important; }
+
+/* * * * Project Panel * * * */
+/* * * * Staff search * * * */
+.staff-result {
+  padding: 1em 1.5em 0.5em 1.5em;
+  margin: 0.7em;
+  border-radius: 4px;
+  border: 1px solid #C0C0C0; }
+  .staff-result h5 {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 0; }
+  .staff-result p {
+    margin: 0.3em 0; }
+  .staff-result .location {
+    font-style: italic; }
+  .staff-result .pay-rate {
+    font-weight: 800; }
+  .staff-result button {
+    font-size: 0.7em;
+    margin: 0.5em 0;
+    display: block; }
+  .staff-result .skill-span {
+    font-size: 0.7em;
+    margin: 0;
+    border: 1px solid #C0C0C0;
+    padding: 3px 12px; }
 
 /*# sourceMappingURL=style.css.map */

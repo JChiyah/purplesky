@@ -8,12 +8,12 @@
 			<p class="pay-rate">£<?= $employee->pay_rate ?>/day</p>
 			<div class="row">
 				
-				<div class="col-md-9">
-				<?php if(isset($employee->skills) && $employee->skills) : ?>
+				<div class="col-md-9" id="skill-set">
+				<?php if(isset($skills) && $skills) : ?>
 
 					Skills: 
 
-					<?php foreach($employee->skills as $skill) : ?>
+					<?php foreach($skills as $skill) : ?>
 	                    <span class="skill-span"><?= $skill ?></span>
 	                <?php endforeach ?>
 				
@@ -24,7 +24,7 @@
 				<?php endif ?>
 				</div>
 
-				<button type="button" class="col-md-3 allocate-staff-button">Add</button>
+				<button type="button" class="col-md-3 allocate-staff-button">Select</button>
 			</div>
 		</div>
 

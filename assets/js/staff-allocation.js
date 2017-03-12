@@ -4,6 +4,11 @@ $(function() {
 	var skills = [];
 	var current_query = [];
 
+	function format_date(date) {
+		var d = new Date(date);
+		return d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear();
+	}
+
 	function validate_search() {
 
 		$('.error-msg').hide();
@@ -45,11 +50,13 @@ $(function() {
 			$('#skill_select').after('<span class="error-msg">Select a skill to start the search<span>');
 			$('#skill_select').addClass('error-field');
 		}
+		$("#results").html('');
 	}
 
 	function search_staff() {
 		event.preventDefault();
 		
+		current_query = [];
 		if(validate_search()) {
 
 			$.ajax({
@@ -57,19 +64,19 @@ $(function() {
 				url: baseurl + "User/search_staff",
 				data: { 
 					'skill' : skills,
-					'start_date' : start_date,
-					'end_date' : end_date,
-					'staff_name' : staff_name,
-					'location' : $('#search-staff-location').val(),
+					'start_date' : $('#staff_start_date').val(),
+					'end_date' : $('#staff_end_date').val(),
+					'staff_name' : $('#staff_name').val(),
+					'location' : $('#staff-location').val(),
 					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 				},
 				success: function(data) {
 					if (data) {
 						$("#results").html(data);
-						current_query = [start_date, end_date, skills.join('|')];
+						$("#search-results").show();
+						current_query = [$('#staff_start_date').val(), $('#staff_end_date').val(), skills];
 					} else {
 						$("#results").html('<p>No staff available.</p>');
-						current_query = [];
 					}
 				}/*,
 			    error: function(req, textStatus, errorThrown) {
@@ -95,7 +102,7 @@ $(function() {
 			}
 			// else repeated element 
 		}
-	})
+	});
 
 	$('#clear-skills').click(function(event) {
 		skills = [];
@@ -108,42 +115,46 @@ $(function() {
 		// Get staff id from parsing the button's parent id
 		var id = (($(this).parent().parent().attr('id')).split("-"))[1];
 
-		// User is adding staff
-		if($('#results').find('#staff-' + id).length) {
-			$('#staff-' + id).appendTo($('#staff-added'));
-			$(this).html('Remove');
-			// Add staff id and other info to the queue
-			var staff_info = current_query.slice();
-			staff_info.unshift(id);
-			staff.push(staff_info);
-			staff_ids.push(id);
+		$('#search-results').hide();
+		$('#search-staff-form').hide();
+		$('#allocate-staff-form').show();
 
-			// Show staff in summary
-			// clone div -> change id -> append to summary -> remove the button
-			$('#staff-' + id).clone().attr('id', 'allocated-staff-' + id).appendTo('#allocated-staff');
-			$('#allocated-staff').append('<hr id="hr-' + id + '"">');
-			$('#allocated-staff-' + id + ' > div > button').remove();
-			$('#allocated-staff-' + id).append('');
-		}
-		// User is removing staff
-		else if($('#staff-added').find('#staff-' + id).length) {
-			// Delete from array
-			staff = $.grep(staff, function(value) {
-				return value[0] != id;
-			});
-			staff_ids = $.grep(staff_ids, function(value) {
-				return value != id;
-			});
-			// Refresh search results
-			$('#staff-' + id).remove();
-			search_staff();
+		// Put values
+		$('#staff_name_summary').text($('#staff-' + id + ' > h5').text());
 
-			// Remove from summary
-			$('#allocated-staff-' + id).remove();
-			$('#hr-' + id).remove();
+		$('#start_date_summary').text(format_date(current_query[0]));
+		$('#end_date_summary').text(format_date(current_query[1]));
 
-		}
-		// else something is not right...
+		$('#skills_summary').html('');
+		$('#staff-' + id + ' > div > #skill-set').clone().appendTo($('#skills_summary'));
+
+		$('#staff_id').val(id);
+	});
+
+	$("#staff-allocation-submit").click(function(e) {
+		e.preventDefault();
+
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/add_project_staff",
+			data: { 
+				'project_id' : $('#project_id').val(),
+				'staff_id' : $('#staff_id').val(),
+				'skills' : current_query[2],
+				'start_date' : $('#staff_start_date').val(),
+				'end_date' : $('#staff_end_date').val(),
+				'role' : $('#staff_role').val(),
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data == 'success') {
+					$("#allocate-staff-form").hide();
+					$("#staff-added-confirm").show();
+				} else {
+					$("#allocate-staff-form").after('<p>Something went wrong:' + data + '</p>');
+				}
+			}
+		});
 	});
 
 	// Show search by name
@@ -158,7 +169,26 @@ $(function() {
     	});
 	});
 
+	$('#confirm-add').click(function() {
+		$('#search-results').hide();
+		$('#allocate-staff-form').hide();
+		$('#staff-added-confirm').hide();
+		$('#search-staff-form').show();
+	});
+
+	$('#confirm-see').click(function() {
+		reset_forms();
+		$('#see-staff').show();
+	});
+
 	function reset_forms() {
+
+		if('#staff-added-confirm:visible') {
+			$('#search-results').hide();
+			$('#allocate-staff-form').hide();
+			$('#staff-added-confirm').hide();
+			$('#search-staff-form').show();
+		}
 
 		$('.tab').hide();
 
@@ -169,6 +199,9 @@ $(function() {
 		reset_forms();
 
 		switch($(this).attr('id')) {
+			case 'staff':
+				$('#see-staff').show();
+				break;
 			case 'add':
 				$('#add-staff').show();
 				break;

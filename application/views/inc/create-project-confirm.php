@@ -6,7 +6,7 @@
 	
 	<i class="fa fa-check fa-5x" aria-hidden="true"></i>
 
-	<h5>You are now being redirected to your project dashboard...</h5>
+	<h5>You are now being redirected to your project dashboard where you can add staff to your project...</h5>
 
 	<i class="fa fa-refresh fa-spin fa-2x fa-fw"></i>
 

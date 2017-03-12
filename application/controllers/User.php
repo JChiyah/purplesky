@@ -136,7 +136,8 @@ class User extends Base {
 	 * @author JChiyah
 	 */
 	public function search_staff() {
-		$skill_id = $this->input->post('skill');
+		$skills = $this->input->post('skill');
+		$project_id = $this->input->post('skill');
 		$start_date = $this->input->post('start_date');
 		$end_date = $this->input->post('end_date');
 		$staff_name = $this->input->post('staff_name');
@@ -147,37 +148,38 @@ class User extends Base {
 			'end_date'  => $end_date
 		);
 
-		if(isset($skill_id) && $skill_id) {
-			$filters['skills'] = $skill_id;
+		if(isset($skills) && $skills) {
+			$filters['skills'] = $skills;
 		}
 
 		if(isset($staff_name) && $staff_name) {
 			$filters['name'] = $staff_name;
 		}
 
-		if(!empty($staff_ids)) {
-			$filters['staff_ids'] = $staff_ids;
-		}
-
 		if(isset($location) && $location) {
 			$filters['location'] = $location;
+		}
+
+		if(isset($project_id) && $project_id) {
+			$filters['project_id'] = $project_id;
 		}
 		
 		$staff = $this->User_model->search_staff($filters);
 		
 		if($staff) {
-			foreach($skills as $skill_id) {
-				$skills->skill_id = $this->System_model->get_skill_name($skill_id);
+
+			if(isset($skills) && $skills) {
+				
+				$s = array();
+				foreach($skills as $skill_id) {
+					array_push($s, $this->System_model->get_skill_name($skill_id));
+				}
+
+				$data['skills'] = $s;
+
 			}
-
-			$staff = (array)$staff;
-			$staff['skills'] = $skills;
-			$staff = (object)$staff;
-
 			$data['staff'] = $staff;
-
 			return $this->load->view('displays/project-staff.php', $data);
-
 		}
 
 	}
