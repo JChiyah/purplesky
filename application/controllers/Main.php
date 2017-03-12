@@ -136,6 +136,10 @@ class Main extends Base {
 			// Trying to access a page that doesn't exists...
 			redirect('index');
 		}
+		// Manager of the project access only
+		if(!$this->Project_model->is_manager($project_id, $this->session->userdata('user_id'))) {
+			redirect('dashboard/' . $project_id);
+		}
 
 		$data['project_id'] = $project->project_id;
 		$data['project_title'] = $project->title;

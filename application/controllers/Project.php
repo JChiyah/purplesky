@@ -9,9 +9,6 @@ class Project extends Base {
 		parent::__construct();
 		$this->load->library(array('form_validation'));
 		$this->load->helper(array('url','language','form'));
-		//$this->load->model("System_model");
-		//$this->load->model("User_model");
-		$this->load->model("Project_model");
 
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -284,12 +281,12 @@ class Project extends Base {
 				$staff = FALSE;
 			}
 
-			$project = $this->Project_model->create_project($user_id, $project_info, $staff);
+			$project_id = $this->Project_model->create_project($user_id, $project_info, $staff);
 
-			if (isset($project))
+			if (isset($project_id) && $project_id)
 			{
 				//if the project was successfully created
-				redirect('dashboard/' . $project, 'refresh');
+				redirect('project-confirm/' . $project_id, 'refresh');
 			}
 			else
 			{
