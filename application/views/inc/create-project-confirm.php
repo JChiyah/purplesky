@@ -13,3 +13,9 @@
 	<p>Please click <a href="<?= site_url('dashboard') ?>/<?= $project_id ?>">here</a> if it is taking too long to redirect</p>
 
 </section>
+
+<script type="text/javascript">
+setTimeout(function(){
+		window.location.replace(baseurl + 'dashboard/' + "<?= $project_id ?>");
+	}, 5000);
+</script>
