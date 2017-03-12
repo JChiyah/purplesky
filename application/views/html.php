@@ -41,6 +41,27 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 		<link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>" />
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+		<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+		<script>
+			window.addEventListener("load", function(){
+				window.cookieconsent.initialise({
+				  "palette": {
+				    "popup": {
+				      "background": "#1f1646"
+				    },
+				    "button": {
+				      "background": "#0389ff"
+				    }
+				  },
+				  "theme": "classic",
+  				  "content": {
+				    "message": "This website uses cookies to ensure you get the best experience. By continuing to use this website, you agree the use of cookies.",
+				    "dismiss": "Accept and close",
+				    "href": "#"
+				  	}
+			})});
+		</script>
 	</head>
 	<body>
 		<div id="html">

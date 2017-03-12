@@ -4,16 +4,37 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 	 <head>
-			<meta charset="utf-8">
-			<meta name="description" content="Login to Leidos Resource Allocation System">
-			<meta name="keywords" content="">
-			<meta name="viewport" content="initial-scale=1">
+		<meta charset="utf-8">
+		<meta name="description" content="Login to Leidos Resource Allocation System">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="initial-scale=1">
 
-			<title>Leidos Sign In</title>
-		
-			<script src="https://use.fontawesome.com/eedb59a6cd.js"></script>
+		<title>Leidos Sign In</title>
 	
-			<link type="text/css" rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>" />
+		<script src="https://use.fontawesome.com/eedb59a6cd.js"></script>
+
+		<link type="text/css" rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>" />
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+		<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+		<script>
+			window.addEventListener("load", function(){
+				window.cookieconsent.initialise({
+				  "palette": {
+				    "popup": {
+				      "background": "#1f1646"
+				    },
+				    "button": {
+				      "background": "#0389ff"
+				    }
+				  },
+				  "theme": "classic",
+				  "content": {
+				    "message": "This website uses cookies to ensure you get the best experience. By continuing to use this website, you agree the use of cookies.",
+				    "dismiss": "Accept and close",
+				    "href": "#"
+				  	}
+			})});
+		</script>
 	 </head>
 	 <body>
 			<div id="login-container">
