@@ -365,10 +365,26 @@ class Project extends Base {
 
 		if($this->Project_model->allocate_staff($project_id, $staff)) {
 			echo 'success';
-			//return $this->load->view('displays/project-dashboard-entries.php', $data);
 		} else {
 			echo 'error adding staff';
 		}
+	}
+
+	/**
+	 * Gets staff working in a project
+	 * Call from a form post using AJAX
+	 *
+	 * @param project_id
+	 * @author JChiyah
+	 */
+	public function get_project_staff() {
+		// get and format input
+		$project_id = $this->input->post('project_id');
+
+		$staff = $this->Project_model->get_project_staff($project_id);
+
+		$data['staff'] = $staff;
+		return $this->load->view('displays/project-staff.php', $data);
 	}
 
 	/**

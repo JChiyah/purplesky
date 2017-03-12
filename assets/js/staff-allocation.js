@@ -87,6 +87,23 @@ $(function() {
 		}
 	}
 
+	function get_project_staff() {
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/get_project_staff",
+			data: { 
+				'project_id' : $('#project_id').val(),
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data) {
+					$("#project-staff").html(data);
+				}
+			}
+		});
+	}
+	get_project_staff();
+
 	// Calls the search staff when the button is clicked
 	$("#staff-allocation-search").click(search_staff);
 
@@ -169,6 +186,7 @@ $(function() {
     	});
 	});
 
+	// Buttons for add staff confirm
 	$('#confirm-add').click(function() {
 		$('#search-results').hide();
 		$('#allocate-staff-form').hide();
@@ -200,6 +218,7 @@ $(function() {
 
 		switch($(this).attr('id')) {
 			case 'staff':
+				get_project_staff();
 				$('#see-staff').show();
 				break;
 			case 'add':

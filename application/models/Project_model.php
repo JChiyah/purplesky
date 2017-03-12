@@ -62,15 +62,20 @@ class Project_model extends CI_Model {
 	 */
 	public function get_project_staff($project_id) {
 
-		$query = $this->db->select('project_staff.staff_id AS id, CONCAT(first_name, " ", last_name) AS name, role, assigned_at, start_date, end_date, pay_rate')
+		$query = $this->db->select('project_staff.staff_id AS id, CONCAT(first_name, " ", last_name) AS name, role, assigned_at, start_date, end_date, pay_rate, skills, location.name AS location')
 						->where('project_id', $project_id)
 						->join('staff', 'staff.staff_id=project_staff.staff_id')
 						->join('account', 'account.id=staff.staff_id')
+						->join('location', 'location.location_id=staff.current_location')
 						->get('project_staff');
 
 		$result = $query->result();
 
 		if(isset($result) && !empty($result)) {
+			foreach($result as $employee) {
+				$employee->skills = $this->System_model->get_skill_names($employee->skills);
+			}
+			
 			return $result;
 		}
 		return FALSE;

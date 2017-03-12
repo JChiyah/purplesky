@@ -169,7 +169,7 @@ class User extends Base {
 		if($staff) {
 
 			if(isset($skills) && $skills) {
-				
+
 				$s = array();
 				foreach($skills as $skill_id) {
 					array_push($s, $this->System_model->get_skill_name($skill_id));
@@ -179,7 +179,7 @@ class User extends Base {
 
 			}
 			$data['staff'] = $staff;
-			return $this->load->view('displays/project-staff.php', $data);
+			return $this->load->view('displays/project-staff-search.php', $data);
 		}
 
 	}
