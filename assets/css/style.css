@@ -2906,4 +2906,45 @@ footer {
 #red {
   background: #e74c3c; }
 
+/* privacy-policy */
+#privacy-policy {
+  width: 95%;
+  font-size: 1.2em;
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  margin: 4em auto; }
+  #privacy-policy h1 {
+    text-align: center;
+    margin-bottom: 0;
+    -webkit-margin-after: 0; }
+  #privacy-policy .container-box {
+    background: #E1E5E6;
+    width: 90%;
+    text-align: left;
+    border-radius: 4px;
+    padding: 2em 3em;
+    margin: 0 auto; }
+  #privacy-policy hr {
+    width: 90%; }
+
+#terms-of-use {
+  width: 95%;
+  font-size: 1.2em;
+  color: #1f1646;
+  font-family: "Microsoft JhengHei";
+  margin: 4em auto; }
+  #terms-of-use h1 {
+    text-align: center;
+    margin-bottom: 0;
+    -webkit-margin-after: 0; }
+  #terms-of-use .container-box {
+    background: #E1E5E6;
+    width: 90%;
+    text-align: left;
+    border-radius: 4px;
+    padding: 2em 3em;
+    margin: 0 auto; }
+  #terms-of-use hr {
+    width: 90%; }
+
 /*# sourceMappingURL=style.css.map */

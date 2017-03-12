@@ -848,7 +848,7 @@ footer {
 			border-radius: 4px;
 		}
 		input[type=date]:focus { border: 1px solid $light-blue; }
-		
+
 		select {
 			width: 40%;
 			margin-top: 8px;
@@ -885,9 +885,9 @@ footer {
 		input[type=submit]:hover { background: $blue; }
 
 	}
-	
+
 	.project-tab {
-		
+
 		h2 {
 			font-size: 1.8em;
 			margin: 0;
@@ -978,13 +978,13 @@ footer {
 	#resource-allocation-results {
 		background: #ffffff;
 		padding-top: 2em;
-		
+
 		.col-md-6:first-child {
 			border-right: 1px solid $hr-colour;
 		}
 
 		#results, #staff-added {
-			max-height: 550px; 
+			max-height: 550px;
 			overflow-y: scroll;
 		}
 
@@ -1087,7 +1087,7 @@ footer {
 			}
 		}*/
 	}
-	
+
 }
 
 @media (max-width: 768px) {
@@ -1095,7 +1095,7 @@ footer {
 
 		form {
 			width: 100%;
-			
+
 			input[type=text], textarea, select, #project-dates {
 				width: 100%;
 				margin-left: 0;
@@ -1347,7 +1347,7 @@ footer {
 	display: none;
 
 	hr { margin-top: 1em; }
-	
+
 	h2 {
 		width: 85%;
 		margin: 0.5em auto;
@@ -1570,7 +1570,7 @@ footer {
 		}
 		input[type=submit]:hover { background: $blue; }
 	}
-	
+
 	th {
 		font-size: 1.6em;
 		text-align: left;
@@ -1639,3 +1639,58 @@ footer {
 	background: $delete-red;
 }
 
+
+/* privacy-policy */
+#privacy-policy {
+	width: 95%;
+	font-size: 1.2em;
+	color: $blue;
+	font-family: $font;
+	margin: 4em auto;
+
+	h1 {
+		text-align: center;
+		//display: inline;
+		margin-bottom: 0;
+		-webkit-margin-after: 0;
+	}
+
+	.container-box {
+		background: $grey-background2;
+		width: 90%;
+		text-align: left;
+		border-radius: 4px;
+		padding: 2em 3em;
+		margin: 0 auto;
+	}
+	hr {
+		width: 90%;
+	}
+}
+
+#terms-of-use {
+	width: 95%;
+	font-size: 1.2em;
+	color: $blue;
+	font-family: $font;
+	margin: 4em auto;
+
+	h1 {
+//		display: inline;
+		text-align: center;
+		margin-bottom: 0;
+		-webkit-margin-after: 0;
+	}
+
+	.container-box {
+		background: $grey-background2;
+		width: 90%;
+		text-align: left;
+		border-radius: 4px;
+		padding: 2em 3em;
+		margin: 0 auto;
+	}
+	hr {
+		width: 90%;
+	}
+}
