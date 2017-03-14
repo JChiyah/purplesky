@@ -207,8 +207,8 @@ $(function() {
 			$('#staff-added-confirm').hide();
 			$('#search-staff-form').show();
 		}
-
 		$('.tab').hide();
+		$('.active').removeClass('active');
 
 	}
 
@@ -220,15 +220,19 @@ $(function() {
 			case 'staff':
 				get_project_staff();
 				$('#see-staff').show();
+				$('#staff').addClass('active');
 				break;
 			case 'add':
 				$('#add-staff').show();
+				$('#add').addClass('active');
 				break;
 			case 'edit':
 				$('#edit-staff').show();
+				$('#edit').addClass('active');
 				break;
 			case 'status':
 				$('#project-status').show();
+				$('#status').addClass('active');
 				break;
 			default:
 

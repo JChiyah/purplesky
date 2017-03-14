@@ -2909,6 +2909,49 @@ footer {
     font-size: 3.5em !important; }
 
 /* * * * Project Panel * * * */
+#project-management-panel, #staff-allocation {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em 0; }
+  #project-management-panel h1, #staff-allocation h1 {
+    margin-bottom: 0; }
+  #project-management-panel h2, #staff-allocation h2 {
+    margin-bottom: 0; }
+
+#left-bar {
+  padding-left: 0; }
+  #left-bar ul {
+    list-style: none;
+    padding: 0;
+    color: #1f1646;
+    background: #E1E5E6; }
+    #left-bar ul li {
+      text-align: left;
+      margin-bottom: -2px;
+      background: #E1E5E6; }
+      #left-bar ul li button {
+        text-align: left;
+        height: 100%;
+        width: 100%;
+        padding: 8px 12px;
+        border: none;
+        background: none; }
+      #left-bar ul li a {
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 8px 12px;
+        color: #1f1646; }
+      #left-bar ul li a:hover {
+        color: #1f1646;
+        text-decoration: none; }
+    #left-bar ul li:last-child {
+      margin-bottom: 0; }
+    #left-bar ul li:hover {
+      background: #C0C0C0; }
+    #left-bar ul .active {
+      background: #C0C0C0; }
+
 /* * * * Staff search * * * */
 .staff-result {
   padding: 1em 1.5em 0.5em 1.5em;

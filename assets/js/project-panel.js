@@ -1,5 +1,22 @@
 $(function() {
 
+	function get_project_staff() {
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/get_project_staff",
+			data: { 
+				'project_id' : $('#project_id').val(),
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data) {
+					$("#project-staff").html(data);
+				}
+			}
+		});
+	}
+	get_project_staff();
+
 	$("#dashboard-entry-submit").click(function(event) {
 		event.preventDefault();
 		//$('.error-msg').remove();
@@ -72,6 +89,29 @@ $(function() {
 			// All okay, continue
 			$('#edit-details').hide();
 			$('#project-summary').show();
+
+			$.ajax({
+				type: "POST",
+				url: baseurl + "Project/update_project_changes",
+				data: {
+					'project_id' : $('#project_id').val(),
+					'title' : $('#title').val(),
+					'description' : $('#description').val(),
+					'start_date' : $('#start_date').val(),
+					'end_date' : $('#end_date').val(),
+					'location' : $('#location').val(),
+					'priority' : $('input[name=priority]:checked').val(),
+					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+				},
+				success: function(res) {
+					if(res) {
+						$('#title_summary').before(res);
+					}
+				}/*, error: function(req, textStatus, errorThrown) {
+			        // To debug when an error happens (possibly a code 500 error)
+			        console.error('Ooops, something happened: ' + textStatus + ' ' +errorThrown);
+			    }*/
+			});
 		}
 	});
 
@@ -123,6 +163,7 @@ $(function() {
 			$('#edit-details').show();
 		}
 		$('.tab').hide();
+		$('.active').removeClass('active');
 
 	}
 
@@ -131,14 +172,21 @@ $(function() {
 		reset_forms();
 
 		switch($(this).attr('id')) {
+			case 'staff':
+				$('#see-staff').show();
+				$('#staff').addClass('active');
+				break;
 			case 'notification':
 				$('#dashboard-entry').show();
+				$('#notification').addClass('active');
 				break;
 			case 'edit':
 				$('#edit-project').show();
+				$('#edit').addClass('active');
 				break;
 			case 'status':
 				$('#project-status').show();
+				$('#status').addClass('active');
 				break;
 			default:
 

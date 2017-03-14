@@ -1632,7 +1632,65 @@ footer {
 }
 
 /* * * * Project Panel * * * */
+#project-management-panel, #staff-allocation {
+	width: 90%;
+	margin: 0 auto;
+	padding: 1em 0;
+	
+	h1 {
+		margin-bottom: 0;
+	}
+	h2 {
+		margin-bottom: 0;
+	}
+}
 
+#left-bar {
+	padding-left: 0;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		color: $blue;
+		background: $grey-background2;
+
+		li {
+			text-align: left;
+			margin-bottom: -2px;
+			background: $grey-background2;
+			//border: 2px solid $hr-colour;
+
+			button {
+				text-align: left;
+				height: 100%;
+				width: 100%;
+				padding: 8px 12px;
+				border: none;
+				background: none;
+			}
+			a {
+				display: block;
+				height: 100%;
+				width: 100%;
+				padding: 8px 12px;
+				color: $blue;
+			}
+			a:hover {
+				color: $blue;
+				text-decoration: none;
+			}
+		}
+		li:last-child {
+			margin-bottom: 0;
+		}
+		li:hover {
+			background: $hr-colour;
+		}
+		.active {
+			background: $hr-colour;
+		}
+	}
+}
 
 /* * * * Staff search * * * */
 .staff-result {
