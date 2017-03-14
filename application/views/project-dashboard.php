@@ -3,7 +3,11 @@
 
 	<?php if ($is_manager) : ?>
 
-		<a href="<?= site_url('project-management') ?>/<?= $project->project_id ?>" class="g-button">Project Management</a>
+		<div id="shortcuts">
+			<h3>Useful Links</h3>
+			<a href="<?= site_url('project-management') ?>/<?= $project->project_id ?>">Project Control Panel</a><br/>
+			<a href="<?= site_url('project-management') ?>/<?= $project->project_id ?>/staff-allocation">Project Staff Panel</a>
+		</div>
 
 	<?php endif ?>
 	

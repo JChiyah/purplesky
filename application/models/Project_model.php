@@ -419,24 +419,57 @@ class Project_model extends CI_Model {
 
 			$new_data = $query->row();
 
-			// Check changes
-			$changes = array();
-			foreach($new_data as $key => $value) {
-
-				if($value != $old_data->$key) {
-					$changes[$key]['old'] = $old_data->$key;
-					$changes[$key]['new'] = $value;
-				}
-
-			}
-
-			// Do something with the list of changes
-
 			return TRUE;
-
 		}
 
 	}
 
+	/**
+	 * Check what details will be updated
+	 *
+	 * @param $project_id
+	 * @param $project_info
+	 * @return mixed boolean / array of changes
+	 * @author JChiyah
+	 */
+	public function check_update_project($project_id, $project_info) {
+
+		$query = $this->db->select()
+						->where('project_id', $project_id)
+						->limit(1)
+						->get('project');
+
+		$old_data = $query->row();
+
+		if(!isset($old_data) || !$old_data) {
+			return FALSE;
+		}
+
+		// Check changes
+		$changes = array();
+		foreach($project_info as $key => $value) {
+
+			if($key == 'priority') {
+				if($value == 1) {
+					$value = 'normal';
+				} else {
+					$value = 'high';
+				}
+			}
+			if($value != $old_data->$key) {
+
+				$changes[$key]['old'] = $old_data->$key;
+				$changes[$key]['new'] = $value;
+			}
+
+		}
+
+		if(sizeof($changes) > 0) {
+			return $changes;
+		}
+
+		return FALSE;
+
+	}
 
 }

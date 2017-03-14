@@ -9,7 +9,7 @@
 		
 		<div class="col-md-2" id="left-bar">
 			<ul>
-				<li><button id="staff">Project Staff</button></li>
+				<li><button class="active" id="staff">Project Staff</button></li>
 				<li><button id="tasks">Project Tasks</button></li>
 				<li><button id="notification">Add Notification</button></li>
 				<li><button id="edit">Edit Project</button></li>
@@ -21,6 +21,14 @@
 
 		<div class="container-fluid col-md-10">
 			
+			<div class="container-fluid tab" id="see-staff">
+				<h2>Project Staff</h2>
+				<hr>
+				<div id="project-staff">
+
+				</div>
+			</div>
+
 			<div class="container-fluid tab" id="dashboard-entry" style="display: none">
 				<p>Here you can add a new notification to the project dashboard that everyone can see.<br/>
 				Staff working in the project will also be notified</p>
@@ -34,7 +42,7 @@
 				<button id="another-entry">Add another entry</button>
 			</div>
 
-			<div class="container-fluid tab" id="edit-project">
+			<div class="container-fluid tab" id="edit-project" style="display: none">
 				
 				<?php echo form_open('', array('id' => 'edit-project-form'));?>
 
@@ -108,7 +116,7 @@
 
 						<button type="button" class="project-back">Back</button>
 
-						<?php echo form_submit('submit', 'Edit project', "id='edit-project-submit'");?>
+						<?php echo form_submit('submit', 'Save changes', "id='edit-project-submit'");?>
 					</div>
 
 					<div class="container-fluid" id="project-confirmation" <?php echo isset($action) && $action == 'edit' ? '' : 'style="display: none"' ?>>

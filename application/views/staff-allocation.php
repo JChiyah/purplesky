@@ -9,18 +9,18 @@
 		
 		<div class="col-md-2" id="left-bar">
 			<ul>
+				<li><button class="active" id="staff">Project Staff</button></li>
 				<li><button id="tasks">Project Tasks</button></li>
-				<li><button id="staff">Project Staff</button></li>
 				<li><button id="task">Add Task</button></li>
 				<li><button id="add">Add Staff</button></li>
 				<li><button id="edit">Edit Staff</button></li>
-				<li><button id="delete">Remove Staff</button></li>
+				<li><button id="remove">Remove Staff</button></li>
 			</ul>
 		</div>
 
 		<div class="container-fluid col-md-10">
 
-			<div class="container-fluid tab" id="see-staff" style="display: none">
+			<div class="container-fluid tab" id="see-staff">
 				<h2>Project Staff</h2>
 				<hr>
 				<div id="project-staff">
@@ -28,7 +28,7 @@
 				</div>
 			</div>
 
-			<div class="container-fluid tab" id="add-staff">
+			<div class="container-fluid tab" id="add-staff" style="display: none">
 				<?php echo form_open('', array('id' => 'search-staff-form')) ?>
 					<p>You can search staff for this project by skills or by name</p>
 					<div>
@@ -119,6 +119,18 @@
 
 			<div class="container-fluid tab" id="edit-staff" style="display: none">
 				<p>lol</p>
+			</div>
+
+			<div class="container-fluid tab" id="remove-staff" style="display: none">
+				<h2>Remove Staff</h2>
+				<hr>
+
+				<p>Here you can remove staff working on the project. If the staff is working in a selected task, they will also be removed from it automatically.</p>
+				
+				<div id="remove-staff-list">
+
+				</div>
+
 			</div>
 
 		</div>

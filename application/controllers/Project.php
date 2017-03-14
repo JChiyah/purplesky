@@ -326,6 +326,48 @@ class Project extends Base {
 	}
 
 	/**
+	 * Updates project details
+	 * Call from a form post using AJAX
+	 *
+	 * @param post('project_id')
+	 * @param post('title')
+	 * @param post('description')
+	 * @param post('start_date')
+	 * @param post('end_date')
+	 * @param post('location')
+	 * @param post('priority')
+	 * @author JChiyah
+	 */
+	public function update_project_changes() {
+		// get and format input
+		$user_id = $this->session->userdata('user_id');
+		$project_id = $this->input->post('project_id');
+
+		$project_details = array(
+			'title' 		=> $this->parse_input($this->input->post('title')),
+			'description' 	=> $this->parse_input($this->input->post('description')),
+			'start_date' 	=> $this->input->post('start_date'),
+			'end_date' 		=> $this->input->post('end_date'),
+			'location' 		=> $this->input->post('location'),
+			'priority' 		=> $this->input->post('priority')
+		);
+
+		$changes = $this->Project_model->check_update_project($project_id, $project_details);
+
+		if($changes) {
+
+			foreach($changes as $key => $value) {
+
+				if($key == 'location') {
+					echo '<h4 class="error-msg">You are about to change the location of the project<h4>
+						<p class="error-msg">Not every employee assigned to the project may be able to relocate to the new location</p>
+						<h5 class="error-msg">Some staff may be removed from the project if you decide to continue</h5>';
+				}
+			}
+		}
+	}
+
+	/**
 	 * Adds staff to a project
 	 * Call from a form post using AJAX
 	 *

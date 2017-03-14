@@ -261,7 +261,7 @@ class User_model extends CI_Model {
 		// if no id was passed use the current users id
 		$id = isset($id) ? $id : $this->session->userdata('user_id');
 
-		$query = $this->db->select('experience_id, start_date, end_date, project_id, title, description, role, skills')
+		$query = $this->db->select('experience_id, start_date, end_date, project_id, institution, description, role, skills')
 						->where('staff_id', $id)
 						->where('active', 1)
 						->order_by('end_date', 'desc')

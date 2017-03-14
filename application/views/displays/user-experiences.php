@@ -13,9 +13,9 @@
 
 				<?php if(isset($experience->project_id)) : ?>
 
-					<a href="dashboard/' . $experience->project_id . '"> <?= $experience->title ?> </a>
+					<a href="dashboard/' . $experience->project_id . '"> <?= $experience->institution ?> </a>
 
-				<?php else : ?> <?= $experience->title ?> <?php endif ?>
+				<?php else : ?> <?= $experience->institution ?> <?php endif ?>
 	
 				</p>
 				
