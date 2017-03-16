@@ -103,7 +103,7 @@ CREATE TABLE staff_skill (
 	skill_id integer(8) NOT NULL,
 	skill_level enum('normal', 'basic', 'intermediate', 'advanced') NOT NULL,
 	PRIMARY KEY (staff_id, skill_id),
-	FOREIGN KEY (staff_id) REFERENCES staff(staff_id) ON DELETE CASCADE,
+	FOREIGN KEY (staff_id) REFERENCES account(id) ON DELETE CASCADE,
 	FOREIGN KEY (skill_id) REFERENCES skill(skill_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
@@ -144,7 +144,7 @@ CREATE TABLE experience (
 	role varchar(100) NOT NULL,
   	active tinyint(1) unsigned DEFAULT 1,
 	skills varchar(255) NOT NULL,
-	FOREIGN KEY (staff_id) REFERENCES staff(staff_id) ON DELETE CASCADE,
+	FOREIGN KEY (staff_id) REFERENCES account(id) ON DELETE CASCADE,
 	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
