@@ -12,11 +12,11 @@
 					<p>Please fill out all fields</p>
 					<p>
 						<label>Title:</label>
-						<?php echo form_input($title, '', 'maxlength="90"');?>
+						<?php echo form_input($title);?>
 					</p>
 					<p>
 						<label>Description:</label>
-						<?php echo form_textarea($description, '', 'maxlength="250" rows="5"');?>
+						<?php echo form_textarea($description);?>
 						<span>250 characters maximum</span>
 					</p>
 					<div class="row" id="project-dates">
@@ -39,6 +39,10 @@
 						<b>Priority:</b><br/>
 						<?php echo form_radio($normal_priority, '', true);?><?php echo form_label('Normal', 'normal');?>
 						<?php echo form_radio($high_priority);?><?php echo form_label('High', 'high');?>
+					</p>
+					<p>
+						<label>Budget:</label>
+						<?php echo form_input($budget);?>
 					</p>
 
 					<button type="button" class="project-continue">Continue</button>

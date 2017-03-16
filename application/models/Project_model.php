@@ -346,7 +346,7 @@ class Project_model extends CI_Model {
 	 * @return mixed boolean / project_id
 	 * @author JChiyah
 	 */
-	public function create_project($manager_id, $project_info, $staff) {
+	public function create_project($manager_id, $project_info) {
 
 		// Add other project info
 		$project_info = array_merge(array('manager_id' => $manager_id), $project_info);
@@ -370,7 +370,7 @@ class Project_model extends CI_Model {
 
 			$this->db->insert('project_dashboard', $entry);
 
-			$this->User_model->add_manager_activity($manager_id, $project_id);
+			$this->User_model->add_project_manager_activity($manager_id, $project_id);
 
 			$this->db->trans_complete(); // Close transaction
 

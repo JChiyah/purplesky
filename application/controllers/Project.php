@@ -196,7 +196,7 @@ class Project extends Base {
 		}
 
 		// Setting validation rules
-		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[3]|alpha_numeric_spaces');
+		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[3]|max_length[250]|alpha_numeric_spaces');
 		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[3]|max_length[250]');
 		$this->form_validation->set_rules('start_date', 'start date', 'trim|exact_length[10]|callback_check_date');
 		$this->form_validation->set_rules('end_date', 'end date', 'trim|exact_length[10]|callback_check_date');
@@ -209,14 +209,17 @@ class Project extends Base {
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
 			$this->data['title'] = array(
-				'name'  => 'title',
-				'id'    => 'title',
-				'required' => 'required',
+				'name'  	=> 'title',
+				'id'    	=> 'title',
+				'maxlength'	=> '90',
+				'required' 	=> 'required',
 				'value' => $this->form_validation->set_value('title')
 			);
 			$this->data['description'] = array(
-				'name'  => 'description',
-				'id'    => 'description',
+				'name'  	=> 'description',
+				'id'    	=> 'description',
+				'maxlength' => '250',
+				'rows' 		=> '5',
 				'required' => 'required',
 				'value' => $this->form_validation->set_value('description')
 			);
@@ -252,6 +255,14 @@ class Project extends Base {
 				'id'    => 'high',
 				'value' => '2',
 			);
+			$this->data['budget'] = array(
+				'name'  => 'budget',
+				'id'    => 'budget',
+				'type'	=> 'number',
+				'min'	=> '0',
+				'required' => 'required',
+				'value' => $this->form_validation->set_value('budget')
+			);
 
 			$this->data['locations'] = $this->System_model->get_locations();
 			$this->data['manager'] = $this->User_model->get_user_by_id($user_id)->name;
@@ -271,12 +282,12 @@ class Project extends Base {
 				'description' 	=> $this->parse_input($this->input->post('description')),
 				'priority'		=> $this->input->post('priority'),
 				'location'		=> $this->input->post('location'),
-				'budget' 		=> 850,
+				'budget' 		=> $this->input->post('budget'),
 				'start_date' 	=> $this->input->post('start_date'),
 				'end_date'		=> $this->input->post('end_date')
 			);
 
-			$project_id = $this->Project_model->create_project($user_id, $project_info, $staff);
+			$project_id = $this->Project_model->create_project($user_id, $project_info);
 
 			if (isset($project_id) && $project_id)
 			{
