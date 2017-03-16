@@ -21,7 +21,7 @@ CREATE TABLE user_group (
 #
 INSERT INTO user_group (`id`, `name`, `description`) VALUES
      (1,'admin','HR Admin'),
-     (2,'manager','Project Manager'),
+     (2,'project manager','Project Manager'),
      (3,'employee','Employee'),
      (4,'contractor','Contractor');
 
