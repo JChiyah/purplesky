@@ -7,7 +7,7 @@
 
 	<div class="container-fluid row">
 		
-		<div class="col-md-2" id="left-bar">
+		<div class="col-xs-12 col-sm-2 col-md-2" id="left-bar">
 			<ul>
 				<li><button class="active" id="staff">Project Staff</button></li>
 				<li><button id="tasks">Project Tasks</button></li>
@@ -18,7 +18,7 @@
 			</ul>
 		</div>
 
-		<div class="container-fluid col-md-10">
+		<div class="container-fluid col-xs-12 col-sm-10 col-md-10">
 
 			<div class="container-fluid tab" id="see-staff">
 				<h2>Project Staff</h2>
@@ -28,7 +28,25 @@
 				</div>
 			</div>
 
+			<div class="container-fluid tab" id="see-tasks">
+				<h2>Project Tasks</h2>
+				<hr>
+				<div id="project-tasks">
+
+				</div>
+			</div>
+
+			<div class="container-fluid tab" id="add-task">
+				<h2>Add Task</h2>
+				<hr>
+				<div id="add-project-task">
+
+				</div>
+			</div>
+
 			<div class="container-fluid tab" id="add-staff" style="display: none">
+				<h2>Add Staff</h2>
+				<hr>
 				<?php echo form_open('', array('id' => 'search-staff-form')) ?>
 					<p>You can search staff for this project by skills or by name</p>
 					<div>

@@ -222,6 +222,14 @@ $(function() {
 				$('#see-staff').show();
 				$('#staff').addClass('active');
 				break;
+			case 'tasks':
+				$('#see-tasks').show();
+				$('#tasks').addClass('active');
+				break;
+			case 'task':
+				$('#add-task').show();
+				$('#task').addClass('active');
+				break;
 			case 'add':
 				$('#add-staff').show();
 				$('#add').addClass('active');
@@ -230,9 +238,9 @@ $(function() {
 				$('#edit-staff').show();
 				$('#edit').addClass('active');
 				break;
-			case 'status':
-				$('#project-status').show();
-				$('#status').addClass('active');
+			case 'remove':
+				$('#remove-staff').show();
+				$('#remove').addClass('active');
 				break;
 			default:
 
