@@ -2869,20 +2869,23 @@ footer {
   -webkit-border-radius: 50%;
   border-radius: 50%; }
 
-#green {
+.green {
   background: #2ecc71; }
 
-#yellow {
+.yellow {
   background: #f1c40f; }
 
-#blue {
+.blue {
   background: #0389ff; }
 
-#orange {
+.orange {
   background: #f39c12; }
 
-#red {
+.red {
   background: #e74c3c; }
+
+.green-c {
+  color: #2ecc71; }
 
 /* * * * Privacy Policy and Terms of Use Pages * * * */
 #privacy-policy, #terms-of-use {

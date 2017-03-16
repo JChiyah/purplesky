@@ -9,10 +9,10 @@
 		
 		<div class="col-md-2" id="left-bar">
 			<ul>
-				<li><button class="active" id="staff">Project Staff</button></li>
+				<li><button <?php echo isset($action) && $action == 'edit' ? '' : 'class="active"' ?> id="staff">Project Staff</button></li>
 				<li><button id="tasks">Project Tasks</button></li>
 				<li><button id="notification">Add Notification</button></li>
-				<li><button id="edit">Edit Project</button></li>
+				<li><button <?php echo isset($action) && $action == 'edit' ? 'class="active"' : '' ?> id="edit">Edit Project</button></li>
 				<li><a href="<?= site_url('project-management') ?>/<?= $project->project_id ?>/staff-allocation">Allocate staff</a></li>
 				<li><button id="status">Change Project Status</button></li>
 				<li><button id="applications">Applications</button></li>
@@ -21,7 +21,7 @@
 
 		<div class="container-fluid col-md-10">
 			
-			<div class="container-fluid tab" id="see-staff">
+			<div class="container-fluid tab" id="see-staff" <?php echo (isset($action) && $action) ? 'style="display: none"' : ''?>>
 				<h2>Project Staff</h2>
 				<hr>
 				<div id="project-staff">
@@ -42,13 +42,13 @@
 				<button id="another-entry">Add another entry</button>
 			</div>
 
-			<div class="container-fluid tab" id="edit-project" style="display: none">
+			<div class="container-fluid tab" id="edit-project" <?php echo isset($action) && $action == 'edit' ? '' : 'style="display: none"' ?>>
 				
 				<?php echo form_open('', array('id' => 'edit-project-form'));?>
 
 					<p>Here you can edit project details such as its title, description or date</p>
 				
-					<div class="container-fluid" id="edit-details" <?php echo (isset($action) && $action) ? 'style="display: none"' : ''?>>
+					<div class="container-fluid" id="edit-details" <?php echo isset($action) && $action == 'edit' ? 'style="display: none"' : '' ?>>
 
 						<p>
 							<label>Title:</label>
@@ -120,6 +120,7 @@
 					</div>
 
 					<div class="container-fluid" id="project-confirmation" <?php echo isset($action) && $action == 'edit' ? '' : 'style="display: none"' ?>>
+						<i class="fa fa-check fa-5x green-c" aria-hidden="true"></i>
 						<h3>You have changed the project details succesfully!</h3>
 					</div>
 

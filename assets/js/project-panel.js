@@ -182,6 +182,7 @@ $(function() {
 				break;
 			case 'edit':
 				$('#edit-project').show();
+				$('#edit-details').show();
 				$('#edit').addClass('active');
 				break;
 			case 'status':

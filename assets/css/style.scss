@@ -1585,20 +1585,23 @@ footer {
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
 }
-#green {
+.green {
 	background: $go-green;
 }
-#yellow {
+.yellow {
 	background: #f1c40f;
 }
-#blue {
+.blue {
 	background: $light-blue;
 }
-#orange {
+.orange {
 	background: #f39c12;
 }
-#red {
+.red {
 	background: $delete-red;
+}
+.green-c {
+	color: $go-green;
 }
 
 

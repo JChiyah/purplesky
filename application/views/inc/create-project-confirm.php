@@ -4,7 +4,7 @@
 
 	<h3>The project <?= $project_title ?> has successfully been created!</h3>
 	
-	<i class="fa fa-check fa-5x" aria-hidden="true"></i>
+	<i class="fa fa-check fa-5x green" aria-hidden="true"></i>
 
 	<h5>You are now being redirected to your project dashboard where you can add staff to your project...</h5>
 

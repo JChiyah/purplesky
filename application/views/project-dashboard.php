@@ -22,7 +22,7 @@
 				<p><b>End date:</b> <?= date('d/m/Y', strtotime($project->end_date)) ?></p>
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-6" id="right-div">
-				<p><?= ucfirst($project->status) ?> <span class="circle" id="<?= $status ?>"></span></p>
+				<p><?= ucfirst($project->status) ?> <span class="circle <?= $status ?>"></span></p>
 				<p><?= ucfirst($project->priority) ?> priority</p>
 				<p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <?= $project->location ?></p>
 			</div>

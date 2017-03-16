@@ -125,7 +125,7 @@
 
 					<h3>Staff added succesfully</h3>
 					
-					<i class="fa fa-check fa-5x" aria-hidden="true"></i>
+					<i class="fa fa-check fa-5x green-c" aria-hidden="true"></i>
 
 					<button id="confirm-add">Add more</button>
 
