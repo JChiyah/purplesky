@@ -39,7 +39,11 @@
 					<input type="hidden" name="" value="<?= $project->project_id ?>" id="project_id">
 				</form>
 				
-				<button id="another-entry">Add another entry</button>
+				<div id="another-entry" style="display: none">
+					<span class="confirm-msg">New entry added!</span>
+					<i class="fa fa-check fa-5x green-c" aria-hidden="true"></i>					
+					<button>Add another entry</button>
+				</div>
 			</div>
 
 			<div class="container-fluid tab" id="edit-project" <?php echo isset($action) && $action == 'edit' ? '' : 'style="display: none"' ?>>

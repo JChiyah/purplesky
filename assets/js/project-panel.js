@@ -31,8 +31,8 @@ $(function() {
 			},
 			success: function(res) {
 				if(res) {
-					$('#new-entry').after('<span class="confirm-msg">New entry added!</span>');
 					$('#new-entry').hide();
+					$('#another-entry').show();
 				}
 			}, error: function(req, textStatus, errorThrown) {
 		        // To debug when an error happens (possibly a code 500 error)
@@ -194,9 +194,9 @@ $(function() {
 		}
 	});
 
-	$('#another-entry').click(function() {
-		$('.confirm-msg').remove();
+	$('#another-entry > button').click(function() {
 		$('#new-entry').show();
+		$('#another-entry').hide();
 	});
 
 
