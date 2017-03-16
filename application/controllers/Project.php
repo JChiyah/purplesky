@@ -196,8 +196,8 @@ class Project extends Base {
 		}
 
 		// Setting validation rules
-		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[3]|max_length[250]|alpha_numeric_spaces');
-		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[3]|max_length[250]');
+		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[3]|max_length[250]');
+		$this->form_validation->set_rules('description', 'description', 'required|trim|max_length[250]');
 		$this->form_validation->set_rules('start_date', 'start date', 'trim|exact_length[10]|callback_check_date');
 		$this->form_validation->set_rules('end_date', 'end date', 'trim|exact_length[10]|callback_check_date');
 		$this->form_validation->set_rules('location', 'location', 'is_natural_no_zero', array( 'is_natural_no_zero' => 'You have to assign a location for the project'));
@@ -260,6 +260,7 @@ class Project extends Base {
 				'id'    => 'budget',
 				'type'	=> 'number',
 				'min'	=> '0',
+				'placeholder' => '0',
 				'required' => 'required',
 				'value' => $this->form_validation->set_value('budget')
 			);

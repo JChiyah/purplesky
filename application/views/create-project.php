@@ -42,7 +42,7 @@
 					</p>
 					<p>
 						<label>Budget:</label>
-						<?php echo form_input($budget);?>
+						£ <?php echo form_input($budget);?>
 					</p>
 
 					<button type="button" class="project-continue">Continue</button>
@@ -70,6 +70,10 @@
 					    	<p>
 					    		<b>End date:</b>
 					    		<span id="end_date_summary">15/10/2017</span>
+					    	</p>
+					    	<p>
+					    		<b>Budget:</b>
+					    		<span id="budget_summary">£0</span>
 					    	</p>
 					    </div>
 					    <div class="col-xs-6 col-sm-6 col-md-6" id="right-div">

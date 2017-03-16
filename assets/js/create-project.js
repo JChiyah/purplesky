@@ -31,41 +31,47 @@ $(function() {
 		$('.error-field').removeClass('error-field');
 		// Check if all fields are done and show error where needed
 		if($('#title').val().length > 2) {
-			var now = new Date();
-			var start = new Date($('#start_date').val());
-			var end = new Date($('#end_date').val());
 
-			if(!isNaN(start)) {
+			if($('#description').val().length > 5) {
+				var now = new Date();
+				var start = new Date($('#start_date').val());
+				var end = new Date($('#end_date').val());
 
-				if(now.getTime() <= start.getTime()) {
+				if(!isNaN(start)) {
 
-					if(!isNaN(end)) {
+					if(now.getTime() <= start.getTime()) {
 
-						if(start.getTime() <= end.getTime()) {
-							if($('#location').val() != 0) {
-								// All okay, continue
-								$('#project-details').hide();
-								$('#project-summary').show();
-								$('html, body').animate({ scrollTop: "0px" });
+						if(!isNaN(end)) {
+
+							if(start.getTime() <= end.getTime()) {
+								if($('#location').val() != 0) {
+									// All okay, continue
+									$('#project-details').hide();
+									$('#project-summary').show();
+									$('html, body').animate({ scrollTop: "0px" });
+								} else {
+									$('#location').after('<span class="error-msg">Select a location<span>');
+									scroll_to_error('#location');
+								}
 							} else {
-								$('#location').after('<span class="error-msg">Select a location<span>');
-								scroll_to_error('#location');
+								$('#end_date').after('<span class="error-msg">The end date cannot be before the start date<span>');
+								scroll_to_error('#end_date');
 							}
 						} else {
-							$('#end_date').after('<span class="error-msg">The end date cannot be before the start date<span>');
+							$('#end_date').after('<span class="error-msg">Select a valid date<span>');
 							scroll_to_error('#end_date');
 						}
 					} else {
-						$('#end_date').after('<span class="error-msg">Select a valid date<span>');
-						scroll_to_error('#end_date');
+						$('#start_date').after('<span class="error-msg">The start date must be in the future<span>');
+						scroll_to_error('#start_date');
 					}
 				} else {
-					$('#start_date').after('<span class="error-msg">The start date must be in the future<span>');
+					$('#start_date').after('<span class="error-msg">Select a valid date<span>');
 					scroll_to_error('#start_date');
 				}
 			} else {
-				$('#start_date').after('<span class="error-msg">Select a valid date<span>');
-				scroll_to_error('#start_date');
+				$('#description').after('<span class="error-msg">The project description must contain at least 5 characters<span>');
+				scroll_to_error('#description');
 			}
 		} else {
 			$('#title').after('<span class="error-msg">The project title must contain at least 3 characters<span>');
@@ -246,6 +252,10 @@ $(function() {
 
 	$('#high').on('change keyup paste click', function(){
 		$('#priority_summary').text('High');
+	});
+
+	$('#budget').on('change keyup paste click', function(){
+		$('#budget_summary').text('£' + $(this).val());
 	});
 	
 });

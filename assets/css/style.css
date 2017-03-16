@@ -2311,14 +2311,17 @@ footer {
       display: block;
       margin-top: 8px;
       font-weight: 700; }
-    #create-project form input[type=text] {
+    #create-project form input[type=text], #create-project form input[type=number] {
       width: 40%;
       margin-top: 8px;
       padding: 8px 12px;
       border: 1px solid #C0C0C0;
-      border-radius: 4px; }
-    #create-project form input[type=text]:focus {
+      border-radius: 4px;
+      border: 1px solid transparent; }
+    #create-project form input[type=text]:focus, #create-project form input[type=number]:focus, #create-project form textarea:focus {
       border: 1px solid #0389ff; }
+    #create-project form input[type=number] {
+      width: 20%; }
     #create-project form textarea {
       width: 90%;
       resize: none;
@@ -2327,8 +2330,6 @@ footer {
       padding: 8px 12px;
       border-radius: 4px;
       border: 1px solid transparent; }
-    #create-project form textarea:focus {
-      border: 1px solid #0389ff; }
     #create-project form #project-dates {
       width: 90%;
       margin-left: 0; }
