@@ -70,6 +70,11 @@ class Main extends Base {
 		$data['user'] = $this->User_model->get_user_by_id($user_id);
 		$data['user_skills'] = $this->User_model->get_user_skills($user_id);
 		$data['user_experiences'] = $this->User_model->get_user_experiences($user_id);
+		if(count(array_intersect(array(2, 3, 4), $_SESSION['access_level'])) > 0) {
+			$data['only_admin'] = 0;
+		} else {
+			$data['only_admin'] = 1;
+		}
 
 		$this->load->view('html', $data);
 	}

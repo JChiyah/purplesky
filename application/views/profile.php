@@ -17,24 +17,29 @@
 			<section id="skills" class="col-xs-12 col-sm-7 col-md-7">
 				<div class="row">
 					<h1>Skills</h1>
-					<button class="edit-button" id="skill-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
+					<?php if(!$only_admin) : ?>
+					<button class="edit-button" id="skill-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button><?php endif ?>
 				</div>
 				<hr>
-				<div id="skill-set">
-					<?php echo form_open('', array('id' => 'skill-add')); ?>
-						<label>Select a skill to add</label>
-						<?php echo form_dropdown($skill_select, $skills);?>
-						<?php echo form_submit('submit', lang('add_label'), "id='skill-submit'");?>
-						<p>You can also delete skills by clicking on the cross</p>
-					<?php echo form_close(); ?>
-					
-					<div id="user-skills">
-						<?php $this->load->view('displays/user-skills.php', $user_skills); ?>
-					</div>
-					<div id="user-undo-skills">
+				<?php if(!$only_admin) : ?>
+					<div id="skill-set">
+						<?php echo form_open('', array('id' => 'skill-add')); ?>
+							<label>Select a skill to add</label>
+							<?php echo form_dropdown($skill_select, $skills);?>
+							<?php echo form_submit('submit', lang('add_label'), "id='skill-submit'");?>
+							<p>You can also delete skills by clicking on the cross</p>
+						<?php echo form_close(); ?>
+						
+						<div id="user-skills">
+							<?php $this->load->view('displays/user-skills.php', $user_skills); ?>
+						</div>
+						<div id="user-undo-skills">
 
+						</div>
 					</div>
-				</div>
+				<?php else : ?>
+					<p>HR Admins cannot add skills</p>
+				<?php endif ?>
 			</section>
 		</div>
 	</div>
@@ -44,12 +49,14 @@
 			<div class="row">
 				<div class="col-sm-12 col-md-12 row" id="exp-row">
 					<h1>Experiences</h1>
-					<button class="edit-button" id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+					<?php if(!$only_admin) : ?>
+					<button class="edit-button" id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button><?php endif ?>
 				</div>
 			</div>
 			<hr>
 
 			<div id="experience-set">
+				<?php if(!$only_admin) : ?>
 				<?php echo form_open('User/experience_form', array('id' => 'experience-add')); ?>
 
 					<div class="container-box">
@@ -88,11 +95,15 @@
 						<p id="experience-msg"><?php echo $message;?></p>
 					</div>
 				<?php echo form_close(); ?>
+			<?php endif ?>
 
 				<div id="experiences">
-
-					<?php $this->load->view('displays/user-experiences.php', $user_experiences); ?>
-
+					
+					<?php if(!$only_admin) : ?>
+						<?php $this->load->view('displays/user-experiences.php', $user_experiences); ?>
+					<?php else : ?>
+						<p>HR Admins do not have experiences to show here</p>
+					<?php endif ?>
 				</div>
 
 			</div>
