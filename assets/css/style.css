@@ -2260,7 +2260,8 @@ footer {
   background: #E1E5E6;
   padding: 1em 3em;
   margin: 2em 0;
-  border-radius: 4px; }
+  border-radius: 4px;
+  display: none; }
   #profile #add-experience-form h2 {
     margin: 0; }
   #profile #add-experience-form .row {
