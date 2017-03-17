@@ -81,6 +81,7 @@ class User extends Base {
 	public function add_user_experience() {
 		// get and format input
 		$user_id = $this->session->userdata('user_id');
+		$skills = $this->input->post('skills');
 		
 		$additional_data = array(
 			'start_date' 	=> $this->input->post('start_date'),
@@ -89,6 +90,10 @@ class User extends Base {
 			'description' 	=> $this->parse_input($this->input->post('description')),
 			'role'			=> $this->parse_input($this->input->post('role'))
 		);
+
+		if($this->System_model->check_skills_format($skills)) {
+			$additional_data['skills'] = $skills;
+		}
 
 		if($this->User_model->add_user_experiences($user_id, $additional_data)) {
 			return $this->display_user_experiences($user_id);

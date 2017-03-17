@@ -294,6 +294,8 @@ class User_model extends CI_Model {
 
 			$data = array_merge(array('staff_id' => $id), $additional_data);
 
+			$data['skills'] = $this->System_model->compress_skills($data['skills']);
+
 			return $this->db->insert('experience', $data);
 		}
 	}
