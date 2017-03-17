@@ -536,14 +536,6 @@ footer {
 		label {
 			display: block;
 		}
-		select {
-			width: 40%;
-			margin-top: 8px;
-			padding: 8px 12px 8px 12px;
-			border: 1px solid $light-blue;
-			border-radius: 4px;
-			font-weight: 900;
-		}
 	}
 
 	#skill-add {
@@ -554,7 +546,7 @@ footer {
 	}
 }
 
-.skill-span {
+.skill-span, .skill-span-b {
 	display: inline-block;
 	position: relative;
 	color: $blue;
@@ -572,6 +564,10 @@ footer {
 		right: -10px;
 		display: none;
 	}
+}
+.skill-span-b {
+	background: #ffffff;
+	border: 1px solid transparent;
 }
 .delete-hover {
 	color: #ffffff;
@@ -666,6 +662,16 @@ footer {
 			box-shadow: none;
 		}
 		input[type=submit]:hover { background: $blue; }
+
+		select {
+			width: 40%;
+			margin-top: 8px;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+			font-weight: 900;
+		}
+		select:focus { border: 1px solid $light-blue; }
 	}
 
 	#experience {
@@ -673,7 +679,7 @@ footer {
 		font-size: 1.2em;
 		color: $blue;
 		font-family: $font;
-		margin: 4em auto;
+		margin: 2em auto;
 
 		#exp-row {
 			position: relative;
@@ -703,52 +709,61 @@ footer {
 		    -webkit-margin-after: 0;
 		}
 
-		.container-box {
-			background: $grey-background2;
-			width: 80%;
-			text-align: left;
-			border-radius: 4px;
-			padding: 2em 3em;
-			margin: 0 auto;
+	}
 
-			.row {
-				margin: 0 1em;
-			}
+	form {
+		input[type=text], input[type=date] {
+			width: 70%;
+			margin-top: 8px;
+			padding: 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+		input[type=text]:focus, input[type=date]:focus { border: 1px solid $light-blue; }
+
+		input[type=date] {
+			width: 100%;
 		}
 
-		form {
-			input[type=text], input[type=date] {
-				width: 70%;
-				margin-top: 8px;
-				padding: 8px 12px;
-				border: 1px solid transparent;
-				border-radius: 4px;
-			}
-			input[type=text]:focus, input[type=date]:focus { border: 1px solid $light-blue; }
+		textarea {
+			width: 100%;
+			margin-top: 8px;
+			padding: 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
 
-			input[type=date] {
-				//width: 40%;
-			}
-
-			textarea {
-				width: 100%;
-				margin-top: 8px;
-				padding: 8px 12px;
-				border: 1px solid transparent;
-				border-radius: 4px;
-			}
-
-			label {
-				display: block;
-				font-weight: 900;
-				margin-top: 8px;
-			}
+		label {
+			display: block;
+			font-weight: 900;
+			margin-top: 8px;
 		}
 	}
 
-	#experience-add {
-		visibility: hidden;
-		display: none;
+	#add-experience-form {
+		background: $grey-background2;
+		padding: 1em 3em;
+		margin: 2em 0;
+		border-radius: 4px;
+		//display: none;
+		
+		h2 {
+			margin: 0;
+		}
+		.row {
+			margin: 0;
+		}
+
+		label {
+			display: block;
+		}
+
+		.experience-skills-delete {
+			cursor: pointer;
+			padding: 3px;
+			position: relative;
+			right: -10px;
+		}
 	}
 }
 
@@ -837,7 +852,7 @@ footer {
 		input[type=text]:focus, input[type=number]:focus, textarea:focus { border: 1px solid $light-blue; }
 		
 		input[type=number] { width: 20%; }
-		
+
 		textarea {
 			width: 90%;
 			resize: none;

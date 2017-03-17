@@ -2095,20 +2095,13 @@ footer {
     margin: 1em 0 0.2em 0; }
   #skills #skill-set label {
     display: block; }
-  #skills #skill-set select {
-    width: 40%;
-    margin-top: 8px;
-    padding: 8px 12px 8px 12px;
-    border: 1px solid #0389ff;
-    border-radius: 4px;
-    font-weight: 900; }
   #skills #skill-add {
     visibility: hidden;
     display: none;
     background: #E1E5E6;
     padding: 1em 2em; }
 
-.skill-span {
+.skill-span, .skill-span-b {
   display: inline-block;
   position: relative;
   color: #1f1646;
@@ -2118,12 +2111,16 @@ footer {
   border: 2px solid #E1E5E6;
   border-radius: 8px;
   font-weight: 900; }
-  .skill-span .delete-tag {
+  .skill-span .delete-tag, .skill-span-b .delete-tag {
     cursor: pointer;
     padding: 3px;
     position: relative;
     right: -10px;
     display: none; }
+
+.skill-span-b {
+  background: #ffffff;
+  border: 1px solid transparent; }
 
 .delete-hover {
   color: #ffffff;
@@ -2205,12 +2202,21 @@ footer {
   box-shadow: none; }
 #profile form input[type=submit]:hover {
   background: #1f1646; }
+#profile form select {
+  width: 40%;
+  margin-top: 8px;
+  padding: 8px 12px 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-weight: 900; }
+#profile form select:focus {
+  border: 1px solid #0389ff; }
 #profile #experience {
   width: 80%;
   font-size: 1.2em;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
-  margin: 4em auto; }
+  margin: 2em auto; }
   #profile #experience #exp-row {
     position: relative;
     margin: 0 20px 0 5px; }
@@ -2230,36 +2236,42 @@ footer {
     display: inline;
     margin-bottom: 0;
     -webkit-margin-after: 0; }
-  #profile #experience .container-box {
-    background: #E1E5E6;
-    width: 80%;
-    text-align: left;
-    border-radius: 4px;
-    padding: 2em 3em;
-    margin: 0 auto; }
-    #profile #experience .container-box .row {
-      margin: 0 1em; }
-  #profile #experience form input[type=text], #profile #experience form input[type=date] {
-    width: 70%;
-    margin-top: 8px;
-    padding: 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
-  #profile #experience form input[type=text]:focus, #profile #experience form input[type=date]:focus {
-    border: 1px solid #0389ff; }
-  #profile #experience form textarea {
-    width: 100%;
-    margin-top: 8px;
-    padding: 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
-  #profile #experience form label {
-    display: block;
-    font-weight: 900;
-    margin-top: 8px; }
-#profile #experience-add {
-  visibility: hidden;
-  display: none; }
+#profile form input[type=text], #profile form input[type=date] {
+  width: 70%;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+#profile form input[type=text]:focus, #profile form input[type=date]:focus {
+  border: 1px solid #0389ff; }
+#profile form input[type=date] {
+  width: 100%; }
+#profile form textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+#profile form label {
+  display: block;
+  font-weight: 900;
+  margin-top: 8px; }
+#profile #add-experience-form {
+  background: #E1E5E6;
+  padding: 1em 3em;
+  margin: 2em 0;
+  border-radius: 4px; }
+  #profile #add-experience-form h2 {
+    margin: 0; }
+  #profile #add-experience-form .row {
+    margin: 0; }
+  #profile #add-experience-form label {
+    display: block; }
+  #profile #add-experience-form .experience-skills-delete {
+    cursor: pointer;
+    padding: 3px;
+    position: relative;
+    right: -10px; }
 
 #experience-set #experiences {
   padding: 0.7em 1.5em; }
