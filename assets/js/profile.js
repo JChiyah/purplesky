@@ -76,42 +76,84 @@ $(function() {
 		});
 	});
 
-	$("#experience-submit").click(function(event) {
-		event.preventDefault();
-		// form validation
-		var start_date = $('#start_date').val();
-		var end_date = $('#end_date').val();
-		var title = $('#title').val();
-		var description = $('#description').val();
-		var role = $('#role').val();
+	function validate_experience() {
+		$('.error-msg').hide();
+		$('.error-field').removeClass('error-field');
+		// Check if all fields are done and show error where needed
+		if($('#role').val().length > 4) {
 
-		if(start_date && end_date && title && description && role) {
+			if($('#title').val().length > 4) {
+				var start = new Date($('#start_date').val());
+				var end = new Date($('#end_date').val());
 
-			if(validate_dates(start_date, end_date)) {
-				$.ajax({
-					type: "POST",
-					url: baseurl + "User/add_user_experience",
-					data: {
-						'start_date' : start_date,
-						'end_date' : end_date,
-						'title' : title,
-						'description' : description,
-						'role' : role,
-						'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
-					},
-					success: function(res) {
-						if (res) {
-							$('#experiences').html(res);
-							$('#experience-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
-							$('#experience-add')[0].reset();
+				if(!isNaN(start)) {
+
+					if(!isNaN(end)) {
+
+						if(start.getTime() <= end.getTime()) {
+
+							if($('#description').val().length > 4) {
+								
+								return true;
+
+							} else {
+								$('#description').after('<span class="error-msg">The description must contain at least 5 characters<span>');
+								scroll_to_error('#description');
+							}
+						} else {
+							$('#end_date').after('<span class="error-msg">The end date cannot be before the start date<span>');
+							scroll_to_error('#end_date');
 						}
+					} else {
+						$('#end_date').after('<span class="error-msg">Enter a valid date dd/mm/yyyy<span>');
+						scroll_to_error('#end_date');
 					}
-				});
+				} else {
+					$('#start_date').after('<span class="error-msg">Enter a valid date dd/mm/yyyy<span>');
+					scroll_to_error('#start_date');
+				}
 			} else {
-				$('#experience-msg').text('The dates are not valid');
+				$('#title').after('<span class="error-msg">The institution/company name must contain at least 5 characters<span>');
+				scroll_to_error('#title');
 			}
 		} else {
-			$('#experience-msg').text('Please fill out all fields');
+			$('#role').after('<span class="error-msg">The role must contain at least 5 characters<span>');
+			scroll_to_error('#role');
+		}
+	}
+
+	function scroll_to_error($element_id) {
+		$($element_id).addClass('error-field');
+		$('html, body').animate({
+		    scrollTop: $($element_id).offset().top - 100
+		}, 500);
+	}
+
+	$("#experience-submit").click(function(event) {
+		event.preventDefault();
+
+		if(validate_experience()) {
+
+			$.ajax({
+				type: "POST",
+				url: baseurl + "User/add_user_experience",
+				data: {
+					'start_date' : $('#start_date').val(),
+					'end_date' : $('#end_date').val(),
+					'title' : $('#title').val(),
+					'description' : $('#description').val(),
+					'role' : $('#role').val(),
+					'skills' : skills,
+					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+				},
+				success: function(res) {
+					if (res) {
+						$('#experiences').html(res);
+						$('#add-experience-form').hide();
+						$('#add-experience-form')[0].reset();
+					}
+				}
+			});
 		}
 	});
 
@@ -151,7 +193,6 @@ $(function() {
 					skill + ' <i class="fa fa-times fa-lg experience-skills-delete" aria-hidden="true"></i></span>');
 
 				skills.push(id);
-				alert(skills);
 			}
 			// else repeated element 
 		}
@@ -162,7 +203,6 @@ $(function() {
 		$(this).parent().remove();
 
 		skills.splice($.inArray(id, skills),1);
-		alert(skills);
 	});
 
 	$('#password-edit').on('click', function() {
