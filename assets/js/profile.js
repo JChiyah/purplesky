@@ -151,6 +151,8 @@ $(function() {
 						$('#experiences').html(res);
 						$('#add-experience-form').hide();
 						$('#add-experience-form')[0].reset();
+						$('#selected-skills').html('');
+						skills = [];
 					}
 				}
 			});
@@ -203,6 +205,12 @@ $(function() {
 		$(this).parent().remove();
 
 		skills.splice($.inArray(id, skills),1);
+	});
+
+	$('#clear-skills').click(function(event) {
+		skills = [];
+		$('#experience-skills').val(0);
+		$("#selected-skills").html('');
 	});
 
 	$('#password-edit').on('click', function() {
