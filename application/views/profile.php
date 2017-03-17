@@ -11,6 +11,7 @@
 				</div>
 				<hr>
 				<a class="g-button" style="width: 50%;" href="change-password">Change password</a>
+				<?php if(!$only_admin) : ?><button class="g-button" id="add-experience">Add Experience</button><?php endif ?>
 			</div>
 
 			<!--Skill section-->
@@ -47,19 +48,13 @@
 	<div class="container">
 		<section id="experience">
 			<div class="row">
-				<div class="col-sm-12 col-md-12 row" id="exp-row">
-					<h1>Experiences</h1>
-					<?php if(!$only_admin) : ?>
-					<button class="edit-button" id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button><?php endif ?>
-				</div>
-			</div>
-			<hr>
-
-			<div id="experience-set">
 				<?php if(!$only_admin) : ?>
-				<?php echo form_open('User/experience_form', array('id' => 'experience-add')); ?>
 
-					<div class="container-box">
+					<?php echo form_open('User/experience_form', array('id' => 'add-experience-form', 'class' => 'col-xs-12')); ?>
+
+						<h2>Add Experience</h2>
+						<hr>
+
 						<div class="row">
 							<div class="col-sm-12 col-md-8">
 								<p>
@@ -88,14 +83,32 @@
 								<label>Description:</label>
 								<?php echo form_textarea($description,'','required maxlength="250" rows="4"');?>
 							</div>
-							<div class="col-sm-12 col-md-4">
-								<?php echo form_submit('submit', "Add experience","id='experience-submit'");?>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-8">
+								<label>Skills learned/used:</label>
+								<?php echo form_dropdown(array('id' => 'experience-skills'), array_merge(array( 0 => 'Select'), $skills));?>
+								<button type="button" class="g-button" id="clear-skills">Clear All</button>
+								<div id="selected-skills"></div>
 							</div>
 						</div>
+						<div class="row">
+							<div class="hidden-xs col-sm-8"></div>
+							<?php echo form_submit('submit', "Add experience","class='col-xs-12 col-sm-4' id='experience-submit'");?>
+						</div>
 						<p id="experience-msg"><?php echo $message;?></p>
-					</div>
-				<?php echo form_close(); ?>
-			<?php endif ?>
+					<?php echo form_close(); ?>
+				<?php endif ?>
+
+				<div class="col-sm-12 col-md-12 row" id="exp-row">
+					<h1>Experiences</h1>
+					<?php if(!$only_admin) : ?>
+					<button class="edit-button" id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button><?php endif ?>
+				</div>
+			</div>
+			<hr>
+
+			<div id="experience-set">
 
 				<div id="experiences">
 					
