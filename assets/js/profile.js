@@ -139,6 +139,32 @@ $(function() {
 		}
 	});
 
+	skills = [];
+
+	$('#experience-skills').on('change', function() {
+		var e = document.getElementById("experience-skills");
+		var skill = e.options[e.selectedIndex].text;
+		var id = this.value;
+		if(id != 0) {
+			if(!skills.includes(id)) {
+				$("#selected-skills").append('<span class="skill-span-b" id="' + id + '">' + 
+					skill + ' <i class="fa fa-times fa-lg experience-skills-delete" aria-hidden="true"></i></span>');
+
+				skills.push(id);
+				alert(skills);
+			}
+			// else repeated element 
+		}
+	});
+
+	$('body').on('click', '.experience-skills-delete', function() {
+		var id = $(this).parent().attr('id');
+		$(this).parent().remove();
+
+		skills.splice($.inArray(id, skills),1);
+		alert(skills);
+	});
+
 	$('#password-edit').on('click', function() {
     	$('#password-form').slideToggle().css({'visibility': 'visible', 'display': 'block'});
 	});
@@ -150,9 +176,12 @@ $(function() {
     	undo_skills = false;
 	});
 
+	$('#add-experience').on('click', function() {
+    	$('#add-experience-form').slideToggle().css({'visibility': 'visible', 'display': 'block'});
+	});
+
 	$('#experience-edit').on('click', function() {
-    	$('#experience-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
-    	$('.delete-experience-tag').toggle();    	
+    	$('.delete-experience-tag').toggle();
 	});
 
 	$('body').on('mouseenter mouseleave', '.delete-tag', function() {
