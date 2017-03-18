@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'Auth/login';
 $route['index'] = 'Main';
 $route['profile'] = 'Main/profile_view';
+$route['([a-z]+.[a-z]+)'] = 'Main/visit_profile_view/$1';
 $route['projects'] = 'Main/projects_view';
 $route['create-project'] = 'Project/create_project';
 $route['project-confirm/(:num)'] = 'Main/project_confirm_view/$1';
