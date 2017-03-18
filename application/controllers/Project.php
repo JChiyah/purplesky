@@ -219,7 +219,7 @@ class Project extends Base {
 				'name'  	=> 'description',
 				'id'    	=> 'description',
 				'maxlength' => '250',
-				'rows' 		=> '5',
+				'rows' 		=> '3',
 				'required' => 'required',
 				'value' => $this->form_validation->set_value('description')
 			);
