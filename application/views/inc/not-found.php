@@ -1,4 +1,4 @@
-<section id="page-not-found">
+<section class="container-fluid" id="page-not-found">
 
 	<h1>The page you requested is not available</h1>
 
@@ -6,10 +6,10 @@
 
 	<i class="fa fa-chain-broken fa-5x" aria-hidden="true"></i>
 
-	<div class="row col-xs-12 col-sm-6">
+	<div class="row col-xs-12">
 		
-		<a href="index" class="col-xs-6">Go back to the previous page</a>
-		<a href="index" class="col-xs-6">Go to home</a>
+		<a href="javascript:window.history.go(-1);" class="col-xs-12 col-sm-8">Go back to the previous page</a>
+		<a href="index" class="col-xs-12 col-sm-4">Go to home</a>
 
 	</div>
 

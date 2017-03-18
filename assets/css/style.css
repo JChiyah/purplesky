@@ -2995,4 +2995,13 @@ footer {
     border: 1px solid #C0C0C0;
     padding: 3px 12px; }
 
+#page-not-found {
+  width: 40%;
+  margin: 4em auto;
+  text-align: center;
+  font-size: 1.3em; }
+  #page-not-found .fa {
+    display: block;
+    margin-bottom: 0.5em; }
+
 /*# sourceMappingURL=style.css.map */
