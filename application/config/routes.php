@@ -50,13 +50,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Auth';
-$route['404_override'] = '';
+$route['404_override'] = 'Main/not_found_view';
 $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'Auth/login';
 $route['index'] = 'Main';
-$route['profile'] = 'Main/profile_view';
-$route['([a-z]+.[a-z]+)'] = 'Main/visit_profile_view/$1';
 $route['projects'] = 'Main/projects_view';
+$route['([a-z]+\.[a-z]+)'] = 'Main/profile_view/$1';
 $route['create-project'] = 'Project/create_project';
 $route['project-confirm/(:num)'] = 'Main/project_confirm_view/$1';
 $route['dashboard/(:num)'] = 'Main/project_dashboard_view/$1';

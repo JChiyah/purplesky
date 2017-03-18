@@ -24,7 +24,7 @@
 				<?php endif ?>
 				</div>
 
-				<button type="button" class="col-md-3">See profile</button>
+				<a href="<?php echo site_url(strtolower(str_replace(' ','.',$employee->name))); ?>" class="col-md-3 g-button">See profile</a>
 			</div>
 		</div>
 

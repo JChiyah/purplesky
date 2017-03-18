@@ -50,41 +50,7 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
-	public function profile_view() {
-
-		$data = $this->experience_form();
-		$data['page_body'] = 'profile';
-		$data['page_title'] = 'Profile';
-		$data['page_description'] = 'User profile';
-
-		$data['skill_select'] = array(
-			'name'  => 'skill_select',
-			'id'    => 'skill_select',
-			'value' => $this->form_validation->set_value('skill_select'),
-		);
-		$data['skills'] = $this->System_model->get_skills();
-
-		// User-related data
-		$user_id = $this->session->userdata('user_id');
-
-		$data['user'] = $this->User_model->get_user_by_id($user_id);
-		$data['user_skills'] = $this->User_model->get_user_skills($user_id);
-		$data['user_experiences'] = $this->User_model->get_user_experiences($user_id);
-		if(count(array_intersect(array(2, 3, 4), $_SESSION['access_level'])) > 0) {
-			$data['only_admin'] = 0;
-		} else {
-			$data['only_admin'] = 1;
-		}
-
-		$this->load->view('html', $data);
-	}
-
-	public function visit_profile_view($user_name) {
-
-		if(count(array_intersect(array(1, 2), $_SESSION['access_level'])) == 0) {
-			// No permission
-			redirect('index');
-		}
+	public function profile_view($user_name) {
 
 		$user_name = str_replace('.', ' ', $user_name);
 
@@ -96,9 +62,36 @@ class Main extends Base {
 			return ;
 		}
 
+		// User-related data
+		$curr_user_id = $this->session->userdata('user_id');
+		if($user_id == $curr_user_id) {
+			// If the current user is accessing his profile, then let him edit permissions
+			$data = $this->experience_form();
+
+			$data['skill_select'] = array(
+				'name'  => 'skill_select',
+				'id'    => 'skill_select',
+				'value' => $this->form_validation->set_value('skill_select'),
+			);
+			$data['skills'] = $this->System_model->get_skills();
+
+			if(count(array_intersect(array(2, 3, 4), $_SESSION['access_level'])) > 0) {
+				$data['only_admin'] = 0;
+			} else {
+				$data['only_admin'] = 1;
+			}
+			$data['page_body'] = 'profile';
+		} else {
+			// Someone is visiting another user's profile
+			if(count(array_intersect(array(1, 2), $_SESSION['access_level'])) == 0) {
+				// No permission
+				redirect('index');
+			}
+			$data['page_body'] = 'visit-profile';			
+		}
+
 		$data['user'] = $this->User_model->get_user_by_id($user_id);
 
-		$data['page_body'] = 'visit-profile';
 		$data['page_title'] = $data['user']->name;
 		$data['page_description'] = $data['user']->name . ' profile';
 
