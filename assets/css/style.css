@@ -3084,4 +3084,26 @@ footer {
   display: inline-block;
   font-weight: 500; }
 
+/* dashboard-entry style*/
+#dashboard-entry p {
+  display: block;
+  margin-top: 8px; }
+#dashboard-entry input[type=text] {
+  width: 70%;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+#dashboard-entry input[type=submit] {
+  background: #0389ff;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none; }
+#dashboard-entry input[type=submit]:hover {
+  background: #1f1646; }
+
 /*# sourceMappingURL=style.css.map */
