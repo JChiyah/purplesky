@@ -79,6 +79,35 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
+	public function visit_profile_view($user_name) {
+
+		if(count(array_intersect(array(1, 2), $_SESSION['access_level'])) == 0) {
+			// No permission
+			redirect('index');
+		}
+
+		$user_name = str_replace('.', ' ', $user_name);
+
+		$user_id = $this->User_model->get_user_by_name($user_name);
+
+		if(!isset($user_id) || !$user_id) {
+			// User doesn't exist
+			$this->not_found_view();
+			return ;
+		}
+
+		$data['user'] = $this->User_model->get_user_by_id($user_id);
+
+		$data['page_body'] = 'visit-profile';
+		$data['page_title'] = $data['user']->name;
+		$data['page_description'] = $data['user']->name . ' profile';
+
+		$data['user_skills'] = $this->User_model->get_user_skills($user_id);
+		$data['user_experiences'] = $this->User_model->get_user_experiences($user_id);
+
+		$this->load->view('html', $data);
+	}
+
 	public function search_view() {
 
 		$data['page_body'] = 'search';
@@ -362,6 +391,15 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
+	public function not_found_view() {
+
+		$data['page_body'] = 'inc/not-found';
+		$data['page_title'] = 'Page not found';
+		$data['page_description'] = 'Page not found';
+
+		$this->load->view('html', $data);
+	}
+
   	// forgot password
   	public function forgot_password() {
 
@@ -444,6 +482,8 @@ class Main extends Base {
 			'name'  => 'description',
 			'id'    => 'description',
 			'type'  => 'textarea',
+			'rows'	=> '3',
+			'maxlength'	=> '250',
 			'value' => $this->form_validation->set_value('description'),
 		);
 		$this->data['role'] = array(
