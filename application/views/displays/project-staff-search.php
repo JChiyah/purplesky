@@ -8,7 +8,7 @@
 			<p class="pay-rate">£<?= $employee->pay_rate ?>/day</p>
 			<div class="row">
 				
-				<div class="col-md-9" id="skill-set">
+				<div class="col-md-6" id="skill-set">
 				<?php if(isset($skills) && $skills) : ?>
 
 					Skills: 
@@ -23,6 +23,7 @@
 
 				<?php endif ?>
 				</div>
+				<a href="<?php echo site_url(strtolower(str_replace(' ','.',$employee->name))); ?>" class="col-md-3 g-button">See profile</a>
 
 				<button type="button" class="col-md-3 allocate-staff-button">Select</button>
 			</div>
