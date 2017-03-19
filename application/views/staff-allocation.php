@@ -10,11 +10,6 @@
 		<div class="col-xs-12 col-sm-2 col-md-2" id="left-bar">
 			<ul>
 				<li><button class="active" id="staff">Project Staff</button></li>
-				<li><button id="tasks">Project Tasks</button></li>
-				<li><button id="task">Add Task</button></li>
-				<li><button id="add">Add Staff</button></li>
-				<li><button id="edit">Edit Staff</button></li>
-				<li><button id="remove">Remove Staff</button></li>
 			</ul>
 		</div>
 
