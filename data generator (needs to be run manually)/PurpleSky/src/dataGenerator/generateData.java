@@ -139,8 +139,15 @@ public static void main (String[] args) throws IOException{
 		skillarray[linecounter]=skillcount;
 		staffskillbw.write("\""+linecounter+"\",\""+ skillcount2+"\",\"0\"");
 		staffskillbw.newLine();
-		
-		accgroupbw.write("\""+linecounter+"\",\"3\"");
+		int accaccess=3;
+		accaccess=rand.nextInt(2)+1;
+		if(accaccess==1){
+			accaccess=3;
+		}
+		if(accaccess==2){
+			accaccess=4;
+		}
+		accgroupbw.write("\""+linecounter+"\",\""+accaccess+"\"");
 		accgroupbw.newLine();
 		staffbw.write("\""+linecounter +"\",\""+location + "\",\""+ pay+"\"");
 		staffbw.newLine();
@@ -192,7 +199,7 @@ public static void main (String[] args) throws IOException{
 				int rolepos=rand2.nextInt(5);
 				
 				String titleofexperince= role[rolepos]+" apprentice";
-				experiencesbw.write("\""+linecounter+"\",\""+year+"-"+month+"-"+day+"\",\""+year2+"-"+month2+"-"+day2+"\",\""+titleofexperince+ "\",\""+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus."+"\",\""+role[rolepos]+"\",\""+skillarray[linecounter]+"\"");
+				experiencesbw.write("\""+linecounter+"\",\""+year+"-"+month+"-"+day+"\",\""+year2+"-"+month2+"-"+day2+"\",\""+titleofexperince+ "\",\""+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero."+"\",\""+role[rolepos]+"\",\""+skillarray[linecounter]+"\"");
 				experiencesbw.newLine();
 								
 				linecounter++;
@@ -234,7 +241,14 @@ public static void main (String[] args) throws IOException{
 		// project table
 		int prio =rand.nextInt(2);
 		int localize= rand.nextInt(5)+1;
-		String projectwrite="\""+3+"\",\""+projectname+"\",\""+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus."+"\",\""+prio+"\",\""+localize+"\",\""+(1000+rand.nextInt(2000))+"\",\""+year+"-"+month+"-"+day+"\",\""+year2+"-"+month2+"-"+day2+"\"";
+		int projectstatus=2;
+		int projectapplications=2;
+		//TODO
+		if(year<2017){
+			projectstatus=rand.nextInt(5)+2;
+		}
+		
+		String projectwrite="\""+3+"\",\""+projectname+"\",\""+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus."+"\",\""+prio+"\",\""+localize+"\",\""+(10000+rand.nextInt(5000))+"\",\""+year+"-"+month+"-"+day+"\",\""+year2+"-"+month2+"-"+day2+"\",\""+projectstatus+"\",\""+projectapplications+"\"";
 		projectID++;
 		projectbw.write(projectwrite);
 		projectbw.newLine();
