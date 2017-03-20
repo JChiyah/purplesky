@@ -10,6 +10,7 @@ class User_model extends CI_Model {
 
 	/**
 	 * Returns the user id by name
+	 * Names with two or more words should be formed like aaa%20aa b%20bbb
 	 *
 	 * @param $name = first_name last_name
 	 * @return mixed boolean / int
@@ -23,6 +24,9 @@ class User_model extends CI_Model {
 			// Bad formed name
 			return FALSE;
 		}
+		$name[0] = str_replace('%20', ' ', $name[0]);
+		$name[1] = str_replace('%20', ' ', $name[1]);
+
 		$query = $this->db->select('id')
 						->where('first_name', $name[0])
 						->where('last_name', $name[1])

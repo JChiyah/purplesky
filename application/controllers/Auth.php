@@ -446,8 +446,8 @@ class Auth extends CI_Controller {
 			$password = $this->input->post('password');
 
 			$additional_data = array(
-				'first_name' => $this->input->post('first_name'),
-				'last_name'  => $this->input->post('last_name'),
+				'first_name' => trim($this->input->post('first_name')),
+				'last_name'  => trim($this->input->post('last_name')),
 			);
 
 			$groups = array($this->input->post('groups')+1);

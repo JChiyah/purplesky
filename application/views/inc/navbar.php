@@ -15,7 +15,7 @@
             <a href="<?php echo site_url('projects') ?>"<?php echo $page_body == 'projects' ? ' class="active"' : ''; ?>>My Projects</a>
          </li>
          <li>
-            <a href="<?php echo site_url(strtolower(str_replace(' ','.',$_SESSION['name']))) ?>"<?php echo $page_body == 'profile' ? ' class="active"' : ''; ?>>Profile</a>
+            <a href="<?php echo site_url(strtolower($_SESSION['name'])) ?>"<?php echo $page_body == 'profile' ? ' class="active"' : ''; ?>>Profile</a>
          </li>
          <?php if(in_array(2, $_SESSION['access_level'])) : ?>
                <li>

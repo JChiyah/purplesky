@@ -71,7 +71,7 @@ class Main extends Base {
 			$data['skill_select'] = array(
 				'name'  => 'skill_select',
 				'id'    => 'skill_select',
-				'value' => $this->form_validation->set_value('skill_select'),
+				'value' => $this->form_validation->set_value('skill_select')
 			);
 			$data['skills'] = $this->System_model->get_skills();
 
