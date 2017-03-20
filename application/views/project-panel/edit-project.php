@@ -1,3 +1,5 @@
+<h2>Edit Project Details</h2>
+<hr>
 <?php echo form_open('', array('id' => 'edit-project-form'));?>
 
 	<p>Here you can edit project details such as its title, description or date</p>
@@ -27,7 +29,7 @@
 		</div>
 		<p>
 			<label>Location:</label>
-			<?php echo form_dropdown($edit_project['location'], $locations, $edit_project['current_location']);?>
+			<?php echo form_dropdown($edit_project['location'], $locations, $current_location);?>
 		</p>
 		<p id="priority-buttons">
 			<b>Priority:</b><br/>

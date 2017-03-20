@@ -199,54 +199,5 @@ $(function() {
 		$('#see-staff').show();
 	});
 
-	function reset_forms() {
-
-		if('#staff-added-confirm:visible') {
-			$('#search-results').hide();
-			$('#allocate-staff-form').hide();
-			$('#staff-added-confirm').hide();
-			$('#search-staff-form').show();
-		}
-		$('.tab').hide();
-		$('.active').removeClass('active');
-
-	}
-
-	$('#left-bar > ul > li > button').click(function() {
-
-		reset_forms();
-
-		switch($(this).attr('id')) {
-			case 'staff':
-				get_project_staff();
-				$('#see-staff').show();
-				$('#staff').addClass('active');
-				break;
-			case 'tasks':
-				$('#see-tasks').show();
-				$('#tasks').addClass('active');
-				break;
-			case 'task':
-				$('#add-task').show();
-				$('#task').addClass('active');
-				break;
-			case 'add':
-				$('#add-staff').show();
-				$('#add').addClass('active');
-				break;
-			case 'edit':
-				$('#edit-staff').show();
-				$('#edit').addClass('active');
-				break;
-			case 'remove':
-				$('#remove-staff').show();
-				$('#remove').addClass('active');
-				break;
-			default:
-
-		}
-	});
-
-
 
 });

@@ -235,6 +235,8 @@ class Main extends Base {
 		}
 
 		$data['locations'] = $this->System_model->get_locations();
+		$data['current_location'] = $this->System_model->get_location_id($data['project']->location);
+		$data['skills'] = $this->System_model->get_skills();
 
 		switch($state) {
 			case 'action-edit' : 
@@ -280,7 +282,6 @@ class Main extends Base {
 			'id'    => 'location',
 			'required' => 'required'
 		);
-		$data['edit_project']['current_location'] = $this->System_model->get_location_id($data['project']->location);
 		$data['edit_project']['normal_priority'] = array(
 			'name'  => 'priority',
 			'id'    => 'normal',
@@ -292,47 +293,6 @@ class Main extends Base {
 			'value' => '2'
 		);
 
-		if($data['project']->priority == 'normal') {
-			$data['edit_project']['normal_priority']['checked'] = true;
-		} else {
-			$data['edit_project']['high_priority']['checked'] = true;
-		}
-
-		$this->load->view('html', $data);
-	}
-
-	/**
-	 * Creates a new project or the form to do so
-	 *
-	 * @param post('title')
-	 * @param post('description')
-	 * @param post('start_date')
-	 * @param post('end_date')
-	 * @param post('location')
-	 * @param post('priority')
-	 * @author JChiyah
-	 */
-	public function staff_allocation_view($project_id) {
-		// Check user is logged in
-		if (!$this->ion_auth->logged_in()) {
-			redirect('index');
-		}
-		if(!$this->Project_model->is_manager($project_id, $this->session->userdata('user_id'))) {
-			// No permission
-			redirect('index');
-		}
-
-		$data['page_body'] = 'staff-allocation';
-		$data['page_title'] = 'Project Staff Allocation';
-		$data['page_description'] = 'Manage staff assigned to a project';
-		
-		$data['project'] = $this->Project_model->get_project_by_id($project_id);
-
-		if(!isset($data['project']) || !$data['project']) {
-			// Trying to access a page that doesn't exists...
-			redirect('index');
-		}
-	
 		// Staff allocation
 		$data['skill_select'] = array(
 			'name'  => 'skill_select',
@@ -357,14 +317,15 @@ class Main extends Base {
 			'id'    => 'staff_name',
 			'value' => $this->form_validation->set_value('staff_name')
 		);
-		$data['skills'] = $this->System_model->get_skills();
-		
-		$data['locations'] = $this->System_model->get_locations();
-		$data['current_location'] = $this->System_model->get_location_id($data['project']->location);
+
+		if($data['project']->priority == 'normal') {
+			$data['edit_project']['normal_priority']['checked'] = true;
+		} else {
+			$data['edit_project']['high_priority']['checked'] = true;
+		}
 
 		$this->load->view('html', $data);
 	}
-
 
 	public function privacy_view() {
 

@@ -161,6 +161,11 @@ $(function() {
 		if($('#project-confirmation').is(':visible')) {
 			$('#project-confirmation').hide();
 			$('#edit-details').show();
+		} else if('#staff-added-confirm:visible') {
+			$('#search-results').hide();
+			$('#allocate-staff-form').hide();
+			$('#staff-added-confirm').hide();
+			$('#search-staff-form').show();
 		}
 		$('.tab').hide();
 		$('.active').removeClass('active');
@@ -176,6 +181,10 @@ $(function() {
 				$('#see-staff').show();
 				$('#staff').addClass('active');
 				break;
+			case 'tasks':
+				$('#see-tasks').show();
+				$('#tasks').addClass('active');
+				break;
 			case 'notification':
 				$('#dashboard-entry').show();
 				$('#notification').addClass('active');
@@ -188,6 +197,22 @@ $(function() {
 			case 'status':
 				$('#project-status').show();
 				$('#status').addClass('active');
+				break;
+			case 'task':
+				$('#add-task').show();
+				$('#task').addClass('active');
+				break;
+			case 'add':
+				$('#add-staff').show();
+				$('#add').addClass('active');
+				break;
+			case 'edit-s':
+				$('#edit-staff').show();
+				$('#edit-s').addClass('active');
+				break;
+			case 'remove':
+				$('#remove-staff').show();
+				$('#remove').addClass('active');
 				break;
 			default:
 

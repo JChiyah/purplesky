@@ -101,4 +101,5 @@
 
 </div>
 
+<script type="text/javascript">var locations = <?php echo json_encode($locations, JSON_HEX_TAG); ?>;</script>
 <script type="text/javascript" src="<?php echo base_url("assets/js/create-project.js"); ?>" ></script>
