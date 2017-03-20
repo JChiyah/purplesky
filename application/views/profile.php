@@ -11,6 +11,7 @@
 				</div>
 				<hr>
 				<a class="g-button" style="width: 50%;" href="change-password">Change password</a>
+				<?php if(!$only_admin) : ?><button class="g-button" id="add-skill">Add Skills</button><?php endif ?>
 				<?php if(!$only_admin) : ?><button class="g-button" id="add-experience">Add Experience</button><?php endif ?>
 			</div>
 
@@ -24,7 +25,7 @@
 				<hr>
 				<?php if(!$only_admin) : ?>
 					<div id="skill-set">
-						<?php echo form_open('', array('id' => 'skill-add')); ?>
+						<?php echo form_open('', array('id' => 'add-skill-form')); ?>
 							<label>Select a skill to add</label>
 							<?php echo form_dropdown($skill_select, $skills);?>
 							<?php echo form_submit('submit', lang('add_label'), "id='skill-submit'");?>
@@ -48,58 +49,6 @@
 	<div class="container">
 		<section id="experience">
 			<div class="row">
-				<?php if(!$only_admin) : ?>
-
-					<?php echo form_open('User/experience_form', array('id' => 'add-experience-form', 'class' => 'col-xs-12')); ?>
-
-						<h2>Add Experience</h2>
-						<hr>
-
-						<div class="row">
-							<div class="col-sm-12 col-md-8">
-								<p>
-									<label>Role:</label>
-									<?php echo form_input($role,'','required maxlength="90"');?>
-								</p>
-								<p>
-									<label>Company/institution:</label>
-									<?php echo form_input($title,'','required maxlength="90"');?>
-								</p>
-							</div>
-							<div class="col-sm-12 col-md-4">
-								<p>
-									<label>Start date:</label>
-									<?php echo form_input($start_date,'','required');?>
-								</p>
-								<p>
-									<label>End date:</label>								
-									<?php echo form_input($end_date,'','required');?>
-								</p>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-sm-12 col-md-8">
-								<label>Description:</label>
-								<?php echo form_textarea($description,'','required maxlength="250" rows="4"');?>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-12 col-md-8">
-								<label>Skills learned/used:</label>
-								<?php echo form_dropdown(array('id' => 'experience-skills'), array_merge(array( 0 => 'Select'), $skills));?>
-								<button type="button" class="g-button" id="clear-skills">Clear All</button>
-								<div id="selected-skills"></div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="hidden-xs col-sm-8"></div>
-							<?php echo form_submit('submit', "Add experience","class='col-xs-12 col-sm-4' id='experience-submit'");?>
-						</div>
-						<p id="experience-msg"><?php echo $message;?></p>
-					<?php echo form_close(); ?>
-				<?php endif ?>
-
 				<div class="col-sm-12 col-md-12 row" id="exp-row">
 					<h1>Experiences</h1>
 					<?php if(!$only_admin) : ?>
@@ -107,6 +56,58 @@
 				</div>
 			</div>
 			<hr>
+			<?php if(!$only_admin) : ?>
+
+				<?php echo form_open('User/experience_form', array('id' => 'add-experience-form', 'class' => 'container-fluid')); ?>
+
+					<h2>Add Experience</h2>
+					<hr>
+
+					<div class="row">
+						<div class="col-sm-12 col-md-8">
+							<p>
+								<label>Role:</label>
+								<?php echo form_input($role,'','required maxlength="90"');?>
+							</p>
+							<p>
+								<label>Company/institution:</label>
+								<?php echo form_input($title,'','required maxlength="90"');?>
+							</p>
+						</div>
+						<div class="col-sm-12 col-md-4">
+							<p>
+								<label>Start date:</label>
+								<?php echo form_input($start_date,'','required');?>
+							</p>
+							<p>
+								<label>End date:</label>								
+								<?php echo form_input($end_date,'','required');?>
+							</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-12 col-md-8">
+							<label>Description:</label>
+							<?php echo form_textarea($description,'','required maxlength="250" rows="4"');?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 col-md-8">
+							<label>Skills learned/used:</label>
+							<?php echo form_dropdown(array('id' => 'experience-skills'), array_merge(array( 0 => 'Select'), $skills));?>
+							<button type="button" class="g-button" id="clear-skills">Clear All</button>
+							<div id="selected-skills"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="hidden-xs col-sm-8"></div>
+						<?php echo form_submit('submit', "Add experience","class='col-xs-12 col-sm-4' id='experience-submit'");?>
+					</div>
+					<p id="experience-msg"><?php echo $message;?></p>
+				<?php echo form_close(); ?>
+			<?php endif ?>
+
 
 			<div id="experience-set">
 

@@ -2095,8 +2095,7 @@ footer {
     margin: 1em 0 0.2em 0; }
   #skills #skill-set label {
     display: block; }
-  #skills #skill-add {
-    visibility: hidden;
+  #skills #add-skill-form {
     display: none;
     background: #E1E5E6;
     padding: 1em 2em; }
@@ -2259,7 +2258,7 @@ footer {
 #profile #add-experience-form {
   background: #E1E5E6;
   padding: 1em 3em;
-  margin: 2em 0;
+  margin: 1em 0;
   border-radius: 4px;
   display: none; }
   #profile #add-experience-form h2 {

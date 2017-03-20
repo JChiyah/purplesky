@@ -1,5 +1,8 @@
 $(function() {
 
+	var skills_flag = false;
+	var exp_flag = false;
+
 	$("#skill-submit").click(function(event) {
 		event.preventDefault();
 		var e = document.getElementById("skill_select");
@@ -19,9 +22,10 @@ $(function() {
 					$('#skill-submit').after('<span class="error-msg">Duplicated skill<span>');
 					$('#skill_select').addClass('error-field');
 				} else if(res) {
-					$('.delete-tag').toggle();
 					$("#user-skills").html(res);
-					$('.delete-tag').toggle();
+					if(skills_flag) {
+						$('.delete-tag').toggle();
+					}
 				}
 			}
 		});
@@ -153,6 +157,9 @@ $(function() {
 						$('#add-experience-form')[0].reset();
 						$('#selected-skills').html('');
 						skills = [];
+						if(exp_flag) {
+    						$('.delete-experience-tag').toggle();
+						}
 					}
 				}
 			});
@@ -218,18 +225,23 @@ $(function() {
 	});
 
 	$('#skill-edit').on('click', function() {
-    	$('#skill-add').slideToggle().css({'visibility': 'visible', 'display': 'block'});
     	$('.delete-tag').toggle();
     	$('#user-undo-skills').html('');
     	undo_skills = false;
+    	skills_flag = !skills_flag;
+	});
+
+	$('#add-skill').on('click', function() {
+	   	$('#add-skill-form').slideToggle().css({'display': 'block'});
 	});
 
 	$('#add-experience').on('click', function() {
-    	$('#add-experience-form').slideToggle().css({'visibility': 'visible', 'display': 'block'});
+    	$('#add-experience-form').slideToggle().css({'display': 'block'});
 	});
 
 	$('#experience-edit').on('click', function() {
     	$('.delete-experience-tag').toggle();
+    	exp_flag = !exp_flag;
 	});
 
 	$('body').on('mouseenter mouseleave', '.delete-tag', function() {
