@@ -122,12 +122,14 @@ CREATE TABLE project (
 	manager_id integer NOT NULL,
 	title varchar(100) NOT NULL,
 	description varchar(255) NOT NULL,
-	priority enum('normal', 'high') NOT NULL,
+	priority enum('normal', 'high', 'confidential') DEFAULT 'normal',
 	location integer,
 	budget decimal(10,2) NOT NULL,
+	created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	start_date date NOT NULL,
 	end_date date NOT NULL,
 	status enum('active', 'scheduled', 'finished', 'delayed', 'unsuccessful', 'cancelled') DEFAULT 'scheduled',
+	applications enum('open', 'closed') DEFAULT 'open',
 	FOREIGN KEY (manager_id) REFERENCES account(id),
 	FOREIGN KEY (location) REFERENCES location(location_id)
 ) ENGINE=InnoDB;
