@@ -13,7 +13,7 @@
 		<p>
 			<label>Description:</label>
 			<?php echo form_textarea($edit_project['description'], '', 'maxlength="250" rows="5"');?>
-			<span>250 characters maximum</span>
+			<br/><span>250 characters maximum</span>
 		</p>
 		<div class="row" id="project-dates">
 			<p class="col-xs-12 col-sm-6 col-md-4">
