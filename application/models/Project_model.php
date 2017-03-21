@@ -421,7 +421,7 @@ class Project_model extends CI_Model {
 
 			// Notify manager
 			$des = "You have changed the project details for <a href='dashboard/$project_id'>$title</a>";
-			$this->add_user_activity($manager_id, $des);
+			$this->User_model->add_user_activity($manager_id, $des);
 
 			return TRUE;
 		}
@@ -512,7 +512,7 @@ class Project_model extends CI_Model {
 			$title = $this->get_project_by_id($project_id)->title;
 
 			$des = "You have changed the project status for <a href='dashboard/$project_id'>$title</a>";
-			$this->add_user_activity($manager_id, $des);
+			$this->User_model->add_user_activity($manager_id, $des);
 			
 			$des = "Project status changed for <a href='dashboard/$project_id'>$title</a>";
 			return $this->notify_project_staff($project_id, $des);

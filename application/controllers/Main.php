@@ -235,18 +235,37 @@ class Main extends Base {
 		}
 
 		$data['locations'] = $this->System_model->get_locations();
+		$data['all_status'] = $this->System_model->get_all_status();
 		$data['current_location'] = $this->System_model->get_location_id($data['project']->location);
 		$data['skills'] = $this->System_model->get_skills();
 
 		switch($state) {
 			case 'action-edit' : 
-					$data['action'] = 'edit'; 
+					$data['action'] = 'edit';
 					break;
-			case 'action-lol' : 
-					$data['action'] = 'edit'; 
+			case 'action-status' : 
+					$data['action'] = 'status';
 					break;
 			default :
-		
+					$data['action'] = ''; 
+		}
+
+		switch ($data['project']->status) {
+			case 'active':
+				$data['status'] = 'green';
+				break;
+			case 'scheduled':
+				$data['status'] = 'yellow';
+				break;
+			case 'finished':
+				$data['status'] = 'blue';
+				break;
+			case 'delayed':
+				$data['status'] = 'orange';
+				break;
+			default:
+				$data['status'] = 'red';
+				break;
 		}
 
 		$data['edit_project']['title'] = array(
@@ -291,6 +310,12 @@ class Main extends Base {
 			'name'  => 'priority',
 			'id'    => 'high',
 			'value' => '2'
+		);
+		$data['edit_project']['status'] = array(
+			'name'  => 'project_status',
+			'id'    => 'project_status',
+			'required' => 'required',
+			'value' => $data['project']->status
 		);
 
 		// Staff allocation

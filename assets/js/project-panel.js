@@ -156,6 +156,29 @@ $(function() {
 		}
 	});
 
+	$("#edit-status-submit").click(function(event) {
+		event.preventDefault();
+		
+		var project_id = $('#project_id').val();
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/update_project_status",
+			data: {
+				'project_id' : project_id,
+				'status' : $('#project_status option:selected').text(),
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(res) {
+				if(res === 'success') {
+					window.location.replace(baseurl + 'project-management/' + project_id + '/action-status');
+				}
+			}, error: function(req, textStatus, errorThrown) {
+		        // To debug when an error happens (possibly a code 500 error)
+		        console.error('Ooops, something happened: ' + textStatus + ' ' +errorThrown);
+		    }
+		});
+	});
+
 	function reset_forms() {
 
 		if($('#project-confirmation').is(':visible')) {
@@ -224,7 +247,10 @@ $(function() {
 		$('#another-entry').hide();
 	});
 
-
+	$('#another-status > button').click(function() {
+		$('#edit-status').show();
+		$('#another-status').hide();
+	});
 
 	$('#title').on('change keyup paste click', function(){
 		$('#title_summary').text($(this).val());

@@ -449,17 +449,15 @@ class Project extends Base {
 	 * @param post('status')
 	 * @author JChiyah
 	 */
-	public function update_project() {
+	public function update_project_status() {
 		// get and format input
 		$user_id = $this->session->userdata('user_id');
 		$project_id = $this->input->post('project_id');
 
-		$project_status = $this->input->post('status');
+		$project_status = array('status' => strtolower($this->input->post('status')));
 
 		if($this->Project_model->update_project_status($user_id, $project_id, $project_status)) {
 			echo 'success';
-		} else {
-			echo 'Error changing status';
 		}
 	}
 
