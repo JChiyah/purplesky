@@ -252,6 +252,7 @@ class Main extends Base {
 			default :
 					$data['action'] = ''; 
 		}
+		$data['action'] = $state;
 
 		switch ($data['project']->status) {
 			case 'active':

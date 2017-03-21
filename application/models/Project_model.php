@@ -417,7 +417,7 @@ class Project_model extends CI_Model {
 						->limit(1)
 						->get('project');
 
-			$new_data = $query->row();
+			$title = $query->row()->title;
 
 			// Notify manager
 			$des = "You have changed the project details for <a href='dashboard/$project_id'>$title</a>";
