@@ -146,7 +146,7 @@ $(function() {
 				},
 				success: function(res) {
 					if(res === 'success') {
-						window.location.replace(baseurl + 'project-management/' + project_id + '/action-edit');
+						window.location.replace(baseurl + 'project-management/' + project_id + '/edit');
 					}
 				}/*, error: function(req, textStatus, errorThrown) {
 			        // To debug when an error happens (possibly a code 500 error)
@@ -170,7 +170,7 @@ $(function() {
 			},
 			success: function(res) {
 				if(res === 'success') {
-					window.location.replace(baseurl + 'project-management/' + project_id + '/action-application-status');
+					window.location.replace(baseurl + 'project-management/' + project_id + '/application-status');
 				}
 			}, error: function(req, textStatus, errorThrown) {
 		        // To debug when an error happens (possibly a code 500 error)
@@ -193,7 +193,7 @@ $(function() {
 			},
 			success: function(res) {
 				if(res === 'success') {
-					window.location.replace(baseurl + 'project-management/' + project_id + '/action-status');
+					window.location.replace(baseurl + 'project-management/' + project_id + '/status');
 				}
 			}, error: function(req, textStatus, errorThrown) {
 		        // To debug when an error happens (possibly a code 500 error)
@@ -206,7 +206,7 @@ $(function() {
 
 		if($('#project-confirmation').is(':visible')) {
 			$('#project-confirmation').hide();
-			$('#edit-details').show();
+			$('#edit-details').parent().parent().show();
 		} else if('#staff-added-confirm:visible') {
 			$('#search-results').hide();
 			$('#allocate-staff-form').hide();
@@ -226,6 +226,7 @@ $(function() {
 			case 'staff':
 				$('#see-staff').show();
 				$('#staff').addClass('active');
+				window.location.replace(baseurl + 'project-management/' + $('#project_id').val());
 				break;
 			case 'tasks':
 				$('#see-tasks').show();
@@ -259,6 +260,7 @@ $(function() {
 			case 'add':
 				$('#add-staff').show();
 				$('#add').addClass('active');
+				window.location.replace(baseurl + 'project-management/' + $('#project_id').val() + '/add-staff');
 				break;
 			case 'edit-s':
 				$('#edit-staff').show();
@@ -287,6 +289,11 @@ $(function() {
 	$('#another-application-status > button').click(function() {
 		$('#application-status-form').parent().show();
 		$('#another-application-status').hide();
+	});
+
+	$('#confirm-see').click(function() {
+		reset_forms();
+		$('#see-staff').show();
 	});
 
 	$('#title').on('change keyup paste click', function(){

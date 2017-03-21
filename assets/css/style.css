@@ -2411,45 +2411,6 @@ footer {
     padding: 12px 18px; }
   #create-project .project-tab .project-continue {
     float: right; }
-  #create-project #resource-allocation .skill-span {
-    background: #ffffff;
-    font-weight: 500;
-    border: 2px solid #C0C0C0; }
-  #create-project #resource-allocation .row {
-    margin-left: 0;
-    margin-right: 0; }
-  #create-project #resource-allocation .col-md-6 {
-    padding: 0; }
-  #create-project #resource-allocation #clear-skills {
-    margin-top: 10px;
-    margin-left: 3px;
-    font-size: 0.8em; }
-  #create-project #resource-allocation #selected-skills {
-    padding-top: 5px; }
-  #create-project #resource-allocation #search-name-toggle {
-    font-size: 0.7em;
-    display: block; }
-  #create-project #resource-allocation #search-name {
-    display: none;
-    margin: 1em 0; }
-    #create-project #resource-allocation #search-name input[type=text] {
-      width: 70%; }
-  #create-project #resource-allocation #search-dates p {
-    padding: 0;
-    margin-top: 0.5em; }
-  #create-project #resource-allocation #staff-allocation-search {
-    margin: 0 auto;
-    display: block;
-    font-size: 0.9em;
-    padding: 12px 18px; }
-  #create-project #resource-allocation-results {
-    background: #ffffff;
-    padding-top: 2em; }
-    #create-project #resource-allocation-results .col-md-6:first-child {
-      border-right: 1px solid #C0C0C0; }
-    #create-project #resource-allocation-results #results, #create-project #resource-allocation-results #staff-added {
-      max-height: 550px;
-      overflow-y: scroll; }
   #create-project #project-summary {
     font-size: 1.2em; }
     #create-project #project-summary .content {
@@ -2908,7 +2869,7 @@ footer {
   #project-management-panel h2 {
     margin-bottom: 0; }
   #project-management-panel .tab form {
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 0 auto; }
     #project-management-panel .tab form input[type=text], #project-management-panel .tab form input[type=date] {
       width: 70%;
@@ -2969,9 +2930,11 @@ footer {
       display: inline-block;
       width: 1em;
       height: 1em; }
-  #project-management-panel .tab .content {
+  #project-management-panel .tab .content, #project-management-panel .tab .content-small {
     background: #E1E5E6;
-    padding: 1.5em 1em; }
+    padding: 1.5em 2em; }
+  #project-management-panel .tab .content-small {
+    width: 60%; }
 
 #left-bar {
   padding-left: 0; }
@@ -3010,6 +2973,10 @@ footer {
     #left-bar ul .active {
       background: #C0C0C0; }
 
+#edit-project form {
+  width: 90%;
+  margin: 0 auto; }
+
 /* * * * Staff search * * * */
 .staff-result {
   padding: 1em 1.5em 0.5em 1.5em;
@@ -3046,30 +3013,17 @@ footer {
     margin-bottom: 0.5em; }
 
 /*add-staff and edit project sections*/
-#add-staff #search-staff-form, #add-staff #edit-details, #edit-project #search-staff-form, #edit-project #edit-details {
-  background: #E1E5E6;
-  margin: 1em 1em 1em 1em;
-  padding: 1em 1em 1em 1em;
-  border-radius: 4px;
-  display: none; }
-#add-staff h2, #edit-project h2 {
+#edit-project h2 {
   margin: 0; }
-#add-staff .row, #edit-project .row {
-  margin: 0; }
-#add-staff #search-dates, #add-staff #project-dates, #edit-project #search-dates, #edit-project #project-dates {
+#edit-project #search-dates, #edit-project #project-dates {
   width: 90%;
   margin-left: 0; }
-  #add-staff #search-dates p, #add-staff #project-dates p, #edit-project #search-dates p, #edit-project #project-dates p {
+  #edit-project #search-dates p, #edit-project #project-dates p {
     padding: 0; }
-#add-staff #priority-buttons label, #edit-project #priority-buttons label {
+#edit-project #priority-buttons label {
   display: inline-block;
   font-weight: 500; }
-#add-staff .project-continue, #edit-project .project-continue {
+#edit-project .project-continue {
   float: right; }
-
-/* dashboard-entry style*/
-#dashboard-entry p {
-  display: block;
-  margin-top: 8px; }
 
 /*# sourceMappingURL=style.css.map */

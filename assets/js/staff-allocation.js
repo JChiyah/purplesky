@@ -78,31 +78,14 @@ $(function() {
 						$("#results").html('<p>No staff available.</p>');
 					}
 					$("#search-results").show();
-				}/*,
+				},
 			    error: function(req, textStatus, errorThrown) {
 			        // To debug when an error happens (possibly a code 500 error)
 			        console.error('Ooops, something happened: ' + textStatus + ' ' +errorThrown);
-			    }*/
+			    }
 			});
 		}
 	}
-
-	function get_project_staff() {
-		$.ajax({
-			type: "POST",
-			url: baseurl + "Project/get_project_staff",
-			data: { 
-				'project_id' : $('#project_id').val(),
-				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
-			},
-			success: function(data) {
-				if (data) {
-					$("#project-staff").html(data);
-				}
-			}
-		});
-	}
-	get_project_staff();
 
 	// Calls the search staff when the button is clicked
 	$("#staff-allocation-search").click(search_staff);
@@ -131,7 +114,7 @@ $(function() {
 	$('body').on('click', '.allocate-staff-button', function() {
 		// Get staff id from parsing the button's parent id
 		var id = (($(this).parent().parent().attr('id')).split("-"))[1];
-
+		alert(current_query + " " + id);
 		$('#search-results').hide();
 		$('#search-staff-form').hide();
 		$('#allocate-staff-form').show();
@@ -192,11 +175,6 @@ $(function() {
 		$('#allocate-staff-form').hide();
 		$('#staff-added-confirm').hide();
 		$('#search-staff-form').show();
-	});
-
-	$('#confirm-see').click(function() {
-		reset_forms();
-		$('#see-staff').show();
 	});
 
 
