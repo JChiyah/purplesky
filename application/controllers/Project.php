@@ -462,6 +462,27 @@ class Project extends Base {
 	}
 
 	/**
+	 * Updates the project application status
+	 * Call from a form post using AJAX
+	 *
+	 * @param post('project_id')
+	 * @param post('status')
+	 * @author JChiyah
+	 */
+	public function update_project_applications() {
+		// get and format input
+		$user_id = $this->session->userdata('user_id');
+		$project_id = $this->input->post('project_id');
+
+		$project_status = array('applications' => strtolower($this->input->post('status')));
+
+		if($this->Project_model->update_project_applications($user_id, $project_id, $project_status)) {
+			echo 'success';
+		}
+	}
+
+
+	/**
 	 * Helper function to parse any simple text input
 	 *
 	 * @param $input

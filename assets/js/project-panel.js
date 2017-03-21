@@ -156,6 +156,29 @@ $(function() {
 		}
 	});
 
+	$("#edit-application-status-submit").click(function(event) {
+		event.preventDefault();
+		
+		var project_id = $('#project_id').val();
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/update_project_applications",
+			data: {
+				'project_id' : project_id,
+				'status' : $('#application_status option:selected').text(),
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(res) {
+				if(res === 'success') {
+					window.location.replace(baseurl + 'project-management/' + project_id + '/action-application-status');
+				}
+			}, error: function(req, textStatus, errorThrown) {
+		        // To debug when an error happens (possibly a code 500 error)
+		        console.error('Ooops, something happened: ' + textStatus + ' ' +errorThrown);
+		    }
+		});
+	});
+
 	$("#edit-status-submit").click(function(event) {
 		event.preventDefault();
 		
@@ -208,6 +231,14 @@ $(function() {
 				$('#see-tasks').show();
 				$('#tasks').addClass('active');
 				break;
+			case 'applications':
+				$('#see-applications').show();
+				$('#applications').addClass('active');
+				break;
+			case 'application-status':
+				$('#project-application-status').show();
+				$('#application-status').addClass('active');
+				break;
 			case 'notification':
 				$('#dashboard-entry').show();
 				$('#notification').addClass('active');
@@ -250,6 +281,11 @@ $(function() {
 	$('#another-status > button').click(function() {
 		$('#edit-status').show();
 		$('#another-status').hide();
+	});
+
+	$('#another-application-status > button').click(function() {
+		$('#application-status-form').show();
+		$('#another-application-status').hide();
 	});
 
 	$('#title').on('change keyup paste click', function(){

@@ -17,7 +17,7 @@ class Project_model extends CI_Model {
 	 */
 	public function get_project_by_id($id) {
 
-		$query = $this->db->select('project_id, title, description, priority, CONCAT(first_name, " ", last_name) AS manager, location.name AS location, budget, start_date, end_date, status')
+		$query = $this->db->select('project_id, title, description, priority, CONCAT(first_name, " ", last_name) AS manager, location.name AS location, budget, start_date, end_date, status, applications')
 						->where('project_id', $id)
 						->limit(1)
 						->join('account', 'account.id=project.manager_id')
@@ -516,6 +516,49 @@ class Project_model extends CI_Model {
 			
 			$des = "Project status changed for <a href='dashboard/$project_id'>$title</a>";
 			return $this->notify_project_staff($project_id, $des);
+
+			return TRUE;
+		}
+
+	}
+
+	/**
+	 * Update the project status
+	 *
+	 * @param $manager_id
+	 * @param $project_id
+	 * @param $project_status
+	 * @return mixed boolean
+	 * @author JChiyah
+	 */
+	public function update_project_applications($manager_id, $project_id, $new_status) {
+
+		if(!$this->is_manager($project_id, $manager_id)) {
+			return FALSE;
+		}
+
+		$query = $this->db->select()
+						->where('project_id', $project_id)
+						->where('manager_id', $manager_id)
+						->limit(1)
+						->get('project');
+
+		$old_data = $query->row();
+
+		if(!isset($old_data) || !$old_data) {
+			return FALSE;
+		}
+
+		if($this->db->update('project', $new_status, 
+			array('project_id' => $project_id, 'manager_id' => $manager_id))) {
+
+			// All okay, notify staff
+
+			// Find project title
+			$title = $this->get_project_by_id($project_id)->title;
+
+			$des = "<a href='dashboard/$project_id'>$title</a> is now {$new_status['applications']} to new applications";
+			$this->User_model->add_user_activity($manager_id, $des);
 
 			return TRUE;
 		}

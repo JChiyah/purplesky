@@ -246,6 +246,9 @@ class Main extends Base {
 			case 'action-status' : 
 					$data['action'] = 'status';
 					break;
+			case 'action-application-status' : 
+					$data['action'] = 'application-status';
+					break;
 			default :
 					$data['action'] = ''; 
 		}
@@ -316,6 +319,12 @@ class Main extends Base {
 			'id'    => 'project_status',
 			'required' => 'required',
 			'value' => $data['project']->status
+		);
+		$data['edit_project']['application_status'] = array(
+			'name'  => 'application_status',
+			'id'    => 'application_status',
+			'required' => 'required',
+			'value' => $data['project']->applications
 		);
 
 		// Staff allocation

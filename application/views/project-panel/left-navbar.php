@@ -4,6 +4,7 @@
 	</li>
 	<li><button id="tasks">Project Tasks</button></li>
 	<li><button id="applications">Applications</button></li>
+	<li><button <?php echo $action == 'application-status' ? 'class="active"' : '' ?> id="application-status">Change Application Status</button></li>
 	<li><button id="notification">Add Notification</button></li>
 	<li><button <?php echo $action == 'edit' ? 'class="active"' : '' ?> id="edit">Edit Project</button></li>
 	<li><button <?php echo $action == 'status' ? 'class="active"' : '' ?> id="status">Change Project Status</button></li>
