@@ -28,7 +28,7 @@ $(function() {
 									// All okay, continue
 									$('#project-details').hide();
 									$('#project-summary').show();
-									$('html, body').animate({ scrollTop: "0px" });
+									$('html, body').animate({ scrollTop: $('#project-summary').offset().top });
 								} else {
 									$('#location').after('<span class="error-msg">Select a location<span>');
 									scroll_to_error('#location');
@@ -62,7 +62,7 @@ $(function() {
 	$('.project-back').on('click', function() {
 		$('#project-summary').hide();
 		$('#project-details').show();
-		$('html, body').animate({ scrollTop: "0px" });
+		$('html, body').animate({ scrollTop: $('#project-details').offset().top });
 	});
 
 	function scroll_to_error($element_id) {
