@@ -669,6 +669,7 @@ footer {
 			border: 1px solid transparent;
 			border-radius: 4px;
 			font-weight: 900;
+			background: #fff;
 		}
 		select:focus { border: 1px solid $light-blue; }
 	}
@@ -884,6 +885,7 @@ footer {
 			padding: 8px 12px;
 			border: 1px solid transparent;
 			border-radius: 4px;
+			background: #fff;
 		}
 		select:focus { border: 1px solid $light-blue; }
 
@@ -1049,34 +1051,6 @@ footer {
 		#description_summary {
 			margin: 2em 1em;
 		}
-
-		/*#allocated-staff {
-			margin: 1.5em 0.5em;
-
-			h2 {
-				font-size: 1.5em;
-			}
-
-			.staff-result {
-				h5 {
-					font-size: 1.2em;
-					font-weight: 700;
-					margin: 0;
-				}
-
-				p {
-					margin: 0.3em 0;
-				}
-
-				.location {
-					font-style: italic;
-				}
-
-				.pay-rate {
-					font-weight: 800;
-				}
-			}
-		}*/
 	}
 
 }
@@ -1365,6 +1339,7 @@ footer {
 			border: 1px solid transparent;
 			border-radius: 4px;
 			font-weight: 900;
+			background: #fff;
 		}
 
 		.date-row {
@@ -1651,7 +1626,7 @@ footer {
 }
 
 /* * * * Project Panel * * * */
-#project-management-panel, #staff-allocation {
+#project-management-panel {
 	width: 90%;
 	margin: 0 auto;
 	padding: 1em 0;
@@ -1661,6 +1636,88 @@ footer {
 	}
 	h2 {
 		margin-bottom: 0;
+	}
+
+	.tab {
+
+		form {
+			font-size: 1.2em;
+			margin: 0 auto;
+
+			input[type=text], input[type=date] {
+				width: 70%;
+				margin-top: 8px;
+				padding: 8px 12px;
+				border: 1px solid transparent;
+				border-radius: 4px;
+			}
+			input[type=date] {
+				width: 95%;
+			}
+
+			input[type=submit] {
+				background: $light-blue;
+				color: #fff;
+				text-transform: uppercase;
+				font-weight: 900;
+				margin-top: 8px;
+				padding: 8px 12px;
+				border: none;
+				border-radius: 4px;
+				box-shadow: none;
+				float: right;
+			}
+			input[type=submit]:hover { background: $blue; }
+
+			textarea {
+				width: 70%;
+				margin-top: 8px;
+				padding: 8px 12px;
+				border: 1px solid transparent;
+				border-radius: 4px;
+			}
+			select {
+				width: 30%;
+				margin-top: 8px;
+				padding: 8px 12px;
+				border: 1px solid transparent;
+				border-radius: 4px;
+				background: #fff;
+			}
+
+			input[type=text]:focus, input[type=date]:focus, 
+				select:focus, textarea:focus { border: 1px solid $light-blue; }
+
+			label {
+				display: block;
+				font-weight: 900;
+				margin-top: 8px;
+			}
+			button {
+				background: $light-blue;
+				color: #fff;
+				text-transform: uppercase;
+				font-weight: 900;
+				font-size: 1em;
+				padding: 8px 12px;
+				border: none;
+				border-radius: 4px;
+				box-shadow: none;
+			}
+			button:hover { background: $blue; }
+			button:focus { background: $light-blue; }
+
+			input[type=radio]:not(old){
+				display: inline-block;
+				width: 1em;
+				height: 1em;
+			}
+		}
+
+		.content {
+			background: $grey-background2;
+			padding: 1.5em 1em;
+		}
 	}
 }
 
@@ -1784,75 +1841,6 @@ footer {
 	.row {
 		margin: 0;
 	}
-	form {
-		font-size: 1.2em;
-		margin: 0 auto;
-
-		input[type=text], input[type=date] {
-			width: 70%;
-			margin-top: 8px;
-			padding: 8px 12px;
-			border: 1px solid transparent;
-			border-radius: 4px;
-		}
-
-		input[type=text]:focus, input[type=date]:focus { border: 1px solid $light-blue; }
-
-		input[type=submit] {
-			background: $light-blue;
-			color: #fff;
-			text-transform: uppercase;
-			font-weight: 900;
-			margin-top: 4px;
-			padding: 8px 12px;
-			border: none;
-			border-radius: 4px;
-			box-shadow: none;
-			float: right;
-		}
-		input[type=submit]:hover { background: $blue; }
-
-		textarea {
-			width: 100%;
-			margin-top: 8px;
-			padding: 8px 12px;
-			border: 1px solid transparent;
-			border-radius: 4px;
-		}
-		select {
-			width: 30%;
-			margin-top: 8px;
-			padding: 8px 12px;
-			border: 1px solid transparent;
-			border-radius: 4px;
-		}
-		select:focus { border: 1px solid $light-blue; }
-
-		label {
-			display: block;
-			font-weight: 900;
-			margin-top: 8px;
-		}
-		button {
-			background: $light-blue;
-			color: #fff;
-			text-transform: uppercase;
-			font-weight: 900;
-			font-size: 1em;
-			padding: 8px 12px;
-			border: none;
-			border-radius: 4px;
-			box-shadow: none;
-		}
-		button:hover { background: $blue; }
-		button:focus { background: $light-blue; }
-
-		input[type=radio]:not(old){
-			display: inline-block;
-			width: 1em;
-			height: 1em;
-		}
-	}
 	#search-dates, #project-dates {
 		width: 90%;
 		margin-left: 0;
@@ -1865,6 +1853,8 @@ footer {
 			font-weight: 500;
 		}
 	}
+	
+	.project-continue { float: right; }
 }
 
 /* dashboard-entry style*/
@@ -1874,24 +1864,5 @@ footer {
 		display: block;
 		margin-top: 8px;
 	}
-	input[type=text] {
-		width: 70%;
-		margin-top: 8px;
-		padding: 8px 12px;
-		border: 1px solid transparent;
-		border-radius: 4px;
-	}
-
-	input[type=submit] {
-		background: $light-blue;
-		color: #fff;
-		text-transform: uppercase;
-		font-weight: 900;
-		padding: 8px 12px;
-		border: none;
-		border-radius: 4px;
-		box-shadow: none;
-	}
-	input[type=submit]:hover { background: $blue; }
 
 }

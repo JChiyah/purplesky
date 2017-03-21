@@ -2207,7 +2207,8 @@ footer {
   padding: 8px 12px 8px 12px;
   border: 1px solid transparent;
   border-radius: 4px;
-  font-weight: 900; }
+  font-weight: 900;
+  background: #fff; }
 #profile form select:focus {
   border: 1px solid #0389ff; }
 #profile #experience {
@@ -2360,7 +2361,8 @@ footer {
       margin-top: 8px;
       padding: 8px 12px;
       border: 1px solid transparent;
-      border-radius: 4px; }
+      border-radius: 4px;
+      background: #fff; }
     #create-project form select:focus {
       border: 1px solid #0389ff; }
     #create-project form input[type=radio]:not(old) {
@@ -2448,34 +2450,7 @@ footer {
       max-height: 550px;
       overflow-y: scroll; }
   #create-project #project-summary {
-    font-size: 1.2em;
-    		/*#allocated-staff {
-    			margin: 1.5em 0.5em;
-    
-    			h2 {
-    				font-size: 1.5em;
-    			}
-    
-    			.staff-result {
-    				h5 {
-    					font-size: 1.2em;
-    					font-weight: 700;
-    					margin: 0;
-    				}
-    
-    				p {
-    					margin: 0.3em 0;
-    				}
-    
-    				.location {
-    					font-style: italic;
-    				}
-    
-    				.pay-rate {
-    					font-weight: 800;
-    				}
-    			}
-    		}*/ }
+    font-size: 1.2em; }
     #create-project #project-summary .content {
       padding: 2em 4em 3em 4em; }
     #create-project #project-summary h1 {
@@ -2710,7 +2685,8 @@ footer {
       padding: 8px 12px 8px 12px;
       border: 1px solid transparent;
       border-radius: 4px;
-      font-weight: 900; }
+      font-weight: 900;
+      background: #fff; }
     #advanced-search .container-fluid .date-row {
       margin: 0.8em 1em;
       display: flex;
@@ -2925,14 +2901,79 @@ footer {
     font-size: 3.5em !important; }
 
 /* * * * Project Panel * * * */
-#project-management-panel, #staff-allocation {
+#project-management-panel {
   width: 90%;
   margin: 0 auto;
   padding: 1em 0; }
-  #project-management-panel h1, #staff-allocation h1 {
+  #project-management-panel h1 {
     margin-bottom: 0; }
-  #project-management-panel h2, #staff-allocation h2 {
+  #project-management-panel h2 {
     margin-bottom: 0; }
+  #project-management-panel .tab form {
+    font-size: 1.2em;
+    margin: 0 auto; }
+    #project-management-panel .tab form input[type=text], #project-management-panel .tab form input[type=date] {
+      width: 70%;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px; }
+    #project-management-panel .tab form input[type=date] {
+      width: 95%; }
+    #project-management-panel .tab form input[type=submit] {
+      background: #0389ff;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      box-shadow: none;
+      float: right; }
+    #project-management-panel .tab form input[type=submit]:hover {
+      background: #1f1646; }
+    #project-management-panel .tab form textarea {
+      width: 70%;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px; }
+    #project-management-panel .tab form select {
+      width: 30%;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background: #fff; }
+    #project-management-panel .tab form input[type=text]:focus, #project-management-panel .tab form input[type=date]:focus,
+    #project-management-panel .tab form select:focus, #project-management-panel .tab form textarea:focus {
+      border: 1px solid #0389ff; }
+    #project-management-panel .tab form label {
+      display: block;
+      font-weight: 900;
+      margin-top: 8px; }
+    #project-management-panel .tab form button {
+      background: #0389ff;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 1em;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      box-shadow: none; }
+    #project-management-panel .tab form button:hover {
+      background: #1f1646; }
+    #project-management-panel .tab form button:focus {
+      background: #0389ff; }
+    #project-management-panel .tab form input[type=radio]:not(old) {
+      display: inline-block;
+      width: 1em;
+      height: 1em; }
+  #project-management-panel .tab .content {
+    background: #E1E5E6;
+    padding: 1.5em 1em; }
 
 #left-bar {
   padding-left: 0; }
@@ -3017,66 +3058,6 @@ footer {
   margin: 0; }
 #add-staff .row, #edit-project .row {
   margin: 0; }
-#add-staff form, #edit-project form {
-  font-size: 1.2em;
-  margin: 0 auto; }
-  #add-staff form input[type=text], #add-staff form input[type=date], #edit-project form input[type=text], #edit-project form input[type=date] {
-    width: 70%;
-    margin-top: 8px;
-    padding: 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
-  #add-staff form input[type=text]:focus, #add-staff form input[type=date]:focus, #edit-project form input[type=text]:focus, #edit-project form input[type=date]:focus {
-    border: 1px solid #0389ff; }
-  #add-staff form input[type=submit], #edit-project form input[type=submit] {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 900;
-    margin-top: 4px;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: none;
-    float: right; }
-  #add-staff form input[type=submit]:hover, #edit-project form input[type=submit]:hover {
-    background: #1f1646; }
-  #add-staff form textarea, #edit-project form textarea {
-    width: 100%;
-    margin-top: 8px;
-    padding: 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
-  #add-staff form select, #edit-project form select {
-    width: 30%;
-    margin-top: 8px;
-    padding: 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px; }
-  #add-staff form select:focus, #edit-project form select:focus {
-    border: 1px solid #0389ff; }
-  #add-staff form label, #edit-project form label {
-    display: block;
-    font-weight: 900;
-    margin-top: 8px; }
-  #add-staff form button, #edit-project form button {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 1em;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: none; }
-  #add-staff form button:hover, #edit-project form button:hover {
-    background: #1f1646; }
-  #add-staff form button:focus, #edit-project form button:focus {
-    background: #0389ff; }
-  #add-staff form input[type=radio]:not(old), #edit-project form input[type=radio]:not(old) {
-    display: inline-block;
-    width: 1em;
-    height: 1em; }
 #add-staff #search-dates, #add-staff #project-dates, #edit-project #search-dates, #edit-project #project-dates {
   width: 90%;
   margin-left: 0; }
@@ -3085,27 +3066,12 @@ footer {
 #add-staff #priority-buttons label, #edit-project #priority-buttons label {
   display: inline-block;
   font-weight: 500; }
+#add-staff .project-continue, #edit-project .project-continue {
+  float: right; }
 
 /* dashboard-entry style*/
 #dashboard-entry p {
   display: block;
   margin-top: 8px; }
-#dashboard-entry input[type=text] {
-  width: 70%;
-  margin-top: 8px;
-  padding: 8px 12px;
-  border: 1px solid transparent;
-  border-radius: 4px; }
-#dashboard-entry input[type=submit] {
-  background: #0389ff;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 900;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  box-shadow: none; }
-#dashboard-entry input[type=submit]:hover {
-  background: #1f1646; }
 
 /*# sourceMappingURL=style.css.map */
