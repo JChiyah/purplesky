@@ -6,7 +6,7 @@ A closed project will not receive any applications.<br/>You can change at any ti
 
 <p><strong>Current status:</strong> <?= ucfirst($project->applications) ?> <span class="circle <?php echo $project->applications == 'open' ? 'green' : 'red' ?>"></span></p>
 
-<div class="container-fluid content" <?php echo $action == 'application-status' ? 'style="display: none"' : '' ?>>
+<div class="container-fluid content-small" <?php echo $action == 'application-status' ? 'style="display: none"' : '' ?>>
 	<?php echo form_open('', array('id' => 'application-status-form')); ?>
 		<label>New status:</label>
 		<?php echo form_dropdown($edit_project['application_status'], array('Open', 'Closed'), array_search($project->applications, array('open', 'closed'))); ?>

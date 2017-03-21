@@ -1,10 +1,12 @@
 <h2>Edit Project Details</h2>
 <hr>
+	
+<p>Here you can edit project details such as its title, description or date</p>
+
+<div class="container-fluid content" <?php echo isset($action) && $action == 'edit' ? 'style="display: none"' : '' ?>>
 <?php echo form_open('', array('id' => 'edit-project-form'));?>
 
-	<p>Here you can edit project details such as its title, description or date</p>
-
-	<div class="container-fluid" id="edit-details" <?php echo isset($action) && $action == 'edit' ? 'style="display: none"' : '' ?>>
+	<div class="container-fluid" id="edit-details">
 
 		<p>
 			<label>Title:</label>
@@ -41,7 +43,7 @@
 	</div>
 
 	<div class="container-fluid" id="project-summary" style="display: none">
-		<p>These are the details of the project you are about to create. Please check that all information is correct. You will be able to assign people to the project after it has been created.</p><br/>
+		<p>These are the new details of the project. Please check that all information is correct.</p>
 	
 		<h1 id="title_summary"><?= $project->title ?></h1>
 		<h3><?= $project->manager ?></h3>
@@ -75,9 +77,11 @@
 		<?php echo form_submit('submit', 'Save changes', "id='edit-project-submit'");?>
 	</div>
 
-	<div class="container-fluid" id="project-confirmation" <?php echo isset($action) && $action == 'edit' ? '' : 'style="display: none"' ?>>
-		<i class="fa fa-check fa-5x green-c" aria-hidden="true"></i>
-		<h3>You have changed the project details succesfully!</h3>
-	</div>
-
 <?php echo form_close(); ?>
+</div>
+
+<div class="container-fluid" id="project-confirmation" <?php echo isset($action) && $action == 'edit' ? '' : 'style="display: none"' ?>>
+	<i class="fa fa-check fa-5x green-c" aria-hidden="true"></i>
+	<h3>You have changed the project details succesfully!</h3>
+</div>
+

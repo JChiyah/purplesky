@@ -5,7 +5,7 @@ Any changes made will be notified to the staff working on the project and some c
 
 <p><strong>Current status:</strong> <?= ucfirst($project->status) ?> <span class="circle <?= $status ?>"></span></p>
 
-<div class="container-fluid content" <?php echo $action == 'status' ? 'style="display: none"' : '' ?>>
+<div class="container-fluid content-small" <?php echo $action == 'status' ? 'style="display: none"' : '' ?>>
 	<?php echo form_open('', array('id' => 'edit-status')); ?>
 		<label>New status:</label>
 		<?php echo form_dropdown($edit_project['status'], $all_status, array_search(ucfirst($project->status), $all_status)); ?>
