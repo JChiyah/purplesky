@@ -171,6 +171,17 @@ class System_model extends CI_Model {
 	}
 
 	/**
+	 * Get all available status for a project
+	 *
+	 * @return array
+	 * @author JChiyah
+	 */
+	public function get_all_status() {
+
+		return array('Active', 'Scheduled', 'Finished', 'Delayed', 'Unsuccessful', 'Cancelled');
+	}
+
+	/**
 	 * This function compresses skills ids into one string
 	 * It is used to simplify the DB architecture and speed up queries by x10
 	 *
