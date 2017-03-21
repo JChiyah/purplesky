@@ -2943,8 +2943,9 @@ footer {
     background: #E1E5E6; }
     #left-bar ul li {
       text-align: left;
-      margin-bottom: -2px;
-      background: #E1E5E6; }
+      background: #E1E5E6;
+      border-top: 1px solid #C0C0C0;
+      border-bottom: 1px solid #C0C0C0; }
       #left-bar ul li button {
         text-align: left;
         height: 100%;
@@ -2962,7 +2963,7 @@ footer {
         color: #1f1646;
         text-decoration: none; }
     #left-bar ul li:last-child {
-      margin-bottom: 0; }
+      border-bottom: none; }
     #left-bar ul li:hover {
       background: #C0C0C0; }
     #left-bar ul .active {

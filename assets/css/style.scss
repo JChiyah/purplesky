@@ -1675,9 +1675,9 @@ footer {
 
 		li {
 			text-align: left;
-			margin-bottom: -2px;
 			background: $grey-background2;
-			//border: 2px solid $hr-colour;
+			border-top: 1px solid $hr-colour;
+			border-bottom: 1px solid $hr-colour;
 
 			button {
 				text-align: left;
@@ -1700,7 +1700,7 @@ footer {
 			}
 		}
 		li:last-child {
-			margin-bottom: 0;
+			border-bottom: none;
 		}
 		li:hover {
 			background: $hr-colour;
