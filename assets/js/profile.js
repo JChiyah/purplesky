@@ -19,7 +19,7 @@ $(function() {
 			},
 			success: function(res) {
 				if (res === 'duplicated') {
-					$('#skill-submit').after('<span class="error-msg">Duplicated skill<span>');
+					$('#skill-submit').after('<span class="error-msg">You have already added this skill<span>');
 					$('#skill_select').addClass('error-field');
 				} else if(res) {
 					$("#user-skills").html(res);
