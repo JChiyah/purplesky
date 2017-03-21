@@ -1,34 +1,42 @@
-<?php global $user_group; ?>
 <div id="project-dashboard">
-
-	<?php if ($is_manager) : ?>
-
-		<div id="shortcuts">
-			<h3>Useful Links</h3>
-			<a href="<?= site_url('project-management') ?>/<?= $project->project_id ?>">Project Control Panel</a><br/>
-		</div>
-
-	<?php endif ?>
-	
-	<h1><b><?= $project->title ?></b></h1>
-	<h2><?= $project->manager ?></h2>
-
-	<div id="project-view"> 
-
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
-				<p><b>Start date:</b> <?= date('d/m/Y', strtotime($project->start_date)) ?></p>
-				<p><b>End date:</b> <?= date('d/m/Y', strtotime($project->end_date)) ?></p>
-			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6" id="right-div">
-				<p><?= ucfirst($project->status) ?> <span class="circle <?= $status ?>"></span></p>
-				<p><?= ucfirst($project->priority) ?> priority</p>
-				<p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <?= $project->location ?></p>
-			</div>
+
+			<section class="col-xs-12 col-sm-5 col-md-5" id="project-title">
+				<div>
+					<h1><?= $project->title ?></h1>
+					<h2><?= $project->manager ?></h2>
+				</div>
+				<hr>
+				<?php if($is_manager) : ?>
+					<a href="<?= site_url('project-management') ?>/<?= $project->project_id ?>" class="g-button">Manage Project</a>
+				<?php endif ?>
+			</section>
+
+			<section class="col-xs-12 col-sm-7 col-md-7" id="project-details">
+				<h2>Project Details</h2>
+				<hr>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<p><b>Start date:</b> <?= date('d/m/Y', strtotime($project->start_date)) ?></p>
+							<p><b>End date:</b> <?= date('d/m/Y', strtotime($project->end_date)) ?></p>
+							<p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <?= $project->location ?></p>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6" id="right-div">
+							<p><?= ucfirst($project->status) ?> <span class="circle <?= $status ?>"></span></p>
+							<p><?= ucfirst($project->priority) ?> priority</p>
+						</div>
+					</div>
+					<p class="row"><?= $project->description ?></p>
+				</div>
+			</section>
 		</div>
-		<p><?= $project->description ?></p>
-		<hr>
+	</div>
+
+	<section class="container-fluid" id="project-notifications"> 
 		<h2>Notifications</h2>
+		<hr>
 
 		<div id="dashboard_entries">
 
@@ -36,9 +44,9 @@
 
 		</div>
 
-	</div>
+	</section>
 
-	<div class="projectstaff">
+	<section class="container-fluid" id="projectstaff">
 
 		<?php if(isset($staff) && $staff) : ?>
 
@@ -88,7 +96,7 @@
 			<p id="budget"><b>Total budget:</b> £<?= $project->budget ?></p>		
 		<?php endif ?>
 
-	</div>
+	</section>
 	
 
 </div>

@@ -375,6 +375,7 @@ footer {
 	border: none;
 	border-radius: 6px;
 	box-shadow: none;
+	display: block;
 }
 .g-button:hover { background: $blue; color: #fff; text-decoration: none; }
 
@@ -1480,10 +1481,43 @@ footer {
 	}
 
 	h2 {
-		text-align: center;
-		font-size: 1.5em;
+		text-align: left;
+		font-size: 2em;
 		margin: 0;
-		font-weight: 400;
+		font-weight: 700;
+	}
+
+	#project-title {
+		margin-top: 1em;
+  		border-right: 1px solid $hr-colour;
+  		font-size: 0.9em;
+  		text-align: center;
+
+  		h2 {
+  			text-align: center;
+  			font-weight: 400;
+  			font-size: 1.6em;
+  		}
+
+  		hr {
+  			margin: 1em 0;
+  		}
+
+  		.g-button {
+  			width: 70%;
+  			margin: 0 auto;
+  		}
+
+	}
+
+	#project-details {
+		padding: 1em 2em;
+	}
+
+	#project-notifications, #project-staff {
+		width: 90%;
+		padding: 1em;
+		
 	}
 
 	#right-div {
@@ -1496,32 +1530,6 @@ footer {
 		h2 {
 			text-align: left;
 		}
-	}
-
-	form {
-		margin: 1em auto;
-
-		input[type=text] {
-			width: 50%;
-			margin-top: 8px;
-			padding: 8px 12px 8px 12px;
-			border: 1px solid $hr-colour;
-			border-radius: 4px;
-		}
-		input[type=text]:focus { border: 1px solid $light-blue; }
-
-		input[type=submit] {
-			background: $light-blue;
-			color: #fff;
-			text-transform: uppercase;
-			font-weight: 900;
-			padding: 10px 16px 10px 16px;
-			margin-top: 15px;
-			border: none;
-			border-radius: 6px;
-			box-shadow: none;
-		}
-		input[type=submit]:hover { background: $blue; }
 	}
 
 	th {

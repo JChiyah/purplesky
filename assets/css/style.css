@@ -1981,7 +1981,8 @@ footer {
   margin-top: 15px;
   border: none;
   border-radius: 6px;
-  box-shadow: none; }
+  box-shadow: none;
+  display: block; }
 
 .g-button:hover {
   background: #1f1646;
@@ -2790,36 +2791,33 @@ footer {
     text-align: center;
     font-size: 2.4em; }
   #project-dashboard h2 {
-    text-align: center;
-    font-size: 1.5em;
+    text-align: left;
+    font-size: 2em;
     margin: 0;
-    font-weight: 400; }
+    font-weight: 700; }
+  #project-dashboard #project-title {
+    margin-top: 1em;
+    border-right: 1px solid #C0C0C0;
+    font-size: 0.9em;
+    text-align: center; }
+    #project-dashboard #project-title h2 {
+      text-align: center;
+      font-weight: 400;
+      font-size: 1.6em; }
+    #project-dashboard #project-title hr {
+      margin: 1em 0; }
+    #project-dashboard #project-title .g-button {
+      width: 70%;
+      margin: 0 auto; }
+  #project-dashboard #project-details {
+    padding: 1em 2em; }
+  #project-dashboard #project-notifications, #project-dashboard #project-staff {
+    width: 90%;
+    padding: 1em; }
   #project-dashboard #right-div p {
     text-align: right; }
   #project-dashboard #project-view h2 {
     text-align: left; }
-  #project-dashboard form {
-    margin: 1em auto; }
-    #project-dashboard form input[type=text] {
-      width: 50%;
-      margin-top: 8px;
-      padding: 8px 12px 8px 12px;
-      border: 1px solid #C0C0C0;
-      border-radius: 4px; }
-    #project-dashboard form input[type=text]:focus {
-      border: 1px solid #0389ff; }
-    #project-dashboard form input[type=submit] {
-      background: #0389ff;
-      color: #fff;
-      text-transform: uppercase;
-      font-weight: 900;
-      padding: 10px 16px 10px 16px;
-      margin-top: 15px;
-      border: none;
-      border-radius: 6px;
-      box-shadow: none; }
-    #project-dashboard form input[type=submit]:hover {
-      background: #1f1646; }
   #project-dashboard th {
     font-size: 1.6em;
     text-align: left;

@@ -1,7 +1,7 @@
 <div id="profile">
 	<div class="container">
 		<div class="row">
-			<!-- A row with 2 columns -->
+
 			<div class="col-xs-12 col-sm-5 col-md-5" id="personal-details">
 				<div>
 					<h1><?php echo $user->name; ?></h1>
@@ -15,7 +15,6 @@
 				<?php if(!$only_admin) : ?><button class="g-button" id="add-experience">Add Experience</button><?php endif ?>
 			</div>
 
-			<!--Skill section-->
 			<section id="skills" class="col-xs-12 col-sm-7 col-md-7">
 				<div class="row">
 					<h1>Skills</h1>
