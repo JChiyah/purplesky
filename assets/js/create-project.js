@@ -80,13 +80,19 @@ $(function() {
 		$('#description_summary').text($(this).val());
 	});
 
+	// first initialise
+	/*$('#end_date').datepicker({
+	     MinDate: tomorrow
+	});*/
 	$('#start_date').on('change keyup paste click', function(){
-		$('#staff_start_date').val($(this).val());
 		$('#start_date_summary').text($(this).val());
+
+		var d = new Date($(this).val());
+		d.setDate(d.getDate() + 1);
+		$('#end_date').attr({'min' : d.getFullYear() + '-' + ("0" + (d.getMonth() + 1)).slice(-2) + '-' + ("0" + d.getDate()).slice(-2) });
 	});
 
 	$('#end_date').on('change keyup paste click', function(){
-		$('#staff_end_date').val($(this).val());
 		$('#end_date_summary').text($(this).val());
 	});
 
