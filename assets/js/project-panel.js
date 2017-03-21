@@ -31,7 +31,7 @@ $(function() {
 			},
 			success: function(res) {
 				if(res) {
-					$('#new-entry').hide();
+					$('#new-entry').parent().hide();
 					$('#another-entry').show();
 				}
 			}, error: function(req, textStatus, errorThrown) {
@@ -274,17 +274,18 @@ $(function() {
 	});
 
 	$('#another-entry > button').click(function() {
-		$('#new-entry').show();
+		$('#new-entry').parent().show();
 		$('#another-entry').hide();
+		$('#entry-description').val('');
 	});
 
 	$('#another-status > button').click(function() {
-		$('#edit-status').show();
+		$('#edit-status').parent().show();
 		$('#another-status').hide();
 	});
 
 	$('#another-application-status > button').click(function() {
-		$('#application-status-form').show();
+		$('#application-status-form').parent().show();
 		$('#another-application-status').hide();
 	});
 

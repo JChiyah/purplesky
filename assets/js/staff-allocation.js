@@ -73,11 +73,11 @@ $(function() {
 				success: function(data) {
 					if (data) {
 						$("#results").html(data);
-						$("#search-results").show();
 						current_query = [$('#staff_start_date').val(), $('#staff_end_date').val(), skills];
 					} else {
 						$("#results").html('<p>No staff available.</p>');
 					}
+					$("#search-results").show();
 				}/*,
 			    error: function(req, textStatus, errorThrown) {
 			        // To debug when an error happens (possibly a code 500 error)
@@ -112,7 +112,7 @@ $(function() {
 		var skill = e.options[e.selectedIndex].text;
 		if(this.value != 0) {
 			if(!skills.includes(this.value)) {
-				$("#selected-skills").append('<span class="skill-span">' + 
+				$("#selected-skills").append('<span class="skill-span-b">' + 
 					skill + '</span>');
 
 				skills.push(this.value);
