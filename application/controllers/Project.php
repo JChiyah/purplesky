@@ -333,7 +333,7 @@ class Project extends Base {
 		if($this->Project_model->update_project($user_id, $project_id, $project_details)) {
 			echo 'success';
 		} else {
-			echo 'Error adding activity';
+			echo 'Error updating project';
 		}
 	}
 
@@ -439,6 +439,28 @@ class Project extends Base {
 
 		$data['staff'] = $staff;
 		return $this->load->view('displays/project-staff.php', $data);
+	}
+
+	/**
+	 * Updates the project status
+	 * Call from a form post using AJAX
+	 *
+	 * @param post('project_id')
+	 * @param post('status')
+	 * @author JChiyah
+	 */
+	public function update_project() {
+		// get and format input
+		$user_id = $this->session->userdata('user_id');
+		$project_id = $this->input->post('project_id');
+
+		$project_status = $this->input->post('status');
+
+		if($this->Project_model->update_project_status($user_id, $project_id, $project_status)) {
+			echo 'success';
+		} else {
+			echo 'Error changing status';
+		}
 	}
 
 	/**

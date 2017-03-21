@@ -419,6 +419,10 @@ class Project_model extends CI_Model {
 
 			$new_data = $query->row();
 
+			// Notify manager
+			$des = "You have changed the project details for <a href='dashboard/$project_id'>$title</a>";
+			$this->add_user_activity($manager_id, $des);
+
 			return TRUE;
 		}
 
@@ -469,6 +473,52 @@ class Project_model extends CI_Model {
 		}
 
 		return FALSE;
+
+	}
+
+	/**
+	 * Update the project status
+	 *
+	 * @param $manager_id
+	 * @param $project_id
+	 * @param $project_status
+	 * @return mixed boolean
+	 * @author JChiyah
+	 */
+	public function update_project_status($manager_id, $project_id, $project_status) {
+
+		if(!$this->is_manager($project_id, $manager_id)) {
+			return FALSE;
+		}
+
+		$query = $this->db->select()
+						->where('project_id', $project_id)
+						->where('manager_id', $manager_id)
+						->limit(1)
+						->get('project');
+
+		$old_data = $query->row();
+
+		if(!isset($old_data) || !$old_data) {
+			return FALSE;
+		}
+
+		if($this->db->update('project', $project_status, 
+			array('project_id' => $project_id, 'manager_id' => $manager_id))) {
+
+			// All okay, notify staff
+
+			// Find project title
+			$title = $this->get_project_by_id($project_id)->title;
+
+			$des = "You have changed the project status for <a href='dashboard/$project_id'>$title</a>";
+			$this->add_user_activity($manager_id, $des);
+			
+			$des = "Project status changed for <a href='dashboard/$project_id'>$title</a>";
+			return $this->notify_project_staff($project_id, $des);
+
+			return TRUE;
+		}
 
 	}
 
