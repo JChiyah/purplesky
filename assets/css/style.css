@@ -2962,6 +2962,8 @@ footer {
       #left-bar ul li a:hover {
         color: #1f1646;
         text-decoration: none; }
+    #left-bar ul li:first-child {
+      border-top: none; }
     #left-bar ul li:last-child {
       border-bottom: none; }
     #left-bar ul li:hover {

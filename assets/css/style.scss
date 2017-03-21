@@ -1699,6 +1699,9 @@ footer {
 				text-decoration: none;
 			}
 		}
+		li:first-child {
+			border-top: none;
+		}
 		li:last-child {
 			border-bottom: none;
 		}
