@@ -1,6 +1,6 @@
 <h2>Edit Applications Status</h2>
 <hr>
-<p>Here you can change whether the project accepts applications or nots.<br/>
+<p>Here you can change whether the project accepts applications or not.<br/>
 If the project is open to new applications, employees can send applications that you can review. 
 A closed project will not receive any applications.<br/>You can change at any time whether your project can accept applications, as long as the project is not confidential or finished.</p>
 

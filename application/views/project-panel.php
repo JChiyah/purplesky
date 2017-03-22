@@ -72,7 +72,7 @@
 				</div>
 			</div>
 
-			<div class="container-fluid tab" id="add-staff" style="display: none">
+			<div class="container-fluid tab" id="add-staff" <?php echo $action == 'add-staff' ? '' : 'style="display: none"' ?>>
 				
 				<?php $this->load->view('project-panel/add-staff.php'); ?>
 

@@ -2,30 +2,33 @@
 
     <?php foreach($staff as $employee) : ?>
 
-        <div class="staff-result" id="staff-<?= $employee->id ?>">
+		<div class="staff-result" id="staff-<?= $employee->id ?>">
 			<h5><?= $employee->name ?></h5>
-			<p class="location"><?= $employee->location ?></p>
-			<p class="pay-rate">£<?= $employee->pay_rate ?>/day</p>
+			<hr>
+			<div class="row">
+				<p class="col-xs-6 group"><?= $employee->group ?></p>
+				<p class="col-xs-6 location">
+					<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <?= $employee->location ?>
+				</p>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6" id="skill-set">
+					<?php if(isset($skills) && $skills) : ?>
+						Skills: 
+						<?php foreach($skills as $skill) : ?>
+		                    <span class="skill-span"><?= $skill ?></span>
+		                <?php endforeach ?>
+					<?php endif ?>
+				</div>
+				<p class="col-xs-12 col-sm-6 pay-rate">£<?= $employee->pay_rate ?>/day</p>
+			</div>
 			<div class="row">
 				
-				<div class="col-md-6" id="skill-set">
-				<?php if(isset($skills) && $skills) : ?>
+				<a href="<?php echo site_url(strtolower(str_replace(' ','.',$employee->name))); ?>" class="col-sm-3 g-button">See profile</a>
 
-					Skills: 
+				<div class="col-xs-6"></div>
 
-					<?php foreach($skills as $skill) : ?>
-	                    <span class="skill-span"><?= $skill ?></span>
-	                <?php endforeach ?>
-				
-				<?php else : ?>
-
-					<br/>
-
-				<?php endif ?>
-				</div>
-				<a href="<?php echo site_url(strtolower(str_replace(' ','.',$employee->name))); ?>" class="col-md-3 g-button">See profile</a>
-
-				<button type="button" class="col-md-3 allocate-staff-button">Select</button>
+				<button type="button" class="col-sm-3 g-button allocate-staff-button">Add to project</button>
 			</div>
 		</div>
 

@@ -1,14 +1,9 @@
 <h2>Add Staff</h2>
 <hr>
+
 <div class="container-fluid content">
 	<?php echo form_open('', array('id' => 'search-staff-form')) ?>
 		<p>You can search staff for this project by skills or by name</p>
-		<div>
-			<label>Skills:</label>
-			<?php echo form_dropdown($skill_select, array_merge(array( 0 => 'Select'), $skills));?>
-			<button type="button" id="clear-skills">Clear</button>
-			<div id="selected-skills"></div>
-		</div>
 		<div class="row" id="search-dates">
 			<p class="col-xs-12 col-sm-6 col-md-4">
 				<label>From:</label>
@@ -21,26 +16,44 @@
 			</p>
 			<p class="hidden-sm col-md-2"></p>						
 		</div>
-		<button type="button" id="search-name-toggle">Search by name</button>
-		<div id="search-name" style="display: none">
-			<label>Employee name:</label>
-			<?php echo form_input($staff_name,'', 'maxlength="50"');?>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<label>Skills:</label>
+				<?php echo form_dropdown($skill_select, array_merge(array( 0 => 'Select'), $skills));?>
+				<button type="button" id="clear-skills">Clear</button>
+				<div id="selected-skills"></div>
+			</div>
+			<div class="hidden-sm col-md-2"></div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<button type="button" id="search-name-toggle">Search by name</button>
+				<div id="search-name" style="display: none">
+					<label>Employee name:</label>
+					<?php echo form_input($staff_name,'', 'maxlength="50"');?>
+				</div>
+			</div>
 		</div>
+		<div class="row">
+			<div class="hidden-xs col-sm-9">
+			</div>
+			<?php echo form_submit('submit', 'Search', "class='col-xs-12 col-sm-3' id='staff-allocation-search'");?>
+		</div>
+
 		<input type="hidden" value="<?= $current_location ?>" id="staff-location"/>
 		<input type="hidden" value="<?= $project->project_id ?>" id="project_id"/>
 
-		<?php echo form_submit('submit', 'Search', "id='staff-allocation-search'");?>
 	<?php echo form_close() ?>
+</div>
 
-	<div id="search-results">
-		<h2>Results</h2>
-		<hr>
-		<div id="results">
+<div id="search-results">
+	<h2>Results</h2>
+	<hr>
+	<div id="results">
 
-		</div>
 	</div>
+</div>
 
-	<?php echo form_open('', array('id' => 'allocate-staff-form', 'style' => 'display: none')) ?>
+<div class="container-fluid content" style="display: none">
+	<?php echo form_open('', array('id' => 'allocate-staff-form')) ?>
 
 		<p>You are adding this employee to the project</p>
 		
@@ -49,11 +62,11 @@
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<p>
 		    		<b>Start date:</b>
-		    		<span id="start_date_summary"></span>
+					<span id="staff_start_date_summary"></span>
 		    	</p>
 		    	<p>
 		    		<b>End date:</b>
-		    		<span id="end_date_summary"></span>
+		    		<span id="staff_end_date_summary"></span>
 		    	</p>
 		    </div>
 		    <div class="col-xs-6 col-sm-6 col-md-6" id="right-div">
@@ -72,7 +85,8 @@
 		<input type="hidden" value="" id="staff_id"/>
 
 		<?php echo form_submit('submit', 'Add to Project', "id='staff-allocation-submit'");?>
-
+		
+		<button type="button" class="g-button" id="back-add">Go back</button>
 	<?php echo form_close() ?>
 </div>
 
@@ -82,8 +96,8 @@
 	
 	<i class="fa fa-check fa-5x green-c" aria-hidden="true"></i>
 
-	<button id="confirm-add">Add more</button>
+	<button class="g-button" id="confirm-add-staff">Add more</button>
 
-	<button id="confirm-see">See current staff</button>
+	<button class="g-button" id="confirm-see-staff">See current staff</button>
 
 </div>
