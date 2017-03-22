@@ -78,4 +78,8 @@
 
     </div>
         
+    <button class="scroll-button" id="scroll-up"><i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></button>
+
 </section>
+
+<script type="text/javascript" src="<?php echo base_url("assets/js/scroll-button.js"); ?>" ></script>
