@@ -31,7 +31,7 @@
 						<p class="staff-availability">
 						<?php switch($employee->busy) {
 							case 'staff':
-								echo 'Currently working for the project';
+								echo 'Currently working for this project';
 								break;
 							case 'holiday':
 								echo 'On holiday during that period';

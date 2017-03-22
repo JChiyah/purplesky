@@ -1,3 +1,5 @@
+<h3><?= $project->title ?></h3>
+<span>ID: <?= $project->project_id ?></span>
 <ul>
 	<li>
 	<button <?php echo isset($action) && $action ? '' : 'class="active"' ?> id="staff">Project Staff</button>
