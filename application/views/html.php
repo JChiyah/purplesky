@@ -44,23 +44,24 @@
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
 		<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
 		<script>
-			window.addEventListener("load", function(){
-				window.cookieconsent.initialise({
-				  "palette": {
-				    "popup": {
-				      "background": "#1f1646"
-				    },
-				    "button": {
-				      "background": "#0389ff"
-				    }
-				  },
-				  "theme": "classic",
-  				  "content": {
-				    "message": "This website uses cookies to ensure you get the best experience. By continuing to use this website, you agree the use of cookies.",
-				    "dismiss": "Accept and close",
-				    "href": "#"
-				  	}
-			})});
+		window.addEventListener("load", function(){
+		window.cookieconsent.initialise({
+		  "palette": {
+		    "popup": {
+		      "background": "#C0C0C0",
+     		  "text": "#1f1646"
+		    },
+		    "button": {
+		      "background": "#0389ff"
+		    }
+		  },
+		  "theme": "classic",
+		  "position": "bottom-left",
+		  "content": {
+		    "message": "This website uses cookies to ensure you get the best experience. By continuing to use this website, you agree the use of cookies",
+		    "dismiss": "ACCEPT AND CLOSE"
+		  }
+		})});
 		</script>
 	</head>
 	<body>
