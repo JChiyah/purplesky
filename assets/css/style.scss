@@ -1216,6 +1216,17 @@ footer {
 		bottom: 10em;
 		left: 0.5em;
 	}
+
+	#search-results {
+		margin-top: 3em;
+		display: none;
+
+		hr { margin-bottom: 1em; }
+
+		#results {
+			padding: 0 1em;
+		}
+	}
 }
 
 #quick-search{
@@ -1287,17 +1298,6 @@ footer {
 				text-align: right;
 			}
 		}
-	}
-}
-
-#search-results {
-	margin-top: 3em;
-	display: none;
-
-	hr { margin-bottom: 1em; }
-
-	#results {
-		padding: 0 1em;
 	}
 }
 
@@ -1722,61 +1722,6 @@ footer {
 		width: 90%;
 		margin: 0 auto;
 	}
-}
-
-/* * * * Staff search * * * */
-.staff-result {
-	padding: 1em 1.5em 0.5em 1.5em;
-	margin: 0.7em;
-	border-radius: 4px;
-	border: 1px solid $hr-colour;
-
-	h5 {
-		font-size: 1.2em;
-		font-weight: 700;
-		margin: 0;
-	}
-
-	p {
-		margin: 0.3em 0;
-	}
-
-	.location {
-		font-style: italic;
-	}
-
-	.pay-rate {
-		font-weight: 800;
-	}
-
-	button {
-		font-size: 0.7em;
-		margin: 0.5em 0;
-		display: block;
-	}
-
-	.skill-span {
-		font-size: 0.7em;
-		margin: 0;
-		border: 1px solid $hr-colour;
-		padding: 3px 12px;
-	}
-}
-
-#page-not-found {
-	width: 40%;
-	margin: 4em auto;
-	text-align: center;
-	font-size: 1.3em;
-
-	.fa {
-		display: block;
-		margin-bottom: 0.5em;
-	}
-}
-/*add-staff and edit project sections*/
-#edit-project {
-
 	h2 {
 		margin: 0;
 	}
@@ -1794,4 +1739,79 @@ footer {
 	}
 	
 	.project-continue { float: right; }
+}
+
+#add-staff {
+	padding-bottom: 2em;
+
+	#search-staff-form {
+		margin-bottom: 1em;
+
+		input[type=text] {
+			width: 95%;
+		}
+		select {
+			width: 95%;
+		}
+		button {
+			margin: 8px 0;
+		}
+	}
+
+	#allocate-staff-form {
+		input[type=text] {
+			width: 50%;
+		}
+	}
+
+	#search-results {
+		display: none;
+
+		hr { margin-bottom: 1em; }
+
+		#results {
+			padding: 0 1em;
+		}
+	}
+
+	.staff-result {
+		color: $blue;
+		display: block;
+		padding: 1em 3em;
+		border: thin solid $grey-background2;
+		
+		h5 {
+			margin-top: 0;
+			margin-bottom: 0.3em;
+			font-weight: 900;
+			font-size: 1.3em;
+		}
+
+		hr { margin-bottom: 0.7em; }
+
+		.row {
+			margin: 0 1em;
+		}
+		p {
+			margin-top: 0;
+		}
+
+		.location, .pay-rate { text-align: right; }
+	}
+	.staff-result:hover {
+		background: $grey-background;
+	}
+}
+
+/* * * * Not found page * * * */
+#page-not-found {
+	width: 40%;
+	margin: 4em auto;
+	text-align: center;
+	font-size: 1.3em;
+
+	.fa {
+		display: block;
+		margin-bottom: 0.5em;
+	}
 }

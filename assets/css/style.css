@@ -2605,6 +2605,13 @@ footer {
     position: absolute;
     bottom: 10em;
     left: 0.5em; }
+  #search #search-results {
+    margin-top: 3em;
+    display: none; }
+    #search #search-results hr {
+      margin-bottom: 1em; }
+    #search #search-results #results {
+      padding: 0 1em; }
 
 #quick-search {
   margin: 0 auto;
@@ -2657,14 +2664,6 @@ footer {
       #advanced-search .container-fluid .date-row label {
         display: block;
         text-align: right; }
-
-#search-results {
-  margin-top: 3em;
-  display: none; }
-  #search-results hr {
-    margin-bottom: 1em; }
-  #search-results #results {
-    padding: 0 1em; }
 
 .project-result {
   color: #1f1646;
@@ -2976,43 +2975,6 @@ footer {
 #edit-project form {
   width: 90%;
   margin: 0 auto; }
-
-/* * * * Staff search * * * */
-.staff-result {
-  padding: 1em 1.5em 0.5em 1.5em;
-  margin: 0.7em;
-  border-radius: 4px;
-  border: 1px solid #C0C0C0; }
-  .staff-result h5 {
-    font-size: 1.2em;
-    font-weight: 700;
-    margin: 0; }
-  .staff-result p {
-    margin: 0.3em 0; }
-  .staff-result .location {
-    font-style: italic; }
-  .staff-result .pay-rate {
-    font-weight: 800; }
-  .staff-result button {
-    font-size: 0.7em;
-    margin: 0.5em 0;
-    display: block; }
-  .staff-result .skill-span {
-    font-size: 0.7em;
-    margin: 0;
-    border: 1px solid #C0C0C0;
-    padding: 3px 12px; }
-
-#page-not-found {
-  width: 40%;
-  margin: 4em auto;
-  text-align: center;
-  font-size: 1.3em; }
-  #page-not-found .fa {
-    display: block;
-    margin-bottom: 0.5em; }
-
-/*add-staff and edit project sections*/
 #edit-project h2 {
   margin: 0; }
 #edit-project #search-dates, #edit-project #project-dates {
@@ -3025,5 +2987,54 @@ footer {
   font-weight: 500; }
 #edit-project .project-continue {
   float: right; }
+
+#add-staff {
+  padding-bottom: 2em; }
+  #add-staff #search-staff-form {
+    margin-bottom: 1em; }
+    #add-staff #search-staff-form input[type=text] {
+      width: 95%; }
+    #add-staff #search-staff-form select {
+      width: 95%; }
+    #add-staff #search-staff-form button {
+      margin: 8px 0; }
+  #add-staff #allocate-staff-form input[type=text] {
+    width: 50%; }
+  #add-staff #search-results {
+    display: none; }
+    #add-staff #search-results hr {
+      margin-bottom: 1em; }
+    #add-staff #search-results #results {
+      padding: 0 1em; }
+  #add-staff .staff-result {
+    color: #1f1646;
+    display: block;
+    padding: 1em 3em;
+    border: thin solid #E1E5E6; }
+    #add-staff .staff-result h5 {
+      margin-top: 0;
+      margin-bottom: 0.3em;
+      font-weight: 900;
+      font-size: 1.3em; }
+    #add-staff .staff-result hr {
+      margin-bottom: 0.7em; }
+    #add-staff .staff-result .row {
+      margin: 0 1em; }
+    #add-staff .staff-result p {
+      margin-top: 0; }
+    #add-staff .staff-result .location, #add-staff .staff-result .pay-rate {
+      text-align: right; }
+  #add-staff .staff-result:hover {
+    background: #ECF0F1; }
+
+/* * * * Not found page * * * */
+#page-not-found {
+  width: 40%;
+  margin: 4em auto;
+  text-align: center;
+  font-size: 1.3em; }
+  #page-not-found .fa {
+    display: block;
+    margin-bottom: 0.5em; }
 
 /*# sourceMappingURL=style.css.map */
