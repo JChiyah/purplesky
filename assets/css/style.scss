@@ -1402,10 +1402,10 @@ footer {
 
 /**** Project Dashboard section - Daniel code here ****/
 #project-dashboard {
-	width: 70%;
+	width: 80%;
 	color: $blue;
 	font-family: $font;
-	margin: 3em auto;
+	margin: 1.5em auto;
 	font-size: 1.2em;
 
 	h1 {
@@ -1422,6 +1422,7 @@ footer {
 
 	#project-title {
 		margin-top: 1em;
+		margin-bottom: 2em;
   		border-right: 1px solid $hr-colour;
   		font-size: 0.9em;
   		text-align: center;
@@ -1448,9 +1449,53 @@ footer {
 	}
 
 	#project-notifications, #project-staff {
-		width: 90%;
+		width: 85%;
 		padding: 1em;
+	}
 
+	#project-staff {
+		
+		#staff-head {
+			font-size: 1.3em;
+			font-weight: 900;
+
+			p {
+				margin-bottom: 0.5em;
+			}
+		}
+
+		.staff {
+			display: block;
+			text-decoration: none;
+			margin-bottom: -1px;
+			color: $blue;
+			cursor: pointer;
+			border-radius: 4px;
+			border: 1px solid $grey-background2;
+			border-top: 1px solid $hr-colour;
+			border-bottom: 1px solid $hr-colour;
+
+			h4 {
+				margin-bottom: 0;
+			}
+
+			p {
+				margin: 0.5em 0;
+			}
+
+			.skill-span {
+				font-size: 0.8em;
+				padding: 4px 12px;
+				border: 1px solid $blue;
+			}
+		}
+		.staff:hover {
+			text-decoration: none;
+			background: $grey-background2;
+		}
+		.staff:first-child {
+			border-top: 1px solid $grey-background2;
+		}
 	}
 
 	#right-div {
@@ -1516,6 +1561,7 @@ footer {
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
+	margin-bottom: -2px;
 }
 .green {
 	background: $go-green;

@@ -6,6 +6,9 @@
 				<div>
 					<h1><?= $project->title ?></h1>
 					<h2><?= $project->manager ?></h2>
+					<?php if ($is_manager) : ?>
+						<h3><b>Total budget:</b> £<?= $project->budget ?></h3>
+					<?php endif ?>
 				</div>
 				<hr>
 				<?php if($is_manager) : ?>
@@ -34,7 +37,7 @@
 		</div>
 	</div>
 
-	<section class="container-fluid" id="project-notifications"> 
+	<section class="container-fluid" id="project-notifications">
 		<h2>Notifications</h2>
 		<hr>
 
@@ -46,54 +49,57 @@
 
 	</section>
 
-	<section class="container-fluid" id="projectstaff">
+	<section class="container-fluid" id="project-staff">
+		<h2>Staff</h2>
+		<hr>
+		<p>You can click on the employee to see their profile</p>
 
 		<?php if(isset($staff) && $staff) : ?>
+			
+			<div class="container-fluid" id="all-staff">
 
-			<table>
-				<thead>
-				<tr>
-					<th class="tablename">Staff</th>
-					<th class="tablerole">Role</th>
-					<th class="tabledate">From</th>
-					<th class="tabledate">To</th>
-
-					<?php if ($is_manager) : ?>
-						<th class="tablepay">Daily Rate</th>		
-					<?php endif ?>
-				</tr>
-				</thead>
-
-				<tbody>
+				<div class="row" id="staff-head">
+					<p class="col-xs-6">Staff</p>
+					<p class="col-xs-3">From</p>
+					<p class="col-xs-3">To</p>
+				</div>
 
 				<?php foreach ($staff as $employee) : ?>
-					
-					<tr>
-						<td><?= $employee->name ?></td>
-						<td><?= $employee->role ?></td>
-						<td><?= date('d/m/Y', strtotime($employee->start_date)) ?></td>
-						<td><?= date('d/m/Y', strtotime($employee->end_date)) ?></td>
-						
-						<?php if ($is_manager) : ?>
-							<td class="tablepay">£<?= $employee->pay_rate ?></td>
-						<?php endif ?>
-					</tr>
+
+				<a href="<?php echo site_url(strtolower(str_replace(' ','.',$employee->name))); ?>" class="row staff">
+					<div class="col-xs-6">
+						<h4><?= $employee->name ?></h4>
+						<p><?= $employee->location ?>/<?= $employee->role ?>
+							<?php foreach($employee->skills as $skill) : ?>
+								<span class="skill-span"><?= $skill ?></span>
+							<?php endforeach ?>
+						</p>
+					</div>
+					<p class="col-xs-3"><?= date('d/m/Y', strtotime($employee->start_date)) ?></p>
+					<p class="col-xs-3"><?= date('d/m/Y', strtotime($employee->end_date)) ?></p>
+				</a>
+
+				<a class="row staff">
+					<div class="col-xs-6">
+						<h4><?= $employee->name ?></h4>
+						<p><?= $employee->location ?>/<?= $employee->role ?>
+							<?php foreach($employee->skills as $skill) : ?>
+								<span class="skill-span"><?= $skill ?></span>
+							<?php endforeach ?>
+						</p>
+					</div>
+					<p class="col-xs-3"><?= date('d/m/Y', strtotime($employee->start_date)) ?></p>
+					<p class="col-xs-3"><?= date('d/m/Y', strtotime($employee->end_date)) ?></p>
+				</a>
 
 				<?php endforeach ?>
-				</tbody>
-			
-			</table>
+
+			</div>
 
 		<?php else : ?>
 
 			<p>No staff working in the project</p>
 
-		<?php endif ?>
-
-		<hr>
-		
-		<?php if ($is_manager) : ?>
-			<p id="budget"><b>Total budget:</b> £<?= $project->budget ?></p>		
 		<?php endif ?>
 
 	</section>

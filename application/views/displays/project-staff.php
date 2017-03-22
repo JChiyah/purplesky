@@ -2,7 +2,7 @@
 
     <?php foreach($staff as $employee) : ?>
 
-        <div class="staff-result" id="staff-<?= $employee->id ?>">
+        <a class="staff-result" id="staff-<?= $employee->id ?>">
 			<h5><?= $employee->name ?></h5>
 			<p class="location"><?= $employee->location ?></p>
 			<p class="pay-rate">£<?= $employee->pay_rate ?>/day</p>

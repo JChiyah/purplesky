@@ -208,7 +208,7 @@ class Main extends Base {
 
 		$data['is_manager'] = $this->Project_model->is_manager($project_id, $this->session->userdata('user_id'));
 		$data['staff'] = $this->Project_model->get_project_staff($project_id);
-		$data['dashboard_entries'] = $this->Project_model->get_project_dashboard($project_id);
+		$data['dashboard_entries'] = $this->Project_model->get_project_dashboard($project_id, 5);
 
 		$this->load->view('html', $data);
 	}

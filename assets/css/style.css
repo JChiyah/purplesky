@@ -2742,10 +2742,10 @@ footer {
 
 /**** Project Dashboard section - Daniel code here ****/
 #project-dashboard {
-  width: 70%;
+  width: 80%;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
-  margin: 3em auto;
+  margin: 1.5em auto;
   font-size: 1.2em; }
   #project-dashboard h1 {
     text-align: center;
@@ -2757,6 +2757,7 @@ footer {
     font-weight: 700; }
   #project-dashboard #project-title {
     margin-top: 1em;
+    margin-bottom: 2em;
     border-right: 1px solid #C0C0C0;
     font-size: 0.9em;
     text-align: center; }
@@ -2772,8 +2773,36 @@ footer {
   #project-dashboard #project-details {
     padding: 1em 2em; }
   #project-dashboard #project-notifications, #project-dashboard #project-staff {
-    width: 90%;
+    width: 85%;
     padding: 1em; }
+  #project-dashboard #project-staff #staff-head {
+    font-size: 1.3em;
+    font-weight: 900; }
+    #project-dashboard #project-staff #staff-head p {
+      margin-bottom: 0.5em; }
+  #project-dashboard #project-staff .staff {
+    display: block;
+    text-decoration: none;
+    margin-bottom: -1px;
+    color: #1f1646;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #E1E5E6;
+    border-top: 1px solid #C0C0C0;
+    border-bottom: 1px solid #C0C0C0; }
+    #project-dashboard #project-staff .staff h4 {
+      margin-bottom: 0; }
+    #project-dashboard #project-staff .staff p {
+      margin: 0.5em 0; }
+    #project-dashboard #project-staff .staff .skill-span {
+      font-size: 0.8em;
+      padding: 4px 12px;
+      border: 1px solid #1f1646; }
+  #project-dashboard #project-staff .staff:hover {
+    text-decoration: none;
+    background: #E1E5E6; }
+  #project-dashboard #project-staff .staff:first-child {
+    border-top: 1px solid #E1E5E6; }
   #project-dashboard #right-div p {
     text-align: right; }
   #project-dashboard #project-view h2 {
@@ -2814,7 +2843,8 @@ footer {
   display: inline-block;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
-  border-radius: 50%; }
+  border-radius: 50%;
+  margin-bottom: -2px; }
 
 .green {
   background: #2ecc71; }
