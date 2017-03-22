@@ -497,7 +497,7 @@ class User_model extends CI_Model {
 		if(isset($filters['location']) && $filters['location']) {
 			$query = $query->where('location_id', $filters['location']);
 		}
-
+		
 		// Filter by skills
 		if(isset($filters['skills']) && $filters['skills']) {
 			if(is_array($filters['skills'])) {
@@ -508,7 +508,7 @@ class User_model extends CI_Model {
 				$query = $query->where('skill_id', $filters['skills']);	
 			}
 		}
-
+		
 		// Filter by availability
 		if(isset($filters['start_date']) && $filters['start_date'] && isset($filters['end_date']) && $filters['end_date']) {
 			$query = $query->where("NOT EXISTS(SELECT 1 FROM availability 
@@ -517,7 +517,7 @@ class User_model extends CI_Model {
 						(availability.end_date BETWEEN '{$filters['start_date']}' AND '{$filters['end_date']}'))
 					) AND 1 = ", 1);
 		}
-
+		
 		// Do not show staff already added to project
 		if(isset($filters['staff_ids']) && $filters['staff_ids']) {
 			if(is_array($filters['staff_ids'])) {
@@ -528,11 +528,11 @@ class User_model extends CI_Model {
 				$query = $query->where('staff.staff_id != ', $filters['staff_ids']);	
 			}
 		}
-
+		
 		// Filter by name
 		if(isset($filters['name']) && $filters['name']) {
-			$query = $query->like('first_name', $filters['name']);
-			$query = $query->or_like('last_name', $filters['name']);
+			$query = $query->group_start()->like('first_name', $filters['name']);
+			$query = $query->or_like('last_name', $filters['name'])->group_end();
 		}
 
 		// End search
