@@ -23,14 +23,6 @@
 				</div>
 			</div>
 
-			<div class="container-fluid tab" id="see-tasks" style="display: none">
-				<h2>Project Tasks</h2>
-				<hr>
-				<div id="project-tasks">
-					WIP
-				</div>
-			</div>
-
 			<div class="container-fluid tab" id="see-applications" style="display: none">
 				<h2>Project Applications</h2>
 				<hr>
@@ -62,14 +54,6 @@
 				
 				<?php $this->load->view('project-panel/project-status.php'); ?>
 
-			</div>
-
-			<div class="container-fluid tab" id="add-task" style="display: none">
-				<h2>Add Task</h2>
-				<hr>
-				<div id="add-project-task">
-					WIP
-				</div>
 			</div>
 
 			<div class="container-fluid tab" id="add-staff" <?php echo $action == 'add-staff' ? '' : 'style="display: none"' ?>>

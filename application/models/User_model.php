@@ -518,6 +518,7 @@ class User_model extends CI_Model {
 					) AND 1 = ", 1);
 		}
 		
+		/*
 		// Do not show staff already added to project
 		if(isset($filters['staff_ids']) && $filters['staff_ids']) {
 			if(is_array($filters['staff_ids'])) {
@@ -527,7 +528,7 @@ class User_model extends CI_Model {
 			} else {
 				$query = $query->where('staff.staff_id != ', $filters['staff_ids']);	
 			}
-		}
+		}*/
 		
 		// Filter by name
 		if(isset($filters['name']) && $filters['name']) {
@@ -545,13 +546,5 @@ class User_model extends CI_Model {
 		}
 		return FALSE;
 	}
-	/*
-	Rules
-		- start date after other start dates
-		- end date after other end dates
-		- start date has to be after other end dates
-		- end dates before other start dates 
-
-	*/
 
 }
