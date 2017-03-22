@@ -25,10 +25,16 @@ $(function() {
 
 							if(start.getTime() <= end.getTime()) {
 								if($('#location').val() != 0) {
-									// All okay, continue
-									$('#project-details').hide();
-									$('#project-summary').show();
-									$('html, body').animate({ scrollTop: $('#project-summary').offset().top });
+									if($('#budget').val() >= 0) {
+										// All okay, continue
+										load_summary();
+										$('#project-details').hide();
+										$('#project-summary').show();
+										$('html, body').animate({ scrollTop: $('#project-summary').offset().top });
+									} else {
+										$('#budget').after('<span class="error-msg">The budget cannot be smaller than zero<span>');
+										scroll_to_error('#budget');
+									}
 								} else {
 									$('#location').after('<span class="error-msg">Select a location<span>');
 									scroll_to_error('#location');
@@ -72,33 +78,24 @@ $(function() {
 		}, 500);
 	}
 
-	$('#title').on('change keyup paste click', function(){
-		$('#title_summary').text($(this).val());
-	});
+	function load_summary() {
+		$('#title_summary').text($('#title').val());
+		$('#description_summary').text($('#description').val());
+		$('#start_date_summary').text($('#start_date').val());
+		$('#end_date_summary').text($('#end_date').val());
+		$('#location_summary').text(locations[$('#location').val()]);
+		var budget = $('#budget').val();
+		if(!budget || budget.length == 0) {
+			$('#budget_summary').text('£0');
+		} else {
+			$('#budget_summary').text('£' + budget);
+		}
+	}
 
-	$('#description').on('change keyup paste click', function(){
-		$('#description_summary').text($(this).val());
-	});
-
-	// first initialise
-	/*$('#end_date').datepicker({
-	     MinDate: tomorrow
-	});*/
 	$('#start_date').on('change keyup paste click', function(){
-		$('#start_date_summary').text($(this).val());
-
 		var d = new Date($(this).val());
 		d.setDate(d.getDate() + 1);
 		$('#end_date').attr({'min' : d.getFullYear() + '-' + ("0" + (d.getMonth() + 1)).slice(-2) + '-' + ("0" + d.getDate()).slice(-2) });
-	});
-
-	$('#end_date').on('change keyup paste click', function(){
-		$('#end_date_summary').text($(this).val());
-	});
-
-	$('#location').on('change keyup paste click', function(){
-		// getting the location from a json value
-		$('#location_summary').text(locations[$(this).val()]);
 	});
 
 	$('#normal').on('change keyup paste click', function(){
@@ -109,8 +106,16 @@ $(function() {
 		$('#priority_summary').text('High');
 	});
 
-	$('#budget').on('change keyup paste click', function(){
-		$('#budget_summary').text('£' + $(this).val());
+	$('#confidential').on('change keyup paste click', function(){
+		$('#priority_summary').text('Confidential');
+	});
+
+	$('#budget').on('change keyup paste keydown', function(e) {
+	    if(!((e.keyCode > 95 && e.keyCode < 106)
+	      || (e.keyCode > 47 && e.keyCode < 58) 
+	      || e.keyCode == 8 || e.keyCode == 17 || e.keyCode == 46) || e.keyCode == 189) {
+	       	return false;
+	    }
 	});
 	
 });

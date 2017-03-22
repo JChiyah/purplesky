@@ -39,6 +39,7 @@
 						<b>Priority:</b><br/>
 						<?php echo form_radio($normal_priority, '', true);?><?php echo form_label('Normal', 'normal');?>
 						<?php echo form_radio($high_priority);?><?php echo form_label('High', 'high');?>
+						<?php echo form_radio($confidential_priority);?><?php echo form_label('Confidential', 'confidential');?>
 					</p>
 					<p>
 						<label>Budget:</label>

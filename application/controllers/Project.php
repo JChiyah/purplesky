@@ -201,7 +201,8 @@ class Project extends Base {
 		$this->form_validation->set_rules('start_date', 'start date', 'trim|exact_length[10]|callback_check_date');
 		$this->form_validation->set_rules('end_date', 'end date', 'trim|exact_length[10]|callback_check_date');
 		$this->form_validation->set_rules('location', 'location', 'is_natural_no_zero', array( 'is_natural_no_zero' => 'You have to assign a location for the project'));
-		
+		$this->form_validation->set_rules('budget', 'budget', 'is_natural', array( 'is_natural' => 'The budget cannot be a negative number'));
+
 		if ($this->form_validation->run() == false)
 		{
 			// display the form
@@ -255,11 +256,16 @@ class Project extends Base {
 				'id'    => 'high',
 				'value' => '2',
 			);
+			$this->data['confidential_priority'] = array(
+				'name'  => 'priority',
+				'id'    => 'confidential',
+				'value' => '3',
+			);
 			$this->data['budget'] = array(
 				'name'  => 'budget',
 				'id'    => 'budget',
-				'type'	=> 'number',
-				'min'	=> '0',
+				'type'	=> 'text',
+				'maxlength'	=> '8',
 				'placeholder' => '0',
 				'required' => 'required',
 				'value' => $this->form_validation->set_value('budget')
