@@ -224,6 +224,7 @@ $(function() {
 
 		switch($(this).attr('id')) {
 			case 'staff':
+				get_project_staff();
 				$('#see-staff').show();
 				$('#staff').addClass('active');
 				window.location.replace(baseurl + 'project-management/' + $('#project_id').val());
@@ -291,9 +292,19 @@ $(function() {
 		$('#another-application-status').hide();
 	});
 
-	$('#confirm-see').click(function() {
+	$('#confirm-see-staff').click(function() {
 		reset_forms();
+		get_project_staff();
 		$('#see-staff').show();
+		$('#staff').addClass('active');
+		window.location.replace(baseurl + 'project-management/' + $('#project_id').val());
+	});
+
+	$('#confirm-add-staff').click(function() {
+		$('#search-results').hide();
+		$('#allocate-staff-form').parent().hide();
+		$('#staff-added-confirm').hide();
+		$('#search-staff-form').parent().show();
 	});
 
 	$('#title').on('change keyup paste click', function(){

@@ -47,7 +47,7 @@ $(function() {
 			}
 		} else {
 			// No skills added
-			$('#skill_select').after('<span class="error-msg">Select a skill to start the search<span>');
+			$('#clear-skills').after('<span class="error-msg">Select a skill to start the search<span>');
 			$('#skill_select').addClass('error-field');
 		}
 		$("#results").html('');
@@ -74,6 +74,7 @@ $(function() {
 					if (data) {
 						$("#results").html(data);
 						current_query = [$('#staff_start_date').val(), $('#staff_end_date').val(), skills];
+						//alert(current_query);
 					} else {
 						$("#results").html('<p>No staff available.</p>');
 					}
@@ -114,19 +115,26 @@ $(function() {
 	$('body').on('click', '.allocate-staff-button', function() {
 		// Get staff id from parsing the button's parent id
 		var id = (($(this).parent().parent().attr('id')).split("-"))[1];
-		alert(current_query + " " + id);
+
+		if(!id) {
+			alert(id);
+			return ;
+		}
 		$('#search-results').hide();
-		$('#search-staff-form').hide();
-		$('#allocate-staff-form').show();
+		$('#search-staff-form').parent().hide();
+		$('#allocate-staff-form').parent().show();
 
 		// Put values
 		$('#staff_name_summary').text($('#staff-' + id + ' > h5').text());
 
-		$('#start_date_summary').text(format_date(current_query[0]));
-		$('#end_date_summary').text(format_date(current_query[1]));
+		$('#staff_start_date_summary').text(format_date(current_query[0]));
+		$('#staff_end_date_summary').text(format_date(current_query[1]));
 
 		$('#skills_summary').html('');
 		$('#staff-' + id + ' > div > #skill-set').clone().appendTo($('#skills_summary'));
+
+		$('#skill-set > .skill-span').addClass('skill-span-b');
+		$('#skill-set > .skill-span').removeClass('skill-span');
 
 		$('#staff_id').val(id);
 	});
@@ -148,7 +156,7 @@ $(function() {
 			},
 			success: function(data) {
 				if (data == 'success') {
-					$("#allocate-staff-form").hide();
+					$("#allocate-staff-form").parent().hide();
 					$("#staff-added-confirm").show();
 				} else {
 					$("#allocate-staff-form").after('<p>Something went wrong:' + data + '</p>');
@@ -169,13 +177,11 @@ $(function() {
     	});
 	});
 
-	// Buttons for add staff confirm
-	$('#confirm-add').click(function() {
-		$('#search-results').hide();
-		$('#allocate-staff-form').hide();
-		$('#staff-added-confirm').hide();
-		$('#search-staff-form').show();
-	});
+	$('#back-add').click(function() {
+		$('#allocate-staff-form').parent().hide();
+		$('#search-results').show();
+		$('#search-staff-form').parent().show();
+	})
 
 
 });
