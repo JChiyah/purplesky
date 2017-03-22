@@ -54,11 +54,11 @@
 	<section class="container-fluid" id="project-staff">
 		<h2>Staff</h2>
 		<hr>
-		<?php if(count(array_intersect(array(1, 2), $_SESSION['access_level'])) > 0 || $is_manager) {
-			echo '<p>You can click on the employee to see their profile</p>';
-		} ?>
 
 		<?php if(isset($staff) && $staff) : ?>
+			<?php if(count(array_intersect(array(1, 2), $_SESSION['access_level'])) > 0 || $is_manager) {
+				echo '<p>You can click on the employee to see their profile</p>';
+			} ?>
 			
 			<div class="container-fluid" id="all-staff">
 

@@ -1501,60 +1501,6 @@ footer {
 			border-top: 1px solid $grey-background2;
 		}
 	}
-
-	#right-div {
-		p {
-			text-align: right;
-		}
-	}
-
-	#project-view {
-		h2 {
-			text-align: left;
-		}
-	}
-
-	th {
-		font-size: 1.6em;
-		text-align: left;
-		width:25%;
-	}
-	input[type=submit] {
-		background: $light-blue;
-		color: #fff;
-		text-transform: uppercase;
-		font-weight: 900;
-		padding: 10px 38px;
-		margin-top: 15px;
-		border: none;
-		border-radius: 6px;
-		box-shadow: none;
-	}
-	#budget {
-		text-align: right;
-		font-size: 1.6em;
-	}
-	table {
-		width: 95%;
-		margin: 1em auto;
-
-		th, td {
-			width: 20%;
-		}
-		tbody {
-			tr {
-				border-bottom: 0.5px solid $hr-colour;
-			}
-
-			td {
-				padding-top: 10px;
-			}
-		}
-
-	}
-	.tablepay {
-		text-align: right;
-	}
 }
 
 /** Project status **/
@@ -1712,6 +1658,39 @@ footer {
 		.content-small {
 			width: 60%;
 		}
+
+		.staff {
+			display: block;
+			text-decoration: none;
+			margin-bottom: -1px;
+			color: $blue;
+			cursor: pointer;
+			border-radius: 4px;
+			border: 1px solid $grey-background2;
+			border-top: 1px solid $hr-colour;
+			border-bottom: 1px solid $hr-colour;
+
+			h4 {
+				margin-bottom: 0;
+			}
+
+			p {
+				margin: 0.5em 0;
+			}
+
+			.skill-span {
+				font-size: 0.8em;
+				padding: 4px 12px;
+				border: 1px solid $blue;
+			}
+		}
+		.staff:hover {
+			text-decoration: none;
+			background: $grey-background2;
+		}
+		.staff:first-child {
+			border-top: 1px solid $grey-background2;
+		}
 	}
 }
 
@@ -1822,7 +1801,7 @@ footer {
 			padding: 0 1em;
 		}
 	}
-
+}
 	.staff-result {
 		color: $blue;
 		display: block;
@@ -1850,7 +1829,6 @@ footer {
 	.staff-result:hover {
 		background: $grey-background;
 	}
-}
 
 /* * * * Not found page * * * */
 #page-not-found {

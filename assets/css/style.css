@@ -2806,38 +2806,6 @@ footer {
     background: #E1E5E6; }
   #project-dashboard #project-staff .staff:first-child {
     border-top: 1px solid #E1E5E6; }
-  #project-dashboard #right-div p {
-    text-align: right; }
-  #project-dashboard #project-view h2 {
-    text-align: left; }
-  #project-dashboard th {
-    font-size: 1.6em;
-    text-align: left;
-    width: 25%; }
-  #project-dashboard input[type=submit] {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 900;
-    padding: 10px 38px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 6px;
-    box-shadow: none; }
-  #project-dashboard #budget {
-    text-align: right;
-    font-size: 1.6em; }
-  #project-dashboard table {
-    width: 95%;
-    margin: 1em auto; }
-    #project-dashboard table th, #project-dashboard table td {
-      width: 20%; }
-    #project-dashboard table tbody tr {
-      border-bottom: 0.5px solid #C0C0C0; }
-    #project-dashboard table tbody td {
-      padding-top: 10px; }
-  #project-dashboard .tablepay {
-    text-align: right; }
 
 /** Project status **/
 .circle {
@@ -2966,6 +2934,29 @@ footer {
     padding: 1.5em 2em; }
   #project-management-panel .tab .content-small {
     width: 60%; }
+  #project-management-panel .tab .staff {
+    display: block;
+    text-decoration: none;
+    margin-bottom: -1px;
+    color: #1f1646;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #E1E5E6;
+    border-top: 1px solid #C0C0C0;
+    border-bottom: 1px solid #C0C0C0; }
+    #project-management-panel .tab .staff h4 {
+      margin-bottom: 0; }
+    #project-management-panel .tab .staff p {
+      margin: 0.5em 0; }
+    #project-management-panel .tab .staff .skill-span {
+      font-size: 0.8em;
+      padding: 4px 12px;
+      border: 1px solid #1f1646; }
+  #project-management-panel .tab .staff:hover {
+    text-decoration: none;
+    background: #E1E5E6; }
+  #project-management-panel .tab .staff:first-child {
+    border-top: 1px solid #E1E5E6; }
 
 #left-bar {
   padding-left: 0; }
@@ -3038,26 +3029,28 @@ footer {
       margin-bottom: 1em; }
     #add-staff #search-results #results {
       padding: 0 1em; }
-  #add-staff .staff-result {
-    color: #1f1646;
-    display: block;
-    padding: 1em 3em;
-    border: thin solid #E1E5E6; }
-    #add-staff .staff-result h5 {
-      margin-top: 0;
-      margin-bottom: 0.3em;
-      font-weight: 900;
-      font-size: 1.3em; }
-    #add-staff .staff-result hr {
-      margin-bottom: 0.7em; }
-    #add-staff .staff-result .row {
-      margin: 0 1em; }
-    #add-staff .staff-result p {
-      margin-top: 0; }
-    #add-staff .staff-result .location, #add-staff .staff-result .pay-rate {
-      text-align: right; }
-  #add-staff .staff-result:hover {
-    background: #ECF0F1; }
+
+.staff-result {
+  color: #1f1646;
+  display: block;
+  padding: 1em 3em;
+  border: thin solid #E1E5E6; }
+  .staff-result h5 {
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    font-weight: 900;
+    font-size: 1.3em; }
+  .staff-result hr {
+    margin-bottom: 0.7em; }
+  .staff-result .row {
+    margin: 0 1em; }
+  .staff-result p {
+    margin-top: 0; }
+  .staff-result .location, .staff-result .pay-rate {
+    text-align: right; }
+
+.staff-result:hover {
+  background: #ECF0F1; }
 
 /* * * * Not found page * * * */
 #page-not-found {
