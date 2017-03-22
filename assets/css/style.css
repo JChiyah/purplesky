@@ -2909,8 +2909,7 @@ footer {
       border: 1px solid #0389ff; }
     #project-management-panel .tab form label {
       display: block;
-      font-weight: 900;
-      margin-top: 8px; }
+      font-weight: 900; }
     #project-management-panel .tab form button {
       background: #0389ff;
       color: #fff;

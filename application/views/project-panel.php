@@ -27,7 +27,7 @@
 				<h2>Project Tasks</h2>
 				<hr>
 				<div id="project-tasks">
-
+					WIP
 				</div>
 			</div>
 
@@ -35,8 +35,8 @@
 				<h2>Project Applications</h2>
 				<hr>
 				<p>Applications received from employees.<br/> The project is currently <b><?= $project->applications ?></b> to new applications.</p>
-				<div id="project-tasks">
-
+				<div id="project-applications">
+					WIP
 				</div>
 			</div>
 
@@ -68,7 +68,7 @@
 				<h2>Add Task</h2>
 				<hr>
 				<div id="add-project-task">
-
+					WIP
 				</div>
 			</div>
 
@@ -79,7 +79,14 @@
 			</div>
 
 			<div class="container-fluid tab" id="edit-staff" style="display: none">
-				<p>lol</p>
+				<h2>Edit Staff</h2>
+				<hr>
+
+				<p>Here you can edit details about staff working on the project such as their working days.</p>
+				
+				<div id="edit-staff-list">
+					WIP
+				</div>
 			</div>
 
 			<div class="container-fluid tab" id="remove-staff" style="display: none">
@@ -89,7 +96,7 @@
 				<p>Here you can remove staff working on the project. If the staff is working in a selected task, they will also be removed from it automatically.</p>
 				
 				<div id="remove-staff-list">
-
+					WIP
 				</div>
 
 			</div>
