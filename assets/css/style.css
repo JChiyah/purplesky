@@ -3048,6 +3048,9 @@ footer {
     margin-top: 0; }
   .staff-result .location, .staff-result .pay-rate {
     text-align: right; }
+  .staff-result .staff-availability {
+    text-align: right;
+    font-weight: 900; }
 
 .staff-result:hover {
   background: #ECF0F1; }

@@ -142,7 +142,7 @@ class User extends Base {
 	 */
 	public function search_staff() {
 		$skills = $this->input->post('skill');
-		$project_id = $this->input->post('skill');
+		$project_id = $this->input->post('project_id');
 		$start_date = $this->input->post('start_date');
 		$end_date = $this->input->post('end_date');
 		$staff_name = $this->input->post('staff_name');
@@ -183,7 +183,26 @@ class User extends Base {
 				$data['skills'] = $s;
 
 			}
-			$data['staff'] = $staff;
+			$tmp = array();
+			foreach($staff as $s) {
+				// Check whether the staff is available and the reason why
+				$busy = $this->User_model->is_available($s->id, $start_date, $end_date);
+
+				if($busy) {
+					$s = (array)$s;
+					
+					if($this->Project_model->is_staff($project_id, $s['id'])) {
+						$s['busy'] = 'staff';
+					} else {
+						$s['busy'] = $busy;
+					}
+
+					$s = (object)$s;
+				}
+				array_push($tmp, $s);
+			}
+
+			$data['staff'] = $tmp;
 			return $this->load->view('displays/project-staff-search.php', $data);
 		}
 

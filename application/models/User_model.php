@@ -103,7 +103,7 @@ class User_model extends CI_Model {
 		if(isset($result) && $result) {
 			return $result;
 		} else {
-			// User is not staff, thus it is an admin group -> return some account info 
+			// User is not staff, thus it is an admin group -> return SOME account info 
 			$query = $this->db->select('email, CONCAT(first_name, " ", last_name) AS name, user_group.name AS group')
 							->where('account.id', $id)
 							->limit(1)
@@ -419,6 +419,29 @@ class User_model extends CI_Model {
 	}
 
 	/**
+	 * Returns whether the user is available to work or a string code when it is not
+	 *
+	 * @param $project_id
+	 * @return boolean
+	 * @author JChiyah
+	 */
+	public function is_available($user_id, $start_date, $end_date) {
+
+		$query = $this->db->select('type')
+						->where('staff_id', $user_id)
+						->where("(start_date BETWEEN '$start_date' AND '$end_date') OR (end_date BETWEEN '$start_date' AND '$end_date')")
+						->limit(1)
+						->get('availability');
+
+		$result = $query->row();
+
+		if(isset($result) && !empty($result)) {
+			return $result->type;
+		}
+		return TRUE;
+	}
+
+	/**
 	 * Returns the user's most recent projects
 	 *
 	 * @param $user_id
@@ -508,15 +531,16 @@ class User_model extends CI_Model {
 				$query = $query->where('skill_id', $filters['skills']);	
 			}
 		}
-		
+		/*
 		// Filter by availability
 		if(isset($filters['start_date']) && $filters['start_date'] && isset($filters['end_date']) && $filters['end_date']) {
+
 			$query = $query->where("NOT EXISTS(SELECT 1 FROM availability 
 					WHERE staff.staff_id = availability.staff_id AND
 						((availability.start_date BETWEEN '{$filters['start_date']}' AND '{$filters['end_date']}') OR
 						(availability.end_date BETWEEN '{$filters['start_date']}' AND '{$filters['end_date']}'))
 					) AND 1 = ", 1);
-		}
+		}*/
 		
 		/*
 		// Do not show staff already added to project

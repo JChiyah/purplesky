@@ -68,6 +68,7 @@ $(function() {
 					'end_date' : $('#staff_end_date').val(),
 					'staff_name' : $('#staff_name').val(),
 					'location' : $('#staff-location').val(),
+					'project_id' : $('#project_id').val(),
 					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 				},
 				success: function(data) {

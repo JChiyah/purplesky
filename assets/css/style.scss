@@ -1825,6 +1825,11 @@ footer {
 		}
 
 		.location, .pay-rate { text-align: right; }
+		
+		.staff-availability {
+			text-align: right;
+			font-weight: 900;
+		}
 	}
 	.staff-result:hover {
 		background: $grey-background;
