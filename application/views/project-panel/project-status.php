@@ -16,5 +16,5 @@ Any changes made will be notified to the staff working on the project and some c
 <div id="another-status" <?php echo $action == 'status' ? '' : 'style="display: none"' ?>>
 	<span class="confirm-msg">Project status changed!</span>
 	<i class="fa fa-check fa-5x green-c" aria-hidden="true"></i>					
-	<button>Change status again</button>
+	<button class="g-button">Change status again</button>
 </div>

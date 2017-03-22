@@ -17,5 +17,5 @@ A closed project will not receive any applications.<br/>You can change at any ti
 <div id="another-application-status" <?php echo $action == 'application-status' ? '' : 'style="display: none"' ?>>
 	<span class="confirm-msg">Project Application Status Changed!</span>
 	<i class="fa fa-check fa-5x green-c" aria-hidden="true"></i>					
-	<button>Change Application Status</button>
+	<button class="g-button">Change Application Status</button>
 </div>

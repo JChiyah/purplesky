@@ -14,5 +14,5 @@ Staff working in the project will also be notified</p>
 <div id="another-entry" style="display: none">
 	<span class="confirm-msg">New entry added!</span>
 	<i class="fa fa-check fa-5x green-c" aria-hidden="true"></i>					
-	<button>Add another entry</button>
+	<button class="g-button">Add another entry</button>
 </div>
