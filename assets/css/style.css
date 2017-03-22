@@ -2770,6 +2770,9 @@ footer {
     #project-dashboard #project-title .g-button {
       width: 70%;
       margin: 0 auto; }
+    #project-dashboard #project-title .g-button:focus {
+      text-decoration: none;
+      color: #ffffff; }
   #project-dashboard #project-details {
     padding: 1em 2em; }
   #project-dashboard #project-notifications, #project-dashboard #project-staff {

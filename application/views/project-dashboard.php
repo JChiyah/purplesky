@@ -13,6 +13,8 @@
 				<hr>
 				<?php if($is_manager) : ?>
 					<a href="<?= site_url('project-management') ?>/<?= $project->project_id ?>" class="g-button">Manage Project</a>
+				<?php elseif(!$is_staff) : ?>
+					<a href="#" class="g-button">Apply</a>
 				<?php endif ?>
 			</section>
 
@@ -52,7 +54,9 @@
 	<section class="container-fluid" id="project-staff">
 		<h2>Staff</h2>
 		<hr>
-		<p>You can click on the employee to see their profile</p>
+		<?php if(count(array_intersect(array(1, 2), $_SESSION['access_level'])) > 0 || $is_manager) {
+			echo '<p>You can click on the employee to see their profile</p>';
+		} ?>
 
 		<?php if(isset($staff) && $staff) : ?>
 			
@@ -66,20 +70,7 @@
 
 				<?php foreach ($staff as $employee) : ?>
 
-				<a href="<?php echo site_url(strtolower(str_replace(' ','.',$employee->name))); ?>" class="row staff">
-					<div class="col-xs-6">
-						<h4><?= $employee->name ?></h4>
-						<p><?= $employee->location ?>/<?= $employee->role ?>
-							<?php foreach($employee->skills as $skill) : ?>
-								<span class="skill-span"><?= $skill ?></span>
-							<?php endforeach ?>
-						</p>
-					</div>
-					<p class="col-xs-3"><?= date('d/m/Y', strtotime($employee->start_date)) ?></p>
-					<p class="col-xs-3"><?= date('d/m/Y', strtotime($employee->end_date)) ?></p>
-				</a>
-
-				<a class="row staff">
+				<a <?php echo count(array_intersect(array(1, 2), $_SESSION['access_level'])) > 0 || $is_manager ? 'href="' . site_url(strtolower(str_replace(' ','.',$employee->name))) . '"' : '' ?> class="row staff">
 					<div class="col-xs-6">
 						<h4><?= $employee->name ?></h4>
 						<p><?= $employee->location ?>/<?= $employee->role ?>

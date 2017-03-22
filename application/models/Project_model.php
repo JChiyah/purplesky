@@ -188,6 +188,31 @@ class Project_model extends CI_Model {
 	}
 
 	/**
+	 * Returns whether the user is working in the project
+	 *
+	 * @param $project_id
+	 * @param $user_id
+	 * @return boolean
+	 * @author JChiyah
+	 */
+	public function is_staff($project_id, $user_id) {
+
+		$query = $this->db->select('project_staff.staff_id')
+						->where('project_id', $project_id)
+						->where('project_staff.staff_id', $user_id)
+						->limit(1)
+						->get('project_staff');
+
+		$result = $query->row();
+
+		if(isset($result) && !empty($result)) {
+			return TRUE;
+		}
+		return FALSE;
+	}
+
+
+	/**
 	 * Allocates staff to a project
 	 *
 	 * @param $project_id
