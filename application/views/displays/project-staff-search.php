@@ -33,17 +33,14 @@
 							case 'staff':
 								echo 'Currently working for this project';
 								break;
-							case 'holiday':
-								echo 'On holiday during that period';
-								break;
 							case 'work':
-								echo 'Working for another project';
+								echo 'Working on another project';
 								break;
 							case 'training':
-								echo 'Performing training during that period';
+								echo 'Training during this period';
 								break;
 							default:
-								echo 'Not available during that period';
+								echo 'Not available during this period';
 						} ?>
 						</p>
 					</div>
