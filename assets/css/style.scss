@@ -1834,6 +1834,10 @@ footer {
 		.staff-availability {
 			text-align: right;
 			font-weight: 900;
+			font-size: 1.2em;
+			color: $delete-red;
+			margin-top: 1em;
+			margin-bottom: 0;
 		}
 	}
 	.staff-result:hover {
