@@ -63,6 +63,9 @@ $(function() {
 		// Check whether the user entered a keyword or is filtering projects
 		if(keyword || filter) {
 			
+			$('#search-results').css({'display': 'block'});
+			$('#results').html('<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>');
+
 			$.ajax({
 				type: "POST",
 				url: baseurl + "Project/search_projects",
@@ -76,7 +79,6 @@ $(function() {
 				},
 				success: function(data) {
 					if (data) {
-						$('#search-results').css({'display': 'block'});
 						$('#results').html(data);
 					} else {
 						$('#results').html('<p>Nothing matches your search. Try to broaden your criteria.</p>');

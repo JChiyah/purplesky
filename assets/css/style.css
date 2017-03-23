@@ -2612,6 +2612,9 @@ footer {
       margin-bottom: 1em; }
     #search #search-results #results {
       padding: 0 1em; }
+      #search #search-results #results i {
+        display: block;
+        margin: 1em auto; }
 
 #quick-search {
   margin: 0 auto;
