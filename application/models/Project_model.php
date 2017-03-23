@@ -311,8 +311,8 @@ class Project_model extends CI_Model {
 
 		/** Filter by keyword **/
 		else if(isset($keyword) && $keyword) {
-			$query = $query->start_group()->like('title', $keyword);
-			$query = $query->or_like('description', $keyword)->end_group();
+			$query = $query->group_start()->like('title', $keyword);
+			$query = $query->or_like('description', $keyword)->group_end();
 		}
 
 		$query = $query->limit($limit)->get('project');
