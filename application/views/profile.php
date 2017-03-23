@@ -51,7 +51,7 @@
 				<div class="col-sm-12 col-md-12 row" id="exp-row">
 					<h1>Experiences</h1>
 					<?php if(!$only_admin) : ?>
-					<button class="edit-button" id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button><?php endif ?>
+					<button class="edit-button" id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i> Remove</button><?php endif ?>
 				</div>
 			</div>
 			<hr>
