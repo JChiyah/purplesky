@@ -37,6 +37,7 @@
 			<b>Priority:</b><br/>
 			<?php echo form_radio($edit_project['normal_priority']);?><?php echo form_label('Normal', 'normal');?>
 			<?php echo form_radio($edit_project['high_priority']);?><?php echo form_label('High', 'high');?>
+			<?php echo form_radio($edit_project['confidential_priority']);?><?php echo form_label('Confidential', 'confidential');?>
 		</p>
 
 		<button type="button" class="project-continue">Continue</button>

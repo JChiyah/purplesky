@@ -321,6 +321,11 @@ class Main extends Base {
 			'id'    => 'high',
 			'value' => '2'
 		);
+		$data['edit_project']['confidential_priority'] = array(
+			'name'  => 'priority',
+			'id'    => 'confidential',
+			'value' => '3'
+		);
 		$data['edit_project']['status'] = array(
 			'name'  => 'project_status',
 			'id'    => 'project_status',
