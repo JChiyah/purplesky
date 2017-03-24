@@ -429,7 +429,7 @@ class User_model extends CI_Model {
 
 		$query = $this->db->select('type')
 						->where('staff_id', $user_id)
-						->where("(start_date BETWEEN '$start_date' AND '$end_date') OR (end_date BETWEEN '$start_date' AND '$end_date')")
+						->where("((start_date BETWEEN '$start_date' AND '$end_date') OR (end_date BETWEEN '$start_date' AND '$end_date'))")
 						->limit(1)
 						->get('availability');
 
@@ -508,7 +508,6 @@ class User_model extends CI_Model {
 
 		// Start the query
 		$query = $this->db->select('staff.staff_id AS id, CONCAT(first_name, " ", last_name) AS name, user_group.description AS group, location.name AS location, pay_rate')
-						->join('staff', 'staff.staff_id=staff_skill.staff_id')
 						->join('location', 'location.location_id=staff.current_location')
 						->join('account', 'account.id=staff.staff_id')
 						->join('account_group', 'account_group.user_id=staff.staff_id')
@@ -516,13 +515,14 @@ class User_model extends CI_Model {
 						->group_by('staff.staff_id')
 						->limit(10);
 
-		/** Filter by project location **/
+		/** Filter by location **/
 		if(isset($filters['location']) && $filters['location']) {
 			$query = $query->where('location_id', $filters['location']);
 		}
 		
-		// Filter by skills
+		/** Filter by skills **/
 		if(isset($filters['skills']) && $filters['skills']) {
+			$query = $query->join('staff_skill', 'staff_skill.staff_id=staff.staff_id');
 			if(is_array($filters['skills'])) {
 				foreach ($filters['skills'] as $skill) {
 					$query = $query->where("EXISTS(SELECT 1 FROM staff_skill WHERE staff_skill.staff_id = staff.staff_id AND staff_skill.skill_id = $skill) AND 1 = ", 1);
@@ -552,16 +552,25 @@ class User_model extends CI_Model {
 			} else {
 				$query = $query->where('staff.staff_id != ', $filters['staff_ids']);	
 			}
-		}*/
+		}
 		
-		// Filter by name
+		/** Filter by name **/
 		if(isset($filters['name']) && $filters['name']) {
 			$query = $query->group_start()->like('first_name', $filters['name']);
 			$query = $query->or_like('last_name', $filters['name'])->group_end();
+		} else {
+			if(isset($filters['start_date']) && $filters['start_date'] && isset($filters['end_date']) && $filters['end_date']) {
+
+				$query = $query->where("NOT EXISTS(SELECT 1 FROM availability 
+						WHERE staff.staff_id = availability.staff_id AND
+							((availability.start_date BETWEEN '{$filters['start_date']}' AND '{$filters['end_date']}') OR
+							(availability.end_date BETWEEN '{$filters['start_date']}' AND '{$filters['end_date']}'))
+						) AND 1 = ", 1);
+			}
 		}
 
 		// End search
-		$query = $query->get('staff_skill');
+		$query = $query->get('staff');
 
 		$result = $query->result();
 

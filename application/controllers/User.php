@@ -170,7 +170,7 @@ class User extends Base {
 		}
 		
 		$staff = $this->User_model->search_staff($filters);
-		
+
 		if($staff) {
 
 			if(isset($skills) && $skills) {
@@ -183,26 +183,31 @@ class User extends Base {
 				$data['skills'] = $s;
 
 			}
-			$tmp = array();
-			foreach($staff as $s) {
-				// Check whether the staff is available and the reason why
-				$busy = $this->User_model->is_available($s->id, $start_date, $end_date);
+			if(isset($staff_name) && $staff_name) {
+				$tmp = array();
+				foreach($staff as $s) {
+					// Check whether the staff is available and the reason why
+					$busy = $this->User_model->is_available($s->id, $start_date, $end_date);
+					echo $s->name . " " . $busy;
 
-				if($busy) {
-					$s = (array)$s;
-					
-					if($this->Project_model->is_staff($project_id, $s['id'])) {
-						$s['busy'] = 'staff';
-					} else {
-						$s['busy'] = $busy;
+					if(is_string($busy)) {
+						$s = (array)$s;
+						
+						if($this->Project_model->is_staff($project_id, $s['id'])) {
+							$s['busy'] = 'lol';
+						} else {
+							$s['busy'] = $busy;
+						}
+
+						$s = (object)$s;
 					}
-
-					$s = (object)$s;
+					array_push($tmp, $s);
 				}
-				array_push($tmp, $s);
-			}
 
-			$data['staff'] = $tmp;
+				$data['staff'] = $tmp;
+			} else {
+				$data['staff'] = $staff;
+			}
 			return $this->load->view('displays/project-staff-search.php', $data);
 		}
 
