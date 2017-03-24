@@ -52,7 +52,7 @@ $(function() {
 
 			if(!isNaN(start)) {
 
-				if(now.getTime() <= start.getTime()) {
+				if($('#start_date').is('[disabled=disabled]') || (now.getTime() <= start.getTime())) {
 
 					if(!isNaN(end)) {
 
