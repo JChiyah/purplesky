@@ -21,7 +21,7 @@ $(function() {
 
 			if(!isNaN(start)) {
 
-				if(now.getTime() <= start.getTime()) {
+				//if(now.getTime() <= start.getTime()) {
 
 					if(!isNaN(end)) {
 
@@ -37,10 +37,10 @@ $(function() {
 						$('#staff_end_date').after('<span class="error-msg">Select a valid date<span>');
 						$('#staff_end_date').addClass('error-field');
 					}
-				} else {
+				/*} else {
 					$('#staff_start_date').after('<span class="error-msg">The start date must be in the future<span>');
 					$('#staff_start_date').addClass('error-field');
-				}
+				}*/
 			} else {
 				$('#staff_start_date').after('<span class="error-msg">Select a valid date<span>');
 				$('#staff_start_date').addClass('error-field');
