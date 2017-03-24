@@ -2778,6 +2778,8 @@ footer {
       color: #ffffff; }
   #project-dashboard #project-details {
     padding: 1em 2em; }
+    #project-dashboard #project-details #right-div p {
+      text-align: right; }
   #project-dashboard #project-notifications, #project-dashboard #project-staff {
     width: 85%;
     padding: 1em; }

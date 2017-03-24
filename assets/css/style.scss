@@ -1455,6 +1455,12 @@ footer {
 
 	#project-details {
 		padding: 1em 2em;
+
+		#right-div {
+			p {
+				text-align: right;
+			}
+		}
 	}
 
 	#project-notifications, #project-staff {

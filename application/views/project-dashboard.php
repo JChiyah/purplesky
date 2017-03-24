@@ -26,11 +26,14 @@
 						<div class="col-xs-6 col-sm-6 col-md-6">
 							<p><b>Start date:</b> <?= date('d/m/Y', strtotime($project->start_date)) ?></p>
 							<p><b>End date:</b> <?= date('d/m/Y', strtotime($project->end_date)) ?></p>
-							<p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <?= $project->location ?></p>
+							<p><?= ucfirst($project->status) ?> <span class="circle <?= $status ?>"></span></p>
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-6" id="right-div">
-							<p><?= ucfirst($project->status) ?> <span class="circle <?= $status ?>"></span></p>
-							<p><?= ucfirst($project->priority) ?> priority</p>
+							<p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <?= $project->location ?></p>
+							<p><?php echo ucfirst($project->priority);
+								if($project->priority != 'confidential')
+									echo ' priority';
+								?></p>
 						</div>
 					</div>
 					<p class="row"><?= $project->description ?></p>
