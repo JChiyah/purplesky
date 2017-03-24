@@ -188,8 +188,7 @@ class User extends Base {
 				foreach($staff as $s) {
 					// Check whether the staff is available and the reason why
 					$busy = $this->User_model->is_available($s->id, $start_date, $end_date);
-					echo $s->name . " " . $busy;
-
+					
 					if(is_string($busy)) {
 						$s = (array)$s;
 						

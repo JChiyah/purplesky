@@ -295,6 +295,9 @@ class Main extends Base {
 			'max'	=> '2024-12-30',
 			'value' => $data['project']->start_date
 		);
+		if(strtotime($data['project']->start_date) < strtotime('now')) {
+			$data['edit_project']['start_date']['disabled'] = 'disabled';
+		}
 		$data['edit_project']['end_date'] = array(
 			'name'  => 'end_date',
 			'id'    => 'end_date',
