@@ -87,7 +87,7 @@ class Main extends Base {
 				// No permission
 				redirect('index');
 			}
-			$data['page_body'] = 'visit-profile';			
+			$data['page_body'] = 'visit-profile';
 		}
 
 		$data['user'] = $this->User_model->get_user_by_id($user_id);

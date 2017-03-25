@@ -188,7 +188,7 @@ class User extends Base {
 				foreach($staff as $s) {
 					// Check whether the staff is available and the reason why
 					$busy = $this->User_model->is_available($s->id, $start_date, $end_date);
-					
+
 					if(is_string($busy)) {
 						$s = (array)$s;
 						
@@ -209,6 +209,37 @@ class User extends Base {
 			}
 			return $this->load->view('displays/project-staff-search.php', $data);
 		}
+
+	}
+
+	/**
+	 * Get a user profile
+	 * Call from a form post using AJAX
+	 *
+	 * @param post('profile_id')
+	 * @author JChiyah
+	 */
+	public function show_profile() {
+
+		$user_id = $this->input->post('user_id');
+
+		$user = $this->User_model->get_user_by_id($user_id);
+
+		if(!isset($user) || !$user) {
+			// User doesn't exist
+			//return $this->Main->not_found_view();
+			return ;
+		}
+		$data['user'] = $user;
+
+		$data['page_body'] = 'visit-profile';
+		$data['page_title'] = $data['user']->name;
+		$data['page_description'] = $data['user']->name . ' profile';
+
+		$data['user_skills'] = $this->User_model->get_user_skills($user_id);
+		$data['user_experiences'] = $this->User_model->get_user_experiences($user_id);
+
+		return $this->load->view('visit-profile', $data);
 
 	}
 

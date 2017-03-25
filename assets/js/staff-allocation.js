@@ -184,8 +184,8 @@ $(function() {
 		$('#search-staff-form').parent().show();
 	});
 
-	/*$(".profile-popups").dialog({
-	    autoOpen : false, modal : true, show : "blind", hide : "blind"
+	/*$("#profile-popup").dialog({
+	    autoOpen : false, modal : true, show : "blind", hide : "blind", width : "500"
 	});*/
 
 	$('body').on('click', '.staff-profile', function() {
@@ -193,7 +193,9 @@ $(function() {
 
 		load_profile(id);
 
-		$('profile-popup').dialog();
+		var name = $('#staff-' + id + ' > .staff-name').text();
+
+		$('#profile-popup').dialog({ title : name, width: '900' });
 		return false;
 	});
 
@@ -203,14 +205,14 @@ $(function() {
 			type: "POST",
 			url: baseurl + "User/show_profile",
 			data: { 
-				'user_id' : $('#user_id').val(),
+				'user_id' : id,
 				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 			},
 			success: function(data) {
 				if (data) {
 					$("#profile-popup").html(data);
 				} else {
-					alert("j");
+					alert("h");
 				}
 			}
 		});

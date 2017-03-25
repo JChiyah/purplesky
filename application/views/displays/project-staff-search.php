@@ -3,7 +3,7 @@
     <?php foreach($staff as $employee) : ?>
 		
 		<div class="staff-result" id="staff-<?= $employee->id ?>">
-			<h5><?= $employee->name ?></h5>
+			<h5 class="staff-name"><?= $employee->name ?></h5>
 			<hr>
 			<div class="row">
 				<p class="col-xs-6 group"><?= $employee->group ?></p>
