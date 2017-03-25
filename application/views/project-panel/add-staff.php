@@ -42,6 +42,7 @@
 		<input type="hidden" value="<?= $project->project_id ?>" id="project_id"/>
 
 	<?php echo form_close() ?>
+
 </div>
 
 <div id="search-results">
@@ -50,6 +51,10 @@
 	<div id="results">
 
 	</div>
+</div>
+
+<div id="profile-popup" style="display: none">
+	
 </div>
 
 <div class="container-fluid content" style="display: none">

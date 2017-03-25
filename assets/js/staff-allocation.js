@@ -77,7 +77,7 @@ $(function() {
 						current_query = [$('#staff_start_date').val(), $('#staff_end_date').val(), skills];
 						//alert(current_query);
 					} else {
-						$("#results").html('<p>No staff available.</p>');
+						$("#results").html('<p>No staff available</p>');
 					}
 					$("#search-results").show();
 				},
@@ -182,7 +182,38 @@ $(function() {
 		$('#allocate-staff-form').parent().hide();
 		$('#search-results').show();
 		$('#search-staff-form').parent().show();
-	})
+	});
 
+	/*$(".profile-popups").dialog({
+	    autoOpen : false, modal : true, show : "blind", hide : "blind"
+	});*/
+
+	$('body').on('click', '.staff-profile', function() {
+		var id = (($(this).parent().parent().attr('id')).split("-"))[1];
+
+		load_profile(id);
+
+		$('profile-popup').dialog();
+		return false;
+	});
+
+	/* Loads a user profile */
+	function load_profile(id) {
+		$.ajax({
+			type: "POST",
+			url: baseurl + "User/show_profile",
+			data: { 
+				'user_id' : $('#user_id').val(),
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data) {
+					$("#profile-popup").html(data);
+				} else {
+					alert("j");
+				}
+			}
+		});
+	}
 
 });

@@ -24,7 +24,9 @@
 			</div>
 			<div class="row">
 				
-				<a href="<?php echo site_url(strtolower(str_replace(' ','.',$employee->name))); ?>" class="col-sm-3 g-button">See profile</a>
+				<!--<a href="<?php echo site_url(strtolower(str_replace(' ','.',$employee->name))); ?>" class="col-sm-3 g-button staff-profile" <?php //onclick="return !window.open(this.href, 'Profile', 'width=500,height=500')"?>>See profile</a>-->
+
+				<button class="col-sm-3 g-button staff-profile">See profile</button>
 				
 				<?php if(isset($employee->busy) && $employee->busy): ?>
 					<div class="col-xs-9">
