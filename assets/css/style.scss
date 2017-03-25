@@ -1818,42 +1818,49 @@ footer {
 		}
 	}
 }
-	.staff-result {
-		color: $blue;
-		display: block;
-		padding: 1em 3em;
-		border: thin solid $grey-background2;
-		
-		h5 {
-			margin-top: 0;
-			margin-bottom: 0.3em;
-			font-weight: 900;
-			font-size: 1.3em;
-		}
-
-		hr { margin-bottom: 0.7em; }
-
-		.row {
-			margin: 0 1em;
-		}
-		p {
-			margin-top: 0;
-		}
-
-		.location, .pay-rate { text-align: right; }
-		
-		.staff-availability {
-			text-align: right;
-			font-weight: 900;
-			font-size: 1.2em;
-			color: $delete-red;
-			margin-top: 1em;
-			margin-bottom: 0;
-		}
+.staff-result {
+	color: $blue;
+	display: block;
+	padding: 1em 3em;
+	border: thin solid $grey-background2;
+	
+	h5 {
+		margin-top: 0;
+		margin-bottom: 0.3em;
+		font-weight: 900;
+		font-size: 1.3em;
 	}
-	.staff-result:hover {
-		background: $grey-background;
+
+	hr { margin-bottom: 0.7em; }
+
+	.row {
+		margin: 0 1em;
 	}
+	p {
+		margin-top: 0;
+	}
+
+	.location, .pay-rate { text-align: right; }
+	
+	.staff-availability {
+		text-align: right;
+		font-weight: 900;
+		font-size: 1.2em;
+		color: $delete-red;
+		margin-top: 1em;
+		margin-bottom: 0;
+	}
+}
+.staff-result:hover {
+	background: $grey-background;
+}
+
+.profile-popup {
+	
+	.ui-dialog-titlebar {
+		display: none;
+	}
+}
 
 /* * * * Not found page * * * */
 #page-not-found {

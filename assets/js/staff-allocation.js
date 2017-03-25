@@ -1,3 +1,21 @@
+$(document).ready(function() {
+
+	$("#profile-popup").dialog({
+		bgiframe: true,
+		autoOpen: false,
+		resizable: false,
+		width: "auto",
+	    dialogClass : "profile-popup",
+	    modal: true,
+        open: function(){
+            jQuery('.ui-widget-overlay').bind('click',function(){
+                jQuery('#profile-popup').dialog('close');
+            })
+        }
+	});
+
+});
+
 $(function() {
 
 	// Skills selected
@@ -184,19 +202,25 @@ $(function() {
 		$('#search-staff-form').parent().show();
 	});
 
-	/*$("#profile-popup").dialog({
-	    autoOpen : false, modal : true, show : "blind", hide : "blind", width : "500"
-	});*/
-
 	$('body').on('click', '.staff-profile', function() {
 		var id = (($(this).parent().parent().attr('id')).split("-"))[1];
 
 		load_profile(id);
 
 		var name = $('#staff-' + id + ' > .staff-name').text();
+		
+		$('#profile-popup').dialog({title : name});
 
-		$('#profile-popup').dialog({ title : name, width: '900' });
-		return false;
+		setTimeout(function(){
+			$('#profile-popup').dialog("open");
+	    }, 500);
+
+		$('#profile-popup').dialog("option", "position", {
+			my: "center",
+			at: "center",
+			of: window
+		});
+
 	});
 
 	/* Loads a user profile */
@@ -211,11 +235,10 @@ $(function() {
 			success: function(data) {
 				if (data) {
 					$("#profile-popup").html(data);
-				} else {
-					alert("h");
 				}
 			}
 		});
 	}
+
 
 });

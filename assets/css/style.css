@@ -3071,6 +3071,9 @@ footer {
 .staff-result:hover {
   background: #ECF0F1; }
 
+.profile-popup .ui-dialog-titlebar {
+  display: none; }
+
 /* * * * Not found page * * * */
 #page-not-found {
   width: 40%;
