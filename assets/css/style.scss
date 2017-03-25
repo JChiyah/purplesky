@@ -1817,6 +1817,10 @@ footer {
 			padding: 0 1em;
 		}
 	}
+	i {
+		display: block;
+		margin: 1em auto;
+	}
 }
 .staff-result {
 	color: $blue;
@@ -1856,10 +1860,15 @@ footer {
 }
 
 .profile-popup {
-	
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
 	.ui-dialog-titlebar {
-		display: none;
+		background: $blue;
+		color: #ffffff;
+		font-family: $font;
 	}
+
 }
 
 /* * * * Not found page * * * */

@@ -3041,6 +3041,9 @@ footer {
       margin-bottom: 1em; }
     #add-staff #search-results #results {
       padding: 0 1em; }
+  #add-staff i {
+    display: block;
+    margin: 1em auto; }
 
 .staff-result {
   color: #1f1646;
@@ -3071,8 +3074,13 @@ footer {
 .staff-result:hover {
   background: #ECF0F1; }
 
-.profile-popup .ui-dialog-titlebar {
-  display: none; }
+.profile-popup {
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); }
+  .profile-popup .ui-dialog-titlebar {
+    background: #1f1646;
+    color: #ffffff;
+    font-family: "Microsoft JhengHei"; }
 
 /* * * * Not found page * * * */
 #page-not-found {

@@ -4,6 +4,7 @@ $(document).ready(function() {
 		bgiframe: true,
 		autoOpen: false,
 		resizable: false,
+        draggable: false,
 		width: "auto",
 	    dialogClass : "profile-popup",
 	    modal: true,
@@ -77,6 +78,9 @@ $(function() {
 		current_query = [];
 		if(validate_search()) {
 
+			$("#search-results").show();
+			$('#results').html('<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>');
+
 			$.ajax({
 				type: "POST",
 				url: baseurl + "User/search_staff",
@@ -97,7 +101,6 @@ $(function() {
 					} else {
 						$("#results").html('<p>No staff available</p>');
 					}
-					$("#search-results").show();
 				},
 			    error: function(req, textStatus, errorThrown) {
 			        // To debug when an error happens (possibly a code 500 error)
@@ -211,9 +214,7 @@ $(function() {
 		
 		$('#profile-popup').dialog({title : name});
 
-		setTimeout(function(){
-			$('#profile-popup').dialog("open");
-	    }, 500);
+		$('#profile-popup').dialog("open");
 
 		$('#profile-popup').dialog("option", "position", {
 			my: "center",
@@ -235,6 +236,12 @@ $(function() {
 			success: function(data) {
 				if (data) {
 					$("#profile-popup").html(data);
+
+					$('#profile-popup').dialog("option", "position", {
+						my: "center",
+						at: "center",
+						of: window
+					});
 				}
 			}
 		});
