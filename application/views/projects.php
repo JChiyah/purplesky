@@ -18,6 +18,7 @@
                         </span>
                     </div>
                     <hr>
+                    <span>ID: <?= $project->project_id ?></span>
                     <div class="row">
                         <div class="col-md-10">
                             <h5><?= $project->manager ?></h5>
@@ -52,6 +53,7 @@
                             </span>
                         </div>
                         <hr>
+                        <span>ID: <?= $project->project_id ?></span>
                         <div class="row">
                             <div class="col-md-10">
                                 <h5>You are managing this project</h5>
