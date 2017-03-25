@@ -227,8 +227,7 @@ class User extends Base {
 
 		if(!isset($user) || !$user) {
 			// User doesn't exist
-			//return $this->Main->not_found_view();
-			return ;
+			return $this->load->view('inc/not-found');
 		}
 		$data['user'] = $user;
 
