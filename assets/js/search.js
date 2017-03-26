@@ -114,7 +114,7 @@ $(function() {
 	});
 
 	$('body').on('click', '.project-quick-view', function() {
-		var id = (($(this).parent().parent().parent().attr('id')).split("-"))[1];
+		var id = (($(this).parent().parent().parent().parent().parent().attr('id')).split("-"))[1];
 
 		load_project(id);
 

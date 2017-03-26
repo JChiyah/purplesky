@@ -1144,6 +1144,17 @@ footer {
 		margin-top: 0.3em;
 		margin-bottom: 0;
 	}
+	button {
+		background: $light-blue;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 900;
+		font-size: 0.9em;
+		padding: 8px 12px;
+		border: none;
+		border-radius: 4px;
+		box-shadow: none;
+	}
 	button:hover { background: $blue; }
 	button:focus { background: $light-blue; }
 	#search-toggle {
@@ -1335,11 +1346,14 @@ footer {
 
 		.col-md-6 {
 			padding: 0;
-			padding-left: 6px;
 		}
 
 		.g-button {
-			margin-top: 0;
+			padding: 8px 13px;
+			display: block;
+			width: 85%;
+			margin: 0 auto;
+			height: 36px;
 		}
 	}
 }

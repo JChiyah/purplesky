@@ -2545,6 +2545,16 @@ footer {
     font-size: 2.0em;
     margin-top: 0.3em;
     margin-bottom: 0; }
+  #search button {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 0.9em;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none; }
   #search button:hover {
     background: #1f1646; }
   #search button:focus {
@@ -2688,10 +2698,13 @@ footer {
   .project-result .right {
     text-align: right; }
     .project-result .right .col-md-6 {
-      padding: 0;
-      padding-left: 6px; }
+      padding: 0; }
     .project-result .right .g-button {
-      margin-top: 0; }
+      padding: 8px 13px;
+      display: block;
+      width: 85%;
+      margin: 0 auto;
+      height: 36px; }
 
 .project-result:hover {
   text-decoration: none;
