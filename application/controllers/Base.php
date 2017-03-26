@@ -32,4 +32,30 @@ class Base extends CI_Controller {
 		return $input;
 	}
 
+	/**
+	 * Helper function to get an assigned colour for project status
+	 *
+	 * @param $status
+	 * @author JChiyah
+	 */
+	protected function get_status_colour($status) {
+		switch ($status) {
+			case 'active':
+				return 'green';
+				break;
+			case 'scheduled':
+				return 'yellow';
+				break;
+			case 'finished':
+				return 'blue';
+				break;
+			case 'delayed':
+				return 'orange';
+				break;
+			default:
+				return 'red';
+				break;
+		}
+	} 
+
 }

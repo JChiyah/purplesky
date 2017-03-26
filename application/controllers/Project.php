@@ -150,23 +150,31 @@ class Project extends Base {
 
 		// Print results
 		foreach($result as $project) {
-			echo '<a class="container-fluid project-result" href="dashboard/' . $project->project_id . '">
+			echo '<div class="container-fluid project-result" id="project-' . $project->project_id . '">
 					<div class="row">
-						<h3 class="col-md-8">' . $project->title . '</h3>
+						<h3 class="col-md-8 project-title">' . $project->title . '</h3>
 						<span class="col-md-4 date">' . date('d/m/Y', strtotime($project->start_date)) . ' - ' . date('j/n/Y', strtotime($project->end_date)) . '</span>
 					</div>
 					<hr>
+					<span>ID: ' . $project->project_id . '</span>
 					<div class="row">
-						<div class="col-md-10">
+						<div class="col-md-8">
 							<h5>' . $project->manager . '</h5>
 							<p class="description">' . $project->description . '</p>
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-4 right">
 							<p class="location"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> ' . $project->location . '</p>
-							<button>View</button>
+							<div class="row">
+								<div class="col-md-6">
+									<button class="g-button project-quick-view">Quick View</button>
+								</div>
+								<div class="col-md-6">
+									<a class="g-button" href="dashboard/' . $project->project_id . '">More</a>
+								</div>
+							</div>
 						</div>
 					</div>
-				</a>';
+				</div>';
 		}
 	}
 
@@ -555,6 +563,36 @@ class Project extends Base {
 			}
 		}
 		return $allocated_staff;
+
+	}
+
+	/**
+	 * Get a project to load in a popup
+	 * Call from a form post using AJAX
+	 *
+	 * @param post('project_id')
+	 * @author JChiyah
+	 */
+	public function show_project() {
+
+		$project_id = $this->input->post('project_id');
+
+		$project = $this->Project_model->get_project_by_id($project_id);
+
+		if(!isset($project) || !$project) {
+			// User doesn't exist
+			return $this->load->view('inc/not-found');
+		}
+
+		$data['project'] = $project;
+		$data['status'] = $this->get_status_colour($data['project']->status);
+
+		$data['is_manager'] = $this->Project_model->is_manager($project_id, $this->session->userdata('user_id'));
+		$data['is_staff'] = $this->Project_model->is_staff($project_id, $this->session->userdata('user_id'));
+		
+		$data['dashboard_entries'] = $this->Project_model->get_project_dashboard($project_id, 3);
+
+		return $this->load->view('visit-project', $data);
 
 	}
 

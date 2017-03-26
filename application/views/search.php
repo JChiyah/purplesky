@@ -38,10 +38,6 @@
 								<label>Location:</label> <br>
 								<?php echo form_dropdown($location, array_merge(array( 0 => 'Any'), $locations), 0);?>
 							</p>
-							<!--<p>
-								<label>Onsite</label>
-								<input type="checkbox" name="" value="onsite" checked>
-							</p>-->
 						</div>
 					</div>
 				</div>
@@ -50,6 +46,10 @@
 		</section>
 
 		<button id="search-toggle"><i class="fa fa-caret-down fa-2x" aria-hidden="true"></i></button>
+	</div>
+
+	<div id="project-popup" style="display: none">
+		
 	</div>
 
 	<section id="search-results">

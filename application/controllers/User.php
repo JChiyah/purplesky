@@ -231,10 +231,6 @@ class User extends Base {
 		}
 		$data['user'] = $user;
 
-		$data['page_body'] = 'visit-profile';
-		$data['page_title'] = $data['user']->name;
-		$data['page_description'] = $data['user']->name . ' profile';
-
 		$data['user_skills'] = $this->User_model->get_user_skills($user_id);
 		$data['user_experiences'] = $this->User_model->get_user_experiences($user_id);
 

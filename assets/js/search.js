@@ -1,3 +1,22 @@
+$(document).ready(function() {
+
+	$("#project-popup").dialog({
+		bgiframe: true,
+		autoOpen: false,
+		resizable: false,
+        draggable: false,
+		width: "auto",
+	    dialogClass : "project-popup",
+	    modal: true,
+        open: function(){
+            jQuery('.ui-widget-overlay').bind('click',function(){
+                jQuery('#project-popup').dialog('close');
+            })
+        }
+	});
+
+});
+
 $(function() {
 	scroll_top();
 
@@ -93,5 +112,56 @@ $(function() {
 			$("#results").html('<p>Please, fill out some fields to search</p>');
 		}
 	});
+
+	$('body').on('click', '.project-quick-view', function() {
+		var id = (($(this).parent().parent().parent().attr('id')).split("-"))[1];
+
+		load_project(id);
+
+		var ptitle = $('#project-' + id + ' > .row > h3').text();
+		
+		$('#project-popup').dialog({title : ptitle});
+
+		$("#project-popup").dialog({width: function() {
+		    if ($(window).width() > 1000) {
+		        // Wide.
+		        return $(window).width() - 100;
+		    }
+		    // Not wide.
+		    return $(window).width();
+		}});
+
+		$('#project-popup').dialog("open");
+
+		$('#project-popup').dialog("option", "position", {
+			my: "center",
+			at: "center",
+			of: window
+		});
+
+	});
+
+	/* Loads a project */
+	function load_project(id) {
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/show_project",
+			data: { 
+				'project_id' : id,
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data) {
+					$("#project-popup").html(data);
+
+					$('#project-popup').dialog("option", "position", {
+						my: "center",
+						at: "center",
+						of: window
+					});
+				}
+			}
+		});
+	}
 
 });

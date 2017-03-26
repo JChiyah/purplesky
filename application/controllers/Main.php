@@ -188,23 +188,7 @@ class Main extends Base {
 			redirect('index');
 		}
 
-		switch ($data['project']->status) {
-			case 'active':
-				$data['status'] = 'green';
-				break;
-			case 'scheduled':
-				$data['status'] = 'yellow';
-				break;
-			case 'finished':
-				$data['status'] = 'blue';
-				break;
-			case 'delayed':
-				$data['status'] = 'orange';
-				break;
-			default:
-				$data['status'] = 'red';
-				break;
-		}
+		$data['status'] = $this->get_status_colour($data['project']->status);
 
 		$data['is_manager'] = $this->Project_model->is_manager($project_id, $this->session->userdata('user_id'));
 		if(!$data['is_manager']) {

@@ -23,8 +23,6 @@
 				<p class="col-xs-12 col-sm-6 pay-rate">£<?= $employee->pay_rate ?>/day</p>
 			</div>
 			<div class="row">
-				
-				<!--<a href="<?php echo site_url(strtolower(str_replace(' ','.',$employee->name))); ?>" class="col-sm-3 g-button staff-profile" <?php //onclick="return !window.open(this.href, 'Profile', 'width=500,height=500')"?>>See profile</a>-->
 
 				<button class="col-sm-3 g-button staff-profile">See profile</button>
 				

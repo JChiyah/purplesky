@@ -2545,16 +2545,6 @@ footer {
     font-size: 2.0em;
     margin-top: 0.3em;
     margin-bottom: 0; }
-  #search button {
-    background: #0389ff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 0.9em;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: none; }
   #search button:hover {
     background: #1f1646; }
   #search button:focus {
@@ -2692,16 +2682,16 @@ footer {
     text-align: right; }
   .project-result p {
     margin-top: 0; }
-  .project-result button {
-    padding: 8px 18px;
-    margin-right: 15px;
-    margin-bottom: 0.5em;
-    position: absolute;
-    bottom: 0;
-    right: 0; }
-  .project-result div.col-md-2 {
-    text-align: right;
-    position: relative; }
+  .project-result i {
+    display: inline-block !important;
+    margin: 0 !important; }
+  .project-result .right {
+    text-align: right; }
+    .project-result .right .col-md-6 {
+      padding: 0;
+      padding-left: 6px; }
+    .project-result .right .g-button {
+      margin-top: 0; }
 
 .project-result:hover {
   text-decoration: none;
@@ -2750,6 +2740,10 @@ footer {
   font-family: "Microsoft JhengHei";
   margin: 1.5em auto;
   font-size: 1.2em; }
+  #project-dashboard .visit-link {
+    color: #0389ff; }
+  #project-dashboard .visit-link:hover {
+    color: #1f1646; }
   #project-dashboard h1 {
     text-align: center;
     font-size: 2.4em; }
@@ -3074,10 +3068,10 @@ footer {
 .staff-result:hover {
   background: #ECF0F1; }
 
-.profile-popup {
+.profile-popup, .project-popup {
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); }
-  .profile-popup .ui-dialog-titlebar {
+  .profile-popup .ui-dialog-titlebar, .project-popup .ui-dialog-titlebar {
     background: #1f1646;
     color: #ffffff;
     font-family: "Microsoft JhengHei"; }
