@@ -144,11 +144,28 @@ class Main extends Base {
 			'name'  => 'staff_end_date',
 			'id'    => 'staff_end_date'
 		);
+		$data['staff_start_date'] = array(
+			'name'  => 'staff_start_date',
+			'id'    => 'staff_start_date',
+			'value' => $this->form_validation->set_value('staff_start_date'),
+		);
+		$data['staff_end_date'] = array(
+			'name'  => 'staff_end_date',
+			'id'    => 'staff_end_date',
+			'value' => $this->form_validation->set_value('staff_end_date'),
+		);
 		$data['staff_name'] = array(
 			'name'  => 'staff_name',
 			'id'    => 'staff_name',
+			'placeholder' => 'Enter a name or last name',
 			'value' => $this->form_validation->set_value('staff_name')
 		);
+		$data['staff_location'] = array(
+			'name'  => 'staff_location',
+			'id'    => 'staff_location',
+			'value' => $this->form_validation->set_value('staff_location')
+		);
+		$data['skills'] = $this->System_model->get_skills();
 
 		$this->load->view('html', $data);
 	}
@@ -261,23 +278,7 @@ class Main extends Base {
 		}
 		$data['action'] = $state;
 
-		switch ($data['project']->status) {
-			case 'active':
-				$data['status'] = 'green';
-				break;
-			case 'scheduled':
-				$data['status'] = 'yellow';
-				break;
-			case 'finished':
-				$data['status'] = 'blue';
-				break;
-			case 'delayed':
-				$data['status'] = 'orange';
-				break;
-			default:
-				$data['status'] = 'red';
-				break;
-		}
+		$data['status'] = $this->get_status_colour($data['project']->status);
 
 		$data['edit_project']['title'] = array(
 			'name'  => 'title',

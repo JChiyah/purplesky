@@ -21,13 +21,33 @@ $(function() {
 	scroll_top();
 
 	$('#search-toggle').on('click', function() {
-    	$('#advanced-search').slideToggle(500, function() {
-	        if ($('#advanced-search').is(':visible')) {
-	            $('#search-toggle').html('<i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>');
-	        } else {
-	            $('#search-toggle').html('<i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>');
-        	}
-    	});
+    	if($('#user-search').is(':visible')) {
+	    	$('#user-advanced-search').slideToggle(500, function() {
+		        if ($('#advanced-search').is(':visible')) {
+		            $('#search-toggle').html('<i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>');
+		        } else {
+		            $('#search-toggle').html('<i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>');
+	        	}
+		        if ($('#user-advanced-search').is(':visible')) {
+		            $('#search-toggle').html('<i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>');
+		        } else {
+		            $('#search-toggle').html('<i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>');
+	        	}
+	    	});
+	    } else {
+	    	$('#advanced-search').slideToggle(500, function() {
+		        if ($('#advanced-search').is(':visible')) {
+		            $('#search-toggle').html('<i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>');
+		        } else {
+		            $('#search-toggle').html('<i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>');
+	        	}
+		        if ($('#advanced-search').is(':visible')) {
+		            $('#search-toggle').html('<i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>');
+		        } else {
+		            $('#search-toggle').html('<i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>');
+	        	}
+	    	});	    	
+	    }
 	});
 
 	$(window).scroll(function() {
@@ -53,15 +73,7 @@ $(function() {
 		$('html, body').animate({
 		    scrollTop: $("#search").offset().top
 		}, 500);
-	})
-
-	function validate_dates(start_date, end_date) {
-		var now = new Date();
-		var d1 = new Date(start_date);
-		var d2 = new Date(end_date);
-
-		return d2.getTime() >= d1.getTime() && (d1.getTime() <= now.getTime());
-	}
+	});
 
 	$("#search-submit").click(function(event) {
 		event.preventDefault();
@@ -173,12 +185,95 @@ $(function() {
 			$('#search-title').text('Search for Users');
 			$('#project-search').hide();
 			$('#user-search').show();
+			if ($('#user-advanced-search').is(':visible')) {
+	            $('#search-toggle').html('<i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>');
+	        } else {
+	            $('#search-toggle').html('<i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>');
+        	}
 		} else {
 			$('#search-users').removeClass('active');
 			$('#' + id).addClass('active');
 			$('#search-title').text('Search for Projects');
 			$('#user-search').hide();
 			$('#project-search').show();
+			if ($('#advanced-search').is(':visible')) {
+	            $('#search-toggle').html('<i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>');
+	        } else {
+	            $('#search-toggle').html('<i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>');
+        	}
+		}
+	});
+
+	// Skills selected
+	var skills = [];
+
+	$('#skill_select').on('change', function() {
+		var e = document.getElementById("skill_select");
+		var skill = e.options[e.selectedIndex].text;
+		if(this.value != 0) {
+			if(!skills.includes(this.value)) {
+				$("#selected-skills").append('<span class="skill-span-b">' + 
+					skill + '</span>');
+
+				skills.push(this.value);
+			}
+			// else repeated element 
+		}
+	});
+
+	$('#clear-skills').click(function(event) {
+		skills = [];
+		$('#skill_select').val(0);
+		$("#selected-skills").html('');
+	});
+
+	$("#user-search-submit").click(function(event) {
+		event.preventDefault();
+
+		// form validation
+		var name = $('#staff_name').val();
+		var start_date = $('#staff_start_date').val();
+		var end_date = $('#staff_end_date').val();
+		var location = $('#staff_location').val();
+
+		// flag to control search options
+		if ($('#user-advanced-search').is(':visible')) {
+			var filter = true;
+		} else {
+			var filter = false;
+		}
+		
+		// Check whether the user entered a keyword or is filtering projects
+		if(name || filter) {
+			
+			$('#search-results').show();
+			$('#results').html('<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>');
+
+			$.ajax({
+				type: "POST",
+				url: baseurl + "User/search_staff",
+				data: {
+					'staff_name' : name,
+					'start_date' : start_date,
+					'end_date' : end_date,
+					'location' : location,
+					'filter' : filter,
+					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+				},
+				success: function(data) {
+					if (data) {
+						$('#results').html(data);
+					} else {
+						$('#results').html('<p>Nothing matches your search. Try to broaden your criteria.</p>');
+					}
+					$('html, body').animate({
+					    scrollTop: $("#search-results").offset().top - 100
+					}, 1000);
+				}
+			});
+		} else {
+			// User did not enter anything
+			$("#results").html('<p>Please, fill out some fields to search</p>');
 		}
 	});
 

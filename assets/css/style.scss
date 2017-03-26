@@ -1267,11 +1267,11 @@ footer {
 	input[type=text] { width: 60%; }
 }
 
-#user-search {
+#project-search {
 	display: none;
 }
 
-#advanced-search{
+#advanced-search, #user-advanced-search {
 	width: 100%;
 	text-align: left;
 	padding: 1em 2em;
@@ -1313,7 +1313,6 @@ footer {
 
 		select {
 			width: 60%;
-			margin-top: 8px;
 			padding: 8px 12px 8px 12px;
 			border: 1px solid transparent;
 			border-radius: 4px;

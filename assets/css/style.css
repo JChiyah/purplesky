@@ -2639,51 +2639,50 @@ footer {
   #project-search input[type=text], #user-search input[type=text] {
     width: 60%; }
 
-#user-search {
+#project-search {
   display: none; }
 
-#advanced-search {
+#advanced-search, #user-advanced-search {
   width: 100%;
   text-align: left;
   padding: 1em 2em;
   display: none; }
-  #advanced-search hr {
+  #advanced-search hr, #user-advanced-search hr {
     margin-top: 1em; }
-  #advanced-search h2 {
+  #advanced-search h2, #user-advanced-search h2 {
     width: 85%;
     margin: 0.5em auto; }
-  #advanced-search p {
+  #advanced-search p, #user-advanced-search p {
     width: 85%;
     margin: 5px auto; }
-  #advanced-search .container-fluid {
+  #advanced-search .container-fluid, #user-advanced-search .container-fluid {
     margin: 0 auto;
     text-align: center; }
-    #advanced-search .container-fluid div {
+    #advanced-search .container-fluid div, #user-advanced-search .container-fluid div {
       text-align: left; }
-    #advanced-search .container-fluid label {
+    #advanced-search .container-fluid label, #user-advanced-search .container-fluid label {
       font-size: 1.2em;
       font-weight: 900; }
-    #advanced-search .container-fluid input[type=text] {
+    #advanced-search .container-fluid input[type=text], #user-advanced-search .container-fluid input[type=text] {
       width: 90%; }
-    #advanced-search .container-fluid input[type=date] {
+    #advanced-search .container-fluid input[type=date], #user-advanced-search .container-fluid input[type=date] {
       text-align: left;
       padding: 8px 12px 8px 12px;
       border: 1px solid transparent;
       border-radius: 4px; }
-    #advanced-search .container-fluid select {
+    #advanced-search .container-fluid select, #user-advanced-search .container-fluid select {
       width: 60%;
-      margin-top: 8px;
       padding: 8px 12px 8px 12px;
       border: 1px solid transparent;
       border-radius: 4px;
       font-weight: 900;
       background: #fff; }
-    #advanced-search .container-fluid .date-row {
+    #advanced-search .container-fluid .date-row, #user-advanced-search .container-fluid .date-row {
       margin: 0.8em 1em;
       display: flex;
       justify-content: flex-end;
       align-items: center; }
-      #advanced-search .container-fluid .date-row label {
+      #advanced-search .container-fluid .date-row label, #user-advanced-search .container-fluid .date-row label {
         display: block;
         text-align: right; }
 
