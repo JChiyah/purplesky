@@ -164,4 +164,22 @@ $(function() {
 		});
 	}
 
+	$('#search-type > button').click(function() {
+		var id = $(this).attr('id');
+
+		if(id == 'search-users') {
+			$('#search-projects').removeClass('active');
+			$('#' + id).addClass('active');
+			$('#search-title').text('Search for Users');
+			$('#project-search').hide();
+			$('#user-search').show();
+		} else {
+			$('#search-users').removeClass('active');
+			$('#' + id).addClass('active');
+			$('#search-title').text('Search for Projects');
+			$('#user-search').hide();
+			$('#project-search').show();
+		}
+	});
+
 });

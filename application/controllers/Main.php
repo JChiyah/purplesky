@@ -109,6 +109,7 @@ class Main extends Base {
 		$data['locations'] = $this->System_model->get_locations();
 		$data['projects'] = $this->Project_model->search_projects();
 
+		/** Project search **/
 		$data['keyword'] = array(
 			'name'  => 'keyword',
 			'id'    => 'keyword',
@@ -128,6 +129,25 @@ class Main extends Base {
 			'name'  => 'location',
 			'id'    => 'location',
 			'value' => $this->form_validation->set_value('location'),
+		);
+
+		/** User search **/
+		$data['skill_select'] = array(
+			'name'  => 'skill_select',
+			'id'    => 'skill_select'
+		);
+		$data['staff_start_date'] = array(
+			'name'  => 'staff_start_date',
+			'id'    => 'staff_start_date'
+		);
+		$data['staff_end_date'] = array(
+			'name'  => 'staff_end_date',
+			'id'    => 'staff_end_date'
+		);
+		$data['staff_name'] = array(
+			'name'  => 'staff_name',
+			'id'    => 'staff_name',
+			'value' => $this->form_validation->set_value('staff_name')
 		);
 
 		$this->load->view('html', $data);

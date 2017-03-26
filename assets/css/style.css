@@ -2536,7 +2536,7 @@ footer {
   color: #1f1646;
   font-family: "Microsoft JhengHei";
   margin: 0 auto;
-  padding: 4em 0;
+  padding: 2em 0;
   position: relative; }
   #search h1 {
     text-align: center;
@@ -2572,6 +2572,22 @@ footer {
     width: 95%;
     margin: 10px auto;
     text-align: center; }
+  #search #search-type {
+    padding: 0 1em; }
+    #search #search-type button {
+      color: #1f1646;
+      background: #ECF0F1;
+      font-weight: 700;
+      font-size: 1.15em;
+      padding: 1em;
+      border-bottom: 2px solid #C0C0C0; }
+    #search #search-type #search-projects {
+      border-right: 1px solid #C0C0C0; }
+    #search #search-type #search-users {
+      border-left: 1px solid #C0C0C0; }
+    #search #search-type .active {
+      background: #E1E5E6;
+      border-bottom: none; }
   #search hr {
     height: 1px;
     margin-top: 0.2em; }
@@ -2616,12 +2632,15 @@ footer {
         display: block;
         margin: 1em auto; }
 
-#quick-search {
+#project-search, #user-search {
   margin: 0 auto;
   padding: 1em;
   background: #E1E5E6; }
-  #quick-search input[type=text] {
+  #project-search input[type=text], #user-search input[type=text] {
     width: 60%; }
+
+#user-search {
+  display: none; }
 
 #advanced-search {
   width: 100%;

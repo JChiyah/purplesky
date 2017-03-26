@@ -1132,7 +1132,7 @@ footer {
 	color: $blue;
 	font-family: $font;
 	margin: 0 auto;
-	padding: 4em 0;
+	padding: 2em 0;
 	position: relative;
 
 	h1 {
@@ -1173,6 +1173,31 @@ footer {
 		width: 95%;
 		margin: 10px auto;
 		text-align: center;
+	}
+
+	#search-type {
+		padding: 0 1em;
+		
+		button {
+			color: $blue;
+			background: $grey-background;
+			font-weight: 700;
+			font-size: 1.15em;
+			padding: 1em;
+			border-bottom: 2px solid $hr-colour;
+		}
+
+		#search-projects {
+			border-right: 1px solid $hr-colour;
+		}
+		#search-users {
+			border-left: 1px solid $hr-colour;
+		}
+
+		.active {
+			background: $grey-background2;
+			border-bottom: none;
+		}
 	}
 
 	hr {
@@ -1234,12 +1259,16 @@ footer {
 	}
 }
 
-#quick-search{
+#project-search, #user-search {
 	margin: 0 auto;
 	padding: 1em;
 	background: $grey-background2;
 
 	input[type=text] { width: 60%; }
+}
+
+#user-search {
+	display: none;
 }
 
 #advanced-search{

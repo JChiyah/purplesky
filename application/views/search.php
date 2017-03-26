@@ -1,19 +1,65 @@
 <div id="search">
-	<h1>Search for Projects</h1>
+	<h1 id="search-title">Search for Projects</h1>
 
 	<div class="container-box">
-		<section id="quick-search">
+		<div class="row" id="search-type">
+			<button class="col-sm-6 active" id="search-projects">Search projects</button>
+			<button class="col-sm-6" id="search-users">Search users</button>
+		</div>
+		<section id="project-search">
 			<?php global $user_group; if ($user_group == 1 || $user_group == 2) 
 				{ echo '<p>Search for any current or future projects within the organisation</p>'; } else echo '<p>Search and apply for any current or future projects within the organisation</p>'; ?>
          	
          	<?php echo form_open();?>
-				<?php echo form_input($keyword, '', 'placeholder="Enter description keyword, project title or manager name"');?>
-				<?php echo form_submit('submit', 'Search', "id='search-submit'");?>
+				<?php echo form_input($keyword, '', 'placeholder=""');?>
+				<?php echo form_submit('submit', 'Search', "id='user-search-submit'");?>
 
 				<div id="advanced-search">
 					<hr>
 					<h2>Advanced Search</h2>
 					<p>You can fill in as many details as you want to filter projects</p>
+					<div class="container-fluid">
+						<div class="col-sm-12 col-md-6">
+							<div class="row date-row">
+								<div class="col-md-3">
+									<label>From:</label>
+								</div>
+								<div class="col-md-9">
+									<?php echo form_date($staff_start_date);?>
+								</div>
+							</div>
+							<div class="row date-row">
+								<div class="col-md-3">
+									<label>To:</label>
+								</div>
+								<div class="col-md-9">
+									<?php echo form_date($staff_end_date);?>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6">
+							<p>
+								<label>Location:</label> <br>
+								<?php echo form_dropdown($location, array_merge(array( 0 => 'Any'), $locations), 0);?>
+							</p>
+						</div>
+					</div>
+				</div>
+
+			<?php echo form_close();?>
+		</section>
+
+		<section id="user-search">
+			<p>Search users and see their profile</p>
+         	
+         	<?php echo form_open();?>
+				<?php echo form_input($keyword, '', 'placeholder="Enter description keyword, project title or manager name"');?>
+				<?php echo form_submit('submit', 'Search', "id='search-submit'");?>
+
+				<div id="user-advanced-search">
+					<hr>
+					<h2>Advanced Search</h2>
+					<p>You can fill in as many details as you want to filter users</p>
 					<div class="container-fluid">
 						<div class="col-sm-12 col-md-6">
 							<div class="row date-row">
