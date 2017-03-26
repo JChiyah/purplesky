@@ -255,7 +255,7 @@ $(function() {
 
 			$.ajax({
 				type: "POST",
-				url: baseurl + "User/search_staff",
+				url: baseurl + "User/search_users",
 				data: {
 					'staff_name' : name,
 					'start_date' : start_date,

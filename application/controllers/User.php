@@ -193,7 +193,7 @@ class User extends Base {
 						$s = (array)$s;
 						
 						if($this->Project_model->is_staff($project_id, $s['id'])) {
-							$s['busy'] = 'lol';
+							$s['busy'] = 'staff';
 						} else {
 							$s['busy'] = $busy;
 						}
@@ -208,6 +208,73 @@ class User extends Base {
 				$data['staff'] = $staff;
 			}
 			return $this->load->view('displays/project-staff-search.php', $data);
+		}
+
+	}
+
+	/**
+	 * Search users depending on certain filters
+	 * Call from a form post using AJAX
+	 *
+	 * @param form('user-search')
+	 * @author JChiyah
+	 */
+	public function search_users() {
+		$skills = $this->input->post('skill');
+		$start_date = $this->input->post('start_date');
+		$end_date = $this->input->post('end_date');
+		$staff_name = $this->input->post('staff_name');
+		$location = $this->input->post('location');
+
+		$filters = array(
+			'start_date'=> $start_date,
+			'end_date'  => $end_date
+		);
+
+		if(isset($skills) && $skills) {
+			$filters['skills'] = $skills;
+		}
+
+		if(isset($staff_name) && $staff_name) {
+			$filters['name'] = $staff_name;
+		}
+
+		if(isset($location) && $location) {
+			$filters['location'] = $location;
+		}
+		
+		$staff = $this->User_model->search_staff($filters);
+
+		if($staff) {
+
+			$tmp = array();
+			foreach($staff as $s) {
+				
+				$s = (array)$s;	
+
+				if(isset($start_date) && $start_date && isset($end_date) && $end_date) {
+					// Check whether the staff is available and the reason why
+					$busy = $this->User_model->is_available($s->id, $start_date, $end_date);
+
+					if(is_string($busy)) {
+						$s['busy'] = $busy;
+					}
+				}
+				/*
+				$tmp2 = array();
+				foreach($s['skills'] as $skill) {
+					array_push($tmp2, $this->System_model->get_skill_name($skill));
+				}*/
+				$s['skills'] = $this->User_model->get_user_skills($s['id']);
+				
+				$s = (object)$s;
+				
+				array_push($tmp, $s);
+			}
+
+			$data['staff'] = $tmp;
+
+			return $this->load->view('displays/staff.php', $data);
 		}
 
 	}

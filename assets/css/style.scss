@@ -1186,6 +1186,9 @@ footer {
 			padding: 1em;
 			border-bottom: 2px solid $hr-colour;
 		}
+		button:hover, button:focus {
+			background: $hr-colour;
+		}
 
 		#search-projects {
 			border-right: 1px solid $hr-colour;
@@ -1195,8 +1198,12 @@ footer {
 		}
 
 		.active {
+			text-decoration: underline;
 			background: $grey-background2;
 			border-bottom: none;
+		}
+		.active:hover {
+			background: $grey-background2;
 		}
 	}
 

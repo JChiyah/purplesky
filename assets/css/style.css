@@ -2581,13 +2581,18 @@ footer {
       font-size: 1.15em;
       padding: 1em;
       border-bottom: 2px solid #C0C0C0; }
+    #search #search-type button:hover, #search #search-type button:focus {
+      background: #C0C0C0; }
     #search #search-type #search-projects {
       border-right: 1px solid #C0C0C0; }
     #search #search-type #search-users {
       border-left: 1px solid #C0C0C0; }
     #search #search-type .active {
+      text-decoration: underline;
       background: #E1E5E6;
       border-bottom: none; }
+    #search #search-type .active:hover {
+      background: #E1E5E6; }
   #search hr {
     height: 1px;
     margin-top: 0.2em; }
