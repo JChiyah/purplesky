@@ -185,6 +185,8 @@ $(function() {
 			$('#search-title').text('Search for Users');
 			$('#project-search').hide();
 			$('#user-search').show();
+			$('#results').hide();
+			$('#user-results').show();
 			if ($('#user-advanced-search').is(':visible')) {
 	            $('#search-toggle').html('<i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>');
 	        } else {
@@ -196,6 +198,8 @@ $(function() {
 			$('#search-title').text('Search for Projects');
 			$('#user-search').hide();
 			$('#project-search').show();
+			$('#user-results').hide();
+			$('#results').show();
 			if ($('#advanced-search').is(':visible')) {
 	            $('#search-toggle').html('<i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>');
 	        } else {
@@ -247,7 +251,7 @@ $(function() {
 		if(name || filter) {
 			
 			$('#search-results').show();
-			$('#results').html('<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>');
+			$('#user-results').html('<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>');
 
 			$.ajax({
 				type: "POST",
@@ -262,9 +266,9 @@ $(function() {
 				},
 				success: function(data) {
 					if (data) {
-						$('#results').html(data);
+						$('#user-results').html(data);
 					} else {
-						$('#results').html('<p>Nothing matches your search. Try to broaden your criteria.</p>');
+						$('#user-results').html('<p>Nothing matches your search. Try to broaden your criteria.</p>');
 					}
 					$('html, body').animate({
 					    scrollTop: $("#search-results").offset().top - 100

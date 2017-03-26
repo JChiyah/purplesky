@@ -118,6 +118,9 @@
 		<div id="results">
 			
 		</div>
+		<div id="user-results">
+			
+		</div>
 	</section>
 
 	<button class="scroll-button" id="scroll-up"><i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></button>
