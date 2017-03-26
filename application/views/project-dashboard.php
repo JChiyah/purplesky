@@ -26,9 +26,9 @@
 						<div class="col-xs-6 col-sm-6 col-md-6">
 							<p><b>Start date:</b> <?= date('d/m/Y', strtotime($project->start_date)) ?></p>
 							<p><b>End date:</b> <?= date('d/m/Y', strtotime($project->end_date)) ?></p>
-							<p><?= ucfirst($project->status) ?> <span class="circle <?= $status ?>"></span></p>
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-6" id="right-div">
+							<p><?= ucfirst($project->status) ?> <span class="circle <?= $status ?>"></span></p>
 							<p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <?= $project->location ?></p>
 							<p><?php echo ucfirst($project->priority);
 								if($project->priority != 'confidential')
@@ -48,7 +48,7 @@
 
 		<div id="dashboard_entries">
 
-			<?php $this->load->view('displays/project-dashboard-entries.php', $dashboard_entries); ?>
+			<?php $this->load->view('displays/project-dashboard-entries.php'); ?>
 
 		</div>
 
