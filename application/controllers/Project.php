@@ -166,10 +166,10 @@ class Project extends Base {
 							<p class="location"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> ' . $project->location . '</p>
 							<div class="row">
 								<div class="col-md-6">
-									<button class="g-button project-quick-view">Quick View</button>
+									<button class="g-button project-quick-view">Preview</button>
 								</div>
 								<div class="col-md-6">
-									<a class="g-button" href="dashboard/' . $project->project_id . '">More</a>
+									<a class="g-button" href="dashboard/' . $project->project_id . '">More info</a>
 								</div>
 							</div>
 						</div>
