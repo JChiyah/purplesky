@@ -312,6 +312,7 @@ $(function() {
 					'start_date' : start_date,
 					'end_date' : end_date,
 					'location' : location,
+					'skill' : skills,
 					'filter' : filter,
 					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 				},
