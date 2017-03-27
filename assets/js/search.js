@@ -158,7 +158,7 @@ $(function() {
 
 		load_user(id);
 
-		var name = $('#search-' + id + ' > .row > h3').text();
+		var name = $('#user-' + id + ' > .row > h3').text();
 		
 		$('#search-popup').dialog({title : name});
 

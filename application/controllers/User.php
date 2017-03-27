@@ -19,6 +19,33 @@ class User extends Base {
 	}
 
 	/**
+	 * Get a project to load in a popup
+	 * Call from a form post using AJAX
+	 *
+	 * @param post('user_id')
+	 * @author JChiyah
+	 */
+	public function show_project() {
+
+		$user_id = $this->input->post('user_id');
+
+		$user = $this->User_model->get_user_by_id($user_id);
+
+		if(!isset($user) || !$user) {
+			// User doesn't exist
+			return $this->load->view('inc/not-found');
+		}
+
+		$data['user'] = $user;
+
+		$data['user_skills'] = $this->User_model->get_user_skills($user_id);
+		$data['user_experiences'] = $this->User_model->get_user_experiences($user_id);
+
+		return $this->load->view('visit-profile', $data);
+
+	}
+
+	/**
 	 * Adds a user' skill
 	 * Call from a form post using AJAX
 	 *
