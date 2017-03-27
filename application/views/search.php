@@ -108,7 +108,7 @@
 		<button id="search-toggle"><i class="fa fa-caret-down fa-2x" aria-hidden="true"></i></button>
 	</div>
 
-	<div id="project-popup" style="display: none">
+	<div id="search-popup" style="display: none">
 		
 	</div>
 

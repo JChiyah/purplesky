@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	$("#project-popup").dialog({
+	$("#search-popup").dialog({
 		bgiframe: true,
 		autoOpen: false,
 		resizable: false,
@@ -132,9 +132,9 @@ $(function() {
 
 		var ptitle = $('#project-' + id + ' > .row > h3').text();
 		
-		$('#project-popup').dialog({title : ptitle});
+		$('#search-popup').dialog({title : ptitle});
 
-		$("#project-popup").dialog({width: function() {
+		$("#search-popup").dialog({width: function() {
 		    if ($(window).width() > 1000) {
 		        // Wide.
 		        return $(window).width() - 100;
@@ -143,9 +143,37 @@ $(function() {
 		    return $(window).width();
 		}});
 
-		$('#project-popup').dialog("open");
+		$('#search-popup').dialog("open");
 
-		$('#project-popup').dialog("option", "position", {
+		$('#search-popup').dialog("option", "position", {
+			my: "center",
+			at: "center",
+			of: window
+		});
+
+	});
+
+	$('body').on('click', '.user-quick-view', function() {
+		var id = (($(this).parent().parent().parent().parent().parent().attr('id')).split("-"))[1];
+
+		load_user(id);
+
+		var name = $('#search-' + id + ' > .row > h3').text();
+		
+		$('#search-popup').dialog({title : name});
+
+		$("#search-popup").dialog({width: function() {
+		    if ($(window).width() > 1000) {
+		        // Wide.
+		        return $(window).width() - 100;
+		    }
+		    // Not wide.
+		    return $(window).width();
+		}});
+
+		$('#search-popup').dialog("open");
+
+		$('#search-popup').dialog("option", "position", {
 			my: "center",
 			at: "center",
 			of: window
@@ -164,9 +192,32 @@ $(function() {
 			},
 			success: function(data) {
 				if (data) {
-					$("#project-popup").html(data);
+					$("#search-popup").html(data);
 
-					$('#project-popup').dialog("option", "position", {
+					$('#search-popup').dialog("option", "position", {
+						my: "center",
+						at: "center",
+						of: window
+					});
+				}
+			}
+		});
+	}
+
+	/* Loads a user */
+	function load_user(id) {
+		$.ajax({
+			type: "POST",
+			url: baseurl + "User/show_profile",
+			data: { 
+				'user_id' : id,
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data) {
+					$("#search-popup").html(data);
+
+					$('#search-popup').dialog("option", "position", {
 						my: "center",
 						at: "center",
 						of: window
@@ -277,7 +328,7 @@ $(function() {
 			});
 		} else {
 			// User did not enter anything
-			$("#results").html('<p>Please, fill out some fields to search</p>');
+			$("#user-results").html('<p>Please, fill out some fields to search</p>');
 		}
 	});
 

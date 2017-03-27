@@ -150,7 +150,7 @@ class Project extends Base {
 
 		// Print results
 		foreach($result as $project) {
-			echo '<div class="container-fluid project-result" id="project-' . $project->project_id . '">
+			echo '<div class="container-fluid search-result" id="project-' . $project->project_id . '">
 					<div class="row">
 						<h3 class="col-md-8 project-title">' . $project->title . '</h3>
 						<span class="col-md-4 date">' . date('d/m/Y', strtotime($project->start_date)) . ' - ' . date('j/n/Y', strtotime($project->end_date)) . '</span>

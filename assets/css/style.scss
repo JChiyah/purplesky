@@ -1252,10 +1252,11 @@ footer {
 	#search-results {
 		margin-top: 3em;
 		display: none;
+		padding: 0 5em;
 
 		hr { margin-bottom: 1em; }
 
-		#results {
+		#results, #user-results {
 			padding: 0 1em;
 
 			i {
@@ -1341,7 +1342,7 @@ footer {
 	}
 }
 
-.project-result {
+.search-result {
 	color: $blue;
 	text-decoration: none;
 	display: block;

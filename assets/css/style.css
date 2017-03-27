@@ -2628,12 +2628,13 @@ footer {
     left: 0.5em; }
   #search #search-results {
     margin-top: 3em;
-    display: none; }
+    display: none;
+    padding: 0 5em; }
     #search #search-results hr {
       margin-bottom: 1em; }
-    #search #search-results #results {
+    #search #search-results #results, #search #search-results #user-results {
       padding: 0 1em; }
-      #search #search-results #results i {
+      #search #search-results #results i, #search #search-results #user-results i {
         display: block;
         margin: 1em auto; }
 
@@ -2691,38 +2692,38 @@ footer {
         display: block;
         text-align: right; }
 
-.project-result {
+.search-result {
   color: #1f1646;
   text-decoration: none;
   display: block;
   padding: 1em 2em;
   border: thin solid #E1E5E6; }
-  .project-result div.row {
+  .search-result div.row {
     display: flex;
     min-height: 100%;
     flex-direction: row; }
-  .project-result hr {
+  .search-result hr {
     margin-bottom: 0.7em; }
-  .project-result h3 {
+  .search-result h3 {
     margin: 0;
     font-size: 1.5em; }
-  .project-result h5 {
+  .search-result h5 {
     margin-top: 0;
     margin-bottom: 0.6em;
     font-weight: 900;
     font-size: 1em; }
-  .project-result span {
+  .search-result span {
     text-align: right; }
-  .project-result p {
+  .search-result p {
     margin-top: 0; }
-  .project-result i {
+  .search-result i {
     display: inline-block !important;
     margin: 0 !important; }
-  .project-result .right {
+  .search-result .right {
     text-align: right; }
-    .project-result .right .col-md-6 {
+    .search-result .right .col-md-6 {
       padding: 0; }
-    .project-result .right .g-button {
+    .search-result .right .g-button {
       padding: 8px 13px;
       display: block;
       width: 85%;
