@@ -1824,10 +1824,21 @@ footer {
 		margin-bottom: 0;
 	}
 
+	span.right {
+		margin-top: 1.35em;
+		padding-right: 30px;
+	}
+
 	.right {
 		text-align: right;
 	}
 
+	p {
+		margin: 0.5em 0;
+	}
+
+	.application-reject:hover {	background: $delete-red; }
+	.application-accept:hover {	background: $go-green; }
 
 }
 

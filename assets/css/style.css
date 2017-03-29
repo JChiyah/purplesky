@@ -3051,8 +3051,17 @@ footer {
   .application h3 {
     font-size: 1.3em;
     margin-bottom: 0; }
+  .application span.right {
+    margin-top: 1.35em;
+    padding-right: 30px; }
   .application .right {
     text-align: right; }
+  .application p {
+    margin: 0.5em 0; }
+  .application .application-reject:hover {
+    background: #e74c3c; }
+  .application .application-accept:hover {
+    background: #2ecc71; }
 
 #edit-project form {
   width: 90%;

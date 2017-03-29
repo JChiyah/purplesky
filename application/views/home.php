@@ -92,7 +92,7 @@
 								<p class="manager"><?= $project->manager ?></p>
 								<span class="date">
 									<?= date('d/m/Y', strtotime($project->start_date)) ?> - 
-									<?= date('j/n/Y', strtotime($project->end_date)) ?>
+									<?= date('d/m/Y', strtotime($project->end_date)) ?>
 								</span>
 							</div>
 						</a>
