@@ -1,14 +1,16 @@
+<?php $access = count(array_intersect(array(1, 2), $_SESSION['access_level'])); ?> 
 <div id="search">
 	<h1 id="search-title">Search for Projects</h1>
 
 	<div class="container-box">
+		<?php if($access != 0): ?>
 		<div class="row" id="search-type">
 			<button class="col-sm-6" id="search-projects">Search projects</button>
 			<button class="col-sm-6 active" id="search-users">Search users</button>
 		</div>
+		<?php endif ?>
 		<section id="project-search">
-			<?php global $user_group; if ($user_group == 1 || $user_group == 2) 
-				{ echo '<p>Search for any current or future projects within the organisation</p>'; } else echo '<p>Search and apply for any current or future projects within the organisation</p>'; ?>
+			<?php echo $access == 0 ? '<p>Search for any current or future projects within the organisation</p>' : '<p>Search and apply for any current or future projects within the organisation</p>'; ?>
          	
          	<?php echo form_open();?>
 				<?php echo form_input($keyword, '', 'placeholder="Enter description keyword, project title or manager name"');?>
@@ -49,6 +51,7 @@
 			<?php echo form_close();?>
 		</section>
 
+		<?php if($access != 0): ?>
 		<section id="user-search">
 			<p>Search users and see their profile</p>
          	
@@ -104,6 +107,7 @@
 
 			<?php echo form_close();?>
 		</section>
+		<?php endif ?>
 
 		<button id="search-toggle"><i class="fa fa-caret-down fa-2x" aria-hidden="true"></i></button>
 	</div>
