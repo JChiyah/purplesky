@@ -315,6 +315,9 @@ class Project_model extends CI_Model {
 			$query = $query->or_like('description', $keyword)->group_end();
 		}
 
+		/** Do not show confidential projects **/
+		$query = $query->where('priority !=', 'confidential');
+
 		$query = $query->limit($limit)->get('project');
 		$result = $query->result();
 
@@ -377,6 +380,10 @@ class Project_model extends CI_Model {
 
 		// Add other project info
 		$project_info = array_merge(array('manager_id' => $manager_id), $project_info);
+
+		if(strcmp($project_info['priority'], 'confidential')) {
+			$project_info['applications'] = 'closed';
+		}
 
 		$this->db->trans_start(); 	// Start transaction
 
