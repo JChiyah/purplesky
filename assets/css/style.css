@@ -2645,7 +2645,7 @@ footer {
   #project-search input[type=text], #user-search input[type=text] {
     width: 60%; }
 
-#project-search {
+#user-search {
   display: none; }
 
 #advanced-search, #user-advanced-search {
