@@ -237,6 +237,34 @@ class Main extends Base {
 		$this->load->view('html', $data);
 	}
 
+	public function application_view($project_id) {
+
+		$data['page_body'] = 'application';
+		$data['page_title'] = 'Apply';
+		$data['page_description'] = 'Apply to a project';
+
+		$is_manager = $this->Project_model->is_manager($project_id, $this->session->userdata('user_id'));
+
+		if(!count(array_intersect(array(1, 2), $_SESSION['access_level'])) == 0 || $is_manager) {
+			// Admins and PMs cannot apply to their own projects
+			redirect("dashboard/$project_id");
+		}
+
+		$data['project'] = $this->Project_model->get_project_by_id($project_id);
+
+		if(!isset($data['project']) || !$data['project']) {
+			// Trying to access a page that doesn't exists...
+			redirect('index');
+		}
+
+		if(strcmp('confidential', $data['project']->priority) == 0 || strcmp('cancelled', $data['project']->status) == 0 || strcmp('aaa', $data['project']->status) == 0 || strcmp('aaa', $data['project']->status) == 0) {
+			// The project has either finished, been cancelled or it is confidential
+			redirect('index');
+		}
+
+		$this->load->view('html', $data);
+	}
+
 	public function project_management_view($project_id, $state = FALSE) {
 		// Check user is logged in
 		if (!$this->ion_auth->logged_in()) {

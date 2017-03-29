@@ -59,6 +59,7 @@ $route['([a-z%20\-]+\.[a-z%20\-]+)'] = 'Main/profile_view/$1';
 $route['create-project'] = 'Project/create_project';
 $route['project-confirm/(:num)'] = 'Main/project_confirm_view/$1';
 $route['dashboard/(:num)'] = 'Main/project_dashboard_view/$1';
+$route['apply-to-project/(:num)'] = 'Main/application_view/$1';
 $route['project-management/(:num)/staff-allocation'] = 'Main/staff_allocation_view/$1';
 $route['project-management/(:num)/(:any)'] = 'Main/project_management_view/$1/$2';
 $route['project-management/(:num)'] = 'Main/project_management_view/$1';
