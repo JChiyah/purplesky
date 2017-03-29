@@ -12,9 +12,10 @@
 					<?php endif ?>
 				</div>
 				<hr>
-				<?php if(!$is_staff && !$is_manager) : ?>
+				<?php if(!$is_staff && !$is_manager && strcmp('closed', $project->applications) != 0) : ?>
 					<button class="g-button apply-to-project" id="apply-<?= $project->project_id ?>">Apply</button>
 				<?php endif ?>
+
 			</section>
 
 			<section class="col-xs-12 col-sm-7 col-md-7" id="project-details">

@@ -15,6 +15,8 @@
 					<a href="<?= site_url('project-management') ?>/<?= $project->project_id ?>" class="g-button">Manage Project</a>
 				<?php elseif($has_applied) : ?>
 					<p>You have already applied to this project</p>
+				<?php elseif(strcmp('closed', $project->applications) == 0) : ?>
+					
 				<?php elseif(!$is_staff) : ?>
 					<a href="<?= site_url('apply-to-project') ?>/<?= $project->project_id ?>" class="g-button">Apply</a>
 				<?php endif ?>

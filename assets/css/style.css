@@ -2697,38 +2697,38 @@ footer {
         display: block;
         text-align: right; }
 
-.search-result {
+.search-result, .project-result {
   color: #1f1646;
   text-decoration: none;
   display: block;
   padding: 1em 2em;
   border: thin solid #E1E5E6; }
-  .search-result div.row {
+  .search-result div.row, .project-result div.row {
     display: flex;
     min-height: 100%;
     flex-direction: row; }
-  .search-result hr {
+  .search-result hr, .project-result hr {
     margin-bottom: 0.7em; }
-  .search-result h3 {
+  .search-result h3, .project-result h3 {
     margin: 0;
     font-size: 1.5em; }
-  .search-result h5 {
+  .search-result h5, .project-result h5 {
     margin-top: 0;
     margin-bottom: 0.6em;
     font-weight: 900;
     font-size: 1em; }
-  .search-result span {
+  .search-result span, .project-result span {
     text-align: right; }
-  .search-result p {
+  .search-result p, .project-result p {
     margin-top: 0; }
-  .search-result i {
+  .search-result i, .project-result i {
     display: inline-block !important;
     margin: 0 !important; }
-  .search-result .right {
+  .search-result .right, .project-result .right {
     text-align: right; }
-    .search-result .right .col-md-6 {
+    .search-result .right .col-md-6, .project-result .right .col-md-6 {
       padding: 0; }
-    .search-result .right .g-button {
+    .search-result .right .g-button, .project-result .right .g-button {
       padding: 8px 13px;
       display: block;
       width: 85%;
@@ -3045,8 +3045,14 @@ footer {
 
 .application {
   margin: 0.5em 1em;
-  padding: 1em 2em;
-  border: 1px solid #E1E5E6; }
+  padding: 1em 1.5em;
+  border: 1px solid #E1E5E6;
+  border-radius: 4px; }
+  .application h3 {
+    font-size: 1.3em;
+    margin-bottom: 0; }
+  .application .right {
+    text-align: right; }
 
 #edit-project form {
   width: 90%;

@@ -1349,7 +1349,7 @@ footer {
 	}
 }
 
-.search-result {
+.search-result, .project-result {
 	color: $blue;
 	text-decoration: none;
 	display: block;
@@ -1815,12 +1815,20 @@ footer {
 
 .application {
 	margin: 0.5em 1em;
-	padding: 1em 2em;
+	padding: 1em 1.5em;
 	border: 1px solid $grey-background2;
+	border-radius: 4px;
 
-	h5 {
-		
+	h3 {
+		font-size: 1.3em;
+		margin-bottom: 0;
 	}
+
+	.right {
+		text-align: right;
+	}
+
+
 }
 
 #edit-project {
