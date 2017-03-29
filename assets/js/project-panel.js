@@ -1,5 +1,6 @@
 $(function() {
 
+	/** Get staff working at the current project and display it on the staff tab **/
 	function get_project_staff() {
 		$.ajax({
 			type: "POST",
@@ -16,6 +17,25 @@ $(function() {
 		});
 	}
 	get_project_staff();
+
+
+	/** Get applications sent to the current project and display them in the applications tab **/
+	function get_project_applications() {
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/get_project_applications",
+			data: { 
+				'project_id' : $('#project_id').val(),
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data) {
+					$("#project-applications").html(data);
+				}
+			}
+		});
+	}
+	get_project_applications();
 
 	$("#dashboard-entry-submit").click(function(event) {
 		event.preventDefault();
@@ -229,11 +249,8 @@ $(function() {
 				$('#staff').addClass('active');
 				window.location.replace(baseurl + 'project-management/' + $('#project_id').val());
 				break;
-			case 'tasks':
-				$('#see-tasks').show();
-				$('#tasks').addClass('active');
-				break;
 			case 'applications':
+				get_project_applications();
 				$('#see-applications').show();
 				$('#applications').addClass('active');
 				break;
@@ -253,10 +270,6 @@ $(function() {
 			case 'status':
 				$('#project-status').show();
 				$('#status').addClass('active');
-				break;
-			case 'task':
-				$('#add-task').show();
-				$('#task').addClass('active');
 				break;
 			case 'add':
 				$('#add-staff').show();

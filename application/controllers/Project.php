@@ -501,6 +501,23 @@ class Project extends Base {
 	}
 
 	/**
+	 * Gets all applications sent to a project
+	 * Call from a form post using AJAX
+	 *
+	 * @param project_id
+	 * @author JChiyah
+	 */
+	public function get_project_applications() {
+		// get and format input
+		$project_id = $this->input->post('project_id');
+
+		$applications = $this->Project_model->get_project_applications($project_id);
+
+		$data['applications'] = $applications;
+		return $this->load->view('displays/project-applications.php', $data);
+	}
+
+	/**
 	 * Updates the project status
 	 * Call from a form post using AJAX
 	 *

@@ -3043,6 +3043,11 @@ footer {
     #left-bar ul .active {
       background: #C0C0C0; }
 
+.application {
+  margin: 0.5em 1em;
+  padding: 1em 2em;
+  border: 1px solid #E1E5E6; }
+
 #edit-project form {
   width: 90%;
   margin: 0 auto; }

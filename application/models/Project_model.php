@@ -117,7 +117,13 @@ class Project_model extends CI_Model {
 	 */
 	public function get_project_applications($project_id, $limit = FALSE) {
 
-		$query = $this->db->select('staff_id AS id, message, at_date, status')
+		$query = $this->db->select('application.staff_id AS id, CONCAT(first_name, " ", last_name) AS name, user_group.description AS group, location.name AS location, pay_rate, application.at_date AS date, message')
+						->join('staff', 'staff.staff_id=application.staff_id')
+						->join('location', 'location.location_id=staff.current_location')
+						->join('account', 'account.id=staff.staff_id')
+						->join('account_group', 'account_group.user_id=staff.staff_id')
+						->join('user_group', 'user_group.id=account_group.group_id')
+						->group_by('staff.staff_id')
 						->where('project_id', $project_id)
 						->limit($limit)
 						->order_by('application_id', 'asc')

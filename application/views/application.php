@@ -3,7 +3,7 @@
 	<h1>Apply to Project</h1>
 	<hr>
 
-	<?php //echo form_open('', 'id="apply-form"'); ?><form method="post" id="apply-form">
+	<form method="post" id="apply-form">
 
 		<div class="container-fluid content">
 

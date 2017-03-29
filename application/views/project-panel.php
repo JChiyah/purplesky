@@ -28,7 +28,7 @@
 				<hr>
 				<p>Applications received from employees.<br/> The project is currently <b><?= $project->applications ?></b> to new applications.</p>
 				<div id="project-applications">
-					WIP
+					
 				</div>
 			</div>
 
