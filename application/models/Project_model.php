@@ -132,11 +132,26 @@ class Project_model extends CI_Model {
 		$result = $query->result();
 
 		if(isset($result) && !empty($result)) {
-			return $result;
+
+			/* Get total cost for each application */
+			$project = $this->get_project_by_id($project_id);
+
+			$tmp = array();
+			foreach($result as $row) {
+				$row = (array)$row;
+
+				$row['start_date'] = $project->start_date;
+				$row['end_date'] = $project->end_date;
+				$row['cost'] = $this->get_staff_cost($row['id'], $project->start_date, $project->end_date);
+
+				$row = (object)$row;
+				array_push($tmp, $row);
+			}
+
+			return $tmp;
 		}
 		return FALSE;
 	}
-
 
 	/**
 	 * Creates a new entry in the project dashboard
@@ -677,6 +692,68 @@ class Project_model extends CI_Model {
 			return TRUE;
 		}
 
+	}
+
+	/**
+	 * Returns the cost of an employee in a project
+	 *
+	 * @param $project_id
+	 * @param $staff_id
+	 * @return int
+	 * @author JChiyah
+	 */
+	public function get_project_staff_cost($project_id, $staff_id) {
+
+		$query = $this->db->select('project_staff.staff_id AS id, CONCAT(first_name, " ", last_name) AS name, role, assigned_at, start_date, end_date, pay_rate, skills, location.name AS location, user_group.description AS group')
+						->where('project_id', $project_id)
+						->where('project_staff.staff_id', $staff_id)
+						->join('staff', 'staff.staff_id=project_staff.staff_id')
+						->join('account', 'account.id=staff.staff_id')
+						->join('account_group', 'account_group.user_id=staff.staff_id')
+						->join('user_group', 'user_group.id=account_group.group_id')
+						->join('location', 'location.location_id=staff.current_location')
+						->limit(1)
+						->get('project_staff');
+
+		$result = $query->row();
+
+		if(!isset($result) || empty($result)) {
+			return FALSE;
+		}
+		
+		$start = new DateTime($result->start_date);
+		$end = new DateTime($result->end_date);
+		$interval = $start->diff($end);
+
+		return $this->get_staff_cost($staff_id, $result->start_date, $result->end_date);
+	}
+
+	/**
+	 * Returns the cost of an employee for a fixed amount of time
+	 *
+	 * @param $project_id
+	 * @param $staff_id
+	 * @return int
+	 * @author JChiyah
+	 */
+	public function get_staff_cost($staff_id, $start_date, $end_date) {
+
+		$query = $this->db->select('pay_rate')
+						->where('staff_id', $staff_id)
+						->limit(1)
+						->get('staff');
+
+		$result = $query->row();
+
+		if(!isset($result) || empty($result)) {
+			return FALSE;
+		}
+		
+		$start = new DateTime($start_date);
+		$end = new DateTime($end_date);
+		$interval = $start->diff($end);
+
+		return $interval->days * $result->pay_rate;
 	}
 
 }
