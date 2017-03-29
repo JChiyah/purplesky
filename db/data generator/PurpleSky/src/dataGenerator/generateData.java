@@ -6,6 +6,16 @@ public class generateData {
 public static void main (String[] args) throws IOException{
 	skillgenerate();
 	locationgenerate();
+	int checkingthis=0;
+	int maxprojects=0;
+	int lastnamesposition=0;
+	int firstnamesposition=0;
+	String[] firstnames={"Mary","Patricia","Linda","Barbara","Elizabeth","Jennifer","Maria","Susan","Margaret","Dorothy","Lisa","Nancy","Karen","Betty","Helen","Sandra","Donna","Carol","Ruth","Sharon","Michelle","Laura","Sarah","Kimberly","Deborah","Jessica","Shirley","Cynthia","Angela","Melissa","Brenda","Amy","Anna","Rebecca","Virginia","Kathleen","Pamela","Martha","Debra","Amanda","Stephanie","Carolyn","Christine","Marie","Janet","Catherine","Frances","Ann","Joyce","Diane","Alice","Julie", "Heather","Teresa","Doris","Gloria","Evelyn","Jean","Cheryl","Mildred","Katherine","Joan","Ashley","Judith","Rose","Janice","Kelly","Nicole","Judy","Christina","Kathy","Theresa","Beverly","Denise","Tammy","Irene","Jane","Lori","Rachel","Marilyn","Andrea","Kathryn","Louise","Sara","Anne","Jaqueline","Wanda","Bonnie","Julia","Ruby","Lois","Tina","Phyllis","Norma","Paula","Diana","Annie","Lillian","Emily","Robin","Peggy","Crystal","Gladys","Rita","Dawn","Connie","Florence","Tracy","Edna","Tiffany","Carmen","Rosa","Cindy","Grace","Wendy","Victoria","Edith","Kim","Sherry","Sylvia","Josephine","Thelma","Shannon","Sheila","Ethel","Ellen","Elaine","Marjorite","Carrie","Charlotte","Monica","Esther","Pauline","Emma","Juanita","Anita","Rhonda","Hazel","Amber","Debbie","April","Leslie","Clara","Lucille","Jamie","Joanne","Eleanor","Valerie","Danielle","Megan","Alicia","James","John","Robert","Michael","William","David","Richard","Charles","Joseph","Thomas","Christopher","Daniel","Paul","Mark","Donald","George","Kenneth","Steven","Edward","Brian","Ronald","Anthony","Kevin","Jason","Matthew","Gary","Timothy","Jose","Larry","Jeffrey","Frank","Scott","Eric","Stephen","Andrew","Raymond","Gregory","Joshua","Jerry","Dennis","Walter","Patric","Peter","Peter","Harold","Douglas","Henry","Carl","Arthur","Ryan","Roger","Joe","Juan","Jack","Albert","Jonathan","Justin","Terry","Gerald","Keith","Samuel","Willie","Ralph","Lawrence","Nicholas","Roy","Benjamin","Bruce","Brandon","Adam","Harry","Fred","Wayne","Billy","Steve","Jeremy","Aaron","Randy","Howard","Eugene","Carlos","Russel","Bobby","Victor","Martin","Ernest","Phillip","Todd","Jesse","Craig","Alan","Shawn","Clarence","Sean","Philip","Chris","Johnny","Earl","Jimmy","Antonio","Danny","Bryan","Tony","Luis","Mike","Stanley","Leonard","Nathan","Dale","Manuel","Rodney","Curtis","Norman","Allen","Marvin","Vincent","Glenn","Jeffery","Travis","Jeff","Chad","Jacob","Lee","Melvin","Alfred","Kyle","Francis","Bradley","Jesus","Herbert","Frederick","Ray","Joel","Edwin","Don","Eddie","Ricky","Troy","Randall","Barry","Alexander","Bernard","Mario","Leroy","Francisco","Marcus","Micheal","Theodore","Clifford","Miguel","Oscar","Jay","Jim","Tom","Calvin" };
+	
+	String[] lastnames= {"Smith","Johnson","Williams","Drumpf","Brown","Jones","Miller","Davis","Garcia","Rodriguez","Wilson","Martinez","Anderson","Taylor","Thomas","Hernandez","Moore","Martin","Jackson","Thompson","White","Lopez","Lee","Gonzalez","Harris","Clark","Lewis","Robinson","Walker","Perez","Hall","Young","Allen","Sanchez","Wright","King","Scott","Green","Baker","Adams","Nelson","Hill","Ramirez","Campbell","Mitchell","Roberts","Carter","Phillips","Evans","Turner","Torres","Parker","Collins","Edwards","Stewart","Flores","Morris","Nguyen","Murphy","Rivera","Cook","Rogers","Morgan","Peterson","Cooper","Reed","Bailey","Bell","Gomez","Kelly","Howard","Ward","Cox","Diaz","Richardson","Wood","Watson","Brooks","Bennett","Gray","James","Reyes","Cruz","Hughes","Price","Myers","Long","Foster","Sanders","Ross","Morales","Powell","Sullivan","Russel","Ortiz","Jenkins","Gutierezz","Perry","Butler","Barnes","Fisher","Henderson","Coleman","Simmons","Patterson","Jordan","Reynolds","Hamilton","Graham","Kim","Gonzales","Alexander","Ramos","Wallace","Griffin","West","Cole","Hayes","Chavez","Gibson","Bryant","Ellis","Murray","Ford","Stevens","Marshall","Owens","McDonald","Harrison","Ruiz","Kennedy","Wells","Alvarez","Woods","Mendoza","Castillo","Olson","Webb","Washington","Tucker","Freeman","Burns","Henry","Vasquez","Snyder","Simpson","Crawford","Jimenez","Porter","Mason","Shaw","Gordon","Wagner","Hunter","Romero","Hicks","Dixon","Hunt","Palmer","Robertson","Black","Holmes","Stone","Meyer","Boyd","Mills","Warren","Fox","Rose","Rice","Moreno","Schmidt","Patel","Ferguson","Nichols","Herrera","Medina","Ryan","Fernandez","Weaver","Daniels","Stephens","Gardner","Payne","Kelley","Dunn","Pierce","Arnold","Tran","Spencer","Peters","Peters","Hawkins","Grant","Hansen","Castro","Hoffman","Hart","Elliott","Cunningham","Knight","Bradley","Carroll","Hudson","Duncan","Armstrong","Berry","Andrews","Johnston","Ray","Lane","Riley","Carpenter","Perkins","Aguilar","Silva","Richards","Willis","Matthews","Chapman","Lawrence","Garza","Vargas","Watkins","Wheeler","Larson","Carlson","Harper","George","Greene","Burke","Guzman","Morrison","Munoz","Jacobs","Obrien","Lawson","Franklin","Lynch","Bishop","Carr","Salazar","Austin","Mendez","Gilbert","Jensen","Williamson","Montgomery","Harvey","Oliver","Howell","Dean","Hanson","Weber","Garrett","Sims","Burton","Fuller","Soto","McCoy","Welch","Chen","Schultz","Walters","Reid","Fields","Walsh","Little","Fowler","Bowman","Davidson","May","Day","Schneider","Newman","Brewer","Lucas","Holland","Wong","Banks","Santos","Curtis","Pearson","Delgado","Valdez","Pena","Rios","Douglas","Sandoval","Barret","Hopkins","Keller","Guerrero","Stanley","Bates","Alvarado","Beck","Ortega","Wade","Estrada","Contreras","Barnertt","Caldwell","Santiago","Lambert","Powers","Chambers","Nunez","Craig","Leonard" };
+	String[] projectnames ={"Alpha","Absolute","Always","Beta","Bravo","Butch","Charlie","Charlotte","Charisma","Delta","Denver","Davos","Echo","Eld","Eldorado","Foxtrott","Fabulous","Favour","Gamma","Gold","Graph","Hotel","Helo","Half","India","Indoors","Impolding","Juliett","Jason","Jubilie","Kilo","Key","King","Lima","Lazy","Lavender","Mike","Melon","Mask","November","Native","Naive","Oscar","Ontop","Over","Papa","Perilous","Paper","Quebec","Quantized","Quitter","Romeo","Robust","Race","Sierra","Seller","Safety","Tango","Tail","Tank","Uniform","Ultra","Upside","Victor","Valley","Value","Whiskey","Wall","Wallet","Xray","Xenon","Yankee","Yellow","Yard","Zulu","Zoo","Zap"};
+	checkingthis=firstnames.length*lastnames.length;
+	maxprojects=projectnames.length*projectnames.length;
 	Random rand = new Random();
 	Random rand2=new Random();
 	Random randstaff=new Random();
@@ -44,16 +54,7 @@ public static void main (String[] args) throws IOException{
 	int projectGenerate; //how many projects to generate
 	int linecounter= 5; //counter to keep track of how many lines have been generated
 	int projectID=0;  //tracker for projects
-	int fletter1= 0; //fletter is for the first name letters
-	int fletter2= 0;
-	int fletter3= 0;
-	int fletter4= 0;
-	int fletter5= 0;
-	int lletter1= 0; //lletter is for the last name letters
-	int lletter2= 0;
-	int lletter3= 0;
-	int lletter4= 0;
-	int lletter5= 0;
+
 	int pay = 5;
 	int location = 1;
 	int skillcount=1;
@@ -64,15 +65,23 @@ public static void main (String[] args) throws IOException{
 	String ip_address = "127.0.0.1";
 	String forgotpasswordcode =" ";
 	String password = "$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36"; //the password for each line will be the same
-	System.out.println("How many lines of testdata would you like?");
+	System.out.println("How many lines of testdata would you like? (Maximum "+checkingthis + ")");
 	System.out.println("(Each line contains all the information for 1 account)");
 	toGenerate= scanner.nextInt(); //takes in the number of lines to be generated
 	if(toGenerate <= 10){ // must be above 10 lines
 		System.out.println("To small, please input a number above 10");
 		System.exit(1);
 	}
-	System.out.println("How many projects?");
+	if(toGenerate >checkingthis){
+		System.out.println("To many, next time use less");
+		System.exit(1);
+	}
+	System.out.println("How many projects? (Max "+maxprojects +")");
 	projectGenerate=scanner.nextInt();
+	if(projectGenerate >maxprojects){
+		System.out.println("To many, less next time");
+		System.exit(1);
+	}
 	bw.write("\"admin@admin.com\",\"127.0.0.1\",\"$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36\",\" \",\"1\",\"Super\",\"Admin\"");
 	bw.newLine();
 	accgroupbw.write("\"1\",\"1\"");
@@ -130,8 +139,15 @@ public static void main (String[] args) throws IOException{
 		skillarray[linecounter]=skillcount;
 		staffskillbw.write("\""+linecounter+"\",\""+ skillcount2+"\",\"0\"");
 		staffskillbw.newLine();
-		
-		accgroupbw.write("\""+linecounter+"\",\"3\"");
+		int accaccess=3;
+		accaccess=rand.nextInt(2)+1;
+		if(accaccess==1){
+			accaccess=3;
+		}
+		if(accaccess==2){
+			accaccess=4;
+		}
+		accgroupbw.write("\""+linecounter+"\",\""+accaccess+"\"");
 		accgroupbw.newLine();
 		staffbw.write("\""+linecounter +"\",\""+location + "\",\""+ pay+"\"");
 		staffbw.newLine();
@@ -149,9 +165,17 @@ public static void main (String[] args) throws IOException{
 		}
 		
 		
-		
-		lastname= letter(lletter1)+letter(lletter2)+letter(lletter3)+letter(lletter4)+letter(lletter5); // reused as lastname for accounts
-		firstname=letter(fletter1)+letter(fletter2)+letter(fletter3)+letter(fletter4)+letter(fletter5);
+		firstname=firstnames[firstnamesposition];
+		lastname= lastnames[lastnamesposition]; // reused as lastname for accounts
+		firstnamesposition++;
+		if(firstnamesposition>=firstnames.length){
+			firstnamesposition=0;
+			lastnamesposition++;
+			if(lastnamesposition>=lastnames.length){
+				System.out.println("error:to many lines attempted");
+				System.exit(1);
+			}
+		}
 		email = firstname + "."+lastname+"@fakeemails.com";
 		String toWrite = "\""+email + "\",\""+ip_address + "\",\""+password+"\",\""+forgotpasswordcode+"\",\"1\",\""+firstname+"\",\""+lastname+"\"";
 		bw.write(toWrite);
@@ -175,93 +199,39 @@ public static void main (String[] args) throws IOException{
 				int rolepos=rand2.nextInt(5);
 				
 				String titleofexperince= role[rolepos]+" apprentice";
-				experiencesbw.write("\""+linecounter+"\",\""+year+"-"+month+"-"+day+"\",\""+year2+"-"+month2+"-"+day2+"\",\""+titleofexperince+ "\",\""+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus."+"\",\""+role[rolepos]+"\",\""+skillarray[linecounter]+"\"");
+				experiencesbw.write("\""+linecounter+"\",\""+year+"-"+month+"-"+day+"\",\""+year2+"-"+month2+"-"+day2+"\",\""+titleofexperince+ "\",\""+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero."+"\",\""+role[rolepos]+"\",\""+skillarray[linecounter]+"\"");
 				experiencesbw.newLine();
 								
 				linecounter++;
 				
-		if(lletter1 == 25){ //loop for changing one letter each time through the loop
-			lletter1 = 0;
-			if(lletter2==25){
-				lletter2=0;
-				if (lletter3== 25){
-					lletter3=0;
-					if(lletter4==25){
-						lletter4=0;
-						if(lletter5==25){
-							lletter5=0;
-							if(fletter1==25){
-								fletter1=0;
-								if(fletter2==25){
-									fletter2=0;
-									if(fletter3==25){
-										fletter3=0;
-										if(fletter4==25){
-											fletter4=0;
-											if(fletter5==25){
-												System.out.println("You have generated as many lines as this program can do, be satisfied with what you got you greedy bugger!");
-												bw.close();
-												fw.close();
-												System.exit(1);
-											}
-											else if(fletter5<25){
-												fletter5++;
-											}
-										}
-										else if(fletter4<25){
-											fletter4++;
-										}
-									}
-									else if(fletter3<25){
-										fletter3++;
-									}
-								}
-								else if(fletter2<25){
-									fletter2++;
-								}
-							}
-							else if(fletter1<25){
-								fletter1++;
-							}
-						}
-						else if (lletter5<25){
-							lletter5++;
-						}
-				}
-					else if(lletter4<25){
-						lletter4++;
-					}
-				}
-				else if(lletter3<25){
-					lletter3++;
-				}
-			}
-			else if(lletter2 < 25){
-				lletter2++;
-			}
-			
 		
-		}
-		else if(lletter1<25){
-			lletter1++;
-		}
 	}
 	linecounter=5;
+	String projectname;
+	int projectnamesposition1=0;
+	int projectnamesposition2=0;
 	while(linecounter<(projectGenerate+5)){
-		lletter1=0;
-		lletter2=0;
-		lletter3=0;
-		lletter4=0;
-		lletter5=0;
-		lastname= letter(lletter1)+letter(lletter2)+letter(lletter3)+letter(lletter4)+letter(lletter5);
 		
-		int year=2000+rand2.nextInt(16);
+		projectname= projectnames[projectnamesposition1]+" "+projectnames[projectnamesposition2];
+		projectnamesposition1++;
+		if(projectnamesposition1>=projectnames.length){
+			projectnamesposition2++;
+			projectnamesposition1=0;
+			if(projectnamesposition2>=projectnames.length){
+				System.out.println("To many projects attempted");
+				System.exit(1);
+			}
+		}
+		int year=2000+rand2.nextInt(17);
+		if(year < 2013){
+			year= 2017;
+		}
 		int month=rand2.nextInt(12)+1;
 		int day=rand2.nextInt(28)+1;
 		int year2=2000+rand2.nextInt(17);
 		if(year2<=year) {
 			year=2000;
-			year2=2000+rand.nextInt(17)+1;}
+			year2=2000+rand.nextInt(18)+1;}
 		int month2=rand2.nextInt(12)+1;
 			if(month2 >= month){
 				month=4;
@@ -271,7 +241,14 @@ public static void main (String[] args) throws IOException{
 		// project table
 		int prio =rand.nextInt(2);
 		int localize= rand.nextInt(5)+1;
-		String projectwrite="\""+3+"\",\""+"Project "+lastname+"\",\""+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus."+"\",\""+prio+"\",\""+localize+"\",\""+(1000+rand.nextInt(2000))+"\",\""+year+"-"+month+"-"+day+"\",\""+year2+"-"+month2+"-"+day2+"\"";
+		int projectstatus=2;
+		int projectapplications=2;
+		//TODO
+		if(year<2017){
+			projectstatus=rand.nextInt(5)+2;
+		}
+		
+		String projectwrite="\""+3+"\",\""+projectname+"\",\""+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus."+"\",\""+prio+"\",\""+localize+"\",\""+(10000+rand.nextInt(5000))+"\",\""+year+"-"+month+"-"+day+"\",\""+year2+"-"+month2+"-"+day2+"\",\""+projectstatus+"\",\""+projectapplications+"\"";
 		projectID++;
 		projectbw.write(projectwrite);
 		projectbw.newLine();
@@ -322,71 +299,7 @@ public static void main (String[] args) throws IOException{
 		
 		}
 		linecounter++;
-		if(lletter1 == 25){ //loop for changing one letter each time through the loop
-			lletter1 = 0;			//I know it's ugly
-			if(lletter2==25){
-				lletter2=0;
-				if (lletter3== 25){
-					lletter3=0;
-					if(lletter4==25){
-						lletter4=0;
-						if(lletter5==25){
-							lletter5=0;
-							if(fletter1==25){
-								fletter1=0;
-								if(fletter2==25){
-									fletter2=0;
-									if(fletter3==25){
-										fletter3=0;
-										if(fletter4==25){
-											fletter4=0;
-											if(fletter5==25){
-												System.out.println("You have generated as many lines as this program can do, be satisfied with what you got you greedy bugger!");
-												bw.close();
-												fw.close();
-												System.exit(1);
-											}
-											else if(fletter5<25){
-												fletter5++;
-											}
-										}
-										else if(fletter4<25){
-											fletter4++;
-										}
-									}
-									else if(fletter3<25){
-										fletter3++;
-									}
-								}
-								else if(fletter2<25){
-									fletter2++;
-								}
-							}
-							else if(fletter1<25){
-								fletter1++;
-							}
-						}
-						else if (lletter5<25){
-							lletter5++;
-						}
-				}
-					else if(lletter4<25){
-						lletter4++;
-					}
-				}
-				else if(lletter3<25){
-					lletter3++;
-				}
-			}
-			else if(lletter2 < 25){
-				lletter2++;
-			}
-			
 		
-		}
-		else if(lletter1<25){
-			lletter1++;
-		}
 		
 		}
 	
