@@ -164,6 +164,13 @@ nav {
 			}
 		}
 
+		span {
+			color: $nav-font-color;
+			padding: 15px;
+			margin-right: 50px;
+			float: right;
+		}
+
 		#logout {
 			display: inline-block;
 			padding: 15px;
