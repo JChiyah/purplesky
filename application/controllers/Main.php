@@ -225,11 +225,20 @@ class Main extends Base {
 			redirect('index');
 		}
 
+		if( (strcmp('confidential', $data['project']->priority) == 0) && (count(array_intersect(array(1), $_SESSION['access_level'])) == 0) ) {
+			// No permissions to view a confidential project
+			redirect('index');
+		}
+
 		$data['status'] = $this->get_status_colour($data['project']->status);
 
 		$data['is_manager'] = $this->Project_model->is_manager($project_id, $this->session->userdata('user_id'));
 		if(!$data['is_manager']) {
 			$data['is_staff'] = $this->Project_model->is_staff($project_id, $this->session->userdata('user_id'));
+
+			if(!$data['is_staff']) {
+				$data['has_applied'] = $this->Project_model->has_already_applied($project_id, $this->session->userdata('user_id'));
+			}
 		}
 		$data['staff'] = $this->Project_model->get_project_staff($project_id);
 		$data['dashboard_entries'] = $this->Project_model->get_project_dashboard($project_id, 5);

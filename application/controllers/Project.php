@@ -301,9 +301,10 @@ class Project extends Base {
 
 		$project_id = $this->input->post('project_id');
 
-		if(!count(array_intersect(array(1, 2), $_SESSION['access_level'])) == 0 || $this->Project_model->is_manager($project_id, $this->session->userdata('user_id')) {
+		if(!count(array_intersect(array(1, 2), $_SESSION['access_level'])) == 0 || $this->Project_model->is_manager($project_id, $this->session->userdata('user_id'))) {
 			// Admins and PMs cannot apply to their own projects
 			echo '<h1>Admins and own PMs cannot apply.</h1>';
+			return;
 		}
 
 		$data['project'] = $this->Project_model->get_project_by_id($project_id);
@@ -316,11 +317,13 @@ class Project extends Base {
 		if(strcmp('confidential', $data['project']->priority) == 0 || strcmp('cancelled', $data['project']->status) == 0 || strcmp('finished', $data['project']->status) == 0 || strcmp('unsuccessful', $data['project']->status) == 0) {
 			// The project has either finished, been cancelled or it is confidential
 			echo '<h1>You cannot apply to this project</h1>';
+			return;
 		}
 
 		if($this->Project_model->has_already_applied($project_id, $this->session->userdata('user_id'))) {
 			// User has already applied to a project
 			echo '<h1>You have already submitted an application for this project</h1>';
+			return;
 		}
 
 		$data['project_details'] = array(
@@ -338,7 +341,7 @@ class Project extends Base {
 			'value' => $this->form_validation->set_value('message'),
 		);
 
-		return $this->load->view('application.php');
+		return $this->load->view('application.php', $data);
 
 	}
 

@@ -13,7 +13,7 @@
 				</div>
 				<hr>
 				<?php if(!$is_staff && !$is_manager) : ?>
-					<a href="#" class="g-button">Apply</a>
+					<button class="g-button apply-to-project" id="apply-<?= $project->project_id ?>">Apply</button>
 				<?php endif ?>
 			</section>
 

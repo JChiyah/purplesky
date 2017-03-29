@@ -181,6 +181,12 @@ $(function() {
 
 	});
 
+	$('body').on('click', '.apply-to-project', function() {
+		var project_id = ($(this).attr('id')).split("-")[1];
+
+		load_application(project_id);
+	});
+
 	/* Loads a project */
 	function load_project(id) {
 		$.ajax({
@@ -211,6 +217,29 @@ $(function() {
 			url: baseurl + "User/show_profile",
 			data: { 
 				'user_id' : id,
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data) {
+					$("#search-popup").html(data);
+
+					$('#search-popup').dialog("option", "position", {
+						my: "center",
+						at: "center",
+						of: window
+					});
+				}
+			}
+		});
+	}
+
+	/* Loads an application form */
+	function load_application(project_id) {
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/show_application",
+			data: { 
+				'project_id' : project_id,
 				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 			},
 			success: function(data) {
