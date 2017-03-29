@@ -5,7 +5,7 @@
 			<div class="content">
 				<h2>Notifications</h2>
 				<hr>
-				<div id="notification-set">
+				<div class="container-fluid" id="notification-set">
 					<?php 
 						if(isset($activity) && $activity && sizeof($activity) > 0) {
 							$first = FALSE;
@@ -15,7 +15,7 @@
 								} else {
 									echo '<hr>';
 								}
-								echo '<div class="notification">
+								echo '<div class="row notification">
 										<p class="col-xs-9">' . $notification->description . '</p>
 										<p class="col-xs-3 not-date">' . time_elapsed_string($notification->at_date) . '</p>
 									</div>';

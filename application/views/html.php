@@ -1,25 +1,3 @@
-<!--
-	*****************************************************
-	
-	This is a template webpage to load views dynamically
-	It NEEDS a $body variable with the view to load
-	
-	Required parameters:
-		- $body = view to load between navbar and footer
-
-	Optional parameters:
-		- $des = description of webpage
-		- $title = title of webpage in browsers
-	
-	Example call:
-		$d['body'] = 'home';
-		$this->load->view('html', $d);
-
-	*****************************************************
-
-	Author: J Chiyah
--->
-
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	if (!isset($_SESSION['access_level']) || !$_SESSION['access_level']) {

@@ -35,32 +35,7 @@ class Project extends Base {
 			echo 'Error adding activity';
 		}
 	}
-
-	/**
-	 * Adds a task to a project
-	 * Call from a form post using AJAX
-	 *
-	 * @param project task form
-	 * @author JChiyah
-	 */
-	/*public function add_project_task() {
-		// get and format input
-		$user_id = $this->session->userdata('user_id');
-		$project_id = $this->input->post('project_id');
-		$skills = $this->input->post('skills');
-		$staff = $this->input->post('staff');
-		$task['description'] = $this->parse_input($this->input->post('description'));
-
-		if()
-
-		if($this->Project_model->add_project_task($user_id, $project_id, $description)) {
-			$data['dashboard_entries'] = $this->Project_model->get_project_dashboard($project_id);
-			return $this->load->view('displays/project-dashboard-entries.php', $data);
-		} else {
-			echo 'Error adding activity';
-		}
-	}*/
-
+	
 	/**
 	 * Searches for projects
 	 * Call from a form post using AJAX
