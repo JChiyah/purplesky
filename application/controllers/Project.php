@@ -291,6 +291,73 @@ class Project extends Base {
 			}
 		}
 	}
+	
+	/**
+	 * Shows an application popup
+	 *
+	 * @author JChiyah
+	 */
+	public function show_application() {
+
+		$project_id = $this->input->post('project_id');
+
+		if(!count(array_intersect(array(1, 2), $_SESSION['access_level'])) == 0 || $this->Project_model->is_manager($project_id, $this->session->userdata('user_id')) {
+			// Admins and PMs cannot apply to their own projects
+			echo '<h1>Admins and own PMs cannot apply.</h1>';
+		}
+
+		$data['project'] = $this->Project_model->get_project_by_id($project_id);
+
+		if(!isset($data['project']) || !$data['project']) {
+			// Trying to access a page that doesn't exists...
+			return $this->load->view('inc/not-found.php');
+		}
+
+		if(strcmp('confidential', $data['project']->priority) == 0 || strcmp('cancelled', $data['project']->status) == 0 || strcmp('finished', $data['project']->status) == 0 || strcmp('unsuccessful', $data['project']->status) == 0) {
+			// The project has either finished, been cancelled or it is confidential
+			echo '<h1>You cannot apply to this project</h1>';
+		}
+
+		if($this->Project_model->has_already_applied($project_id, $this->session->userdata('user_id'))) {
+			// User has already applied to a project
+			echo '<h1>You have already submitted an application for this project</h1>';
+		}
+
+		$data['project_details'] = array(
+			'name' 	=> 'project_id',
+			'id'	=> 'project_id',
+			'type'	=> 'hidden',
+			'value'	=> $project_id,
+		);
+		$data['message'] = array(
+			'name' 	=> 'message',
+			'id'	=> 'message',
+			'placeholder' => 'Enter a message to send with your application (Optional)',
+			'maxlength'	=> '250',
+			'rows'	=> '3',
+			'value' => $this->form_validation->set_value('message'),
+		);
+
+		return $this->load->view('application.php');
+
+	}
+
+	/**
+	 * Send an application to a project
+	 *
+	 * @author JChiyah
+	 */
+	public function apply_to_project() {
+
+		$project_id = $this->input->post('project_id');
+		$message = $this->parse_input($this->input->post('message'));
+		$user_id = $this->session->userdata('user_id');
+
+		if($this->Project_model->apply_to_project($project_id, $user_id, $message)) {
+			return $this->load->view('inc/apply-confirm.php');
+		}
+
+	}
 
 	/**
 	 * Updates project details

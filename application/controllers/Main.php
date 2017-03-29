@@ -257,10 +257,30 @@ class Main extends Base {
 			redirect('index');
 		}
 
-		if(strcmp('confidential', $data['project']->priority) == 0 || strcmp('cancelled', $data['project']->status) == 0 || strcmp('aaa', $data['project']->status) == 0 || strcmp('aaa', $data['project']->status) == 0) {
+		if(strcmp('confidential', $data['project']->priority) == 0 || strcmp('cancelled', $data['project']->status) == 0 || strcmp('finished', $data['project']->status) == 0 || strcmp('unsuccessful', $data['project']->status) == 0) {
 			// The project has either finished, been cancelled or it is confidential
 			redirect('index');
 		}
+
+		if($this->Project_model->has_already_applied($project_id, $this->session->userdata('user_id'))) {
+			// User has already applied to a project
+			redirect('index');
+		}
+
+		$data['project_details'] = array(
+			'name' 	=> 'project_id',
+			'id'	=> 'project_id',
+			'type'	=> 'hidden',
+			'value'	=> $project_id,
+		);
+		$data['message'] = array(
+			'name' 	=> 'message',
+			'id'	=> 'message',
+			'placeholder' => 'Enter a message to send with your application (Optional)',
+			'maxlength'	=> '250',
+			'rows'	=> '3',
+			'value' => $this->form_validation->set_value('message'),
+		);
 
 		$this->load->view('html', $data);
 	}

@@ -3128,4 +3128,36 @@ footer {
     display: block;
     margin-bottom: 0.5em; }
 
+#application {
+  width: 70%;
+  margin: 2em auto; }
+  #application h1 {
+    font-size: 2.5em;
+    margin-bottom: 0; }
+  #application form {
+    background: #E1E5E6;
+    padding: 3em 4em;
+    border-radius: 4px; }
+    #application form textarea {
+      width: 70%;
+      padding: 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      margin: 0 auto; }
+    #application form textarea:focus {
+      border: 1px solid #0389ff; }
+    #application form input[type=submit] {
+      background: #0389ff;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 900;
+      padding: 10px 16px 10px 16px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 6px;
+      box-shadow: none;
+      float: right; }
+    #application form input[type=submit]:hover {
+      background: #1f1646; }
+
 /*# sourceMappingURL=style.css.map */

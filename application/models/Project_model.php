@@ -108,6 +108,31 @@ class Project_model extends CI_Model {
 	}
 
 	/**
+	 * Returns the project's applications
+	 *
+	 * @param $project_id
+	 * @param $limit - amount of applications to return
+	 * @return mixed boolean / array of object(description, date)
+	 * @author JChiyah
+	 */
+	public function get_project_applications($project_id, $limit = FALSE) {
+
+		$query = $this->db->select('staff_id AS id, message, at_date, status')
+						->where('project_id', $project_id)
+						->limit($limit)
+						->order_by('application_id', 'asc')
+						->get('application');
+
+		$result = $query->result();
+
+		if(isset($result) && !empty($result)) {
+			return $result;
+		}
+		return FALSE;
+	}
+
+
+	/**
 	 * Creates a new entry in the project dashboard
 	 *
 	 * @param $user_id
@@ -213,6 +238,55 @@ class Project_model extends CI_Model {
 		return FALSE;
 	}
 
+	/**
+	 * Submits an application to a project
+	 *
+	 * @param $project_id
+	 * @param $user_id
+	 * @param $message
+	 * @return mixed boolean
+	 * @author JChiyah
+	 */
+	public function apply_to_project($project_id, $user_id, $message = '') {
+
+		$application = array(
+			'project_id'	=> $project_id,
+			'staff_id'	=> $user_id,
+			'message'	=> $message
+		);
+
+		if($this->db->insert('application', $application)) {
+
+			return TRUE;
+		}
+		return FALSE;
+	}
+
+	/**
+	 * Checks whether a user has already applied to a project
+	 * returns TRUE if user has already applied
+	 *
+	 * @param $project_id
+	 * @param $user_id
+	 * @return mixed boolean
+	 * @author JChiyah
+	 */
+	public function has_already_applied($project_id, $user_id) {
+
+		$query = $this->db->select('1')
+						->where('project_id', $project_id)
+						->where('staff_id', $user_id)
+						->limit(1)
+						->get('application');
+
+		$result = $query->row();
+
+		if(isset($result) && $result) {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
 
 	/**
 	 * Allocates staff to a project
