@@ -26,6 +26,7 @@
             <a href="<?php echo site_url('search') ?>"<?php echo $page_body == 'search' ? ' class="active"' : ''; ?>>Search</a>
          </li>
       </ul>
+      <span>Welcome, <?= ucwords(str_replace('.', ' ', $_SESSION['name'])) ?></span>
       <a id="logout" href="<?= base_url('auth/logout') ?>"><i class="fa fa-power-off fa-fw"></i></a>
    </div>
 </nav>
