@@ -204,7 +204,8 @@ $(function() {
 	$('body').on('click', '.accept-application', function() {
 		var elem = ($(this).parent()).attr('id').split('-');
 
-		$('#project-applications').hide();
+		$('#see-applications').children().hide();
+		$('#a-title').show();
 		$('#accept-application-form').parent().show();
 
 		// Put values

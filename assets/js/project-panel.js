@@ -345,6 +345,10 @@ $(function() {
 			case 'applications':
 				get_project_applications();
 				$('#see-applications').show();
+				$('#see-applications').children().hide();
+				$('#a-title').show();
+				$('#a-des').show();
+				$('#project-applications').show();
 				$('#applications').addClass('active');
 				break;
 			case 'application-status':
@@ -370,6 +374,7 @@ $(function() {
 				window.location.replace(baseurl + 'project-management/' + $('#project_id').val() + '/add-staff');
 				break;
 			case 'remove':
+				get_remove_project_staff();
 				$('#remove-staff').show();
 				$('#remove').addClass('active');
 				break;
@@ -392,6 +397,21 @@ $(function() {
 	$('#another-application-status > button').click(function() {
 		$('#application-status-form').parent().show();
 		$('#another-application-status').hide();
+	});
+
+	$('#a-cancel').click(function() {
+		$('#see-applications').children().hide();
+		$('#a-title').show();
+		$('#a-des').show();
+		$('#project-applications').show();
+	});
+
+	$('#confirm-applications').click(function() {
+		get_project_applications();
+		$('#see-applications').children().hide();
+		$('#a-title').show();
+		$('#a-des').show();
+		$('#project-applications').show();
 	});
 
 	$('#confirm-see-staff').click(function() {

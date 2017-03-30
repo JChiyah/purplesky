@@ -6,4 +6,3 @@
 <div id="project-remove-staff">
 
 </div>
-<div 

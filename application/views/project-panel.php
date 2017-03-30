@@ -25,7 +25,6 @@
 
 			<div class="container-fluid tab" id="see-applications" style="display: none">
 
-				<?php //$this->load->view('project-panel/application-status.php'); ?>
 				<?php $this->load->view('project-panel/applications.php'); ?>
 
 			</div>
