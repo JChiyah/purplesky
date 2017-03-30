@@ -1764,7 +1764,11 @@ nav {
       text-align: center;
       display: block;
       padding: 4px;
-      margin: 0 5px; }
+      margin: 0 5px;
+      border-bottom: 2px solid #1f1646;
+      -webkit-transition: all ease 0.8s;
+      -moz-transition: all ease 0.8s;
+      transition: all ease 0.8s; }
     nav div a:hover, nav div a.active {
       color: white;
       text-decoration: none;
@@ -1785,14 +1789,10 @@ nav {
           padding: 0 24px;
           font-size: 1.3em; }
         nav div ul li a {
-          float: left;
-          -webkit-transition: all ease 0.8s;
-          -moz-transition: all ease 0.8s;
-          transition: all ease 0.8s;
-          border-bottom: 2px solid #1f1646; }
+          float: left; }
     nav div #nav-name {
       display: inline-block;
-      padding: 16px;
+      padding-top: 16px;
       float: right; }
     nav div #logout {
       display: inline-block;
@@ -1838,7 +1838,7 @@ nav {
             padding: 16px; }
     nav div #nav-name {
       float: right;
-      padding: 12px; }
+      padding: 16px 12px; }
     nav div #logout {
       display: inline-block;
       margin: 0;

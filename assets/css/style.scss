@@ -134,6 +134,10 @@ nav {
 			display: block;
 			padding: 4px;
 			margin: 0 5px;
+			border-bottom: 2px solid $blue;
+			-webkit-transition: all ease 0.8s;
+		    -moz-transition: all ease 0.8s;
+		    transition: all ease 0.8s;
 		}
 		a:hover, a.active {
 			color: $nav-font-color;
@@ -162,17 +166,13 @@ nav {
 
 				a {
 					float: left;
-					-webkit-transition: all ease 0.8s;
-				    -moz-transition: all ease 0.8s;
-				    transition: all ease 0.8s;
-					border-bottom: 2px solid $blue;
 				}
 			}
 		}
 
 		#nav-name {
 			display: inline-block;
-			padding: 16px;
+			padding-top: 16px;
 			float: right;
 		}
 
@@ -240,7 +240,7 @@ nav {
 
 			#nav-name {
 				float: right;
-				padding: 12px;
+				padding: 16px 12px;
 			}
 
 			#logout {
