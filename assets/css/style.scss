@@ -186,6 +186,82 @@ nav {
 	}
 }
 
+@media (max-width: 992px) {
+
+
+	position: relative;
+	overflow: hidden;
+	font-family: $font;
+	background: white;
+
+	#nav-mobile {
+		padding-left: 0;
+		margin-top: 1em;
+		//display: table;
+
+		span {
+			text-decoration: none;
+			text-align: center;
+			display: block;
+			float: left;
+			height: 100%;
+			width: 100%;
+			//display: table-header-group;
+		 }
+		 .top-bar {
+			 display: table-header-group;
+		 }
+
+		ul {
+			display: inline-block;
+			width: 100%;
+			list-style: none;
+			padding: 10px;
+			margin: 0;
+			cursor: default;
+
+			li {
+				float: none;
+				display: inline-block;
+				margin: 0 5px;
+				padding: 0;
+				width: 100%;
+
+				button {
+					text-align: left;
+					height: 100%;
+					width: 100%;
+					padding: 8px 12px;
+					border: none;
+					background: none;
+				}
+				a {
+					text-decoration: none;
+					text-align: center;
+					display: block;
+					float: left;
+					height: 100%;
+					width: 100%;
+					padding: 4px;
+					margin: 0 5px;
+					-webkit-transition: all ease 0.8s;
+						-moz-transition: all ease 0.8s;
+						transition: all ease 0.8s;
+					border-bottom: 2px solid $blue;
+				}
+				a:hover {
+					color: $nav-font-color;
+					text-decoration: none;
+					border-bottom: 2px solid $nav-font-color;
+				}
+				a.active {
+					//color: $nav-font-color;
+				}
+			}
+		}
+	}
+}
+
 /* * * * Footer style section * * * */
 footer {
 	width: 100%;
@@ -520,6 +596,27 @@ footer {
 	color: $blue;
 	padding: 20px 30px 30px 30px;
 
+	#add-skill {
+		font-size: 1.5em;
+		//margin-top: 10px;
+		color: $go-green;
+		position: relative;
+		margin: 8px;
+		padding: 8px;
+	}
+	#skill-edit{
+		font-size: 1.5em;
+		//margin-top: 10px;
+		color: $delete-red;
+		position: relative;
+		margin: 8px;
+		padding: 8px;
+	}
+
+	button {
+		top: 10px;
+	}
+
 	.row {
 		margin: 0 20px 0 5px;
 		position: relative;
@@ -599,6 +696,11 @@ footer {
 }
 
 #profile {
+	width: 80%;
+	font-size: 1.2em;
+	color: $blue;
+	font-family: $font;
+	margin: 1.5em auto;
 
 	hr { margin-top: 0; }
 
@@ -621,7 +723,11 @@ footer {
 	#personal-details {
 		color: $blue;
 		margin-top: 1em;
-  		border-right: 1px solid $hr-colour;
+		border-right: 1px solid $hr-colour;
+
+		@media (max-width: 992px) {
+			border-right: hidden;
+		}
 
   		div {
   			margin-left: 3em;
@@ -643,6 +749,7 @@ footer {
   			display: block;
   			margin: 0 auto;
   			margin-bottom: 20px;
+				width: 50%;
   		}
 	}
 
@@ -683,21 +790,30 @@ footer {
 	}
 
 	#experience {
-		width: 80%;
-		font-size: 1.2em;
-		color: $blue;
-		font-family: $font;
-		margin: 2em auto;
-
 		#exp-row {
 			position: relative;
 			margin: 0 20px 0 5px;
 
 			button {
-				right: 40px;
+				top: 10px;
+				right: 35px;
 			}
 		}
 
+		#add-experience {
+			font-size: 1.5em;
+			color: $go-green;
+			position: relative;
+			margin: 8px;
+			padding: 8px;
+		}
+		#experience-edit{
+			font-size: 1.5em;
+			color: $delete-red;
+			position: relative;
+			margin: 8px;
+			padding: 8px;
+		}
 		.date-row {
 			margin: 0.8em 1em;
 			display: flex;
@@ -1184,7 +1300,7 @@ footer {
 
 	#search-type {
 		padding: 0 1em;
-		
+
 		button {
 			color: $blue;
 			background: $grey-background;
@@ -1522,7 +1638,7 @@ footer {
 	}
 
 	#project-staff {
-		
+
 		#staff-head {
 			font-size: 1.3em;
 			font-weight: 900;
@@ -1686,7 +1802,7 @@ footer {
 				background: #fff;
 			}
 
-			input[type=text]:focus, input[type=date]:focus, 
+			input[type=text]:focus, input[type=date]:focus,
 				select:focus, textarea:focus { border: 1px solid $light-blue; }
 
 			label {
@@ -1866,7 +1982,7 @@ footer {
 			font-weight: 500;
 		}
 	}
-	
+
 	.project-continue { float: right; }
 }
 
@@ -1912,7 +2028,7 @@ footer {
 	display: block;
 	padding: 1em 3em;
 	border: thin solid $grey-background2;
-	
+
 	h5 {
 		margin-top: 0;
 		margin-bottom: 0.3em;
@@ -1930,7 +2046,7 @@ footer {
 	}
 
 	.location, .pay-rate { text-align: right; }
-	
+
 	.staff-availability {
 		text-align: right;
 		font-weight: 900;

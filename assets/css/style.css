@@ -1801,6 +1801,60 @@ nav {
       text-decoration: none;
       color: #0389ff; }
 
+@media (max-width: 992px) {
+  position: relative;
+  overflow: hidden;
+  font-family: "Microsoft JhengHei";
+  background: white;
+  #nav-mobile {
+    padding-left: 0;
+    margin-top: 1em; }
+    #nav-mobile span {
+      text-decoration: none;
+      text-align: center;
+      display: block;
+      float: left;
+      height: 100%;
+      width: 100%; }
+    #nav-mobile .top-bar {
+      display: table-header-group; }
+    #nav-mobile ul {
+      display: inline-block;
+      width: 100%;
+      list-style: none;
+      padding: 10px;
+      margin: 0;
+      cursor: default; }
+      #nav-mobile ul li {
+        float: none;
+        display: inline-block;
+        margin: 0 5px;
+        padding: 0;
+        width: 100%; }
+        #nav-mobile ul li button {
+          text-align: left;
+          height: 100%;
+          width: 100%;
+          padding: 8px 12px;
+          border: none;
+          background: none; }
+        #nav-mobile ul li a {
+          text-decoration: none;
+          text-align: center;
+          display: block;
+          float: left;
+          height: 100%;
+          width: 100%;
+          padding: 4px;
+          margin: 0 5px;
+          -webkit-transition: all ease 0.8s;
+          -moz-transition: all ease 0.8s;
+          transition: all ease 0.8s;
+          border-bottom: 2px solid #1f1646; }
+        #nav-mobile ul li a:hover {
+          color: white;
+          text-decoration: none;
+          border-bottom: 2px solid white; } }
 /* * * * Footer style section * * * */
 footer {
   width: 100%;
@@ -2087,6 +2141,20 @@ footer {
 #skills {
   color: #1f1646;
   padding: 20px 30px 30px 30px; }
+  #skills #add-skill {
+    font-size: 1.5em;
+    color: #2ecc71;
+    position: relative;
+    margin: 8px;
+    padding: 8px; }
+  #skills #skill-edit {
+    font-size: 1.5em;
+    color: #e74c3c;
+    position: relative;
+    margin: 8px;
+    padding: 8px; }
+  #skills button {
+    top: 10px; }
   #skills .row {
     margin: 0 20px 0 5px;
     position: relative; }
@@ -2148,86 +2216,103 @@ footer {
   background: #2ecc71;
   border: 2px solid #2ecc71; }
 
-#profile hr {
-  margin-top: 0; }
-#profile .edit-button {
-  position: absolute;
-  bottom: 5px;
-  right: 0;
-  padding: 0 !important;
-  border: none;
-  display: inline;
-  float: right;
-  color: #0389ff;
-  background: none !important;
-  outline: none;
-  outline-offset: 0;
-  outline-color: transparent; }
-#profile .edit-button:hover {
-  text-decoration: underline; }
-#profile #personal-details {
-  color: #1f1646;
-  margin-top: 1em;
-  border-right: 1px solid #C0C0C0; }
-  #profile #personal-details div {
-    margin-left: 3em; }
-  #profile #personal-details #staff-type {
-    font-size: 1.5em;
-    margin-top: 0.6em;
-    margin-bottom: 0.6em;
-    font-weight: 600; }
-  #profile #personal-details hr {
-    margin-top: 2em;
-    margin-bottom: 1em; }
-  #profile #personal-details .g-button {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 20px; }
-#profile form input[type=text]:focus {
-  border: 1px solid #0389ff; }
-#profile form .row {
-  margin-right: 70px;
-  margin-left: 70px; }
-  #profile form .row p {
-    padding: 0;
-    margin-right: 0;
-    margin-left: 0; }
-  #profile form .row label {
-    display: inline;
-    font-size: 1em; }
-#profile form input[type=submit] {
-  background: #0389ff;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 900;
-  padding: 10px 16px 10px 16px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 6px;
-  box-shadow: none; }
-#profile form input[type=submit]:hover {
-  background: #1f1646; }
-#profile form select {
-  width: 40%;
-  margin-top: 8px;
-  padding: 8px 12px 8px 12px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  font-weight: 900;
-  background: #fff; }
-#profile form select:focus {
-  border: 1px solid #0389ff; }
-#profile #experience {
+#profile {
   width: 80%;
   font-size: 1.2em;
   color: #1f1646;
   font-family: "Microsoft JhengHei";
-  margin: 2em auto; }
+  margin: 1.5em auto; }
+  #profile hr {
+    margin-top: 0; }
+  #profile .edit-button {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    padding: 0 !important;
+    border: none;
+    display: inline;
+    float: right;
+    color: #0389ff;
+    background: none !important;
+    outline: none;
+    outline-offset: 0;
+    outline-color: transparent; }
+  #profile .edit-button:hover {
+    text-decoration: underline; }
+  #profile #personal-details {
+    color: #1f1646;
+    margin-top: 1em;
+    border-right: 1px solid #C0C0C0; }
+    @media (max-width: 992px) {
+      #profile #personal-details {
+        border-right: hidden; } }
+    #profile #personal-details div {
+      margin-left: 3em; }
+    #profile #personal-details #staff-type {
+      font-size: 1.5em;
+      margin-top: 0.6em;
+      margin-bottom: 0.6em;
+      font-weight: 600; }
+    #profile #personal-details hr {
+      margin-top: 2em;
+      margin-bottom: 1em; }
+    #profile #personal-details .g-button {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      width: 50%; }
+  #profile form input[type=text]:focus {
+    border: 1px solid #0389ff; }
+  #profile form .row {
+    margin-right: 70px;
+    margin-left: 70px; }
+    #profile form .row p {
+      padding: 0;
+      margin-right: 0;
+      margin-left: 0; }
+    #profile form .row label {
+      display: inline;
+      font-size: 1em; }
+  #profile form input[type=submit] {
+    background: #0389ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 16px 10px 16px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none; }
+  #profile form input[type=submit]:hover {
+    background: #1f1646; }
+  #profile form select {
+    width: 40%;
+    margin-top: 8px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: 900;
+    background: #fff; }
+  #profile form select:focus {
+    border: 1px solid #0389ff; }
   #profile #experience #exp-row {
     position: relative;
     margin: 0 20px 0 5px; }
     #profile #experience #exp-row button {
-      right: 40px; }
+      top: 10px;
+      right: 35px; }
+  #profile #experience #add-experience {
+    font-size: 1.5em;
+    color: #2ecc71;
+    position: relative;
+    margin: 8px;
+    padding: 8px; }
+  #profile #experience #experience-edit {
+    font-size: 1.5em;
+    color: #e74c3c;
+    position: relative;
+    margin: 8px;
+    padding: 8px; }
   #profile #experience .date-row {
     margin: 0.8em 1em;
     display: flex;
@@ -2242,43 +2327,43 @@ footer {
     display: inline;
     margin-bottom: 0;
     -webkit-margin-after: 0; }
-#profile form input[type=text], #profile form input[type=date] {
-  width: 70%;
-  margin-top: 8px;
-  padding: 8px 12px;
-  border: 1px solid transparent;
-  border-radius: 4px; }
-#profile form input[type=text]:focus, #profile form input[type=date]:focus {
-  border: 1px solid #0389ff; }
-#profile form input[type=date] {
-  width: 100%; }
-#profile form textarea {
-  width: 100%;
-  margin-top: 8px;
-  padding: 8px 12px;
-  border: 1px solid transparent;
-  border-radius: 4px; }
-#profile form label {
-  display: block;
-  font-weight: 900;
-  margin-top: 8px; }
-#profile #add-experience-form {
-  background: #E1E5E6;
-  padding: 1em 3em;
-  margin: 1em 0;
-  border-radius: 4px;
-  display: none; }
-  #profile #add-experience-form h2 {
-    margin: 0; }
-  #profile #add-experience-form .row {
-    margin: 0; }
-  #profile #add-experience-form label {
-    display: block; }
-  #profile #add-experience-form .experience-skills-delete {
-    cursor: pointer;
-    padding: 3px;
-    position: relative;
-    right: -10px; }
+  #profile form input[type=text], #profile form input[type=date] {
+    width: 70%;
+    margin-top: 8px;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #profile form input[type=text]:focus, #profile form input[type=date]:focus {
+    border: 1px solid #0389ff; }
+  #profile form input[type=date] {
+    width: 100%; }
+  #profile form textarea {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px; }
+  #profile form label {
+    display: block;
+    font-weight: 900;
+    margin-top: 8px; }
+  #profile #add-experience-form {
+    background: #E1E5E6;
+    padding: 1em 3em;
+    margin: 1em 0;
+    border-radius: 4px;
+    display: none; }
+    #profile #add-experience-form h2 {
+      margin: 0; }
+    #profile #add-experience-form .row {
+      margin: 0; }
+    #profile #add-experience-form label {
+      display: block; }
+    #profile #add-experience-form .experience-skills-delete {
+      cursor: pointer;
+      padding: 3px;
+      position: relative;
+      right: -10px; }
 
 #experience-set #experiences {
   padding: 0.7em 1.5em; }

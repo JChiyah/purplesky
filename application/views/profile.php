@@ -10,16 +10,18 @@
 					<?php if(isset($user->location) && $user->location) { echo '<p><i class="fa fa-globe fa-lg" aria-hidden="true"></i> ' . $user->location . '</p>'; } ?>
 				</div>
 				<hr>
-				<a class="g-button" style="width: 50%;" href="change-password">Change password</a>
-				<?php if(!$only_admin) : ?><button class="g-button" id="add-skill">Add Skills</button><?php endif ?>
-				<?php if(!$only_admin) : ?><button class="g-button" id="add-experience">Add Experience</button><?php endif ?>
+				<a class="g-button"  href="change-password">Change password</a> <!--TODO::Commented out button-->
+				<!--//?php if(!$only_admin) : ?><button class="g-button" id="add-skill">Add Skills</button><//?php endif ?>
+				<//?php if(!$only_admin) : ?><button class="g-button" id="add-experience">Add Experience</button><//?php endif ?-->
 			</div>
 
 			<section id="skills" class="col-xs-12 col-sm-7 col-md-7">
 				<div class="row">
 					<h1>Skills</h1>
 					<?php if(!$only_admin) : ?>
-					<button class="edit-button" id="skill-edit"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button><?php endif ?>
+					<button class="edit-button" id="skill-edit"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+					<button class="edit-button" id="add-skill"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+				<?php endif ?>
 				</div>
 				<hr>
 				<?php if(!$only_admin) : ?>
@@ -30,7 +32,7 @@
 							<?php echo form_submit('submit', lang('add_label'), "id='skill-submit'");?>
 							<p>You can also delete skills by clicking on the cross</p>
 						<?php echo form_close(); ?>
-						
+
 						<div id="user-skills">
 							<?php $this->load->view('displays/user-skills.php', $user_skills); ?>
 						</div>
@@ -48,10 +50,12 @@
 	<div class="container">
 		<section id="experience">
 			<div class="row">
-				<div class="col-sm-12 col-md-12 row" id="exp-row">
+				<div class="col-xs-12 col-sm-12 col-md-12" id="exp-row">
 					<h1>Experiences</h1>
 					<?php if(!$only_admin) : ?>
-					<button class="edit-button" id="experience-edit"><i class="fa fa-pencil" aria-hidden="true"></i> Remove</button><?php endif ?>
+						<button class="edit-button" id="experience-edit"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+						<button class="edit-button" id="add-experience"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+						<?php endif ?>
 				</div>
 			</div>
 			<hr>
@@ -79,7 +83,7 @@
 								<?php echo form_input($start_date,'','required');?>
 							</p>
 							<p>
-								<label>End date:</label>								
+								<label>End date:</label>
 								<?php echo form_input($end_date,'','required');?>
 							</p>
 						</div>
@@ -111,7 +115,7 @@
 			<div id="experience-set">
 
 				<div id="experiences">
-					
+
 					<?php if(!$only_admin) : ?>
 						<?php $this->load->view('displays/user-experiences.php', $user_experiences); ?>
 					<?php else : ?>

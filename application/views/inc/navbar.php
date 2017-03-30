@@ -1,4 +1,4 @@
-<nav class="nav">
+<nav class="nav" id="nav-mobile">
    <a href="<?php echo site_url('index') ?>">
       <img id="logo" src="<?= base_url('assets/img/leidos-logo.png') ?>" alt="Leidos logo" />
    </a>
