@@ -363,6 +363,26 @@ class Project extends Base {
 	}
 
 	/**
+	 * Reject an application
+	 * Call from a form post using AJAX
+	 *
+	 * @param post('project_id')
+	 * @param post('user_id')
+	 * @author JChiyah
+	 */
+	public function reject_application() {
+
+		$project_id = $this->input->post('project_id');
+		$staff_id = $this->input->post('staff_id');
+
+		$status = array('status' => 'rejected');
+
+		if($this->Project_model->update_application_status($project_id, $staff_id, $status)) {
+			return $this->get_project_applications($project_id);
+		}
+	}
+
+	/**
 	 * Updates project details
 	 * Call from a form post using AJAX
 	 *
@@ -507,9 +527,14 @@ class Project extends Base {
 	 * @param project_id
 	 * @author JChiyah
 	 */
-	public function get_project_applications() {
+	public function get_project_applications($project_id = FALSE) {
 		// get and format input
-		$project_id = $this->input->post('project_id');
+		$project_id = isset($project_id) && $project_id ? $project_id : $this->input->post('project_id');
+
+		if(!isset($project_id) || !$project_id) {
+			echo 'error';
+			return ;
+		}
 
 		$applications = $this->Project_model->get_project_applications($project_id);
 

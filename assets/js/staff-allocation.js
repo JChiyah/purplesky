@@ -205,7 +205,25 @@ $(function() {
 		$('#search-staff-form').parent().show();
 	});
 
-	
+	$('body').on('click', '.reject-application', function() {
+		var id = (($(this).parent()).attr('id').split('-'))[1];
+		
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/reject_application",
+			data: { 
+				'project_id' : $('#project_id').val(),
+				'staff_id' : id,
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data) {
+					$("#project-applications").html(data);
+				}
+			}
+		});
+
+	});
 
 
 });

@@ -30,11 +30,11 @@
 
 					<div class="hidden-xs col-sm-3"></div>
 
-					<button class="col-xs-12 col-sm-2 g-button application-reject">Reject</button>
+					<button class="col-xs-12 col-sm-2 g-button reject-application">Reject</button>
 
 					<div class="hidden-xs col-sm-1"></div>
 
-					<button class="col-xs-12 col-sm-3 g-button application-accept">Add to project</button>
+					<button class="col-xs-12 col-sm-3 g-button accept-application">Add to project</button>
 				</div>
 			</div>
 		</div>

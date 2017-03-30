@@ -125,6 +125,7 @@ class Project_model extends CI_Model {
 						->join('user_group', 'user_group.id=account_group.group_id')
 						->group_by('staff.staff_id')
 						->where('project_id', $project_id)
+						->where('application.status', 'submitted')
 						->limit($limit)
 						->order_by('application_id', 'asc')
 						->get('application');
@@ -306,6 +307,33 @@ class Project_model extends CI_Model {
 			return TRUE;
 		}
 
+		return FALSE;
+	}
+
+	/**
+	 * Updates an application status based on the keyword
+	 *
+	 * @param $project_id
+	 * @param $user_id
+	 * @param $status
+	 * @return boolean
+	 * @author JChiyah
+	 */
+	public function update_application_status($project_id, $user_id, $status) {
+
+		// Check we are updating the right row
+		$query = $this->db->select('1')
+						->where('project_id', $project_id)
+						->where('staff_id', $user_id)
+						->limit(1)
+						->get('application');
+
+		$result = $query->row();
+
+		if(isset($result) && !empty($result)) {
+			
+			return $this->db->update('application', $status, array('project_id' => $project_id, 'staff_id' => $user_id));
+		}
 		return FALSE;
 	}
 
