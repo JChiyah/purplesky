@@ -179,6 +179,7 @@ CREATE TABLE project_dashboard (
 
 # Create project_staff table
 CREATE TABLE project_staff (
+	id integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	project_id integer NOT NULL,
 	staff_id integer NOT NULL,
 	role varchar(50) NOT NULL,
@@ -187,7 +188,6 @@ CREATE TABLE project_staff (
 	end_date date NOT NULL,
 	skills varchar(255),
 	staff_status enum('active', 'removed') NOT NULL DEFAULT 'active',
-	PRIMARY KEY (project_id, staff_id),
 	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE,
 	FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 ) ENGINE=InnoDB;
