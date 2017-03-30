@@ -1,5 +1,5 @@
 $(function() {
-
+	
 	$('body').on('click', '#submit-application', function(e) {
 		e.preventDefault();
 			

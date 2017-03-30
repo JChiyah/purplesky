@@ -1,10 +1,11 @@
-<nav class="nav" id="nav-mobile">
+<nav class="nav">
    <a href="<?php echo site_url('index') ?>">
       <img id="logo" src="<?= base_url('assets/img/leidos-logo.png') ?>" alt="Leidos logo" />
    </a>
    <img id="bg" src="<?= base_url('assets/img/triangle.png') ?>" alt="" />
    <div class="row">
-      <ul>
+      <i class="fa fa-bars fa-lg" aria-hidden="true" id="mobile-navbar"></i>
+      <ul id="nav-menu">
          <li><a href="javascript:window.history.go(-1);" class="scroll-button">
                <i class="fa fa-arrow-left" aria-hidden="true"></i>
          </a></li>
@@ -27,6 +28,6 @@
          </li>
       </ul>
       <a id="logout" href="<?= base_url('auth/logout') ?>"><i class="fa fa-power-off fa-fw"></i></a>
-      <span>Welcome, <?= ucwords(explode('.', $_SESSION['name'])[0]) ?></span>
+      <a href="<?php echo site_url(strtolower($_SESSION['name'])) ?>" style="float: right">Welcome, <?= ucwords(explode('.', $_SESSION['name'])[0]) ?></a>
    </div>
 </nav>

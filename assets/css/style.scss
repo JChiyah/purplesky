@@ -123,6 +123,23 @@ nav {
 		line-height: 20px;
 		position: relative;
 		z-index: 2;
+		color: $nav-font-color;
+
+		#mobile-navbar { display: none; }
+
+		a {
+			color: $nav-font-color;
+			text-decoration: none;
+			text-align: center;
+			display: block;
+			padding: 4px;
+			margin: 0 5px;
+		}
+		a:hover, a.active {
+			color: $nav-font-color;
+			text-decoration: none;
+			border-bottom: 2px solid $nav-font-color;
+		}
 
 		ul {
 			list-style: none;
@@ -144,22 +161,11 @@ nav {
 				}
 
 				a {
-					text-decoration: none;
-					text-align: center;
-					display: block;
 					float: left;
-					color: $nav-font-color;
-					padding: 4px;
-					margin: 0 5px;
 					-webkit-transition: all ease 0.8s;
 				    -moz-transition: all ease 0.8s;
 				    transition: all ease 0.8s;
 					border-bottom: 2px solid $blue;
-				}
-				a:hover, a.active {
-					color: $nav-font-color;
-					text-decoration: none;
-					border-bottom: 2px solid $nav-font-color;
 				}
 			}
 		}
@@ -188,75 +194,53 @@ nav {
 
 @media (max-width: 992px) {
 
-
-	position: relative;
-	overflow: hidden;
-	font-family: $font;
-	background: white;
-
-	#nav-mobile {
+	nav {
 		padding-left: 0;
-		margin-top: 1em;
-		//display: table;
 
-		span {
-			text-decoration: none;
-			text-align: center;
-			display: block;
-			float: left;
-			height: 100%;
-			width: 100%;
-			//display: table-header-group;
-		 }
-		 .top-bar {
-			 display: table-header-group;
-		 }
+		div {
 
-		ul {
-			display: inline-block;
-			width: 100%;
-			list-style: none;
-			padding: 10px;
-			margin: 0;
-			cursor: default;
-
-			li {
-				float: none;
+			#mobile-navbar {
 				display: inline-block;
-				margin: 0 5px;
-				padding: 0;
-				width: 100%;
+				padding: 15px;
+				margin: 0em 1em;
+				cursor: auto;
+				text-align: center;
+			}
 
-				button {
-					text-align: left;
-					height: 100%;
-					width: 100%;
-					padding: 8px 12px;
-					border: none;
-					background: none;
-				}
-				a {
-					text-decoration: none;
-					text-align: center;
+			a {
+				text-align: center;
+				display: inline-block;
+				width: auto;
+				padding: 16px;
+			}
+			a:hover, a.active {
+				color: $nav-font-color;
+				text-decoration: none;
+				background: $purple;
+				border-bottom: none;
+			}
+
+			ul {
+				display: none;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+
+				li {
 					display: block;
-					float: left;
-					height: 100%;
 					width: 100%;
-					padding: 4px;
-					margin: 0 5px;
-					-webkit-transition: all ease 0.8s;
-						-moz-transition: all ease 0.8s;
-						transition: all ease 0.8s;
-					border-bottom: 2px solid $blue;
+
+					a {
+						display: block;
+						width: 100%;
+						
+						i { padding: 16px; }
+					}
 				}
-				a:hover {
-					color: $nav-font-color;
-					text-decoration: none;
-					border-bottom: 2px solid $nav-font-color;
-				}
-				a.active {
-					//color: $nav-font-color;
-				}
+			}
+
+			#logout {
+				display: inline-block;
 			}
 		}
 	}
