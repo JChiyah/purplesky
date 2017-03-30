@@ -5,8 +5,8 @@
 	<div class="container-box">
 		<?php if($access != 0): ?>
 		<div class="row" id="search-type">
-			<button class="col-sm-6" id="search-projects">Search projects</button>
-			<button class="col-sm-6 active" id="search-users">Search users</button>
+			<button class="col-sm-6 active" id="search-projects">Search projects</button>
+			<button class="col-sm-6" id="search-users">Search users</button>
 		</div>
 		<?php endif ?>
 		<section id="project-search">
