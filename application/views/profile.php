@@ -10,9 +10,7 @@
 					<?php if(isset($user->location) && $user->location) { echo '<p><i class="fa fa-globe fa-lg" aria-hidden="true"></i> ' . $user->location . '</p>'; } ?>
 				</div>
 				<hr>
-				<a class="g-button"  href="change-password">Change password</a> <!--TODO::Commented out button-->
-				<!--//?php if(!$only_admin) : ?><button class="g-button" id="add-skill">Add Skills</button><//?php endif ?>
-				<//?php if(!$only_admin) : ?><button class="g-button" id="add-experience">Add Experience</button><//?php endif ?-->
+				<a class="g-button"  href="change-password">Change password</a>
 			</div>
 
 			<section id="skills" class="col-xs-12 col-sm-7 col-md-7">
@@ -30,8 +28,8 @@
 							<label>Select a skill to add</label>
 							<?php echo form_dropdown($skill_select, $skills);?>
 							<?php echo form_submit('submit', lang('add_label'), "id='skill-submit'");?>
-							<p>You can also delete skills by clicking on the cross</p>
 						<?php echo form_close(); ?>
+						<p id="delete-msg" style="display: none">You can delete skills by clicking on the cross</p>
 
 						<div id="user-skills">
 							<?php $this->load->view('displays/user-skills.php', $user_skills); ?>

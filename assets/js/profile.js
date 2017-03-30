@@ -227,6 +227,7 @@ $(function() {
 	$('#skill-edit').on('click', function() {
     	$('.delete-tag').toggle();
     	$('#user-undo-skills').html('');
+		$('#delete-msg').toggle();
     	undo_skills = false;
     	skills_flag = !skills_flag;
 	});
