@@ -3061,9 +3061,9 @@ footer {
     margin-top: 0; }
   .application p, .staff-container p {
     margin: 0.5em 0; }
-  .application .application-reject:hover, .staff-container .application-reject:hover {
+  .application .reject-application:hover, .staff-container .reject-application:hover {
     background: #e74c3c; }
-  .application .application-accept:hover, .staff-container .application-accept:hover {
+  .application .accept-application:hover, .staff-container .accept-application:hover {
     background: #2ecc71; }
   .application .remove-staff:hover, .staff-container .remove-staff:hover {
     background: #e74c3c; }

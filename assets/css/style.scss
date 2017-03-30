@@ -1840,13 +1840,9 @@ footer {
 		margin: 0.5em 0;
 	}
 
-	.application-reject:hover {	background: $delete-red; }
-	.application-accept:hover {	background: $go-green; }
+	.reject-application:hover {	background: $delete-red; }
+	.accept-application:hover {	background: $go-green; }
 	.remove-staff:hover { background: $delete-red; }
-
-}
-
-.staff-container {
 
 }
 
