@@ -7,7 +7,7 @@
 		        <li><a href="<?php echo site_url('projects') ?>">Projects</a></li>-
      		    <li><a href="<?php echo site_url('profile') ?>">Profile</a></li>
 		        <li><a href="<?php echo site_url('search') ?>">Search</a></li>-
-		        <li><a href="<?php echo site_url('index') ?>">Help</a></li>
+		        <!--<li><a href="<?php echo site_url('index') ?>">Help</a></li>-->
 		    </ul>
 		</div>
 		<div class="row">
