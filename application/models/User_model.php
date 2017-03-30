@@ -457,6 +457,7 @@ class User_model extends CI_Model {
 						->join('account', 'account.id=project.manager_id')
 						->join('location', 'location.location_id=project.location')
 						->limit($limit)
+						->order_by('project.end_date', 'desc')
 						->get('project');
 
 		$result = $query->result();
@@ -485,7 +486,7 @@ class User_model extends CI_Model {
 						->join('account', 'account.id=project.manager_id')
 						->join('location', 'location.location_id=project.location')
 						->limit($limit)
-						->order_by('end_date', 'asc')
+						->order_by('project.end_date', 'desc')
 						->get('project');
 
 		$result = $query->result();
