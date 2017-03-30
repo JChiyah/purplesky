@@ -205,14 +205,14 @@ $(function() {
 		$('#search-staff-form').parent().show();
 	});
 
-	$('body').on('click', '.staff-profile', function() {
-		var id = (($(this).parent().parent().attr('id')).split("-"))[1];
+	/*$('body').on('click', '.search-profile', function() {
+
+		var e = ($(this).parent().parent().attr('id')).split("-")
+		var id = e[1];
 
 		load_profile(id);
-
-		var name = $('#staff-' + id + ' > .staff-name').text();
 		
-		$('#profile-popup').dialog({title : name});
+		$('#profile-popup').dialog({title : e[2]});
 
 		$('#profile-popup').dialog("open");
 
@@ -222,7 +222,7 @@ $(function() {
 			of: window
 		});
 
-	});
+	});*/
 
 	/* Loads a user profile */
 	function load_profile(id) {

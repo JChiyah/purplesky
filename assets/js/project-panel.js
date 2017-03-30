@@ -222,6 +222,46 @@ $(function() {
 		});
 	});
 
+	$('body').on('click', '.staff-profile', function() {
+		var e = ($(this).parent().attr('id')).split("-");
+
+		load_profile(e[1]);
+		
+		$('#profile-popup').dialog({title : e[2]});
+
+		$('#profile-popup').dialog("open");
+
+		$('#profile-popup').dialog("option", "position", {
+			my: "center",
+			at: "center",
+			of: window
+		});
+
+	});
+
+	/* Loads a user profile */
+	function load_profile(id) {
+		$.ajax({
+			type: "POST",
+			url: baseurl + "User/show_profile",
+			data: { 
+				'user_id' : id,
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data) {
+					$("#profile-popup").html(data);
+
+					$('#profile-popup').dialog("option", "position", {
+						my: "center",
+						at: "center",
+						of: window
+					});
+				}
+			}
+		});
+	}
+
 	function reset_forms() {
 
 		if($('#project-confirmation').is(':visible')) {

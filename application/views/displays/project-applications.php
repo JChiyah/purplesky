@@ -24,9 +24,9 @@
 					<p class="col-xs-12 col-sm-6 right">Total cost: £<?= $application->cost ?></p>
 				</div>
 				<p><?= $application->message ?></p>
-				<div class="row" id="applications-<?= $application->id ?>">
+				<div class="row" id="applications-<?= $application->id ?>-<?= $application->name ?>">
 					
-					<button class="col-xs-12 col-sm-3 g-button application-profile">See profile</button>
+					<button class="col-xs-12 col-sm-3 g-button staff-profile">See profile</button>
 
 					<div class="hidden-xs col-sm-3"></div>
 

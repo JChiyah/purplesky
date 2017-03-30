@@ -22,7 +22,7 @@
 				</div>
 				<p class="col-xs-12 col-sm-6 pay-rate">£<?= $employee->pay_rate ?>/day</p>
 			</div>
-			<div class="row">
+			<div class="row" id="applications-<?= $employee->id ?>-<?= $employee->name ?>">
 
 				<button class="col-sm-3 g-button staff-profile">See profile</button>
 				
