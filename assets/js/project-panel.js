@@ -37,6 +37,24 @@ $(function() {
 	}
 	get_project_applications();
 
+	/** Get staff working at the current project and display it on the remove staff tab **/
+	function get_remove_project_staff() {
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/get_remove_project_staff",
+			data: { 
+				'project_id' : $('#project_id').val(),
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data) {
+					$("#project-remove-staff").html(data);
+				}
+			}
+		});
+	}
+	get_remove_project_staff();
+
 	$("#dashboard-entry-submit").click(function(event) {
 		event.preventDefault();
 		//$('.error-msg').remove();
@@ -315,10 +333,6 @@ $(function() {
 				$('#add-staff').show();
 				$('#add').addClass('active');
 				window.location.replace(baseurl + 'project-management/' + $('#project_id').val() + '/add-staff');
-				break;
-			case 'edit-s':
-				$('#edit-staff').show();
-				$('#edit-s').addClass('active');
 				break;
 			case 'remove':
 				$('#remove-staff').show();

@@ -10,6 +10,5 @@
 	<li><button <?php echo $action == 'edit' || $action == 'edit-confirm' ? 'class="active"' : '' ?> id="edit">Edit Project</button></li>
 	<li><button <?php echo $action == 'status' ? 'class="active"' : '' ?> id="status">Change Project Status</button></li>
 	<li><button <?php echo $action == 'add-staff' ? 'class="active"' : '' ?> id="add">Add Staff</button></li>
-	<li><button id="edit-s">Edit Staff</button></li>
 	<li><button id="remove">Remove Staff</button></li>
 </ul>

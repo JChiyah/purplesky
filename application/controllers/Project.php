@@ -383,6 +383,24 @@ class Project extends Base {
 	}
 
 	/**
+	 * Remove a member of staff from project
+	 * Call from a form post using AJAX
+	 *
+	 * @param post('project_id')
+	 * @param post('user_id')
+	 * @author JChiyah
+	 */
+	public function remove_staff() {
+
+		$project_id = $this->input->post('project_id');
+		$staff_id = $this->input->post('staff_id');
+
+		if($this->Project_model->remove_staff($project_id, $staff_id)) {
+			echo 'success';
+		}
+	}
+
+	/**
 	 * Updates project details
 	 * Call from a form post using AJAX
 	 *
@@ -540,6 +558,23 @@ class Project extends Base {
 
 		$data['applications'] = $applications;
 		return $this->load->view('displays/project-applications.php', $data);
+	}
+
+	/**
+	 * Gets staff working in a project
+	 * Call from a form post using AJAX
+	 *
+	 * @param project_id
+	 * @author JChiyah
+	 */
+	public function get_remove_project_staff() {
+		// get and format input
+		$project_id = $this->input->post('project_id');
+
+		$staff = $this->Project_model->get_project_staff($project_id);
+
+		$data['staff'] = $staff;
+		return $this->load->view('displays/project-staff-remove.php', $data);
 	}
 
 	/**

@@ -74,11 +74,21 @@ class Project_model extends CI_Model {
 		$result = $query->result();
 
 		if(isset($result) && !empty($result)) {
+
+			$tmp = array();
 			foreach($result as $employee) {
 				$employee->skills = $this->System_model->get_skill_names($employee->skills);
+
+				/* Get total cost for each staff */
+				$employee = (array)$employee;
+
+				$employee['cost'] = $this->get_staff_cost($employee['id'], $employee['start_date'], $employee['end_date']);
+
+				$employee = (object)$employee;
+				array_push($tmp, $employee);
 			}
-			
-			return $result;
+
+			return $tmp;
 		}
 		return FALSE;
 	}
@@ -311,7 +321,7 @@ class Project_model extends CI_Model {
 	}
 
 	/**
-	 * Updates an application status based on the keyword
+	 * Updates an application status based on a keyword
 	 *
 	 * @param $project_id
 	 * @param $user_id
@@ -359,6 +369,11 @@ class Project_model extends CI_Model {
 		
 		foreach($staff as $s) {
 
+			// If user has sent an application, then change the status to accepted
+			if($this->has_already_applied($project_id, $staff)) {
+				$this->update_application_status($project_id, $staff, array('status' => 'accepted'));
+			}
+
 			array_push($availability, array(
 				'staff_id' 		=> $s['staff_id'],
 				'start_date' 	=> $s['start_date'],
@@ -389,6 +404,32 @@ class Project_model extends CI_Model {
 		$this->db->trans_complete(); 	// Close transaction
 
 		return TRUE;
+	}
+
+	/**
+	 * Remove a member of staff from a project
+	 *
+	 * @param $project_id
+	 * @param $user_id
+	 * @return boolean
+	 * @author JChiyah
+	 */
+	public function remove_staff($project_id, $user_id) {
+
+		// Check we are updating the right row
+		$query = $this->db->select('1')
+						->where('project_id', $project_id)
+						->where('staff_id', $user_id)
+						->limit(1)
+						->get('project_staff');
+
+		$result = $query->row();
+
+		if(isset($result) && !empty($result)) {
+			
+			return $this->db->update('project_staff', array('staff_status' => 'removed'), array('project_id' => $project_id, 'staff_id' => $user_id));
+		}
+		return FALSE;
 	}
 
 	/**

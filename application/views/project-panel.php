@@ -60,26 +60,9 @@
 
 			</div>
 
-			<div class="container-fluid tab" id="edit-staff" style="display: none">
-				<h2>Edit Staff</h2>
-				<hr>
-
-				<p>Here you can edit details about staff working on the project such as their working days.</p>
-				
-				<div id="edit-staff-list">
-					WIP
-				</div>
-			</div>
-
 			<div class="container-fluid tab" id="remove-staff" style="display: none">
-				<h2>Remove Staff</h2>
-				<hr>
-
-				<p>Here you can remove staff working on the project. If the staff is working in a selected task, they will also be removed from it automatically.</p>
 				
-				<div id="remove-staff-list">
-					WIP
-				</div>
+				<?php $this->load->view('project-panel/remove-staff.php'); ?>
 
 			</div>
 
