@@ -185,7 +185,7 @@ CREATE TABLE project_staff (
 	assigned_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	start_date date NOT NULL,
 	end_date date NOT NULL,
-	skills varchar(255) NOT NULL,
+	skills varchar(255),
 	PRIMARY KEY (project_id, staff_id),
 	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE,
 	FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
