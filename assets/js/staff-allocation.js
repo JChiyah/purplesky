@@ -205,47 +205,7 @@ $(function() {
 		$('#search-staff-form').parent().show();
 	});
 
-	/*$('body').on('click', '.search-profile', function() {
-
-		var e = ($(this).parent().parent().attr('id')).split("-")
-		var id = e[1];
-
-		load_profile(id);
-		
-		$('#profile-popup').dialog({title : e[2]});
-
-		$('#profile-popup').dialog("open");
-
-		$('#profile-popup').dialog("option", "position", {
-			my: "center",
-			at: "center",
-			of: window
-		});
-
-	});*/
-
-	/* Loads a user profile */
-	function load_profile(id) {
-		$.ajax({
-			type: "POST",
-			url: baseurl + "User/show_profile",
-			data: { 
-				'user_id' : id,
-				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
-			},
-			success: function(data) {
-				if (data) {
-					$("#profile-popup").html(data);
-
-					$('#profile-popup').dialog("option", "position", {
-						my: "center",
-						at: "center",
-						of: window
-					});
-				}
-			}
-		});
-	}
+	
 
 
 });
