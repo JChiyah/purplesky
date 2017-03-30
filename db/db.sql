@@ -210,7 +210,7 @@ CREATE TABLE application (
 	staff_id integer NOT NULL,
 	message varchar(255) NOT NULL,
 	at_date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	status enum('submitted', 'acepted', 'rejected') DEFAULT 'submitted', 
+	status enum('submitted', 'accepted', 'rejected') DEFAULT 'submitted', 
 	FOREIGN KEY (project_id) REFERENCES project(project_id),
 	FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 ) ENGINE=InnoDB;
