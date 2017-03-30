@@ -186,6 +186,7 @@ CREATE TABLE project_staff (
 	start_date date NOT NULL,
 	end_date date NOT NULL,
 	skills varchar(255),
+	staff_status enum('active', 'removed') NOT NULL DEFAULT 'active',
 	PRIMARY KEY (project_id, staff_id),
 	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE,
 	FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
