@@ -64,6 +64,7 @@ class Project_model extends CI_Model {
 
 		$query = $this->db->select('project_staff.staff_id AS id, CONCAT(first_name, " ", last_name) AS name, role, assigned_at, start_date, end_date, pay_rate, skills, location.name AS location, user_group.description AS group')
 						->where('project_id', $project_id)
+						->where('staff_status', 'active')
 						->join('staff', 'staff.staff_id=project_staff.staff_id')
 						->join('account', 'account.id=staff.staff_id')
 						->join('account_group', 'account_group.user_id=staff.staff_id')
@@ -381,15 +382,22 @@ class Project_model extends CI_Model {
 				'type'			=> 2
 			));
 
-			array_push($project_staff, array(
+			$tmp = array(
 				'project_id' 	=> $project_id,
 				'staff_id' 		=> $s['staff_id'],
 				'role' 			=> $s['role'],
 				'assigned_at' 	=> date("Y-m-d H:i:s"),
 				'start_date' 	=> $s['start_date'],
-				'end_date' 		=> $s['end_date'],
-				'skills'		=> $this->System_model->compress_skills($s['skills'])
-			));
+				'end_date' 		=> $s['end_date']
+			);
+
+			if(isset($s['skills']) && $s['skills']) {
+				$tmp['skills'] = $this->System_model->compress_skills($s['skills']);
+			} else {
+				$tmp['skills'] = '';
+			}
+
+			array_push($project_staff, $tmp);
 
 			// Handle a staff notifications
 			$this->User_model->add_assign_employee_activity($s['staff_id'],$project_id);
@@ -417,7 +425,7 @@ class Project_model extends CI_Model {
 	public function remove_staff($project_id, $user_id) {
 
 		// Check we are updating the right row
-		$query = $this->db->select('1')
+		$query = $this->db->select()
 						->where('project_id', $project_id)
 						->where('staff_id', $user_id)
 						->limit(1)
@@ -432,11 +440,11 @@ class Project_model extends CI_Model {
 			$this->db->update('project_staff', array('staff_status' => 'removed'), array('project_id' => $project_id, 'staff_id' => $user_id));
 
 			$this->db->delete('availability', array(
-				'staff_id' => $staff_id, 
+				'staff_id' => $user_id, 
 				'start_date' => $result->start_date, 
 				'end_date' => $result->end_date
 			));
-
+			
 			$project = $this->get_project_by_id($project_id);
 
 			$this->User_model->add_user_activity($user_id, "You are no longer assigned to <a href=\"dashboard/$project_id\">$project->title</a>");
@@ -444,7 +452,9 @@ class Project_model extends CI_Model {
 
 			$this->db->trans_complete(); 	// End transaction
 
-			return TRUE;
+			if (!$this->db->trans_status() === FALSE) {
+				return TRUE;
+			}
 		}
 		return FALSE;
 	}

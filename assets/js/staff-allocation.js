@@ -275,7 +275,20 @@ $(function() {
 			},
 			success: function(data) {
 				if (data == 'success') {
-					get_remove_project_staff();
+					// Update view
+					$.ajax({
+						type: "POST",
+						url: baseurl + "Project/get_remove_project_staff",
+						data: { 
+							'project_id' : $('#project_id').val(),
+							'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+						},
+						success: function(data) {
+							if (data) {
+								$("#project-remove-staff").html(data);
+							}
+						}
+					});
 				}
 			}
 		});
