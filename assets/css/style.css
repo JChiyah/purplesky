@@ -3057,6 +3057,8 @@ footer {
     padding-right: 30px; }
   .application .right {
     text-align: right; }
+  .application .location {
+    margin-top: 0; }
   .application p {
     margin: 0.5em 0; }
   .application .application-reject:hover {

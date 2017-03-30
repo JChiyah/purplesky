@@ -11,7 +11,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<span class="col-xs-6">ID: <?= $application->id ?></span>
-					<p class="col-xs-6 right">
+					<p class="col-xs-6 location right">
 						<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <?= $application->location ?>
 					</p>
 				</div>
