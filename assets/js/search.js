@@ -56,7 +56,7 @@ $(function() {
 
 	function scroll_top() {
 
-        if ($('#search-toggle').offset().top < $(window).scrollTop() + $('#quick-search').height()) {
+        if ($('#search-toggle').offset().top < $(window).scrollTop() + $('#advanced-search').height()) {
             $('#scroll-up:hidden').stop(true, true).fadeIn();
   			$('#scroll-up').css({'position': 'fixed', 'left': '0.5em'});
         } else {
@@ -65,7 +65,7 @@ $(function() {
         }
         if(($('#scroll-up').offset().top + $('#scroll-up').outerHeight() + 100) > $('#footer-center').offset().top
         	&& ($(window).scrollTop() > $('#search-results').offset().top)) {
-  			$('#scroll-up').css({'position': 'absolute', 'left': '-1.3em'});
+  			$('#scroll-up').css({'position': 'absolute', 'left': '-2.2em'});
         }
 	}
 	
