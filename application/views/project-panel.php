@@ -24,12 +24,10 @@
 			</div>
 
 			<div class="container-fluid tab" id="see-applications" style="display: none">
-				<h2>Project Applications</h2>
-				<hr>
-				<p>Applications received from employees.<br/> The project is currently <b><?= $project->applications ?></b> to new applications.</p>
-				<div id="project-applications">
-					
-				</div>
+
+				<?php //$this->load->view('project-panel/application-status.php'); ?>
+				<?php $this->load->view('project-panel/applications.php'); ?>
+
 			</div>
 
 			<div class="container-fluid tab" id="project-application-status" <?php echo $action == 'application-status' ? '' : 'style="display: none"' ?>>

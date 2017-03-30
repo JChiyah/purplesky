@@ -138,10 +138,6 @@ $(function() {
 		// Get staff id from parsing the button's parent id
 		var id = (($(this).parent().parent().attr('id')).split("-"))[1];
 
-		if(!id) {
-			alert(id);
-			return ;
-		}
 		$('#search-results').hide();
 		$('#search-staff-form').parent().hide();
 		$('#allocate-staff-form').parent().show();
@@ -207,7 +203,7 @@ $(function() {
 
 	$('body').on('click', '.reject-application', function() {
 		var id = (($(this).parent()).attr('id').split('-'))[1];
-		
+
 		$.ajax({
 			type: "POST",
 			url: baseurl + "Project/reject_application",
@@ -222,7 +218,47 @@ $(function() {
 				}
 			}
 		});
+	});
 
+	$('body').on('click', '.accept-application', function() {
+		var elem = ($(this).parent()).attr('id').split('-');
+
+		$('#project-applications').hide();
+		$('#accept-application-form').parent().show();
+
+		// Put values
+		$('#a_staff_name_summary').text(elem[2]);
+
+		$('#a_staff_start_date_summary').text($('#start_date').val());
+		$('#a_staff_end_date_summary').text($('#end_date').val());
+
+		$('#a_staff_id').val(elem[1]);
+	});
+
+	$('#accept-application-form').submit(function(e) {
+		e.preventDefault();
+
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/add_project_staff",
+			data: { 
+				'project_id' : $('#project_id').val(),
+				'staff_id' : $('#a_staff_id').val(),
+				'skills' : current_query[2],
+				'start_date' : $('#start_date').val(),
+				'end_date' : $('#end_date').val(),
+				'role' : $('#a_staff_role').val(),
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data == 'success') {
+					$("#accept-application-form").parent().hide();
+					$("#application-accepted-confirm").show();
+				} else {
+					$("#accept-application-form").after('<p>Something went wrong:' + data + '</p>');
+				}
+			}
+		});
 	});
 
 
