@@ -53,10 +53,6 @@
 	</div>
 </div>
 
-<div id="profile-popup" style="display: none">
-	
-</div>
-
 <div class="container-fluid content" style="display: none">
 	<?php echo form_open('', array('id' => 'allocate-staff-form')) ?>
 

@@ -2,8 +2,8 @@
 
     <?php foreach($staff as $employee) : ?>
 
-		<div class="container-fluid staff">
-			<h3 class="col-xs-9"><?= $employee->name ?></h3>
+		<div class="container-fluid staff-container">
+			<h3><?= $employee->name ?></h3>
 			<hr>
 			<div class="container-fluid">
 				<div class="row">
@@ -24,11 +24,9 @@
 					
 					<button class="col-xs-12 col-sm-3 g-button staff-profile">See profile</button>
 
-					<div class="hidden-xs col-sm-5"></div>
+					<div class="hidden-xs col-sm-6"></div>
 
-					<button class="col-xs-12 col-sm-3 g-button remove-employee">Remove</button>
-
-					<div class="hidden-xs col-sm-1"></div>
+					<button class="col-xs-12 col-sm-3 g-button remove-staff">Remove</button>
 				</div>
 			</div>
 		</div>

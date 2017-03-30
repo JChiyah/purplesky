@@ -17,7 +17,7 @@ class Project_model extends CI_Model {
 	 */
 	public function get_project_by_id($id) {
 
-		$query = $this->db->select('project_id, title, description, priority, CONCAT(first_name, " ", last_name) AS manager, location.name AS location, budget, start_date, end_date, status, applications')
+		$query = $this->db->select('project_id, title, description, priority, CONCAT(first_name, " ", last_name) AS manager, manager_id, location.name AS location, budget, start_date, end_date, status, applications')
 						->where('project_id', $id)
 						->limit(1)
 						->join('account', 'account.id=project.manager_id')
@@ -370,8 +370,8 @@ class Project_model extends CI_Model {
 		foreach($staff as $s) {
 
 			// If user has sent an application, then change the status to accepted
-			if($this->has_already_applied($project_id, $staff)) {
-				$this->update_application_status($project_id, $staff, array('status' => 'accepted'));
+			if($this->has_already_applied($project_id, $s['staff_id'])) {
+				$this->update_application_status($project_id, $s['staff_id'], array('status' => 'accepted'));
 			}
 
 			array_push($availability, array(
@@ -425,9 +425,26 @@ class Project_model extends CI_Model {
 
 		$result = $query->row();
 
-		if(isset($result) && !empty($result)) {
-			
-			return $this->db->update('project_staff', array('staff_status' => 'removed'), array('project_id' => $project_id, 'staff_id' => $user_id));
+		if(isset($result) && !empty($result) && $result) {
+
+			$this->db->trans_start(); 	// Start transaction
+
+			$this->db->update('project_staff', array('staff_status' => 'removed'), array('project_id' => $project_id, 'staff_id' => $user_id));
+
+			$this->db->delete('availability', array(
+				'staff_id' => $staff_id, 
+				'start_date' => $result->start_date, 
+				'end_date' => $result->end_date
+			));
+
+			$project = $this->get_project_by_id($project_id);
+
+			$this->User_model->add_user_activity($user_id, "You are no longer assigned to <a href=\"dashboard/$project_id\">$project->title</a>");
+			$this->User_model->add_user_activity($project->manager_id, "You have removed an employee from <a href=\"dashboard/$project_id\">$project->title</a>");
+
+			$this->db->trans_complete(); 	// End transaction
+
+			return TRUE;
 		}
 		return FALSE;
 	}

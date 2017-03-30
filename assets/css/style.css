@@ -3043,28 +3043,30 @@ footer {
     #left-bar ul .active {
       background: #C0C0C0; }
 
-.application {
+.application, .staff-container {
   margin: 0.5em 1em;
   padding: 1em 1.5em;
   border: 1px solid #E1E5E6;
   border-radius: 4px;
   font-size: 1.1em; }
-  .application h3 {
+  .application h3, .staff-container h3 {
     font-size: 1.3em;
     margin-bottom: 0; }
-  .application span.right {
+  .application span.right, .staff-container span.right {
     margin-top: 1.35em;
     padding-right: 30px; }
-  .application .right {
+  .application .right, .staff-container .right {
     text-align: right; }
-  .application .location {
+  .application .location, .staff-container .location {
     margin-top: 0; }
-  .application p {
+  .application p, .staff-container p {
     margin: 0.5em 0; }
-  .application .application-reject:hover {
+  .application .application-reject:hover, .staff-container .application-reject:hover {
     background: #e74c3c; }
-  .application .application-accept:hover {
+  .application .application-accept:hover, .staff-container .application-accept:hover {
     background: #2ecc71; }
+  .application .remove-staff:hover, .staff-container .remove-staff:hover {
+    background: #e74c3c; }
 
 #edit-project form {
   width: 90%;

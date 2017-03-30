@@ -1813,7 +1813,7 @@ footer {
 	}
 }
 
-.application {
+.application, .staff-container {
 	margin: 0.5em 1em;
 	padding: 1em 1.5em;
 	border: 1px solid $grey-background2;
@@ -1842,6 +1842,11 @@ footer {
 
 	.application-reject:hover {	background: $delete-red; }
 	.application-accept:hover {	background: $go-green; }
+	.remove-staff:hover { background: $delete-red; }
+
+}
+
+.staff-container {
 
 }
 

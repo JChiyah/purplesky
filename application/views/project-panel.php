@@ -69,6 +69,15 @@
 		</div>
 	</div>
 
+	<div id="profile-popup" style="display: none">
+		
+	</div>
+
+	<div id="confirmation-popup" style="display: none">
+		<h3>Are you sure you want to continue?</h3>
+		<p class="error-msg"></p>
+	</div>
+
 </section>
 
 <script type="text/javascript">var locations = <?php echo json_encode($locations, JSON_HEX_TAG); ?>;</script>

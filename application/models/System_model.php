@@ -195,6 +195,10 @@ class System_model extends CI_Model {
 			$skills = array($skills);
 		}
 
+		if(!isset($skills) || !$skills || count($skills) <= 0) {
+			return '';
+		}
+
 		$string = '';
 		foreach($skills as $skill) {
 			if(empty($string)) {

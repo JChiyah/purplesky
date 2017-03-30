@@ -1,3 +1,38 @@
+$(document).ready(function() {
+
+	$("#profile-popup").dialog({
+		bgiframe: true,
+		autoOpen: false,
+		resizable: false,
+        draggable: false,
+		width: "auto",
+	    dialogClass : "profile-popup",
+	    modal: true,
+        open: function(){
+            jQuery('.ui-widget-overlay').bind('click',function(){
+                jQuery('#profile-popup').dialog('close');
+            })
+        }
+	});
+
+	$("#confirmation-popup").dialog({
+		bgiframe: true,
+		autoOpen: false,
+		resizable: false,
+        draggable: false,
+        title: 'Confirm Action',
+		width: '350px',
+	    dialogClass : "profile-popup",
+	    modal: true,
+        open: function(){
+            jQuery('.ui-widget-overlay').bind('click',function(){
+                jQuery('#confirmation-popup').dialog('close');
+            })
+        }
+	});
+
+});
+
 $(function() {
 
 	/** Get staff working at the current project and display it on the staff tab **/

@@ -1,22 +1,3 @@
-$(document).ready(function() {
-
-	$("#profile-popup").dialog({
-		bgiframe: true,
-		autoOpen: false,
-		resizable: false,
-        draggable: false,
-		width: "auto",
-	    dialogClass : "profile-popup",
-	    modal: true,
-        open: function(){
-            jQuery('.ui-widget-overlay').bind('click',function(){
-                jQuery('#profile-popup').dialog('close');
-            })
-        }
-	});
-
-});
-
 $(function() {
 
 	// Skills selected
@@ -260,6 +241,47 @@ $(function() {
 			}
 		});
 	});
+
+	$('body').on('click', '.remove-staff', function() {
+		var elem = ($(this).parent()).attr('id').split('-');
+
+		$('#confirmation-popup > .error-msg').val('Remove "' + elem[2] + '" from the project');
+		$('#confirmation-popup > .error-msg').text('Remove "' + elem[2] + '" from the project');
+
+		$('#confirmation-popup').dialog({
+			title: 'Remove Employee',
+		    buttons: {
+		        Cancel: function () {
+		            $(this).dialog("close");
+		        },
+		        Remove: function () {
+		            removeStaff(elem[1]);
+		            $(this).dialog("close");
+		        }
+		    }
+		});
+		$('#confirmation-popup').dialog("open");
+	});
+
+	function removeStaff(id) {
+
+		$.ajax({
+			type: "POST",
+			url: baseurl + "Project/remove_staff",
+			data: { 
+				'project_id' : $('#project_id').val(),
+				'staff_id' : id,
+				'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			},
+			success: function(data) {
+				if (data == 'success') {
+					get_remove_project_staff();
+				}
+			}
+		});
+	}
+
+
 
 
 });
