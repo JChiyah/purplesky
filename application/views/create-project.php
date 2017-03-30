@@ -33,7 +33,7 @@
 					</div>
 					<p>
 						<label>Location:</label>
-						<?php echo form_dropdown($location, array_merge(array( 0 => 'Select'), $locations));?>
+						<?php echo form_dropdown($location, array_merge(array( 0 => 'Select'), $locations), 1);?>
 					</p>
 					<p id="priority-buttons">
 						<b>Priority:</b><br/>

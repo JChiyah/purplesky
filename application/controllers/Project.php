@@ -197,15 +197,17 @@ class Project extends Base {
 				'id'    	=> 'title',
 				'maxlength'	=> '90',
 				'required' 	=> 'required',
-				'value' => $this->form_validation->set_value('title')
+				'value'		=> 'Website to manage projects'
+				//'value' => $this->form_validation->set_value('title')
 			);
 			$this->data['description'] = array(
 				'name'  	=> 'description',
 				'id'    	=> 'description',
 				'maxlength' => '250',
 				'rows' 		=> '3',
-				'required' => 'required',
-				'value' => $this->form_validation->set_value('description')
+				'required' 	=> 'required',
+				'value'		=> 'Create a project which holds up to 30 000 users including normal staff, contractors, project managers and admins.'
+				//'value' => $this->form_validation->set_value('description')
 			);
 			$this->data['start_date'] = array(
 				'name'  => 'start_date',
@@ -213,7 +215,8 @@ class Project extends Base {
 				'required' => 'required',
 				'min'	=> date('Y-m-d', strtotime('tomorrow')),
 				'max'	=> '2024-12-30',
-				'value' => $this->form_validation->set_value('start_date')
+				'value'	=> '2017-04-01'
+				//'value' => $this->form_validation->set_value('start_date')
 			);
 			$this->data['end_date'] = array(
 				'name'  => 'end_date',
@@ -221,7 +224,8 @@ class Project extends Base {
 				'required' => 'required',
 				'min'	=> date('Y-m-d', time()+172800),
 				'max'	=> '2024-12-31',
-				'value' => $this->form_validation->set_value('end_date')
+				'value'	=> '2017-09-25'
+				//'value' => $this->form_validation->set_value('end_date')
 			);
 			$this->data['location'] = array(
 				'name'  => 'location',
@@ -251,7 +255,8 @@ class Project extends Base {
 				'maxlength'	=> '8',
 				'placeholder' => '0',
 				'required' => 'required',
-				'value' => $this->form_validation->set_value('budget')
+				'value'	=> '41839'
+				//'value' => $this->form_validation->set_value('budget')
 			);
 
 			$this->data['locations'] = $this->System_model->get_locations();
