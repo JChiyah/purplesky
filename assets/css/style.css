@@ -1790,10 +1790,9 @@ nav {
           -moz-transition: all ease 0.8s;
           transition: all ease 0.8s;
           border-bottom: 2px solid #1f1646; }
-    nav div span {
-      color: white;
-      padding: 15px;
-      margin-right: 50px;
+    nav div #nav-name {
+      display: inline-block;
+      padding: 16px;
       float: right; }
     nav div #logout {
       display: inline-block;
@@ -1811,7 +1810,7 @@ nav {
     nav div #mobile-navbar {
       display: inline-block;
       padding: 15px;
-      margin: 0em 1em;
+      margin-left: 1em;
       cursor: auto;
       text-align: center; }
     nav div a {
@@ -1837,8 +1836,13 @@ nav {
           width: 100%; }
           nav div ul li a i {
             padding: 16px; }
+    nav div #nav-name {
+      float: right;
+      padding: 12px; }
     nav div #logout {
-      display: inline-block; } }
+      display: inline-block;
+      margin: 0;
+      margin-right: 20px; } }
 /* * * * Footer style section * * * */
 footer {
   width: 100%;

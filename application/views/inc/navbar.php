@@ -28,6 +28,6 @@
          </li>
       </ul>
       <a id="logout" href="<?= base_url('auth/logout') ?>"><i class="fa fa-power-off fa-fw"></i></a>
-      <a href="<?php echo site_url(strtolower($_SESSION['name'])) ?>" style="float: right">Welcome, <?= ucwords(explode('.', $_SESSION['name'])[0]) ?></a>
+      <a href="<?php echo site_url(strtolower($_SESSION['name'])) ?>" id="nav-name">Welcome, <?= ucwords(explode('.', $_SESSION['name'])[0]) ?></a>
    </div>
 </nav>
