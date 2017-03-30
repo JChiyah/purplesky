@@ -23,15 +23,9 @@
 				</div>
 			</div>
 
-			<div class="container-fluid tab" id="see-applications" style="display: none">
+			<div class="container-fluid tab" id="see-applications" <?php echo $action == 'application-status' ? '' : 'style="display: none"' ?>>
 
 				<?php $this->load->view('project-panel/applications.php'); ?>
-
-			</div>
-
-			<div class="container-fluid tab" id="project-application-status" <?php echo $action == 'application-status' ? '' : 'style="display: none"' ?>>
-				
-				<?php $this->load->view('project-panel/application-status.php'); ?>
 
 			</div>
 
