@@ -36,7 +36,7 @@
    </head>
    <body>
       <div class="container" id="login-container">
-         <h1>Create Profile</h1>
+         <h1>Create Account</h1>
          <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-12">
 
@@ -71,6 +71,11 @@
                      <p>
                         <?php echo lang('create_user_type_label', 'user_group');?>
                         <?php echo form_dropdown($groups, array('Admin','Project Manager','Employee','Contractor'), array(2));?>
+                     </p>
+
+                     <p>
+                        <label>Pay rate: (£ per day)</label>
+                        <?php echo form_input($pay_rate);?>
                      </p>
 
                      <div id="infoMessage"><?php echo (isset($message)) ? $message : ''; ?></div>

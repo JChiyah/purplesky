@@ -923,7 +923,7 @@ class Ion_auth_model extends CI_Model
 		$staff_data = array(
 			'staff_id'			=> $id,
 			'current_location'	=> 1,
-			'pay_rate'			=> 10.5
+			'pay_rate'			=> $additional_data['pay_rate']
 		);
 
 		// Add notifications

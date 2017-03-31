@@ -1965,6 +1965,18 @@ footer {
       width: 1.15em;
       margin-left: 7px;
       cursor: pointer; }
+    #login-container form select, #change-password form select, #reset-pass form select {
+      width: 40%;
+      margin-top: 8px;
+      padding: 8px 12px 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      font-weight: 900;
+      background: #fff; }
+    #login-container form select:focus, #change-password form select:focus, #reset-pass form select:focus {
+      border: 1px solid #0389ff; }
+    #login-container form #pay_rate, #change-password form #pay_rate, #reset-pass form #pay_rate {
+      width: 20%; }
     #login-container form a, #change-password form a, #reset-pass form a {
       text-decoration: underline;
       margin-top: 6px;

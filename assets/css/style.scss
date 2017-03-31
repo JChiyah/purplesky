@@ -376,6 +376,19 @@ footer {
 			cursor: pointer;
 		}
 
+		select {
+			width: 40%;
+			margin-top: 8px;
+			padding: 8px 12px 8px 12px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+			font-weight: 900;
+			background: #fff;
+		}
+		select:focus { border: 1px solid $light-blue; }
+
+		#pay_rate { width: 20%; }
+
 		a {
 			text-decoration: underline;
 			margin-top: 6px;

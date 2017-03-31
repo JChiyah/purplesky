@@ -430,6 +430,10 @@ class Auth extends CI_Controller {
 
 		$tables = $this->config->item('tables','ion_auth');
 
+		if(!in_array(1, $_SESSION['access_level'])) {
+			redirect('index');
+		}
+
 		// validate form input
 		$this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'required');
 		$this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'required');
@@ -438,6 +442,7 @@ class Auth extends CI_Controller {
 	  
 		$this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
 		$this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
+		$this->form_validation->set_rules('pay_rate', 'pay rate', 'is_natural', array( 'is_natural' => 'The pay rate has to be greater than zero'));
 
 		if ($this->form_validation->run() == true)
 		{
@@ -448,6 +453,7 @@ class Auth extends CI_Controller {
 			$additional_data = array(
 				'first_name' => trim($this->input->post('first_name')),
 				'last_name'  => trim($this->input->post('last_name')),
+				'pay_rate'	 => trim($this->input->post('pay_rate')),
 			);
 
 			$groups = array($this->input->post('groups')+1);
@@ -455,9 +461,9 @@ class Auth extends CI_Controller {
 		if ($this->form_validation->run() == true && $this->ion_auth->register($password, $email, $additional_data, $groups))
 		{
 			// check to see if we are creating the user
-			// redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect('login', 'refresh');
+			echo '<h1>User created succesfully</h1><p>The new user will be able to sign in using the email and password used before</p><br/><a href="index">Go back to home</a>';
+			//redirect('login', 'refresh');
 		}
         else
         {
@@ -499,6 +505,15 @@ class Auth extends CI_Controller {
 				'name'  => 'groups',
 				'id'    => 'groups',
 				'value' => $this->form_validation->set_value('groups'),
+			);
+			$this->data['pay_rate'] = array(
+				'name'  => 'pay_rate',
+				'id'    => 'pay_rate',
+				'type'	=> 'text',
+				'maxlength'	=> '6',
+				'placeholder' => '0',
+				'required' => 'required',
+				'value' => $this->form_validation->set_value('pay_rate')
 			);
 
             $this->load->view('register', $this->data);
