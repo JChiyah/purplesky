@@ -429,7 +429,8 @@ class Project extends Base {
 			'start_date' 	=> $this->input->post('start_date'),
 			'end_date' 		=> $this->input->post('end_date'),
 			'location' 		=> $this->input->post('location'),
-			'priority' 		=> $this->input->post('priority')
+			'priority' 		=> $this->input->post('priority'),
+			'budget'		=> $this->parse_input($this->input->post('budget'))
 		);
 
 		if($this->Project_model->update_project($user_id, $project_id, $project_details)) {

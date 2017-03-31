@@ -174,6 +174,7 @@ $(function() {
 					'end_date' : $('#end_date').val(),
 					'location' : $('#location').val(),
 					'priority' : $('input[name=priority]:checked').val(),
+					'budget' : $('#budget').val(),
 					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 				},
 				success: function(res) {
@@ -215,6 +216,7 @@ $(function() {
 					'end_date' : $('#end_date').val(),
 					'location' : $('#location').val(),
 					'priority' : $('input[name=priority]:checked').val(),
+					'budget' : $('#budget').val(),
 					'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 				},
 				success: function(res) {
@@ -458,6 +460,10 @@ $(function() {
 
 	$('#high').on('change keyup paste click', function(){
 		$('#priority_summary').text('High');
+	});
+
+	$('#budget').on('change keyup paste click', function(){
+		$('#budget_summary').text($(this).val());
 	});
 
 });

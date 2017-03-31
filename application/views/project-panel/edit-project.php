@@ -39,6 +39,10 @@
 			<?php echo form_radio($edit_project['high_priority']);?><?php echo form_label('High', 'high');?>
 			<?php echo form_radio($edit_project['confidential_priority']);?><?php echo form_label('Confidential', 'confidential');?>
 		</p>
+		<p>
+			<label>Budget:</label>
+			£ <?php echo form_input($edit_project['budget']);?>
+		</p>
 
 		<button type="button" class="project-continue">Continue</button>
 	</div>
@@ -58,6 +62,10 @@
 		    	<p>
 		    		<b>End date:</b>
 		    		<span id="end_date_summary"><?= $project->end_date ?></span>
+		    	</p>
+		    	<p>
+		    		<b>Budget:</b>
+		    		£ <span id="budget_summary"><?= $project->budget ?></span>
 		    	</p>
 		    </div>
 		    <div class="col-xs-6 col-sm-6 col-md-6" id="right-div">

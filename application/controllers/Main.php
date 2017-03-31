@@ -403,6 +403,15 @@ class Main extends Base {
 			'required' => 'required',
 			'value' => $data['project']->applications
 		);
+		$data['edit_project']['budget'] = array(
+			'name'  => 'budget',
+			'id'    => 'budget',
+			'type'	=> 'text',
+			'maxlength'	=> '8',
+			'placeholder' => '0',
+			'required' => 'required',
+			'value'	=> $data['project']->budget
+		);
 
 		// Staff allocation
 		$data['skill_select'] = array(
