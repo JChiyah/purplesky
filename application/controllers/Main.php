@@ -225,16 +225,18 @@ class Main extends Base {
 			redirect('index');
 		}
 
-		if( (strcmp('confidential', $data['project']->priority) == 0) && (count(array_intersect(array(1), $_SESSION['access_level'])) == 0) ) {
+		$data['is_manager'] = $this->Project_model->is_manager($project_id, $this->session->userdata('user_id'));
+		
+		$data['is_staff'] = $this->Project_model->is_staff($project_id, $this->session->userdata('user_id'));
+		
+		if( (strcmp('confidential', $data['project']->priority) == 0) && (count(array_intersect(array(1), $_SESSION['access_level'])) == 0) && !$data['is_manager'] && !$data['is_staff'] ) {
 			// No permissions to view a confidential project
 			redirect('index');
 		}
 
 		$data['status'] = $this->get_status_colour($data['project']->status);
 
-		$data['is_manager'] = $this->Project_model->is_manager($project_id, $this->session->userdata('user_id'));
 		if(!$data['is_manager']) {
-			$data['is_staff'] = $this->Project_model->is_staff($project_id, $this->session->userdata('user_id'));
 
 			if(!$data['is_staff']) {
 				$data['has_applied'] = $this->Project_model->has_already_applied($project_id, $this->session->userdata('user_id'));
@@ -319,6 +321,7 @@ class Main extends Base {
 		$data['all_status'] = $this->System_model->get_all_status();
 		$data['current_location'] = $this->System_model->get_location_id($data['project']->location);
 		$data['skills'] = $this->System_model->get_skills();
+		$data['remaining_budget'] = $data['project']->budget - $this->Project_model->get_project_cost($project_id);
 
 		switch($state) {
 			case 'action-edit' : 
