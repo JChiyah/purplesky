@@ -35,6 +35,6 @@
 
 <?php else : ?>
 
-    <p>No staff</p>
+    <p>No staff currently working for the project</p>
     
 <?php endif ?>
