@@ -260,6 +260,7 @@ class Project_model extends CI_Model {
 		$query = $this->db->select('project_staff.staff_id')
 						->where('project_id', $project_id)
 						->where('project_staff.staff_id', $user_id)
+						->where('staff_status', 'active')
 						->limit(1)
 						->get('project_staff');
 
