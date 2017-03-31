@@ -14,11 +14,11 @@
 				</div>
 				<div class="row">
 					<p class="col-xs-6"><b><?= $employee->group ?></b></p>
-					<p class="col-xs-12 col-sm-6 right">£<?= $employee->pay_rate ?>/day</p>
+					<p class="col-xs-12 col-sm-6 right">£<?= number_format($employee->pay_rate) ?>/day</p>
 				</div>
 				<div class="row">
 					<p class="col-xs-12 col-sm-6"><?= date('d/m/Y', strtotime($employee->start_date)) ?> - <?= date('d/m/Y', strtotime($employee->end_date)) ?></p>
-					<p class="col-xs-12 col-sm-6 right">Total cost: £<?= $employee->cost ?></p>
+					<p class="col-xs-12 col-sm-6 right">Total cost: £<?= number_format($employee->cost) ?></p>
 				</div>
 				<div class="row" id="staff-<?= $employee->id ?>-<?= $employee->name ?>">
 					

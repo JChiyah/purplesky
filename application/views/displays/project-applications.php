@@ -17,11 +17,11 @@
 				</div>
 				<div class="row">
 					<p class="col-xs-6"><b><?= $application->group ?></b></p>
-					<p class="col-xs-12 col-sm-6 right">£<?= $application->pay_rate ?>/day</p>
+					<p class="col-xs-12 col-sm-6 right">£<?= number_format($application->pay_rate) ?>/day</p>
 				</div>
 				<div class="row">
 					<p class="col-xs-12 col-sm-6"><?= date('d/m/Y', strtotime($application->start_date)) ?> - <?= date('d/m/Y', strtotime($application->end_date)) ?></p>
-					<p class="col-xs-12 col-sm-6 right">Total cost: £<?= $application->cost ?></p>
+					<p class="col-xs-12 col-sm-6 right">Total cost: £<?= number_format($application->cost) ?></p>
 				</div>
 				<p><?= $application->message ?></p>
 				<div class="row" id="applications-<?= $application->id ?>-<?= $application->name ?>">

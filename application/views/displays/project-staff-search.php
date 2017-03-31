@@ -20,7 +20,7 @@
 		                <?php endforeach ?>
 					<?php endif ?>
 				</div>
-				<p class="col-xs-12 col-sm-6 pay-rate">£<?= $employee->pay_rate ?>/day</p>
+				<p class="col-xs-12 col-sm-6 pay-rate">£<?= number_format($employee->pay_rate) ?>/day</p>
 			</div>
 			<div class="row" id="applications-<?= $employee->id ?>-<?= $employee->name ?>">
 

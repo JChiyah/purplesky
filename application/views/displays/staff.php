@@ -39,7 +39,7 @@
 				</div>
 				<div class="col-md-4 right">
 					<p class="location"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <?= $employee->location ?></p>
-					<p class="pay-rate">£<?= $employee->pay_rate ?>/day</p>
+					<p class="pay-rate">£<?= number_format($employee->pay_rate) ?>/day</p>
 					<div class="row">
 						<div class="col-md-6">
 							<button class="g-button user-quick-view">Preview</button>

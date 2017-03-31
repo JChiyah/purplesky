@@ -7,7 +7,7 @@
 					<h1><?= $project->title ?></h1>
 					<h2><?= $project->manager ?></h2>
 					<?php if ($is_manager) : ?>
-						<h3><b>Total budget:</b> £<?= $project->budget ?></h3>
+						<h3><b>Total budget:</b> £<?= number_format($project->budget) ?></h3>
 					<?php endif ?>
 				</div>
 				<hr>

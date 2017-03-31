@@ -25,9 +25,9 @@
 		                <?php endforeach ?>
 					<?php endif ?>
 					</div>
-					<p class="col-xs-12 col-sm-6 right">£<?= $employee->pay_rate ?>/day</p>
+					<p class="col-xs-12 col-sm-6 right">£<?= number_format($employee->pay_rate) ?>/day</p>
 				</div>
-				<p class="right">Total cost: £<?= $employee->cost ?></p>
+				<p class="right">Total cost: £<?= number_format($employee->cost) ?></p>
 				<div class="row" id="staff-<?= $employee->id ?>-<?= $employee->name ?>">
 					
 					<button class="col-xs-12 col-sm-3 g-button staff-profile">See profile</button>
