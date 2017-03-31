@@ -190,6 +190,8 @@ class Project_model extends CI_Model {
 
 			// Find project title
 			$title = $this->get_project_by_id($project_id)->title;
+
+			$this->User_model->add_user_activity($user_id, "You added a new post on <a href='dashboard/$project_id'>$title</a>");
 			
 			$des = "New manager post on <a href='dashboard/$project_id'>$title</a>";
 
@@ -469,7 +471,7 @@ class Project_model extends CI_Model {
 	 * @return mixed boolean / array of db project object()
 	 * @author JChiyah
 	 */
-	public function search_projects($keyword = '', $filters = FALSE, $limit = FALSE) {
+	public function search_projects($keyword = '', $filters = FALSE, $limit = FALSE, $access = array()) {
 
 		// Check if there is a manager name associated with the keyword provided
 		if(isset($keyword) && $keyword) {
@@ -508,7 +510,11 @@ class Project_model extends CI_Model {
 		}
 
 		/** Do not show confidential projects **/
-		$query = $query->where('priority !=', 'confidential');
+		if(isset($access) && $access && count($access) > 0) {
+			if(!in_array(1, $access)) {
+				$query = $query->where('priority !=', 'confidential');
+			}
+		}
 
 		$query = $query->limit($limit)->get('project');
 		$result = $query->result();

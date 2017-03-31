@@ -76,7 +76,6 @@ class Project extends Base {
 				$filters['location'] = $location;
 			}
 
-			$result = $this->Project_model->search_projects($keyword, $filters);
 
 		} else {
 			// Simple search -> search by keyword and no need to filter 
