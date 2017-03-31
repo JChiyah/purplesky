@@ -71,8 +71,6 @@
 
 				 <?php echo form_close();?>
 			</div>
-			<a class="g-button" href="<?php echo site_url('register') ?>">Create profile</a>
-			<br/>
-			<br/>
+			<!--<a class="g-button" href="<?php echo site_url('register') ?>">Create profile</a>-->
 	 </body>
 </html>
