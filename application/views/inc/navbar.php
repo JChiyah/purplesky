@@ -23,6 +23,11 @@
                   <a href="<?= site_url('create-project') ?>"<?php echo $page_body == 'create-project' ? ' class="active"' : ''; ?>>Create Project</a>
                </li>
          <?php endif ?>
+         <?php if(in_array(1, $_SESSION['access_level'])) : ?>
+               <li>
+                  <a href="<?= site_url('register') ?>">Create User</a>
+               </li>
+         <?php endif ?>
          <li>
             <a href="<?php echo site_url('search') ?>"<?php echo $page_body == 'search' ? ' class="active"' : ''; ?>>Search</a>
          </li>
