@@ -3171,6 +3171,8 @@ footer {
 #edit-project #priority-buttons label {
   display: inline-block;
   font-weight: 500; }
+#edit-project #budget {
+  width: 20%; }
 #edit-project .project-continue {
   float: right; }
 
