@@ -557,8 +557,15 @@ class User_model extends CI_Model {
 		
 		/** Filter by name **/
 		if(isset($filters['name']) && $filters['name']) {
-			$query = $query->group_start()->like('first_name', $filters['name']);
-			$query = $query->or_like('last_name', $filters['name'])->group_end();
+
+			if(count(explode(' ', $filters['name'])) > 1) {
+				$name = explode(' ', $filters['name']);
+				$query = $query->group_start()->like('first_name', $name[0]);
+				$query = $query->or_like('last_name', $name[1])->group_end();
+			} else {
+				$query = $query->group_start()->like('first_name', $filters['name']);
+				$query = $query->or_like('last_name', $filters['name'])->group_end();
+			}
 		} else {
 			if(isset($filters['start_date']) && $filters['start_date'] && isset($filters['end_date']) && $filters['end_date']) {
 
