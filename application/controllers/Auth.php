@@ -462,8 +462,13 @@ class Auth extends CI_Controller {
 		{
 			// check to see if we are creating the user
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			echo '<h1>User created succesfully</h1><p>The new user will be able to sign in using the email and password used before</p><br/><a href="index">Go back to home</a>';
-			//redirect('login', 'refresh');
+
+			$data['page_body'] = 'inc/create-user-confirm';
+			$data['page_title'] = 'Create Account Success';
+			$data['page_description'] = 'Account created succesfully';
+
+			$this->load->view('html', $data);
+
 		}
         else
         {
