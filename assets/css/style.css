@@ -2994,6 +2994,11 @@ footer {
     margin-bottom: 0; }
   #project-management-panel h2 {
     margin-bottom: 0; }
+  #project-management-panel #remaining-budget {
+    font-size: 1.2em;
+    font-weight: 900;
+    margin-right: 1em;
+    float: right; }
   #project-management-panel .tab form {
     font-size: 1em;
     margin: 0 auto; }

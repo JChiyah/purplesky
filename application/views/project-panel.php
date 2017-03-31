@@ -4,6 +4,7 @@
 	<hr>
 
 	<p>Here you can edit the project details, manage staff and other various tasks.</p>
+	<span id="remaining-budget" <?php echo $remaining_budget < 0 ? 'style="color: #e74c3c"' : '' ?>>Budget: £<?= $remaining_budget ?></span>
 
 	<div class="container-fluid row">
 		

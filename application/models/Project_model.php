@@ -791,6 +791,35 @@ class Project_model extends CI_Model {
 	}
 
 	/**
+	 * Returns the current project cost (sum of all project costs)
+	 *
+	 * @param $project_id
+	 * @return int
+	 * @author JChiyah
+	 */
+	public function get_project_cost($project_id) {
+
+		$query = $this->db->select('staff_id, start_date, end_date')
+						->where('project_id', $project_id)
+						->where('staff_status', 'active')
+						->get('project_staff');
+
+		$result = $query->result();
+
+		if(!isset($result) || empty($result)) {
+			return FALSE;
+		}
+
+		$tmp = 0;
+		foreach($result as $row) {
+
+			$tmp += $this->get_staff_cost($row->staff_id, $row->start_date, $row->end_date);
+		}
+
+		return $tmp;
+	}
+
+	/**
 	 * Returns the cost of an employee in a project
 	 *
 	 * @param $project_id
