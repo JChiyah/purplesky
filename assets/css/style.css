@@ -3192,17 +3192,20 @@ footer {
     display: none; }
     #add-staff #search-results hr {
       margin-bottom: 1em; }
+    #add-staff #search-results i {
+      display: block;
+      margin: 1em auto; }
     #add-staff #search-results #results {
       padding: 0 1em; }
-  #add-staff i {
-    display: block;
-    margin: 1em auto; }
 
 .staff-result {
   color: #1f1646;
   display: block;
   padding: 1em 3em;
   border: thin solid #E1E5E6; }
+  .staff-result i {
+    display: inline !important;
+    margin: 0 !important; }
   .staff-result h5 {
     margin-top: 0;
     margin-bottom: 0.3em;

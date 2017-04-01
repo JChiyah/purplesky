@@ -2026,13 +2026,14 @@ footer {
 
 		hr { margin-bottom: 1em; }
 
+		i {
+			display: block;
+			margin: 1em auto;
+		}
+
 		#results {
 			padding: 0 1em;
 		}
-	}
-	i {
-		display: block;
-		margin: 1em auto;
 	}
 }
 .staff-result {
@@ -2040,6 +2041,11 @@ footer {
 	display: block;
 	padding: 1em 3em;
 	border: thin solid $grey-background2;
+
+	i {
+		display: inline !important;
+		margin: 0 !important;
+	}
 
 	h5 {
 		margin-top: 0;
