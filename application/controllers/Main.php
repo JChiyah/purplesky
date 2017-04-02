@@ -440,8 +440,10 @@ class Main extends Base {
 
 		if($data['project']->priority == 'normal') {
 			$data['edit_project']['normal_priority']['checked'] = true;
-		} else {
+		} else if ($data['project']->priority == 'high') {
 			$data['edit_project']['high_priority']['checked'] = true;
+		} else {
+			$data['edit_project']['confidential_priority']['checked'] = true;
 		}
 
 		$this->load->view('html', $data);
