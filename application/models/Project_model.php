@@ -579,9 +579,10 @@ class Project_model extends CI_Model {
 		// Add other project info
 		$project_info = array_merge(array('manager_id' => $manager_id), $project_info);
 
-		if(strcmp($project_info['priority'], 'confidential')) {
+		if(strcmp($project_info['priority'], 'confidential') == 0) {
 			$project_info['applications'] = 'closed';
 		}
+		$project_info['applications'] = 'open';
 
 		$this->db->trans_start(); 	// Start transaction
 
