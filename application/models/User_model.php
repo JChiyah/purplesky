@@ -532,16 +532,6 @@ class User_model extends CI_Model {
 				$query = $query->where('skill_id', $filters['skills']);	
 			}
 		}
-		/*
-		// Filter by availability
-		if(isset($filters['start_date']) && $filters['start_date'] && isset($filters['end_date']) && $filters['end_date']) {
-
-			$query = $query->where("NOT EXISTS(SELECT 1 FROM availability 
-					WHERE staff.staff_id = availability.staff_id AND
-						((availability.start_date BETWEEN '{$filters['start_date']}' AND '{$filters['end_date']}') OR
-						(availability.end_date BETWEEN '{$filters['start_date']}' AND '{$filters['end_date']}'))
-					) AND 1 = ", 1);
-		}*/
 		
 		/*
 		// Do not show staff already added to project

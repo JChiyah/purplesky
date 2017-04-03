@@ -287,11 +287,6 @@ class User extends Base {
 						$s['busy'] = $busy;
 					}
 				}
-				/*
-				$tmp2 = array();
-				foreach($s['skills'] as $skill) {
-					array_push($tmp2, $this->System_model->get_skill_name($skill));
-				}*/
 				$s['skills'] = $this->User_model->get_user_skills($s['id']);
 				
 				$s = (object)$s;

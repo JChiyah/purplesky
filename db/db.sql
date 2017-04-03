@@ -192,19 +192,7 @@ CREATE TABLE project_staff (
 	FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 ) ENGINE=InnoDB;
 
-# Create project_task table
-CREATE TABLE project_task (
-	task_id integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	project_id integer NOT NULL,
-	skills varchar(255) NOT NULL,
-	staff varchar(255) NOT NULL,
-	description varchar(255) NOT NULL,
-	at_date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	status enum('active', 'scheduled', 'finished', 'cancelled') DEFAULT 'scheduled', 
-	FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE
-) ENGINE=InnoDB;
-
-# Create project_task table
+# Create application table
 CREATE TABLE application (
 	application_id integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	project_id integer NOT NULL,
