@@ -551,7 +551,7 @@ class Project_model extends CI_Model {
 		for($i = 1; $i < 5; $i++) {
 			$filters['location'] = $this->System_model->get_closest_location($filters['location']);
 
-			$tmp = $this->search_projects('Project');
+			$tmp = $this->search_projects($keyword, $filters, 10);
 
 			if($tmp) {
 				$result = array_merge($result, $tmp);
