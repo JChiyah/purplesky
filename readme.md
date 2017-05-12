@@ -4,6 +4,10 @@ We are a group of students from Heriot-Watt University and this is our 3rd Year 
 It involves designing, coding, deploying and managing a website for an example customer customer, Leidos.
 It is also formed by people from different courses: Computer Science, Computer Systems, Information Systems and Electrical Engineering.
 
+A live version of this project can be found [here](http://www2.macs.hw.ac.uk/~fjc3/ "People+").
+
+We call this product People+. You can find more marketing information at our [group website](http://davidbrisbane96.wixsite.com/purplesky "PurpleSky").
+
 ## Update
 
 Well done everybody! We finished second place in the presentations and we got a well deserved prize!
